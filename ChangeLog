@@ -1,4 +1,5 @@
 Version 1.4:
+	15 Mar 2007
 	functions from elisp-common.eclass, flag-o-matic.eclass, some
 	from eutils.eclass added to highlighted keywords
 	keywords grouped by type (not yet finished
