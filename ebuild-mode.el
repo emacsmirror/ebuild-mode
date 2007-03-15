@@ -76,9 +76,8 @@
   (add-hook 'write-file-functions 'ebuild-mode-tabify t t)
   (setq tab-width 4
         indent-tabs-mode t)
-
-;; run user-defined hooks
-(run-hooks 'ebuild-mode-hook))
+ ;; run user-defined hooks
+ (run-hooks 'ebuild-mode-hook))
 
 (defvar eselect-mode-commands-0
   '("die" "is_function" "has"))
