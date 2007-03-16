@@ -29,9 +29,6 @@
 ;; you can think of a better way to arrange these, please let us know.
 ;; We map each set of keywords to the basic faces: font-lock-*-face.
 
-;; (add-to-list 'auto-mode-alist '("\\.\\(ebuild\\|eclass\\)\\'" . ebuild-mode))
-;; (add-to-list 'auto-mode-alist '("\\.eselect\\'" . eselect-mode))
-
 ;;; Code:
 
 (defvar ebuild-mode-hook nil
