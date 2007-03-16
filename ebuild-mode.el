@@ -68,8 +68,9 @@
   (font-lock-add-keywords 'ebuild-mode
    (list (ebuild-mode-make-keywords-list ebuild-mode-commands-0 'font-lock-type-face)
          (ebuild-mode-make-keywords-list ebuild-mode-commands-1 'font-lock-warning-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-2 'font-lock-warning-face)
-	 (ebuild-mode-make-keywords-list ebuild-mode-commands-3 'font-lock-type-face)))
+         (ebuild-mode-make-keywords-list ebuild-mode-commands-2 'font-lock-type-face)
+         (ebuild-mode-make-keywords-list ebuild-mode-commands-3 'font-lock-type-face)
+	 (ebuild-mode-make-keywords-list ebuild-mode-commands-4 'font-lock-type-face)))
   (add-hook 'write-file-functions 'delete-trailing-whitespace t t)
   (add-hook 'write-file-functions 'ebuild-mode-tabify t t)
   (setq tab-width 4
