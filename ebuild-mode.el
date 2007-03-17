@@ -34,7 +34,6 @@
 (defvar ebuild-mode-hook nil
   "List of functions to call when entering ebuild-mode")
 
-
 (defvar ebuild-mode-commands-0
   '("use" "has_version" "best_version" "use_with" "use_enable" "check_KV" "keepdir" "econf" "die" "eerror" "einstall" "einfo" "elog" "ewarn" "diropts" "dobin" "docinto" "dodoc" "doexe" "dohard" "dohtml" "doinfo" "doins" "dolib" "dolib.a" "dolib.so" "doman" "dosbin" "dosym" "emake" "exeinto" "exeopts" "fowners" "fperms" "insinto" "insopts" "into" "libopts" "newbin" "newexe" "newins" "newman" "newsbin" "prepall" "prepalldocs" "prepallinfo" "prepallman" "prepallstrip" "has" "unpack" "dopython" "dosed" "into" "doinitd" "doconfd" "doenvd" "dojar" "domo" "dodir" "ebegin" "eend" "newconfd" "newdoc" "newenvd" "newinitd" "newlib.a" "newlib.so" "hasq" "hasv" "useq" "usev" "epause" "ebeep" "epatch" "enewuser" "enewgroup" "make_desktop_entry" "domenu" "doicon" "built_with_use"))
 
@@ -45,10 +44,10 @@
   '("inherit"))
 
 (defvar ebuild-mode-commands-3
- '("filter-flags" "append-flags" "replace-flags" "replace-cpu-flags" "is-flag" "strip-flags" "strip-unsupported-flags" "get-flag" "filter-mfpmath" "append-ldflags" "filter-ldflags"))
+  '("filter-flags" "append-flags" "replace-flags" "replace-cpu-flags" "is-flag" "strip-flags" "strip-unsupported-flags" "get-flag" "filter-mfpmath" "append-ldflags" "filter-ldflags"))
 
 (defvar ebuild-mode-commands-4
- '("elisp-compile" "elisp-install" "elisp-site-file-install" "elisp-site-regen" "elisp-comp"))
+  '("elisp-compile" "elisp-install" "elisp-site-file-install" "elisp-site-regen" "elisp-comp"))
 
 (defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
   ;; based on `make-generic-keywords-list' from generic.el
@@ -75,8 +74,8 @@
   (add-hook 'write-file-functions 'ebuild-mode-tabify t t)
   (setq tab-width 4
         indent-tabs-mode t)
- ;; run user-defined hooks
- (run-hooks 'ebuild-mode-hook))
+  ;; run user-defined hooks
+  (run-hooks 'ebuild-mode-hook))
 
 (defvar eselect-mode-commands-0
   '("die" "is_function" "has"))
