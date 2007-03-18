@@ -5,4 +5,5 @@ Version 1.4:
 	keywords grouped by type (not yet finished)
 	16 Mar 2007
 	should really add elisp-* functions
-	
+	18 Mar 2007
+	Duplicate keyword "into" removed.
