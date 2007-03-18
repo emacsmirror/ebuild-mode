@@ -60,7 +60,7 @@
 
 (defvar ebuild-mode-commands-4
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
-    "elisp-site-regen" ))
+    "elisp-site-regen"))
 
 (defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
   ;; based on `make-generic-keywords-list' from generic.el
@@ -72,7 +72,7 @@
 	face))
 
 (defun ebuild-mode-tabify ()
-  (save-excursion 
+  (save-excursion
     (tabify (point-min) (point-max))))
 
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
