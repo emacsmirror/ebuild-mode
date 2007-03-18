@@ -7,3 +7,4 @@ Version 1.4:
 	should really add elisp-* functions
 	18 Mar 2007
 	Duplicate keyword "into" removed.
+	Sort keywords in alphabetical order.

@@ -35,19 +35,32 @@
   "List of functions to call when entering ebuild-mode")
 
 (defvar ebuild-mode-commands-0
-  '("use" "has_version" "best_version" "use_with" "use_enable" "check_KV" "keepdir" "econf" "die" "eerror" "einstall" "einfo" "elog" "ewarn" "diropts" "dobin" "docinto" "dodoc" "doexe" "dohard" "dohtml" "doinfo" "doins" "dolib" "dolib.a" "dolib.so" "doman" "dosbin" "dosym" "emake" "exeinto" "exeopts" "fowners" "fperms" "insinto" "insopts" "into" "libopts" "newbin" "newexe" "newins" "newman" "newsbin" "prepall" "prepalldocs" "prepallinfo" "prepallman" "prepallstrip" "has" "unpack" "dopython" "dosed" "doinitd" "doconfd" "doenvd" "dojar" "domo" "dodir" "ebegin" "eend" "newconfd" "newdoc" "newenvd" "newinitd" "newlib.a" "newlib.so" "hasq" "hasv" "useq" "usev" "epause" "ebeep" "epatch" "enewuser" "enewgroup" "make_desktop_entry" "domenu" "doicon" "built_with_use"))
+  '("best_version" "built_with_use" "check_KV" "die" "diropts" "dobin"
+    "docinto" "doconfd" "dodir" "dodoc" "doenvd" "doexe" "dohard" "dohtml"
+    "doicon" "doinfo" "doinitd" "doins" "dojar" "dolib" "dolib.a" "dolib.so"
+    "doman" "domenu" "domo" "dopython" "dosbin" "dosed" "dosym" "ebeep"
+    "ebegin" "econf" "eend" "eerror" "einfo" "einstall" "elog" "emake"
+    "enewgroup" "enewuser" "epatch" "epause" "ewarn" "exeinto" "exeopts"
+    "fowners" "fperms" "has" "has_version" "hasq" "hasv" "insinto" "insopts"
+    "into" "keepdir" "libopts" "make_desktop_entry" "newbin" "newconfd"
+    "newdoc" "newenvd" "newexe" "newinitd" "newins" "newlib.a" "newlib.so"
+    "newman" "newsbin" "prepall" "prepalldocs" "prepallinfo" "prepallman"
+    "prepallstrip" "unpack" "use" "use_enable" "use_with" "useq" "usev"))
 
 (defvar ebuild-mode-commands-1
-  '("addread" "addwrite" "adddeny" "addpredict"))
+  '("adddeny" "addpredict" "addread" "addwrite"))
 
 (defvar ebuild-mode-commands-2
   '("inherit"))
 
 (defvar ebuild-mode-commands-3
-  '("filter-flags" "append-flags" "replace-flags" "replace-cpu-flags" "is-flag" "strip-flags" "strip-unsupported-flags" "get-flag" "filter-mfpmath" "append-ldflags" "filter-ldflags"))
+  '("append-flags" "append-ldflags" "filter-flags" "filter-ldflags"
+    "filter-mfpmath" "get-flag" "is-flag" "replace-cpu-flags" "replace-flags"
+    "strip-flags" "strip-unsupported-flags"))
 
 (defvar ebuild-mode-commands-4
-  '("elisp-compile" "elisp-install" "elisp-site-file-install" "elisp-site-regen" "elisp-comp"))
+  '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
+    "elisp-site-regen" ))
 
 (defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
   ;; based on `make-generic-keywords-list' from generic.el
