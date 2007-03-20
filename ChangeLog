@@ -8,3 +8,5 @@ Version 1.4:
 	18 Mar 2007
 	Duplicate keyword "into" removed.
 	Sort keywords in alphabetical order.
+	19 Mar 2007
+	Make TAB key work in Emacs 21.

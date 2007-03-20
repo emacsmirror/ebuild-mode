@@ -137,6 +137,13 @@
 	 (ebuild-mode-run-command ,command))
        (define-key ebuild-mode-map ,key ',name))))
 
+(and (< emacs-major-version 22)
+     ;; make TAB key work
+     (defadvice sh-must-be-shell-mode
+       (around ebuild-mode-sh-must-be-shell-mode activate)
+       (or (memq major-mode '(ebuild-mode eselect-mode))
+	   ad-do-it)))
+
 (define-ebuild-mode-command "\C-ced" "digest")
 (define-ebuild-mode-command "\C-cef" "fetch")
 (define-ebuild-mode-command "\C-ceu" "unpack")
