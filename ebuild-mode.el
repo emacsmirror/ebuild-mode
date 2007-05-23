@@ -6,7 +6,7 @@
 ;; Author: Diego Pettenò <flameeyes@gentoo.org>
 ;; Author: Christian Faulhammer <opfer@gentoo.org>
 ;; Keywords: convenience
-;; version: 1.5
+;; version: 1.6
 ;;
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -25,8 +25,7 @@
 
 ;;; Commentary:
 
-;; The commands have been grouped into lists of rough similarity.  If
-;; you can think of a better way to arrange these, please let us know.
+;; The commands have been grouped into lists of source (eclass).
 ;; We map each set of keywords to the basic faces: font-lock-*-face.
 
 ;;; Code:
@@ -53,12 +52,14 @@
 (defvar ebuild-mode-commands-2
   '("inherit"))
 
-(defvar ebuild-mode-commands-3
+;; functions from flag-o-matic eclass
+(defvar ebuild-mode-commands-flag-o-matic
   '("append-flags" "append-ldflags" "filter-flags" "filter-ldflags"
     "filter-mfpmath" "get-flag" "is-flag" "replace-cpu-flags" "replace-flags"
     "strip-flags" "strip-unsupported-flags"))
 
-(defvar ebuild-mode-commands-4
+;; functions from elisp-common eclass
+(defvar ebuild-mode-commands-elisp
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
     "elisp-site-regen"))
 
@@ -81,8 +82,8 @@
    (list (ebuild-mode-make-keywords-list ebuild-mode-commands-0 'font-lock-type-face)
          (ebuild-mode-make-keywords-list ebuild-mode-commands-1 'font-lock-warning-face)
          (ebuild-mode-make-keywords-list ebuild-mode-commands-2 'font-lock-type-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-3 'font-lock-type-face)
-	 (ebuild-mode-make-keywords-list ebuild-mode-commands-4 'font-lock-type-face)))
+         (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic 'font-lock-type-face)
+	 (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp 'font-lock-type-face)))
   (add-hook 'write-file-functions 'delete-trailing-whitespace t t)
   (add-hook 'write-file-functions 'ebuild-mode-tabify t t)
   (setq tab-width 4
