@@ -1,13 +1,25 @@
-Version 1.4:
-	15 Mar 2007
-	functions from elisp-common.eclass, flag-o-matic.eclass, some
-	from eutils.eclass added to highlighted keywords
-	keywords grouped by type (not yet finished)
-	16 Mar 2007
-	should really add elisp-* functions
-	18 Mar 2007
-	Duplicate keyword "into" removed.
-	Sort keywords in alphabetical order.
-	19 Mar 2007
-	Make TAB key work in Emacs 21.
-Version 1.5 (22 Mar 2007)
+2007-05-23    <opfer@gentoo.org>
+
+	* group 3 now is named flag-o-matic, group 4 renamed to elisp to
+	reflect source of them
+
+	* changed version to 1.6
+
+2007-03-19    <ulm@gentoo.org>
+
+	* Make TAB key work in Emacs 21.
+
+2007-03-18    <opfer@gentoo.org>
+
+	* Duplicate keyword "into" removed.
+	* Sort keywords in alphabetical order.
+
+2007-03-16    <opfer@gentoo.org>
+
+	* should really add elisp-* functions
+
+2007-03-15    <opfer@gentoo.org>
+
+	* functions from elisp-common.eclass, flag-o-matic.eclass,
+	some from eutils.eclass added to highlighted keywords
+	* keywords grouped by type (not yet finished)
