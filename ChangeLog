@@ -1,3 +1,8 @@
+2007-05-23  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-tabify): Tabify whitespace only at
+	beginning of lines.
+
 2007-05-23    <opfer@gentoo.org>
 
 	* group 3 now is named flag-o-matic, group 4 renamed to elisp to

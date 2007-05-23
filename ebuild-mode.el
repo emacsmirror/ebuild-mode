@@ -5,6 +5,7 @@
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;; Author: Diego Pettenò <flameeyes@gentoo.org>
 ;; Author: Christian Faulhammer <opfer@gentoo.org>
+;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Keywords: convenience
 ;; version: 1.6
 ;;
@@ -73,7 +74,8 @@
 	face))
 
 (defun ebuild-mode-tabify ()
-  (save-excursion
+  ;; tabify whitespace only at beginning of lines
+  (let ((tabify-regexp "^\t* [ \t]+"))
     (tabify (point-min) (point-max))))
 
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
@@ -104,7 +106,9 @@
   '("list_libdirs"))
 
 (defvar eselect-mode-commands-4
-  '("write_error_msg" "write_list_start" "write_kv_list_entry" "write_numbered_list_entry" "write_numbered_list" "highlight" "highlight_warning" "space"))
+  '("highlight" "highlight_warning" "space" "write_error_msg"
+    "write_kv_list_entry" "write_list_start" "write_numbered_list"
+    "write_numbered_list_entry"))
 
 (defvar eselect-mode-commands-5
   '("is_number canonicalise"))
