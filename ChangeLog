@@ -10,6 +10,10 @@
 
 	* changed version to 1.6
 
+2007-03-22  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode.el: version 1.5
+
 2007-03-19  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Make TAB key work in Emacs 21.
@@ -30,3 +34,5 @@
 	some from eutils.eclass added to highlighted keywords
 
 	* keywords grouped by type (not yet finished)
+
+	* version 1.4
