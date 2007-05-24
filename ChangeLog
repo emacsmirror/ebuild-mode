@@ -16,13 +16,13 @@
 
 2007-03-19  Ulrich Mueller  <ulm@gentoo.org>
 
-	* Make TAB key work in Emacs 21.
+	* ebuild-mode.el (sh-must-be-shell-mode): Make TAB key work in
+	Emacs 21.
 
 2007-03-18  Ulrich Mueller  <ulm@gentoo.org>
 
-	* Duplicate keyword "into" removed.
-
-	* Sort keywords in alphabetical order.
+	* ebuild-mode.el (ebuild-mode-commands-0): Sort keywords in
+	alphabetical order. Duplicate keyword "into" removed.
 
 2007-03-16  Christian Faulhammer  <opfer@gentoo.org>
 
