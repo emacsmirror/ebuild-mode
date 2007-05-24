@@ -10,21 +10,21 @@
 
 	* changed version to 1.6
 
-2007-03-19    Ulrich Mueller  <ulm@gentoo.org>
+2007-03-19  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Make TAB key work in Emacs 21.
 
-2007-03-18    Christian Faulhammer  <opfer@gentoo.org>, Ulrich Mueller  <ulm@gentoo.org>
+2007-03-18  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Duplicate keyword "into" removed.
 
 	* Sort keywords in alphabetical order.
 
-2007-03-16    Christian Faulhammer  <opfer@gentoo.org>
+2007-03-16  Christian Faulhammer  <opfer@gentoo.org>
 
 	* should really add elisp-* functions
 
-2007-03-15    Christian Faulhammer <opfer@gentoo.org>, Ulrich Mueller  <ulm@gentoo.org>
+2007-03-15  Christian Faulhammer  <opfer@gentoo.org>
 
 	* functions from elisp-common.eclass, flag-o-matic.eclass,
 	some from eutils.eclass added to highlighted keywords
