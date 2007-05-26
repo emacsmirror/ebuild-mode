@@ -1,3 +1,7 @@
+2007-05-26  Ulrich Mueller  <ulm@kph.uni-mainz.de>
+
+	* Makefile: New file.
+
 2007-05-23  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-tabify): Tabify whitespace only at
