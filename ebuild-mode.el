@@ -62,7 +62,7 @@
 ;; functions from elisp-common eclass
 (defvar ebuild-mode-commands-elisp
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
-    "elisp-site-regen"))
+    "elisp-site-regen" "elisp-emacs-major-version" "elisp-make-autoload-file"))
 
 (defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
   ;; based on `make-generic-keywords-list' from generic.el
