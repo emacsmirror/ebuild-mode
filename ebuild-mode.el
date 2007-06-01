@@ -47,10 +47,10 @@
     "newman" "newsbin" "prepall" "prepalldocs" "prepallinfo" "prepallman"
     "prepallstrip" "unpack" "use" "use_enable" "use_with" "useq" "usev"))
 
-(defvar ebuild-mode-commands-1
+(defvar ebuild-mode-commands-sandbox
   '("adddeny" "addpredict" "addread" "addwrite"))
 
-(defvar ebuild-mode-commands-2
+(defvar ebuild-mode-commands-eclass
   '("inherit"))
 
 ;; functions from flag-o-matic eclass
@@ -82,8 +82,8 @@
   "Major mode for Portage .ebuild and .eclass files."
   (font-lock-add-keywords 'ebuild-mode
    (list (ebuild-mode-make-keywords-list ebuild-mode-commands-0 'font-lock-type-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-1 'font-lock-warning-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-2 'font-lock-type-face)
+         (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox 'font-lock-warning-face)
+         (ebuild-mode-make-keywords-list ebuild-mode-commands-eclass 'font-lock-type-face)
          (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic 'font-lock-type-face)
 	 (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp 'font-lock-type-face)))
   (add-hook 'write-file-functions 'delete-trailing-whitespace t t)
