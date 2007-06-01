@@ -1,5 +1,8 @@
 2007-06-01  Christian Faulhammer  <opfer@gentoo.org>
 
+	* added elisp-emacs-major-version() and elisp-make-autoload-file()
+	to highlighted keywords in elisp group
+
 	* renamed command groups 0 to sandbox and 1 to eclass to reflect
 	their offspring in the name
 
