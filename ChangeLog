@@ -1,3 +1,12 @@
+2007-06-06  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-commands-alist): New variable.
+	(ebuild-mode-run-command): Function reworked. Use completing-read
+	for completion of commands.
+	(ebuild-mode-map): Define sparse keymap.
+	(ebuild-mode-commands-elisp): elisp-emacs-major-version replaced
+	by elisp-emacs-version.
+
 2007-06-01  Christian Faulhammer  <opfer@gentoo.org>
 
 	* added elisp-emacs-major-version() and elisp-make-autoload-file()
@@ -6,7 +15,7 @@
 	* renamed command groups 0 to sandbox and 1 to eclass to reflect
 	their offspring in the name
 
-2007-05-26  Ulrich Mueller  <ulm@kph.uni-mainz.de>
+2007-05-26  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Makefile: New file.
 

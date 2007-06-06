@@ -62,7 +62,7 @@
 ;; functions from elisp-common eclass
 (defvar ebuild-mode-commands-elisp
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
-    "elisp-site-regen" "elisp-emacs-major-version" "elisp-make-autoload-file"))
+    "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
 
 (defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
   ;; based on `make-generic-keywords-list' from generic.el
@@ -127,20 +127,32 @@
   (setq tab-width 4
         indent-tabs-mode t))
 
-(defun ebuild-mode-run-command (command)
-  (let ((process-connection-type "t")
-	(buffer (format "*ebuild %s*" command)))
-    (start-process "ebuild-digest" buffer "env" "NOCOLOR=yes" "ebuild" (buffer-file-name) command)
+(defvar ebuild-mode-commands-alist
+  (mapcar 'list
+	  '("help" "setup" "fetch" "digest" "manifest" "unpack" "compile"
+	    "test" "preinst" "postinst" "install" "qmerge" "merge"
+	    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean")))
+
+(defun ebuild-mode-run-command ()
+  "Run \"ebuild command buffername\""
+  (interactive)
+  (let* ((process-connection-type t)
+	 (command
+	  (completing-read
+	   "Run ebuild command: " ebuild-mode-commands-alist nil t))
+	 (buffer (format "*ebuild %s*" command)))
+    (and (string-equal command "")
+	 (error "Empty ebuild command"))
+    (start-process "ebuild-digest" buffer "env" "NOCOLOR=yes" "ebuild"
+		   (buffer-file-name) command)
     (pop-to-buffer buffer)))
 
-(defmacro define-ebuild-mode-command (key command)
-  (let ((name (intern (format "ebuild-mode-command-%s" command))))
-    `(progn
-       (defun ,name ()
-	 ,(format "Runs the ebuild %s command for the ebuild in the current buffer" command)
-	 (interactive)
-	 (ebuild-mode-run-command ,command))
-       (define-key ebuild-mode-map ,key ',name))))
+(defvar ebuild-mode-map
+  (let ((map (make-sparse-keymap)))
+    ;;(set-keymap-parent map sh-mode-map)
+    (define-key map "\C-ce" 'ebuild-mode-run-command)
+    map)
+  "Keymap used in Ebuild mode.")
 
 (and (< emacs-major-version 22)
      ;; make TAB key work
@@ -148,10 +160,6 @@
        (around ebuild-mode-sh-must-be-shell-mode activate)
        (or (memq major-mode '(ebuild-mode eselect-mode))
 	   ad-do-it)))
-
-(define-ebuild-mode-command "\C-ced" "digest")
-(define-ebuild-mode-command "\C-cef" "fetch")
-(define-ebuild-mode-command "\C-ceu" "unpack")
 
 (provide 'ebuild-mode)
 
