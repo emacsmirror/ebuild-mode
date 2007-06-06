@@ -133,16 +133,15 @@
 	    "test" "preinst" "postinst" "install" "qmerge" "merge"
 	    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean")))
 
-(defun ebuild-mode-run-command ()
-  "Run \"ebuild command buffername\""
-  (interactive)
-  (let* ((process-connection-type t)
-	 (command
-	  (completing-read
-	   "Run ebuild command: " ebuild-mode-commands-alist nil t))
-	 (buffer (format "*ebuild %s*" command)))
-    (and (string-equal command "")
-	 (error "Empty ebuild command"))
+(defun ebuild-mode-run-command (command)
+  "Run ebuild command."
+  (interactive
+   (list (completing-read
+	  "Run ebuild command: " ebuild-mode-commands-alist nil t)))
+  (and (string-equal command "")
+       (error "Empty ebuild command"))
+  (let ((process-connection-type t)
+	(buffer (format "*ebuild %s*" command)))
     (start-process "ebuild-digest" buffer "env" "NOCOLOR=yes" "ebuild"
 		   (buffer-file-name) command)
     (pop-to-buffer buffer)))
