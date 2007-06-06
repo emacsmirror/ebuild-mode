@@ -138,8 +138,8 @@
   (interactive
    (list (completing-read
 	  "Run ebuild command: " ebuild-mode-commands-alist nil t)))
-  (and (string-equal command "")
-       (error "Empty ebuild command"))
+  (or (assoc command ebuild-mode-commands-alist)
+      (error "Ebuild command \"%s\" not known" command))
   (let ((process-connection-type t)
 	(buffer (format "*ebuild %s*" command)))
     (start-process "ebuild-digest" buffer "env" "NOCOLOR=yes" "ebuild"
