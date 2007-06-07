@@ -127,31 +127,28 @@
   (setq tab-width 4
         indent-tabs-mode t))
 
-(defvar ebuild-mode-commands-alist
+(defvar ebuild-commands-alist
   (mapcar 'list
 	  '("help" "setup" "fetch" "digest" "manifest" "unpack" "compile"
 	    "test" "preinst" "postinst" "install" "qmerge" "merge"
 	    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean")))
 
-(defun ebuild-mode-run-command (command)
-  "Run ebuild command."
+(defun ebuild-run-command (command)
+  "Run ebuild COMMAND, with output to a compilation buffer."
   (interactive
    (list (completing-read
-	  "Run ebuild command: " ebuild-mode-commands-alist nil t)))
-  (or (assoc command ebuild-mode-commands-alist)
+	  "Run ebuild command: " ebuild-commands-alist nil t)))
+  (or (assoc command ebuild-commands-alist)
       (error "Ebuild command \"%s\" not known" command))
-  (let ((process-connection-type t)
-	(buffer (format "*ebuild %s*" command)))
-    (start-process "ebuild-digest" buffer "env" "NOCOLOR=yes" "ebuild"
-		   (buffer-file-name) command)
-    (pop-to-buffer buffer)))
+  (let ((process-environment
+	 (cons "NOCOLOR=true" process-environment))
+	;;(compilation-mode-hook
+	;; (function (lambda () (setq truncate-lines t))))
+	(compilation-buffer-name-function
+	 (list 'lambda '(mode) (concat "*ebuild " command "*"))))
+    (compile (format "ebuild %s %s" buffer-file-name command))))
 
-(defvar ebuild-mode-map
-  (let ((map (make-sparse-keymap)))
-    ;;(set-keymap-parent map sh-mode-map)
-    (define-key map "\C-ce" 'ebuild-mode-run-command)
-    map)
-  "Keymap used in Ebuild mode.")
+(define-key ebuild-mode-map "\C-ce" 'ebuild-run-command)
 
 (and (< emacs-major-version 22)
      ;; make TAB key work
@@ -159,6 +156,10 @@
        (around ebuild-mode-sh-must-be-shell-mode activate)
        (or (memq major-mode '(ebuild-mode eselect-mode))
 	   ad-do-it)))
+
+(add-to-list 'auto-mode-alist '("\\.ebuild\\'" . ebuild-mode))
+(add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-mode))
+(add-to-list 'auto-mode-alist '("\\.eselect\\'" . eselect-mode))
 
 (provide 'ebuild-mode)
 

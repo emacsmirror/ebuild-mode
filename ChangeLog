@@ -1,3 +1,10 @@
+2007-06-07  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-map): Fix key definition.
+	(ebuild-run-command): Use compile instead of start-process;
+	inspired by ebuild-mode-marienz.el.
+	(auto-mode-alist): Add elements for ebuild-mode and eselect-mode.
+
 2007-06-06  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-commands-alist): New variable.
