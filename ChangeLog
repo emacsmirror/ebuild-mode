@@ -1,3 +1,10 @@
+2007-06-08  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode): Use write-contents-hooks instead
+	of write-file-functions for Emacs 21 and XEmacs compatibility.
+	Move call of font-lock-add-keywords out of function definition.
+	(eselect-mode): Ditto.
+
 2007-06-07  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-map): Fix key definition.

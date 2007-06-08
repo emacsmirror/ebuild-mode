@@ -65,13 +65,21 @@
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
 
 (defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
-  ;; based on `make-generic-keywords-list' from generic.el
+  ;; based on `generic-make-keywords-list' from generic.el
   (unless (listp keywords-list)
     (error "Keywords argument must be a list of strings"))
   (cons (concat prefix "\\<"
 		(regexp-opt keywords-list t)
 		"\\>" suffix)
 	face))
+
+(font-lock-add-keywords
+ 'ebuild-mode
+ (list (ebuild-mode-make-keywords-list ebuild-mode-commands-0 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox 'font-lock-warning-face)
+       (ebuild-mode-make-keywords-list ebuild-mode-commands-eclass 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp 'font-lock-type-face)))
 
 (defun ebuild-mode-tabify ()
   ;; tabify whitespace only at beginning of lines
@@ -80,16 +88,10 @@
 
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
   "Major mode for Portage .ebuild and .eclass files."
-  (font-lock-add-keywords 'ebuild-mode
-   (list (ebuild-mode-make-keywords-list ebuild-mode-commands-0 'font-lock-type-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox 'font-lock-warning-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-eclass 'font-lock-type-face)
-         (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic 'font-lock-type-face)
-	 (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp 'font-lock-type-face)))
-  (add-hook 'write-file-functions 'delete-trailing-whitespace t t)
-  (add-hook 'write-file-functions 'ebuild-mode-tabify t t)
-  (setq tab-width 4
-        indent-tabs-mode t)
+  (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
+  (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
+  (setq tab-width 4)
+  (setq indent-tabs-mode t)
   ;; run user-defined hooks
   (run-hooks 'ebuild-mode-hook))
 
@@ -113,19 +115,21 @@
 (defvar eselect-mode-commands-5
   '("is_number canonicalise"))
 
+(font-lock-add-keywords
+ 'eselect-mode
+ (list (ebuild-mode-make-keywords-list eselect-mode-commands-0 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list eselect-mode-commands-1 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list eselect-mode-commands-2 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list eselect-mode-commands-3 'font-lock-warning-face)
+       (ebuild-mode-make-keywords-list eselect-mode-commands-4 'font-lock-type-face)
+       (ebuild-mode-make-keywords-list eselect-mode-commands-5 'font-lock-type-face)))
+
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
   "Major mode for Portage .eselect files."
-  (font-lock-add-keywords 'eselect-mode
-   (list (ebuild-mode-make-keywords-list eselect-mode-commands-0 'font-lock-type-face)
-	 (ebuild-mode-make-keywords-list eselect-mode-commands-1 'font-lock-type-face)
-	 (ebuild-mode-make-keywords-list eselect-mode-commands-2 'font-lock-type-face)
-	 (ebuild-mode-make-keywords-list eselect-mode-commands-3 'font-lock-warning-face)
-	 (ebuild-mode-make-keywords-list eselect-mode-commands-4 'font-lock-type-face)
-	 (ebuild-mode-make-keywords-list eselect-mode-commands-5 'font-lock-type-face)))
-  (add-hook 'write-file-functions 'delete-trailing-whitespace t t)
-  (add-hook 'write-file-functions 'ebuild-mode-tabify t t)
-  (setq tab-width 4
-        indent-tabs-mode t))
+  (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
+  (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
+  (setq tab-width 4)
+  (setq indent-tabs-mode t))
 
 (defvar ebuild-commands-alist
   (mapcar 'list
