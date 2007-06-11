@@ -1,3 +1,7 @@
+2007-06-11  Christian Faulhammer  <opfer@gentoo.org>
+
+	* added missing quotes in eselect highlighting
+
 2007-06-08  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode): Use write-contents-hooks instead

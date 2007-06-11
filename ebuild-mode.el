@@ -107,13 +107,13 @@
 (defvar eselect-mode-commands-3
   '("list_libdirs"))
 
-(defvar eselect-mode-commands-4
+(defvar eselect-mode-commands-eselect
   '("highlight" "highlight_warning" "space" "write_error_msg"
     "write_kv_list_entry" "write_list_start" "write_numbered_list"
     "write_numbered_list_entry"))
 
 (defvar eselect-mode-commands-5
-  '("is_number canonicalise"))
+  '("is_number" "canonicalise"))
 
 (font-lock-add-keywords
  'eselect-mode
