@@ -64,8 +64,10 @@
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
 
-(defun ebuild-mode-make-keywords-list (keywords-list face &optional prefix suffix)
+(defun ebuild-mode-make-keywords-list (keywords-list face
+						     &optional prefix suffix)
   ;; based on `generic-make-keywords-list' from generic.el
+  ;; Note: XEmacs doesn't have generic.el
   (unless (listp keywords-list)
     (error "Keywords argument must be a list of strings"))
   (cons (concat prefix "\\<"
@@ -75,11 +77,17 @@
 
 (font-lock-add-keywords
  'ebuild-mode
- (list (ebuild-mode-make-keywords-list ebuild-mode-commands-0 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox 'font-lock-warning-face)
-       (ebuild-mode-make-keywords-list ebuild-mode-commands-eclass 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp 'font-lock-type-face)))
+ (list
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-0
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox
+				  font-lock-warning-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-eclass
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp
+				  font-lock-type-face)))
 
 (defun ebuild-mode-tabify ()
   ;; tabify whitespace only at beginning of lines
@@ -117,12 +125,19 @@
 
 (font-lock-add-keywords
  'eselect-mode
- (list (ebuild-mode-make-keywords-list eselect-mode-commands-0 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list eselect-mode-commands-1 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list eselect-mode-commands-2 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list eselect-mode-commands-3 'font-lock-warning-face)
-       (ebuild-mode-make-keywords-list eselect-mode-commands-4 'font-lock-type-face)
-       (ebuild-mode-make-keywords-list eselect-mode-commands-5 'font-lock-type-face)))
+ (list
+  (ebuild-mode-make-keywords-list eselect-mode-commands-0
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list eselect-mode-commands-1
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list eselect-mode-commands-2
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list eselect-mode-commands-3
+				  font-lock-warning-face)
+  (ebuild-mode-make-keywords-list eselect-mode-commands-eselect
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list eselect-mode-commands-5
+				  font-lock-type-face)))
 
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
   "Major mode for Portage .eselect files."
@@ -147,7 +162,7 @@
   (let ((process-environment
 	 (cons "NOCOLOR=true" process-environment))
 	;;(compilation-mode-hook
-	;; (function (lambda () (setq truncate-lines t))))
+	;; (lambda () (setq truncate-lines t)))
 	(compilation-buffer-name-function
 	 (list 'lambda '(mode) (concat "*ebuild " command "*"))))
     (compile (format "ebuild %s %s" buffer-file-name command))))
