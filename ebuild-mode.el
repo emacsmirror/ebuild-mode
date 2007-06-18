@@ -101,27 +101,18 @@
 
 (font-lock-add-keywords
  'ebuild-mode
- (list
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-0
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-eutils
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-pam
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-autotools
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-scm
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-multilib
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox
-				  font-lock-warning-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-eclass
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-flag-o-matic
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list ebuild-mode-commands-elisp
-				  font-lock-type-face)))
+ (mapcar
+  '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
+  (list (list ebuild-mode-commands-0 font-lock-type-face)
+	(list ebuild-mode-commands-eutils font-lock-type-face)
+	(list ebuild-mode-commands-pam font-lock-type-face)
+	(list ebuild-mode-commands-autotools font-lock-type-face)
+	(list ebuild-mode-commands-scm font-lock-type-face)
+	(list ebuild-mode-commands-multilib font-lock-type-face)
+	(list ebuild-mode-commands-sandbox font-lock-warning-face)
+	(list ebuild-mode-commands-eclass font-lock-type-face)
+	(list ebuild-mode-commands-flag-o-matic font-lock-type-face)
+	(list ebuild-mode-commands-elisp font-lock-type-face))))
 
 (defun ebuild-mode-tabify ()
   ;; tabify whitespace only at beginning of lines
@@ -159,19 +150,14 @@
 
 (font-lock-add-keywords
  'eselect-mode
- (list
-  (ebuild-mode-make-keywords-list eselect-mode-commands-0
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list eselect-mode-commands-1
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list eselect-mode-commands-2
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list eselect-mode-commands-3
-				  font-lock-warning-face)
-  (ebuild-mode-make-keywords-list eselect-mode-commands-eselect
-				  font-lock-type-face)
-  (ebuild-mode-make-keywords-list eselect-mode-commands-5
-				  font-lock-type-face)))
+ (mapcar
+  '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
+  (list (list eselect-mode-commands-0 font-lock-type-face)
+	(list eselect-mode-commands-1 font-lock-type-face)
+	(list eselect-mode-commands-2 font-lock-type-face)
+	(list eselect-mode-commands-3 font-lock-warning-face)
+	(list eselect-mode-commands-eselect font-lock-type-face)
+	(list eselect-mode-commands-5 font-lock-type-face))))
 
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
   "Major mode for Portage .eselect files."

@@ -1,3 +1,8 @@
+2007-06-18  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode, eselect-mode): Use mapcar for
+	font-lock keyword assignments.
+
 2007-06-18  Christian Faulhammer  <opfer@gentoo.org>
 
 	* added keywords for:
