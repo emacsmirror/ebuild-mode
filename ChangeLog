@@ -6,7 +6,9 @@
 2007-06-18  Christian Faulhammer  <opfer@gentoo.org>
 
 	* added keywords for:
-	pam, git, cvs, subversion, multilib, autotools
+	pam, git, cvs, subversion, multilib, autotools, rpm, mercurial,
+	alternatives, java-ant-2, java-pgk-2, java-utils-2, fdo-mime,
+	bash-completion, gnome2-utils
 	* reordered keywords for:
 	eutils
 
