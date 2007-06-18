@@ -35,17 +35,41 @@
   "List of functions to call when entering ebuild-mode")
 
 (defvar ebuild-mode-commands-0
-  '("best_version" "built_with_use" "check_KV" "die" "diropts" "dobin"
-    "docinto" "doconfd" "dodir" "dodoc" "doenvd" "doexe" "dohard" "dohtml"
-    "doicon" "doinfo" "doinitd" "doins" "dojar" "dolib" "dolib.a" "dolib.so"
-    "doman" "domenu" "domo" "dopython" "dosbin" "dosed" "dosym" "ebeep"
-    "ebegin" "econf" "eend" "eerror" "einfo" "einstall" "elog" "emake"
-    "enewgroup" "enewuser" "epatch" "epause" "ewarn" "exeinto" "exeopts"
-    "fowners" "fperms" "has" "has_version" "hasq" "hasv" "insinto" "insopts"
-    "into" "keepdir" "libopts" "make_desktop_entry" "newbin" "newconfd"
-    "newdoc" "newenvd" "newexe" "newinitd" "newins" "newlib.a" "newlib.so"
-    "newman" "newsbin" "prepall" "prepalldocs" "prepallinfo" "prepallman"
-    "prepallstrip" "unpack" "use" "use_enable" "use_with" "useq" "usev"))
+  '("best_version" "check_KV" "die" "diropts" "dobin" "docinto" "doconfd"
+    "dodir" "dodoc" "doenvd" "doexe" "dohard" "dohtml" "doinfo" "doinitd"
+    "doins" "dojar" "dolib" "dolib.a" "dolib.so" "doman" "domo" "dopython"
+    "dosbin" "dosed" "dosym" "ebegin" "econf" "eend" "eerror" "einfo" "einfon"
+    "einstall" "elog" "emake" "ewarn" "exeinto" "exeopts" "fowners" "fperms"
+    "has" "has_version" "hasq" "hasv" "insinto" "insopts" "into" "keepdir"
+    "libopts" "newbin" "newconfd" "newdoc" "newenvd" "newexe" "newinitd"
+    "newins" "newlib.a" "newlib.so" "newman" "newsbin" "prepall" "prepalldocs"
+    "prepallinfo" "prepallman" "prepallstrip" "unpack" "use" "use_enable"
+    "use_with" "useq" "usev"))
+
+(defvar ebuild-mode-commands-autotools
+  '("eautoreconf" "eaclocal" "_elibtoolize" "eautoconf" "eautoheader" "eautomake"))
+
+(defvar ebuild-mode-commands-multilib
+  '("has_multilib_profile" "get_libdir" "get_multilibdir" "get_libdir_override"
+    "get_abi_" "get_install_abis" "get_all_abis" "get_all_libdirs" "is_final_abi"
+    "number_abis" "get_ml_incdir" "prep_ml_includes" "create_ml_includes"
+    "get_libname" "multilib_env" "multilib_toolchain_setup"))
+
+(defvar ebuild-mode-commands-eutils
+  '("epause" "ebeep" "epatch" "emktemp" "enewuser" "enewgroup" "edos2unix"
+    "make_desktop_entry" "validate_desktop_entries" "make_session_desktop"
+    "domenu" "newmenu" "doicon" "newicon" "check_license" "cdrom_get_cds"
+    "cdrom_load_next_cd" "strip-linguas" "set_arch_to_kernel" "set_arch_to_portage"
+    "preserve_old_lib" "preserve_old_lib_notify" "built_with_use" "epunt_cxx"
+    "make_wrapper"))
+
+(defvar ebuild-mode-commands-pam
+  '("dopamd" "newpamd" "dopamsecurity" "newpamsecurity" "getpam_mod_dir"
+    "dopammod" "newpammod" "pamd_mimic_system" "clean_pamd"))
+
+;; commands for all Source Code Managment or other package system eclasses
+(defvar ebuild-mode-commands-scm
+  '("cvs_src_unpack" "subversion_src_unpack" "git_src_unpack" "rpm_src_unpack"))
 
 (defvar ebuild-mode-commands-sandbox
   '("adddeny" "addpredict" "addread" "addwrite"))
@@ -79,6 +103,16 @@
  'ebuild-mode
  (list
   (ebuild-mode-make-keywords-list ebuild-mode-commands-0
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-eutils
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-pam
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-autotools
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-scm
+				  font-lock-type-face)
+  (ebuild-mode-make-keywords-list ebuild-mode-commands-multilib
 				  font-lock-type-face)
   (ebuild-mode-make-keywords-list ebuild-mode-commands-sandbox
 				  font-lock-warning-face)
