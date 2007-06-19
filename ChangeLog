@@ -1,3 +1,9 @@
+2007-06-19  Christian Faulhammer  <opfer@gentoo.org>
+
+	* put keywords from -java and -misc in separate classes so they
+	are properly ordered
+	* added keywords for versionator eclass
+
 2007-06-18  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode, eselect-mode): Use mapcar for
@@ -7,7 +13,7 @@
 
 	* added keywords for:
 	pam, git, cvs, subversion, multilib, autotools, rpm, mercurial,
-	alternatives, java-ant-2, java-pgk-2, java-utils-2, fdo-mime,
+	alternatives, java-ant-2, java-utils-2, fdo-mime,
 	bash-completion, gnome2-utils
 	* reordered keywords for:
 	eutils
