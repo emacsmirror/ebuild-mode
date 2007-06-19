@@ -55,27 +55,33 @@
     "number_abis" "get_ml_incdir" "prep_ml_includes" "create_ml_includes"
     "get_libname" "multilib_env" "multilib_toolchain_setup"))
 
-;; functions from different Java eclasses
-(defvar ebuild-mode-commands-java
+(defvar ebuild-mode-commands-java-ant-2
   '("java-ant_bsfix_files" "java-ant_bsfix_one" "java-ant_rewrite-classpath"
-    "java-ant_ignore-system-classes" "java-ant_xml-rewrite" "java-pkg_doexamples"
-    "java-pkg_dojar" "java-pkg_regjar" "java-pkg_newjar" "java-pkg_addcp"
-    "java-pkg_doso" "java-pkg_regso" "java-pkg_jarinto" "java-pkg_sointo"
-    "java-pkg_dohtml" "java-pkg_dojavadoc" "java-pkg_dosrc" "java-pkg_dolauncher"
-    "java-pkg_dowar" "java-pkg_jar-from" "java-pkg_jarfrom" "java-pkg_getjars"
-    "java-pkg_getjar" "java-pkg_register-dependency" "java-pkg_register-optional-dependency"
-    "java-pkg_register-environment-variable" "java-pkg_find-normal-jars"
-    "java-pkg_ensure-no-bundled-jars" "java-pkg_get-source" "java-pkg_set-current-vm"
-    "java-pkg_get-current-vm" "java-pkg_current-vm-matches" "java-pkg_get-target"
-    "java-pkg_get-javac" "java-pkg_javac-args" "java-pkg_get-jni-cflags"
-    "java-pkg_ensure-gcj" "java-pkg_ensure-test" "java-pkg_register-ant-task"
-    "ejunit" "eant" "ejavac" "java-pkg_filter-compiler" "java-pkg_force-compiler"
-    "use_doc"))
+    "java-ant_ignore-system-classes" "java-ant_xml-rewrite"))
+
+(defvar ebuild-mode-commands-java-utils-2
+  '("java-pkg_doexamples" "java-pkg_dojar" "java-pkg_regjar" "java-pkg_newjar"
+    "java-pkg_addcp" "java-pkg_doso" "java-pkg_regso" "java-pkg_jarinto"
+    "java-pkg_sointo" "java-pkg_dohtml" "java-pkg_dojavadoc" "java-pkg_dosrc"
+    "java-pkg_dolauncher" "java-pkg_dowar" "java-pkg_jar-from" "java-pkg_jarfrom"
+    "java-pkg_getjars" "java-pkg_getjar" "java-pkg_register-dependency"
+    "java-pkg_register-optional-dependency" "java-pkg_register-environment-variable"
+    "java-pkg_find-normal-jars" "java-pkg_ensure-no-bundled-jars"
+    "java-pkg_get-source" "java-pkg_set-current-vm" "java-pkg_get-current-vm"
+    "java-pkg_current-vm-matches" "java-pkg_get-target" "java-pkg_get-javac"
+    "java-pkg_javac-args" "java-pkg_get-jni-cflags" "java-pkg_ensure-gcj"
+    "java-pkg_ensure-test" "java-pkg_register-ant-task" "ejunit" "eant"
+    "ejavac" "java-pkg_filter-compiler" "java-pkg_force-compiler" "use_doc"))
 
 ;; contains functions from bash-completion, fdo-mime, gnome2-utils
-(defvar ebuild-mode-commands-misc
-  '("dobashcompletion" "fdo-mime_desktop_database_update" "fdo-mime_mime_database_update"
-    "gnome2_gconf_install" "gconf_uninstall" "icon_cache_update" "gnome2_omf_fix"
+(defvar ebuild-mode-commands-bash-completion
+  '("dobashcompletion"))
+
+(defvar ebuild-mode-commands-fdo-mime
+  '("fdo-mime_desktop_database_update" "fdo-mime_mime_database_update"))
+
+(defvar ebuild-mode-commands-gnome2-utils
+  '("gnome2_gconf_install" "gconf_uninstall" "icon_cache_update" "gnome2_omf_fix"
     "gnome2_scrollkeeper_update"))
 
 (defvar ebuild-mode-commands-alternatives
@@ -116,6 +122,13 @@
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
 
+(defvar ebuild-mode-commands-versionator
+  '("get_all_version_components" "get_version_components" "get_major_version"
+    "get_version_component_range" "get_after_major_version" "replace_version_separator"
+    "replace_all_version_separators" "delete_version_separator" "delete_all_version_separators"
+    "get_version_component_count" "get_last_version_component_index" "version_is_at_least"
+    "version_compare" "version_sort"))
+
 (defun ebuild-mode-make-keywords-list (keywords-list face
 						     &optional prefix suffix)
   ;; based on `generic-make-keywords-list' from generic.el
@@ -133,8 +146,11 @@
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list (list ebuild-mode-commands-0 font-lock-type-face)
 	(list ebuild-mode-commands-eutils font-lock-type-face)
-	(list ebuild-mode-commands-misc font-lock-type-face)
-	(list ebuild-mode-commands-java font-lock-type-face)
+	(list ebuild-mode-commands-bash-completion font-lock-type-face)
+	(list ebuild-mode-commands-gnome2-utils font-lock-type-face)
+	(list ebuild-mode-commands-fdo-mime font-lock-type-face)
+	(list ebuild-mode-commands-java-ant-2 font-lock-type-face)
+	(list ebuild-mode-commands-java-utils-2 font-lock-type-face)
 	(list ebuild-mode-commands-alternatives font-lock-type-face)
 	(list ebuild-mode-commands-pam font-lock-type-face)
 	(list ebuild-mode-commands-autotools font-lock-type-face)
@@ -142,6 +158,7 @@
 	(list ebuild-mode-commands-multilib font-lock-type-face)
 	(list ebuild-mode-commands-sandbox font-lock-warning-face)
 	(list ebuild-mode-commands-eclass font-lock-type-face)
+	(list ebuild-mode-commands-versionator font-lock-type-face)
 	(list ebuild-mode-commands-flag-o-matic font-lock-type-face)
 	(list ebuild-mode-commands-elisp font-lock-type-face))))
 
