@@ -1,4 +1,4 @@
-;;; ebuild-mode.el --- a mode for editing Portage .ebuild, .eclass and .eselect files.
+;;; gentoo-syntax.el --- a mode for editing .ebuild, .eclass and .eselect files.
 
 ;; Copyright (C) 2003-2007  Gentoo Foundation
 
@@ -248,6 +248,8 @@
 (add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-mode))
 (add-to-list 'auto-mode-alist '("\\.eselect\\'" . eselect-mode))
 
-(provide 'ebuild-mode)
+(add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
 
-;;; ebuild-mode.el ends here
+(provide 'gentoo-syntax)
+
+;;; gentoo-syntax.el ends here

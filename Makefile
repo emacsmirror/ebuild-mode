@@ -1,9 +1,9 @@
-PN = ebuild-mode
+PN = gentoo-syntax
 PV = $(shell sed '/^[ \t]*\* .*[Vv]ersion/!d;s/[^0-9.]*\([0-9.]*\).*/\1/;q' \
 	ChangeLog)
 P = $(PN)-$(PV)
 
-DISTFILE = ebuild-mode.el
+DISTFILE = gentoo-syntax.el
 
 
 .PHONY: all dist clean
