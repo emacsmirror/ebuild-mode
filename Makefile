@@ -3,7 +3,7 @@ PV = $(shell sed '/^[ \t]*\* .*[Vv]ersion/!d;s/[^0-9.]*\([0-9.]*\).*/\1/;q' \
 	ChangeLog)
 P = $(PN)-$(PV)
 
-DISTFILE = gentoo-syntax.el
+DISTFILE = gentoo-syntax.el ebuild-mode.el
 
 
 .PHONY: all dist clean
