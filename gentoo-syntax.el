@@ -208,7 +208,7 @@
 	(list eselect-mode-commands-5 font-lock-type-face))))
 
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
-  "Major mode for Portage .eselect files."
+  "Major mode for .eselect files."
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (setq tab-width 4)

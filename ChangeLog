@@ -1,5 +1,7 @@
 2007-06-21  Ulrich Mueller  <ulm@gentoo.org>
 
+	* Version 1.6 released
+
 	* gentoo-syntax.el: Rename file.
 	(interpreter-mode-alist): Syntax highlighting for Gentoo init
 	scripts, as suggested by John R. Graham
