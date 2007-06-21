@@ -1,11 +1,10 @@
 2007-06-21  Ulrich Mueller  <ulm@gentoo.org>
 
-	* ebuild-mode.el: Add file for backwards compatibility.
-
 	* gentoo-syntax.el: Rename file.
 	(interpreter-mode-alist): Syntax highlighting for Gentoo init
 	scripts, as suggested by John R. Graham
 	<john_r_graham@mindspring.com> in bug #182636.
+	(ebuild-mode): Provide for backwards compatibility.
 
 2007-06-19  Christian Faulhammer  <opfer@gentoo.org>
 

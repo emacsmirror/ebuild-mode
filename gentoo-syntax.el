@@ -251,5 +251,6 @@
 (add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
 
 (provide 'gentoo-syntax)
+(provide 'ebuild-mode)			; backwards compatibility
 
 ;;; gentoo-syntax.el ends here
