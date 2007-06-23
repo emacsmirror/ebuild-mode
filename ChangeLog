@@ -1,3 +1,12 @@
+2007-06-23  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-tabify): Code copied from Emacs 22
+	function for XEmacs compatibility.
+	(ebuild-mode, eselect-mode): Explicitely make write-contents-hooks
+	local, for XEmacs compatibility.
+	(delete-trailing-whitespace): If not bound, then define it.
+	Add autoload cookies.
+
 2007-06-21  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Version 1.6 released

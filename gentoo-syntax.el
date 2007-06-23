@@ -31,6 +31,27 @@
 
 ;;; Code:
 
+(eval-and-compile
+  (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
+      ;; from simple.el of Emacs 22.1
+(defun delete-trailing-whitespace ()
+  "Delete all the trailing whitespace across the current buffer.
+All whitespace after the last non-whitespace character in a line is deleted.
+This respects narrowing, created by \\[narrow-to-region] and friends.
+A formfeed is not considered whitespace by this function."
+  (interactive "*")
+  (save-match-data
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward "\\s-$" nil t)
+	(skip-syntax-backward "-" (save-excursion (forward-line 0) (point)))
+	;; Don't delete formfeeds, even if they are considered whitespace.
+	(save-match-data
+	  (if (looking-at ".*\f")
+	      (goto-char (match-end 0))))
+	(delete-region (point) (match-end 0))))))
+))
+
 (defvar ebuild-mode-hook nil
   "List of functions to call when entering ebuild-mode")
 
@@ -163,12 +184,28 @@
 	(list ebuild-mode-commands-elisp font-lock-type-face))))
 
 (defun ebuild-mode-tabify ()
-  ;; tabify whitespace only at beginning of lines
-  (let ((tabify-regexp "^\t* [ \t]+"))
-    (tabify (point-min) (point-max))))
+  ;; Tabify whitespace at beginning of lines.
+  ;; We cannot use the following since XEmacs doesn't support tabify-regexp.
+  ;;(let ((tabify-regexp "^\t* [ \t]+"))
+  ;;  (tabify (point-min) (point-max)))
+  (let ((tabify-regexp "^\t* [ \t]+")
+	(indent-tabs-mode t))
+    (save-excursion
+      (goto-char (point-min))
+      (while (re-search-forward tabify-regexp nil t)
+	(let ((end-col (current-column))
+	      (beg-col (save-excursion (goto-char (match-beginning 0))
+				       (skip-chars-forward "\t")
+				       (current-column))))
+	  (if (= (/ end-col tab-width) (/ beg-col tab-width))
+	      nil
+	    (delete-region (match-beginning 0) (point))
+	    (indent-to end-col)))))))
 
+;;;###autoload
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
   "Major mode for Portage .ebuild and .eclass files."
+  (make-local-hook 'write-contents-hooks) ; needed for XEmacs
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (setq tab-width 4)
@@ -207,8 +244,10 @@
 	(list eselect-mode-commands-eselect font-lock-type-face)
 	(list eselect-mode-commands-5 font-lock-type-face))))
 
+;;;###autoload
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
   "Major mode for .eselect files."
+  (make-local-hook 'write-contents-hooks) ; needed for XEmacs
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (setq tab-width 4)
@@ -220,6 +259,7 @@
 	    "test" "preinst" "postinst" "install" "qmerge" "merge"
 	    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean")))
 
+;;;###autoload
 (defun ebuild-run-command (command)
   "Run ebuild COMMAND, with output to a compilation buffer."
   (interactive
@@ -244,10 +284,14 @@
        (or (memq major-mode '(ebuild-mode eselect-mode))
 	   ad-do-it)))
 
+;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.ebuild\\'" . ebuild-mode))
+;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-mode))
+;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.eselect\\'" . eselect-mode))
 
+;;;###autoload
 (add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
 
 (provide 'gentoo-syntax)
