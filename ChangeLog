@@ -1,3 +1,30 @@
+2007-06-25  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-common-lisp-common-3): new class
+	of functions
+	(ebuild-mode-commands-common-lisp-common): new class of functions
+	(ebuild-mode-commands-common-lisp-common-2): new class of functions
+	(ebuild-mode-commands-elisp-common): new class of functions
+	(ebuild-mode-commands-ruby): new class of functions
+	(ebuild-mode): added all above new functions to keyword list
+
+2007-06-24  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el: removed some comments
+	(ebuild-mode-commands-elisp-common): renamed from elisp to
+	elisp-common
+	(ebuild-mode-commands-elisp): NEED_EMACS as keyword in new class
+	-elisp, only variable that needs highlighting
+	(ebuild-mode-commands-scm): deleted
+	(ebuild-mode-commands-cvs): new split-off from -scm
+	(ebuild-mode-commands-subversion): new split-off from -scm
+	(ebuild-mode-commands-git): new split-off from -scm
+	(ebuild-mode-commands-mercurial): new split-off from -scm
+	(ebuild-mode-commands-rpm): new split-off from -scm
+	(ebuild-mode-commands-python): new class of functions for
+	python.eclass
+	(ebuild-mode): added all above new functions to keyword list
+	
 2007-06-23  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-tabify): Code copied from Emacs 22
