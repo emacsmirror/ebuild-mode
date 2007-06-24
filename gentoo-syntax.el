@@ -122,9 +122,16 @@ A formfeed is not considered whitespace by this function."
     "dopammod" "newpammod" "pamd_mimic_system" "clean_pamd"))
 
 ;; commands for all Source Code Managment or other package system eclasses
-(defvar ebuild-mode-commands-scm
-  '("cvs_src_unpack" "subversion_src_unpack" "git_src_unpack" "rpm_src_unpack"
-    "mercurial_src_unpack"))
+(defvar ebuild-mode-commands-cvs
+  '("cvs_src_unpack"))
+(defvar ebuild-mode-commands-subversion
+  '("subversion_src_unpack"))
+(defvar ebuild-mode-commands-git
+  '("git_src_unpack"))
+(defvar ebuild-mode-commands-mercurial
+  '("mercurial_src_unpack"))
+(defvar ebuild-mode-commands-rpm
+  '("rpm_src_unpack"))
 
 (defvar ebuild-mode-commands-sandbox
   '("adddeny" "addpredict" "addread" "addwrite"))
@@ -132,16 +139,38 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-eclass
   '("inherit"))
 
-;; functions from flag-o-matic eclass
 (defvar ebuild-mode-commands-flag-o-matic
   '("append-flags" "append-ldflags" "filter-flags" "filter-ldflags"
     "filter-mfpmath" "get-flag" "is-flag" "replace-cpu-flags" "replace-flags"
     "strip-flags" "strip-unsupported-flags"))
 
-;; functions from elisp-common eclass
-(defvar ebuild-mode-commands-elisp
+(defvar ebuild-mode-commands-python
+  '("NEED_PYTHON" "python_version" "python_tkinter_exists" "python_mod_exists"
+    "python_mod_compile" "python_mod_optimize" "python_mod_cleanup" "python_makesym"))
+
+(defvar ebuild-mode-commands-common-lisp-common-3
+  '("do-debian-credits" "standard-impl-postinst" "standard-impl-postrm"))
+
+(defvar ebuild-mode-commands-common-lisp-common-2
+  '((ebuild-mode-commands-common-lisp-common-3)))
+
+(defvar ebuild-mode-commands-common-lisp-common
+  '((ebuild-mode-commands-common-lisp-common-3) "register-common-lisp-implementation"
+    "unregister-common-lisp-implementation" "reregister-all-common-lisp-implementations"))
+
+(defvar ebuild-mode-commands-common-lisp
+  '("common-lisp-system-symlink" "common-lisp-install"))
+
+(defvar ebuild-mode-commands-ruby
+  '("ruby_econf" "ruby_emake" "doruby" "ruby_einstall" "erubydoc" "erubyconf" "erubymake"
+    "erubyinstall" "RUBY_OPTIONAL"))
+
+(defvar ebuild-mode-commands-elisp-common
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
+
+(defvar ebuild-mode-commands-elisp
+  '("NEED_EMACS"))
 
 (defvar ebuild-mode-commands-versionator
   '("get_all_version_components" "get_version_components" "get_major_version"
@@ -175,13 +204,23 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-alternatives font-lock-type-face)
 	(list ebuild-mode-commands-pam font-lock-type-face)
 	(list ebuild-mode-commands-autotools font-lock-type-face)
-	(list ebuild-mode-commands-scm font-lock-type-face)
+	(list ebuild-mode-commands-cvs font-lock-type-face)
+	(list ebuild-mode-commands-subversion font-lock-type-face)
+	(list ebuild-mode-commands-git font-lock-type-face)
+	(list ebuild-mode-commands-rpm font-lock-type-face)
+	(list ebuild-mode-commands-mercurial font-lock-type-face)
+	(list ebuild-mode-commands-ruby font-lock-type-face)
+	(list ebuild-mode-commands-common-lisp-common-3 font-lock-type-face)
+	(list ebuild-mode-commands-common-lisp-common-2 font-lock-type-face)
+	(list ebuild-mode-commands-common-lisp-common font-lock-type-face)
+	(list ebuild-mode-commands-common-lisp font-lock-type-face)
 	(list ebuild-mode-commands-multilib font-lock-type-face)
 	(list ebuild-mode-commands-sandbox font-lock-warning-face)
 	(list ebuild-mode-commands-eclass font-lock-type-face)
 	(list ebuild-mode-commands-versionator font-lock-type-face)
 	(list ebuild-mode-commands-flag-o-matic font-lock-type-face)
-	(list ebuild-mode-commands-elisp font-lock-type-face))))
+	(list ebuild-mode-commands-elisp font-lock-type-face)
+	(list ebuild-mode-commands-elisp-common font-lock-type-face))))
 
 (defun ebuild-mode-tabify ()
   ;; Tabify whitespace at beginning of lines.
