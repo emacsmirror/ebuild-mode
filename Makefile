@@ -3,15 +3,16 @@ PV = $(shell sed '/^[ \t]*\* .*[Vv]ersion/!d;s/[^0-9.]*\([0-9.]*\).*/\1/;q' \
 	ChangeLog)
 P = $(PN)-$(PV)
 
-DISTFILE = gentoo-syntax.el
+DISTFILES = gentoo-syntax.el ChangeLog
 
 
 .PHONY: all dist clean
 
 all:
 
-dist: $(DISTFILE)
-	bzip2 -c $< >$(P).el.bz2
+dist: $(DISTFILES)
+	tar -cjf $(P).tar.bz2 --transform='s%^%$(P)/%' $^
+	tar -tjvf $(P).tar.bz2
 
 clean:
 	-rm -f *~ *.tmp *.gz *.bz2
