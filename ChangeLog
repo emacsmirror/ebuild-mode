@@ -11,6 +11,7 @@
 	(ebuild-mode-commands-darcs): New keywords
 	(ebuild-mode-commands-nsplugin): New keywords
 	(ebuild-mode-commands-latex-package): New keywords
+	(ebuild-mode-commands-freebsd): New keywords
 
 2007-06-25  Christian Faulhammer  <opfer@gentoo.org>
 
