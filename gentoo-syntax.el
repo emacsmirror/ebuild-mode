@@ -70,6 +70,32 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-autotools
   '("eautoreconf" "eaclocal" "_elibtoolize" "eautoconf" "eautoheader" "eautomake"))
 
+(defvar ebuild-mode-commands-gtk-sharp-component
+  '("gtk-sharp-component_fix_makefiles"))
+
+(defvar ebuild-mode-commands-qt3
+  '("qt_min_version" "qt_min_version_list"))
+
+(defvar ebuild-mode-commands-qt4
+  '("qt4_min_version" "qt4_min_version_list"))
+
+(defvar ebuild-mode-commands-kde-functions
+  '("get-parent-package" "get-child-packages" "is-parent-package" "need-automake"
+    "need-autoconf" "deprange" "deprange-list" "deprange-iterate-numbers"
+    "deprange-iterate-suffixes" "deprange-dual" "need-kde" "set-kdedir" "need-qt"
+    "set-qtdir" "qtver-from-kdever" "min-kde-ver" "kde_sandbox_patch" "kde_remove_flag"
+    "buildsycoca" "postprocess_desktop_entries"))
+
+(defvar ebuild-mode-commands-kde-meta
+  '("create_fullpaths" "change_makefiles" "set_common_variables"))
+
+(defvar ebuild-mode-commands-kde
+  '("slot_rebuild"))
+
+(defvar ebuild-mode-commands-libtool
+  '("ELT_find_ltmain_sh" "ELT_try_and_apply_patch" "ELT_libtool_version"
+    "ELT_walk_patches" "elibtoolize" "VER_major" "VER_minor" "VER_micro" "VER_to_int"))
+
 (defvar ebuild-mode-commands-multilib
   '("has_multilib_profile" "get_libdir" "get_multilibdir" "get_libdir_override"
     "get_abi_" "get_install_abis" "get_all_abis" "get_all_libdirs" "is_final_abi"
@@ -145,7 +171,7 @@ A formfeed is not considered whitespace by this function."
     "strip-flags" "strip-unsupported-flags"))
 
 (defvar ebuild-mode-commands-python
-  '("NEED_PYTHON" "python_version" "python_tkinter_exists" "python_mod_exists"
+  '("NEED_PYTHON" "DOCS" "python_version" "python_tkinter_exists" "python_mod_exists"
     "python_mod_compile" "python_mod_optimize" "python_mod_cleanup" "python_makesym"))
 
 (defvar ebuild-mode-commands-common-lisp-common-3
@@ -170,7 +196,7 @@ A formfeed is not considered whitespace by this function."
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
 
 (defvar ebuild-mode-commands-elisp
-  '("NEED_EMACS"))
+  '("NEED_EMACS" "DOCS"))
 
 (defvar ebuild-mode-commands-versionator
   '("get_all_version_components" "get_version_components" "get_major_version"
@@ -210,6 +236,13 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-rpm font-lock-type-face)
 	(list ebuild-mode-commands-mercurial font-lock-type-face)
 	(list ebuild-mode-commands-ruby font-lock-type-face)
+	(list ebuild-mode-commands-qt3 font-lock-type-face)
+	(list ebuild-mode-commands-qt4 font-lock-type-face)
+	(list ebuild-mode-commands-gtk-sharp-component font-lock-type-face)
+	(list ebuild-mode-commands-libtool font-lock-type-face)
+	(list ebuild-mode-commands-kde font-lock-type-face)
+	(list ebuild-mode-commands-kde-meta font-lock-type-face)
+	(list ebuild-mode-commands-kde-functions font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp-common-3 font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp-common-2 font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp-common font-lock-type-face)
