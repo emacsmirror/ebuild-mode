@@ -7,6 +7,10 @@
 	(ebuild-mode-commands-kde-meta): New keywords
 	(ebuild-mode-commands-kde): New keywords
 	(ebuild-mode-commands-libtool): New keywords
+	(ebuild-mode-commands-cron): New keywords
+	(ebuild-mode-commands-darcs): New keywords
+	(ebuild-mode-commands-nsplugin): New keywords
+	(ebuild-mode-commands-latex-package): New keywords
 
 2007-06-25  Christian Faulhammer  <opfer@gentoo.org>
 
