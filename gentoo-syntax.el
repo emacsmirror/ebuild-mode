@@ -67,6 +67,20 @@ A formfeed is not considered whitespace by this function."
     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use" "use_enable"
     "use_with" "useq" "usev"))
 
+(defvar ebuild-mode-commands-cron
+  '("docrondir" "docron" "docrontab"))
+
+(defvar ebuild-mode-commands-darcs
+  '("darcs_src_unpack"))
+
+(defvar ebuild-mode-commands-nsplugin
+  '("src_mv_plugins" "pkg_mv_plugins" "inst_plugin"))
+
+(defvar ebuild-mode-commands-latex-package
+  '("latex-package_has_tetex_3" "latex-package_src_doinstall" "latex-package_rehash"
+    "latex-package_pkg_postinst" "latex-package_pkg_postrm" "latex-package_src_compile"
+    "latex-package_src_install"))
+
 (defvar ebuild-mode-commands-autotools
   '("eautoreconf" "eaclocal" "_elibtoolize" "eautoconf" "eautoheader" "eautomake"))
 
@@ -237,6 +251,10 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-mercurial font-lock-type-face)
 	(list ebuild-mode-commands-ruby font-lock-type-face)
 	(list ebuild-mode-commands-qt3 font-lock-type-face)
+	(list ebuild-mode-commands-cron font-lock-type-face)
+	(list ebuild-mode-commands-darcs font-lock-type-face)
+	(list ebuild-mode-commands-nsplugin font-lock-type-face)
+	(list ebuild-mode-commands-latex-package font-lock-type-face)
 	(list ebuild-mode-commands-qt4 font-lock-type-face)
 	(list ebuild-mode-commands-gtk-sharp-component font-lock-type-face)
 	(list ebuild-mode-commands-libtool font-lock-type-face)
