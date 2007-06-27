@@ -1,3 +1,13 @@
+2007-06-27  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-gtk-sharp-component): New keywords
+	(ebuild-mode-commands-qt3): New keywords
+	(ebuild-mode-commands-qt4): New keywords
+	(ebuild-mode-commands-kde-functions): New keywords
+	(ebuild-mode-commands-kde-meta): New keywords
+	(ebuild-mode-commands-kde): New keywords
+	(ebuild-mode-commands-libtool): New keywords
+
 2007-06-25  Christian Faulhammer  <opfer@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-common-lisp-common-3): new class
