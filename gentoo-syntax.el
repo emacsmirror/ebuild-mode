@@ -67,6 +67,9 @@ A formfeed is not considered whitespace by this function."
     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use" "use_enable"
     "use_with" "useq" "usev"))
 
+(defvar ebuild-mode-commands-freebsd
+  '("doperiodic" "freebsd_get_bmake" "freebsd_do_patches" "freebsd_rename_libraries"))
+
 (defvar ebuild-mode-commands-cron
   '("docrondir" "docron" "docrontab"))
 
@@ -251,11 +254,12 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-mercurial font-lock-type-face)
 	(list ebuild-mode-commands-ruby font-lock-type-face)
 	(list ebuild-mode-commands-qt3 font-lock-type-face)
+	(list ebuild-mode-commands-qt4 font-lock-type-face)
+	(list ebuild-mode-commands-freebsd font-lock-type-face)
 	(list ebuild-mode-commands-cron font-lock-type-face)
 	(list ebuild-mode-commands-darcs font-lock-type-face)
 	(list ebuild-mode-commands-nsplugin font-lock-type-face)
 	(list ebuild-mode-commands-latex-package font-lock-type-face)
-	(list ebuild-mode-commands-qt4 font-lock-type-face)
 	(list ebuild-mode-commands-gtk-sharp-component font-lock-type-face)
 	(list ebuild-mode-commands-libtool font-lock-type-face)
 	(list ebuild-mode-commands-kde font-lock-type-face)
