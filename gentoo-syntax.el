@@ -76,6 +76,28 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
+(defvar ebuild-mode-commands-x11
+  '("vcards" "filter-patch" "check_version_h" "get_KV_info" "is_kernel" "strip_bins"
+    "arch" "archq" "use_build"))
+
+(defvar ebuild-mode-commands-confutils
+  '("confutils_init" "confutils_require_any" "confutils_use_conflict" "confutils_use_depend_all"
+    "confutils_use_depend_any" "enable_extension_disable" "enable_extension_enable"
+    "enable_extension_enableonly" "enable_extension_without" "enable_extension_with"
+    "enable_extension_withonly" "confutils_warn_about_missing_deps" "enable_extension_enable_built_with"
+    "enable_extension_with_built_with"))
+
+(defvar ebuild-mode-commands-linux-info
+  '("qout" "qeinfo" "qeerror" "getfilevar" "linux_chkconfig_present" "linux_chkconfig_module"
+    "linux_chkconfig_builtin" "linux_chkconfig_string" "kernel_is" "get_localversion"
+    "get_version" "get_running_version" "check_kernel_built" "check_modules_supported"
+    "check_extra_config" "check_zlibinflate"))
+
+(defvar ebuild-mode-commands-linux-mod
+  '("check_vermagic" "use_m" "convert_to_m" "update_depmod" "update_modules" "move_old_moduledb"
+    "update_moduledb" "remove_moduledb" "set_kvobj" "get-KERNEL_CC" "generate_modulesd"
+    "find_module_params" "strip_modulenames"))
+
 (defvar ebuild-mode-commands-nsplugin
   '("src_mv_plugins" "pkg_mv_plugins" "inst_plugin"))
 
@@ -265,6 +287,10 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-kde font-lock-type-face)
 	(list ebuild-mode-commands-kde-meta font-lock-type-face)
 	(list ebuild-mode-commands-kde-functions font-lock-type-face)
+	(list ebuild-mode-commands-x11 font-lock-type-face)
+	(list ebuild-mode-commands-confutils font-lock-type-face)
+	(list ebuild-mode-commands-linux-info font-lock-type-face)
+	(list ebuild-mode-commands-linux-mod font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp-common-3 font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp-common-2 font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp-common font-lock-type-face)
