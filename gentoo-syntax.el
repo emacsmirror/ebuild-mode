@@ -395,7 +395,8 @@ A formfeed is not considered whitespace by this function."
 	 (list 'lambda '(mode) (concat "*ebuild " command "*"))))
     (compile (format "ebuild %s %s" buffer-file-name command))))
 
-(define-key ebuild-mode-map "\C-ce" 'ebuild-run-command)
+(define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
+(define-key ebuild-mode-map "\C-ce" 'ebuild-run-command) ; obsolete
 
 (and (< emacs-major-version 22)
      ;; make TAB key work

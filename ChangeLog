@@ -1,3 +1,8 @@
+2007-06-29  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-map): Bind ebuild-run-command to
+	"C-c C-e" since the "C-c letter" sequences are reserved for users.
+
 2007-06-28  Christian Faulhammer  <opfer@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-x11): New keywords
