@@ -356,6 +356,21 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-elisp
   '("NEED_EMACS" "DOCS"))
 
+(defvar ebuild-mode-commands-kernel-2
+  '("debug-print-kernel2-variables" "handle_genpatches" "detect_version" "kernel_is"
+    "kernel_is_2_4" "kernel_is_2_6" "kernel_header_destdir" "cross_pre_c_headers"
+    "env_setup_xmakeopts" "unpack_2_4" "unpack_2_6" "universal_unpack" "unpack_set_extraversion"
+    "unpack_fix_install_path" "compile_headers" "compile_headers_tweak_config"
+    "install_universal" "install_headers" "install_sources" "preinst_headers"
+    "postinst_sources" "postinst_headers" "setup_headers" "unipatch" "getfilevar"
+    "detect_arch" "generate_sparc_asm" "headers___fix"))
+
+(defvar ebuild-mode-commands-kernel-mod
+  '("kernel-mod_getmakefilevar" "kernel-mod_getversion" "kernel-mod_configoption_present"
+    "kernel-mod_configoption_module" "kernel-mod_configoption_builtin" "kernel-mod_modules_supported"
+    "kernel-mod_check_modules_supported" "kernel-mod_checkzlibinflate_configured"
+    "kernel-mod_is_2_4_kernel" "kernel-mod_is_2_5_kernel" "kernel-mod_is_2_6_kernel"))
+
 (defvar ebuild-mode-commands-versionator
   '("get_all_version_components" "get_version_components" "get_major_version"
     "get_version_component_range" "get_after_major_version" "replace_version_separator"
@@ -380,6 +395,8 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+   	(list ebuild-mode-commands-kernel-2 font-lock-type-face)
+   	(list ebuild-mode-commands-kernel-mod font-lock-type-face)
    	(list ebuild-mode-commands-mysql font-lock-type-face)
    	(list ebuild-mode-commands-mysql_fx font-lock-type-face)
 	(list ebuild-mode-commands-gst-plugins10 font-lock-type-face)
