@@ -284,6 +284,14 @@ A formfeed is not considered whitespace by this function."
   '("dopamd" "newpamd" "dopamsecurity" "newpamsecurity" "getpam_mod_dir"
     "dopammod" "newpammod" "pamd_mimic_system" "clean_pamd"))
 
+(defvar ebuild-mode-commands-mysql
+  '("bitkeeper_fetch" "mysql_disable_test" "mysql_init_vars" "configure_minimal"
+    "configure_common" "configure_40_41_50" "configure_51"))
+
+(defvar ebuild-mode-commands-mysql_fx
+  '("stripdots" "mysql_check_version_range" "mysql_mv_patches" "mysql_version_is_at_least"
+    "mysql_lib_symlinks"))
+
 ;; commands for all Source Code Managment or other package system eclasses
 (defvar ebuild-mode-commands-cvs
   '("cvs_src_unpack"))
@@ -372,6 +380,8 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+   	(list ebuild-mode-commands-mysql font-lock-type-face)
+   	(list ebuild-mode-commands-mysql_fx font-lock-type-face)
 	(list ebuild-mode-commands-gst-plugins10 font-lock-type-face)
 	(list ebuild-mode-commands-gst-plugins font-lock-type-face)
 	(list ebuild-mode-commands-gnustep-funcs font-lock-type-face)
