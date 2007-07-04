@@ -5,6 +5,8 @@
 	(ebuild-mode-commands-php-sapi): New keywords
 	(ebuild-mode-commands-php4_4-sapi): New keywords
 	(ebuild-mode-commands-php5-sapi-r3): New keywords
+	(ebuild-mode-commands-mysql): New keywords
+	(ebuild-mode-commands-mysql_fx): New keywords
 
 2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
 
