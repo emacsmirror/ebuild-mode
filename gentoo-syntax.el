@@ -196,6 +196,13 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-kde
   '("slot_rebuild"))
 
+(defvar ebuild-mode-commands-gst-plugins
+  '("gst-plugins_find_plugin_dir" "gst-plugins_update_registry"
+    "gst-plugins_remove_unversioned_binaries"))
+
+(defvar ebuild-mode-commands-gst-plugins10
+  '("gst-plugins10_find_plugin_dir" "gst-plugins10_remove_unversioned_binaries"))
+
 (defvar ebuild-mode-commands-libtool
   '("ELT_find_ltmain_sh" "ELT_try_and_apply_patch" "ELT_libtool_version"
     "ELT_walk_patches" "elibtoolize" "VER_major" "VER_minor" "VER_micro" "VER_to_int"))
@@ -339,6 +346,8 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+	(list ebuild-mode-commands-gst-plugins10 font-lock-type-face)
+	(list ebuild-mode-commands-gst-plugins font-lock-type-face)
 	(list ebuild-mode-commands-gnustep-funcs font-lock-type-face)
 	(list ebuild-mode-commands-toolchain font-lock-type-face)
 	(list ebuild-mode-commands-toolchain-binutils font-lock-type-face)
