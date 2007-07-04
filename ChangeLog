@@ -1,3 +1,11 @@
+2007-07-05  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-php-ext): New keywords
+	(ebuild-mode-commands-php-pear-r1): New keywords
+	(ebuild-mode-commands-php-sapi): New keywords
+	(ebuild-mode-commands-php4_4-sapi): New keywords
+	(ebuild-mode-commands-php5-sapi-r3): New keywords
+
 2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-vim): New keywords
@@ -20,6 +28,8 @@
 	(ebuild-mode-commands-gnustep-funcs): New keywords
 	(ebuild-mode-commands-gst-plugins): New keywords
 	(ebuild-mode-commands-gst-plugins10): New keywords
+	(ebuild-mode-commands-php-ext-base-r1): New keywords
+	(ebuild-mode-commands-php-common-r1): New keywords
 
 2007-06-29  Ulrich Mueller  <ulm@gentoo.org>
 
