@@ -110,6 +110,32 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
+(defvar ebuild-mode-commands-php-common-r1
+  '("php_check_cflags" "php_check_imap" "php_check_java" "php_install_java"
+    "php_install_java_inifile""php_check_mta" "php_check_oracle_all" "php_check_oracle_8"
+    "php_check_pgsql" "php_get_mycnf_charset"))
+
+(defvar ebuild-mode-commands-php-ext-base-r1
+  '("php-ext-base-r1_buildinilist" "php-ext-base-r1_src_install" "php-ext-base-r1_addextension"
+    "php-ext-base-r1_addtoinifile" "php-ext-base-r1_addtoinifiles"))
+
+(defvar ebuild-mode-commands-php-ext
+  '("php-ext_buildinilist" "php-ext_extension_is_present" "php-ext_addextensiontoinifile"
+    "php-ext_addextension" "php-ext_setting_is_present" "php-ext_addtoinifile" "php-ext_addtoinifiles"))
+
+(defvar ebuild-mode-commands-php-pear-r1
+  '("fix_PEAR_PV"))
+
+(defvar ebuild-mode-commands-php-sapi
+  '("php-sapi_is_providerbuild" "php-sapi_check_java_config" "php-sapi_securityupgrade"
+    "php-sapi_warning_mssql_freetds"))
+
+(defvar ebuild-mode-commands-php4_4-sapi
+  '("php4_4-sapi_check_use_flags" "php4_4-sapi_set_php_ini_dir" "php4_4-sapi_install_ini"))
+
+(defvar ebuild-mode-commands-php5-sapi-r3
+  '("php5-sapi-r3_check_awkward_uses"))
+
 (defvar ebuild-mode-commands-mozilla-launcher
   '("update_mozilla_launcher_symlinks" "install_mozilla_launcher_stub" "warn_mozilla_launcher_stub"))
 
@@ -349,6 +375,13 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-gst-plugins10 font-lock-type-face)
 	(list ebuild-mode-commands-gst-plugins font-lock-type-face)
 	(list ebuild-mode-commands-gnustep-funcs font-lock-type-face)
+	(list ebuild-mode-commands-php-ext-base-r1 font-lock-type-face)
+	(list ebuild-mode-commands-php-common-r1 font-lock-type-face)
+	(list ebuild-mode-commands-php-ext font-lock-type-face)
+	(list ebuild-mode-commands-php-pear-r1 font-lock-type-face)
+	(list ebuild-mode-commands-php-sapi font-lock-type-face)
+	(list ebuild-mode-commands-php4_4-sapi font-lock-type-face)
+	(list ebuild-mode-commands-php5-sapi-r3 font-lock-type-face)
 	(list ebuild-mode-commands-toolchain font-lock-type-face)
 	(list ebuild-mode-commands-toolchain-binutils font-lock-type-face)
 	(list ebuild-mode-commands-toolchain-funcs font-lock-type-face)
