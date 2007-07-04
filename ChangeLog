@@ -1,3 +1,10 @@
+2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-vim): New keywords
+	(ebuild-mode-commands-vim-doc): New keywords
+	(ebuild-mode-commands-vim-plugin): New keywords
+	(ebuild-mode-commands-xfce44): New keywords
+
 2007-06-29  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-map): Bind ebuild-run-command to
