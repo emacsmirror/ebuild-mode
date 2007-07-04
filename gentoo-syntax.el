@@ -76,6 +76,11 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
+(defvar ebuild-mode-commands-xfce44
+  '("xfce44_beta" "xfce44" "xfce44_gzipped" "xfce44_zipped" "xfce44_plugin" "xfce44_panel_plugin"
+    "xfce44_thunar_plugin" "xfce44_goodies" "xfce44_goodies_panel_plugin" "xfce44_goodies_thunar_plugin"
+    "xfce44_core_package" "xfce44_extra_package" "xfce44_single_make" "xfce44_want_einstall"))
+
 (defvar ebuild-mode-commands-x11
   '("vcards" "filter-patch" "check_version_h" "get_KV_info" "is_kernel" "strip_bins"
     "arch" "archq" "use_build"))
@@ -189,14 +194,27 @@ A formfeed is not considered whitespace by this function."
 ;; commands for all Source Code Managment or other package system eclasses
 (defvar ebuild-mode-commands-cvs
   '("cvs_src_unpack"))
+
 (defvar ebuild-mode-commands-subversion
   '("subversion_src_unpack"))
+
 (defvar ebuild-mode-commands-git
   '("git_src_unpack"))
+
 (defvar ebuild-mode-commands-mercurial
   '("mercurial_src_unpack"))
+
 (defvar ebuild-mode-commands-rpm
   '("rpm_src_unpack"))
+
+(defvar ebuild-mode-commands-vim
+  '("apply_vim_patches" "update_vim_symlinks"))
+
+(defvar ebuild-mode-commands-vim-doc
+  '("update_vim_helptags"))
+
+(defvar ebuild-mode-commands-vim-plugin
+  '("update_vim_afterscripts" "display_vim_plugin_help"))
 
 (defvar ebuild-mode-commands-sandbox
   '("adddeny" "addpredict" "addread" "addwrite"))
@@ -268,6 +286,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-java-utils-2 font-lock-type-face)
 	(list ebuild-mode-commands-alternatives font-lock-type-face)
 	(list ebuild-mode-commands-pam font-lock-type-face)
+	(list ebuild-mode-commands-xfce44 font-lock-type-face)
 	(list ebuild-mode-commands-autotools font-lock-type-face)
 	(list ebuild-mode-commands-cvs font-lock-type-face)
 	(list ebuild-mode-commands-subversion font-lock-type-face)
@@ -288,6 +307,9 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-kde-meta font-lock-type-face)
 	(list ebuild-mode-commands-kde-functions font-lock-type-face)
 	(list ebuild-mode-commands-x11 font-lock-type-face)
+	(list ebuild-mode-commands-vim font-lock-type-face)
+	(list ebuild-mode-commands-vim-doc font-lock-type-face)
+	(list ebuild-mode-commands-vim-plugin font-lock-type-face)
 	(list ebuild-mode-commands-confutils font-lock-type-face)
 	(list ebuild-mode-commands-linux-info font-lock-type-face)
 	(list ebuild-mode-commands-linux-mod font-lock-type-face)
