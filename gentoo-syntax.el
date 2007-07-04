@@ -356,6 +356,26 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-elisp
   '("NEED_EMACS" "DOCS"))
 
+(defvar ebuild-mode-commands-games-etmod
+  '("games-etmod_make_etded_exec" "games-etmod_make_enemy-territory_exec"
+    "games-etmod_make_init.d" "games-etmod_make_conf.d"))
+
+(defvar ebuild-mode-commands-games-mods
+  '("default_client" "games-mods_make_ded_exec" "games-mods_make_init.d" "games-mods_make_conf.d"))
+
+(defvar ebuild-mode-commands-games-q3mod
+  '("games-q3mod_make_q3ded_exec" "games-q3mod_make_quake3_exec" "games-q3mod_make_init.d"
+    "games-q3mod_make_conf.d"))
+
+(defvar ebuild-mode-commands-games-ut2k4mod
+  '("check_dvd"))
+
+(defvar ebuild-mode-commands-games
+  '("games_get_libdir" "egamesconf" "egamesinstall" "gameswrapper" "dogamesbin" "dogamessbin"
+    "dogameslib" "dogameslib.a" "dogameslib.so" "newgamesbin" "newgamessbin" "games_make_wrapper"
+    "gamesowners" "gamesperms" "prepgamesdirs" "gamesenv" "games_ut_unpack" "games_umod_unpack"
+    "games_link_mods"))
+
 (defvar ebuild-mode-commands-kernel-2
   '("debug-print-kernel2-variables" "handle_genpatches" "detect_version" "kernel_is"
     "kernel_is_2_4" "kernel_is_2_6" "kernel_header_destdir" "cross_pre_c_headers"
@@ -395,6 +415,11 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+   	(list ebuild-mode-commands-games-etmod font-lock-type-face)
+   	(list ebuild-mode-commands-games-mods font-lock-type-face)
+   	(list ebuild-mode-commands-games-q3mod font-lock-type-face)
+   	(list ebuild-mode-commands-games-ut2k4mod font-lock-type-face)
+   	(list ebuild-mode-commands-games font-lock-type-face)
    	(list ebuild-mode-commands-kernel-2 font-lock-type-face)
    	(list ebuild-mode-commands-kernel-mod font-lock-type-face)
    	(list ebuild-mode-commands-mysql font-lock-type-face)
