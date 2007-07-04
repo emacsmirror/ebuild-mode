@@ -76,6 +76,23 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
+(defvar ebuild-mode-commands-mozilla-launcher
+  '("update_mozilla_launcher_symlinks" "install_mozilla_launcher_stub" "warn_mozilla_launcher_stub"))
+
+(defvar ebuild-mode-commands-mozconfig
+  '("mozconfig_init" "makemake" "mozconfig_annotate" "mozconfig_use_enable" "mozconfig_use_with"
+    "mozconfig_use_extension" "mozconfig_final"))
+
+(defvar ebuild-mode-commands-mozconfig-2
+  '("mozconfig_config"))
+
+(defvar ebuild-mode-commands-mozcoreconf
+  '("mozconfig_init" "makemake" "makemake2" "mozconfig_annotate" "mozconfig_use_enable" "mozconfig_use_with"
+    "mozconfig_use_extension" "mozconfig_final"))
+
+(defvar ebuild-mode-commands-mozextensions
+  '("xpi_unpack" "xpi_install"))
+
 (defvar ebuild-mode-commands-db
   '("db_fix_so" "db_src_install_usrbinslot" "db_src_install_headerslota" "db_src_install_usrlibcleanup"))
 
@@ -295,6 +312,11 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-java-utils-2 font-lock-type-face)
 	(list ebuild-mode-commands-alternatives font-lock-type-face)
 	(list ebuild-mode-commands-pam font-lock-type-face)
+	(list ebuild-mode-commands-mozilla-launcher font-lock-type-face)
+	(list ebuild-mode-commands-mozconfig font-lock-type-face)
+	(list ebuild-mode-commands-mozconfig-2 font-lock-type-face)
+	(list ebuild-mode-commands-mozcoreconf font-lock-type-face)
+	(list ebuild-mode-commands-mozextensions font-lock-type-face)
 	(list ebuild-mode-commands-db font-lock-type-face)
 	(list ebuild-mode-commands-db4-fix font-lock-type-face)
 	(list ebuild-mode-commands-db-use font-lock-type-face)
