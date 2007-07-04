@@ -14,6 +14,8 @@
 	(ebuild-mode-commands-games-q3mod): New keywords
 	(ebuild-mode-commands-games-ut2k4mod): New keywords
 	(ebuild-mode-commands-games): New keywords
+	(ebuild-mode-commands-games-perl-module): New keywords
+	(ebuild-mode-commands-games-perl-app): New keywords
 
 2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
 
