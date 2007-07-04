@@ -1,13 +1,13 @@
 ;;; gentoo-syntax.el --- a mode for editing .ebuild, .eclass and .eselect files.
 
-;; Copyright (C) 2003-2007  Gentoo Foundation
+;; Copyright (C) 2006-2007  Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;; Author: Diego Pettenò <flameeyes@gentoo.org>
 ;; Author: Christian Faulhammer <opfer@gentoo.org>
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Keywords: convenience
-;; version: 1.6
+;; version: 1.7-pre
 ;;
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -303,7 +303,8 @@ A formfeed is not considered whitespace by this function."
  'ebuild-mode
  (mapcar
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
-  (list (list ebuild-mode-commands-0 font-lock-type-face)
+  (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
+   	(list ebuild-mode-commands-0 font-lock-type-face)
 	(list ebuild-mode-commands-eutils font-lock-type-face)
 	(list ebuild-mode-commands-bash-completion font-lock-type-face)
 	(list ebuild-mode-commands-gnome2-utils font-lock-type-face)
@@ -352,7 +353,6 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-common-lisp-common font-lock-type-face)
 	(list ebuild-mode-commands-common-lisp font-lock-type-face)
 	(list ebuild-mode-commands-multilib font-lock-type-face)
-	(list ebuild-mode-commands-sandbox font-lock-warning-face)
 	(list ebuild-mode-commands-eclass font-lock-type-face)
 	(list ebuild-mode-commands-versionator font-lock-type-face)
 	(list ebuild-mode-commands-flag-o-matic font-lock-type-face)
