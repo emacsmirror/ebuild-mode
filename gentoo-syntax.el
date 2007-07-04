@@ -73,6 +73,25 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-cron
   '("docrondir" "docron" "docrontab"))
 
+(defvar ebuild-mode-commands-toolchain
+  '("is_crosscompile" "tc_version_is_at_least" "gcc_get_s_dir" "gentoo_urls" "get_gcc_src_uri"
+    "get_make_var" "XGCC" "hardened_gcc_works" "hardened_gcc_is_stable"
+    "hardened_gcc_check_unsupported" "has_libssp" "want_libssp" "want_boundschecking"
+    "want_pie" "want_ssp" "want_split_specs" "glibc_have_pie" "libc_has_ssp"
+    "gcc-lang-supported" "make_gcc_hard" "create_vanilla_specs_file"
+    "create_hardened_specs_file" "create_hardenednossp_specs_file" "create_hardenednopie_specs_file"
+    "create_hardenednopiessp_specs_file" "split_out_specs_files" "create_gcc_env_entry"
+    "add_profile_eselect_conf" "create_eselect_conf" "guess_patch_type_in_dir"
+    "do_gcc_rename_java_bins" "gcc-library-configure" "gcc-compiler-configure"
+    "gcc_do_configure" "gcc_do_make" "add_version_to_shared" "gcc_do_filter_flags"
+    "gcc_movelibs" "gcc_quick_unpack" "exclude_gcc_patches" "do_gcc_stub"
+    "do_gcc_HTB_patches" "do_gcc_SSP_patches" "update_gcc_for_libc_ssp"
+    "update_gcc_for_libssp" "do_gcc_PIE_patches" "should_we_gcc_config"
+    "do_gcc_config" "should_we_eselect_compiler" "do_eselect_compiler"
+    "gcc_version_patch" "disgusting_gcc_multilib_HACK" "disable_multilib_libjava"
+    "fix_libtool_libdir_paths" "is_multilib" "is_cxx" "is_d" "is_f77" "is_f95"
+    "is_fortran" "is_gcj" "is_objc" "is_objcxx" "is_ada"))
+
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
@@ -305,6 +324,7 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+	(list ebuild-mode-commands-toolchain font-lock-type-face)
 	(list ebuild-mode-commands-eutils font-lock-type-face)
 	(list ebuild-mode-commands-bash-completion font-lock-type-face)
 	(list ebuild-mode-commands-gnome2-utils font-lock-type-face)
