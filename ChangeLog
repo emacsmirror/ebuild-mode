@@ -4,6 +4,9 @@
 	(ebuild-mode-commands-vim-doc): New keywords
 	(ebuild-mode-commands-vim-plugin): New keywords
 	(ebuild-mode-commands-xfce44): New keywords
+	(ebuild-mode-commands-db): New keywords
+	(ebuild-mode-commands-db-use): New keywords
+	(ebuild-mode-commands-db4-fix): New keywords
 
 2007-06-29  Ulrich Mueller  <ulm@gentoo.org>
 
