@@ -7,6 +7,13 @@
 	(ebuild-mode-commands-db): New keywords
 	(ebuild-mode-commands-db-use): New keywords
 	(ebuild-mode-commands-db4-fix): New keywords
+	(ebuild-mode-commands-mozilla-launcher): New keywords
+	(ebuild-mode-commands-mozconfig): New keywords
+	(ebuild-mode-commands-mozconfig-2): New keywords
+	(ebuild-mode-commands-mozcoreconf): New keywords
+	(ebuild-mode-commands-mozextensions): New keywords
+	changed version number to 1.7-pre and changed Copyright date
+	(ebuild-mode): reordered: sandbox commands to top
 
 2007-06-29  Ulrich Mueller  <ulm@gentoo.org>
 
