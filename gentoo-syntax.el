@@ -76,6 +76,15 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
+(defvar ebuild-mode-commands-db
+  '("db_fix_so" "db_src_install_usrbinslot" "db_src_install_headerslota" "db_src_install_usrlibcleanup"))
+
+(defvar ebuild-mode-commands-db-use
+  '("db_ver_to_slot" "db_findver" "db_includedir" "db_libname"))
+
+(defvar ebuild-mode-commands-db4-fix
+  '("dodb4-fix"))
+
 (defvar ebuild-mode-commands-xfce44
   '("xfce44_beta" "xfce44" "xfce44_gzipped" "xfce44_zipped" "xfce44_plugin" "xfce44_panel_plugin"
     "xfce44_thunar_plugin" "xfce44_goodies" "xfce44_goodies_panel_plugin" "xfce44_goodies_thunar_plugin"
@@ -286,6 +295,9 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-java-utils-2 font-lock-type-face)
 	(list ebuild-mode-commands-alternatives font-lock-type-face)
 	(list ebuild-mode-commands-pam font-lock-type-face)
+	(list ebuild-mode-commands-db font-lock-type-face)
+	(list ebuild-mode-commands-db4-fix font-lock-type-face)
+	(list ebuild-mode-commands-db-use font-lock-type-face)
 	(list ebuild-mode-commands-xfce44 font-lock-type-face)
 	(list ebuild-mode-commands-autotools font-lock-type-face)
 	(list ebuild-mode-commands-cvs font-lock-type-face)
