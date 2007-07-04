@@ -18,6 +18,8 @@
 	(ebuild-mode-commands-toolchain-funcs): New keywords
 	(ebuild-mode-commands-toolchain-binutils): New keywords
 	(ebuild-mode-commands-gnustep-funcs): New keywords
+	(ebuild-mode-commands-gst-plugins): New keywords
+	(ebuild-mode-commands-gst-plugins10): New keywords
 
 2007-06-29  Ulrich Mueller  <ulm@gentoo.org>
 
