@@ -376,6 +376,12 @@ A formfeed is not considered whitespace by this function."
     "gamesowners" "gamesperms" "prepgamesdirs" "gamesenv" "games_ut_unpack" "games_umod_unpack"
     "games_link_mods"))
 
+(defvar ebuild-mode-commands-games-perl-app
+  '("perl-app_src_prep"))
+
+(defvar ebuild-mode-commands-games-perl-module
+  '("perlinfo" "fixlocalpod" "updatepod"))
+
 (defvar ebuild-mode-commands-kernel-2
   '("debug-print-kernel2-variables" "handle_genpatches" "detect_version" "kernel_is"
     "kernel_is_2_4" "kernel_is_2_6" "kernel_header_destdir" "cross_pre_c_headers"
@@ -415,6 +421,8 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+   	(list ebuild-mode-commands-perl-app font-lock-type-face)
+   	(list ebuild-mode-commands-perl-module font-lock-type-face)
    	(list ebuild-mode-commands-games-etmod font-lock-type-face)
    	(list ebuild-mode-commands-games-mods font-lock-type-face)
    	(list ebuild-mode-commands-games-q3mod font-lock-type-face)
