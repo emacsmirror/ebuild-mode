@@ -67,11 +67,26 @@ A formfeed is not considered whitespace by this function."
     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use" "use_enable"
     "use_with" "useq" "usev"))
 
+(defvar ebuild-mode-commands-gnustep-funcs
+  '("egnustep_prefix" "egnustep_install_domain" "egnustep_env" "egnustep_system_root"
+    "egnustep_local_root" "egnustep_network_root" "egnustep_user_root"
+    "egnustep_user_root_suffix" "egnustep_make" "egnustep_package_config"
+    "egnustep_package_config_info" "egnustep_install" "egnustep_doc" "objc_available"
+    "objc_not_available_info" "ffi_available" "ffi_not_available_info"))
+
 (defvar ebuild-mode-commands-freebsd
   '("doperiodic" "freebsd_get_bmake" "freebsd_do_patches" "freebsd_rename_libraries"))
 
 (defvar ebuild-mode-commands-cron
   '("docrondir" "docron" "docrontab"))
+
+(defvar ebuild-mode-commands-toolchain-binutils
+  '("is_cross" "add_src_uri" "tc-binutils_unpack" "tc-binutils_apply_patches"))
+
+(defvar ebuild-mode-commands-toolchain-funcs
+  '("tc-getPROG" "tc-getAR" "tc-getAS" "tc-getCC" "tc-getCPP" "tc-getCXX"
+    "tc-getLD" "tc-getSTRIP" "tc-getNM" "tc-getRANLIB" "tc-getF77" "tc-getF90"
+    "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC() {"))
 
 (defvar ebuild-mode-commands-toolchain
   '("is_crosscompile" "tc_version_is_at_least" "gcc_get_s_dir" "gentoo_urls" "get_gcc_src_uri"
@@ -324,7 +339,10 @@ A formfeed is not considered whitespace by this function."
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+	(list ebuild-mode-commands-gnustep-funcs font-lock-type-face)
 	(list ebuild-mode-commands-toolchain font-lock-type-face)
+	(list ebuild-mode-commands-toolchain-binutils font-lock-type-face)
+	(list ebuild-mode-commands-toolchain-funcs font-lock-type-face)
 	(list ebuild-mode-commands-eutils font-lock-type-face)
 	(list ebuild-mode-commands-bash-completion font-lock-type-face)
 	(list ebuild-mode-commands-gnome2-utils font-lock-type-face)
