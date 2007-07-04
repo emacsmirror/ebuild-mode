@@ -9,6 +9,11 @@
 	(ebuild-mode-commands-mysql_fx): New keywords
 	(ebuild-mode-commands-kernel-mod): New keywords
 	(ebuild-mode-commands-kernel-2): New keywords
+	(ebuild-mode-commands-games-etmod): New keywords
+	(ebuild-mode-commands-games-mods): New keywords
+	(ebuild-mode-commands-games-q3mod): New keywords
+	(ebuild-mode-commands-games-ut2k4mod): New keywords
+	(ebuild-mode-commands-games): New keywords
 
 2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
 
