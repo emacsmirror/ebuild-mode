@@ -336,11 +336,12 @@ A formfeed is not considered whitespace by this function."
   '("do-debian-credits" "standard-impl-postinst" "standard-impl-postrm"))
 
 (defvar ebuild-mode-commands-common-lisp-common-2
-  '((ebuild-mode-commands-common-lisp-common-3)))
+  '("do-debian-credits" "standard-impl-postinst" "standard-impl-postrm"))
 
 (defvar ebuild-mode-commands-common-lisp-common
-  '((ebuild-mode-commands-common-lisp-common-3) "register-common-lisp-implementation"
-    "unregister-common-lisp-implementation" "reregister-all-common-lisp-implementations"))
+  '("do-debian-credits" "standard-impl-postinst" "standard-impl-postrm"
+    "register-common-lisp-implementation" "unregister-common-lisp-implementation"
+    "reregister-all-common-lisp-implementations"))
 
 (defvar ebuild-mode-commands-common-lisp
   '("common-lisp-system-symlink" "common-lisp-install"))
