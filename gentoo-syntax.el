@@ -376,10 +376,10 @@ A formfeed is not considered whitespace by this function."
     "gamesowners" "gamesperms" "prepgamesdirs" "gamesenv" "games_ut_unpack" "games_umod_unpack"
     "games_link_mods"))
 
-(defvar ebuild-mode-commands-games-perl-app
+(defvar ebuild-mode-commands-perl-app
   '("perl-app_src_prep"))
 
-(defvar ebuild-mode-commands-games-perl-module
+(defvar ebuild-mode-commands-perl-module
   '("perlinfo" "fixlocalpod" "updatepod"))
 
 (defvar ebuild-mode-commands-kernel-2
