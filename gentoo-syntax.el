@@ -67,6 +67,11 @@ A formfeed is not considered whitespace by this function."
     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use" "use_enable"
     "use_with" "useq" "usev"))
 
+(defvar ebuild-mode-commands-warn
+  ;; warn about "which" usage
+  ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
+  '("which"))
+
 (defvar ebuild-mode-commands-gnustep-funcs
   '("egnustep_prefix" "egnustep_install_domain" "egnustep_env" "egnustep_system_root"
     "egnustep_local_root" "egnustep_network_root" "egnustep_user_root"
@@ -421,6 +426,7 @@ A formfeed is not considered whitespace by this function."
  (mapcar
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
+   	(list ebuild-mode-commands-warn font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
    	(list ebuild-mode-commands-perl-app font-lock-type-face)
    	(list ebuild-mode-commands-perl-module font-lock-type-face)

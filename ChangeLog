@@ -1,3 +1,7 @@
+2007-07-18  Ulrich Mueller  <ulm@gentoo.de>
+
+	* gentoo-syntax.el (ebuild-mode-commands-warn): New keyword.
+
 2007-07-05  Christian Faulhammer  <opfer@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-php-ext): New keywords
