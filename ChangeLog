@@ -1,8 +1,11 @@
-2007-09-01  Ulrich Mueller  <ulm@gentoo.de>
+2007-09-01  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-map): Remove obsolete "C-c e"
+	keybinding.
 
 	* Version 1.7 released.
 
-2007-07-18  Ulrich Mueller  <ulm@gentoo.de>
+2007-07-18  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-warn): New keyword.
 
@@ -64,7 +67,8 @@
 
 2007-06-27  Christian Faulhammer  <opfer@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-commands-gtk-sharp-component): New keywords
+	* gentoo-syntax.el (ebuild-mode-commands-gtk-sharp-component):
+	New keywords
 	(ebuild-mode-commands-qt3): New keywords
 	(ebuild-mode-commands-qt4): New keywords
 	(ebuild-mode-commands-kde-functions): New keywords
@@ -79,8 +83,8 @@
 
 2007-06-25  Christian Faulhammer  <opfer@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-commands-common-lisp-common-3): new class
-	of functions
+	* gentoo-syntax.el (ebuild-mode-commands-common-lisp-common-3):
+	new class of functions
 	(ebuild-mode-commands-common-lisp-common): new class of functions
 	(ebuild-mode-commands-common-lisp-common-2): new class of functions
 	(ebuild-mode-commands-elisp-common): new class of functions

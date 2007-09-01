@@ -7,7 +7,7 @@
 ;; Author: Christian Faulhammer <opfer@gentoo.org>
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Keywords: convenience
-;; Version: 1.7
+;; Version: 1.8_pre
 ;;
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -599,7 +599,6 @@ A formfeed is not considered whitespace by this function."
     (compile (format "ebuild %s %s" buffer-file-name command))))
 
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-(define-key ebuild-mode-map "\C-ce" 'ebuild-run-command) ; obsolete
 
 (and (< emacs-major-version 22)
      ;; make TAB key work
