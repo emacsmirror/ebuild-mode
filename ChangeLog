@@ -1,3 +1,7 @@
+2007-09-01  Ulrich Mueller  <ulm@gentoo.de>
+
+	* Version 1.7 released.
+
 2007-07-18  Ulrich Mueller  <ulm@gentoo.de>
 
 	* gentoo-syntax.el (ebuild-mode-commands-warn): New keyword.
@@ -99,7 +103,7 @@
 	(ebuild-mode-commands-python): new class of functions for
 	python.eclass
 	(ebuild-mode): added all above new functions to keyword list
-	
+
 2007-06-23  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-tabify): Code copied from Emacs 22
