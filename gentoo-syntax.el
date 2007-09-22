@@ -91,7 +91,7 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-toolchain-funcs
   '("tc-getPROG" "tc-getAR" "tc-getAS" "tc-getCC" "tc-getCPP" "tc-getCXX"
     "tc-getLD" "tc-getSTRIP" "tc-getNM" "tc-getRANLIB" "tc-getF77" "tc-getF90"
-    "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC() {"))
+    "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC"))
 
 (defvar ebuild-mode-commands-toolchain
   '("is_crosscompile" "tc_version_is_at_least" "gcc_get_s_dir" "gentoo_urls" "get_gcc_src_uri"
@@ -117,8 +117,8 @@ A formfeed is not considered whitespace by this function."
 
 (defvar ebuild-mode-commands-php-common-r1
   '("php_check_cflags" "php_check_imap" "php_check_java" "php_install_java"
-    "php_install_java_inifile""php_check_mta" "php_check_oracle_all" "php_check_oracle_8"
-    "php_check_pgsql" "php_get_mycnf_charset"))
+    "php_install_java_inifile" "php_check_mta" "php_check_oracle_all"
+    "php_check_oracle_8" "php_check_pgsql" "php_get_mycnf_charset"))
 
 (defvar ebuild-mode-commands-php-ext-base-r1
   '("php-ext-base-r1_buildinilist" "php-ext-base-r1_src_install" "php-ext-base-r1_addextension"

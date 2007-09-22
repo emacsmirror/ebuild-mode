@@ -1,3 +1,9 @@
+2007-09-22  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-toolchain-funcs): Remove
+	spurious braces from tc-getBUILD_CC keyword.
+	(ebuild-mode-commands-php-common-r1): Add a space.
+
 2007-09-01  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-map): Remove obsolete "C-c e"
