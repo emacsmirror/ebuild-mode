@@ -288,7 +288,9 @@ A formfeed is not considered whitespace by this function."
     "domenu" "newmenu" "doicon" "newicon" "check_license" "cdrom_get_cds"
     "cdrom_load_next_cd" "strip-linguas" "set_arch_to_kernel" "set_arch_to_portage"
     "preserve_old_lib" "preserve_old_lib_notify" "built_with_use" "epunt_cxx"
-    "make_wrapper"))
+    "make_wrapper" "gen_usr_ldscript" "draw_line" "have_NPTL" "get_number_of_jobs"
+    "egetent" "unpack_pdv" "unpack_makeself" "cdrom_load_next"
+    "cdrom_locate_file_on_cd" "find_unpackable_file"))
 
 (defvar ebuild-mode-commands-pam
   '("dopamd" "newpamd" "dopamsecurity" "newpamsecurity" "getpam_mod_dir"
