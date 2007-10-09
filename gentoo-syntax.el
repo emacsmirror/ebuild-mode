@@ -67,6 +67,11 @@ A formfeed is not considered whitespace by this function."
     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use" "use_enable"
     "use_with" "useq" "usev"))
 
+(defvar ebuild-mode-commands-functions
+  '("pkg_nofetch" "pkg_setup" "src_unpack" "src_compile" "src_test"
+        "src_install" "pkg_preinst" "pkg_postinst" "pkg_prerm" "pkg_postrm"
+        "pkg_config"))
+
 (defvar ebuild-mode-commands-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
@@ -428,6 +433,7 @@ A formfeed is not considered whitespace by this function."
   (list	(list ebuild-mode-commands-sandbox font-lock-warning-face)
    	(list ebuild-mode-commands-warn font-lock-warning-face)
    	(list ebuild-mode-commands-0 font-lock-type-face)
+	(list ebuild-mode-commands-functions font-lock-type-face)
    	(list ebuild-mode-commands-perl-app font-lock-type-face)
    	(list ebuild-mode-commands-perl-module font-lock-type-face)
    	(list ebuild-mode-commands-games-etmod font-lock-type-face)
