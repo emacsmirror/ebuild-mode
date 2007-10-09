@@ -2,6 +2,8 @@
 
 	* gentoo-syntax.el (ebuild-mode-commands-functions): Added
 	standard functions of ebuild.sh
+	(ebuild-mode-commands-eutils): Added missing functions from
+	marienz' ebuild-mode
 
 2007-09-22  Ulrich Mueller  <ulm@gentoo.org>
 
