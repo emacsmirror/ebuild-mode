@@ -1,3 +1,8 @@
+2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-commands-functions): Added
+	standard functions of ebuild.sh
+
 2007-09-22  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-toolchain-funcs): Remove
@@ -31,8 +36,8 @@
 	(ebuild-mode-commands-games-q3mod): New keywords
 	(ebuild-mode-commands-games-ut2k4mod): New keywords
 	(ebuild-mode-commands-games): New keywords
-	(ebuild-mode-commands-games-perl-module): New keywords
-	(ebuild-mode-commands-games-perl-app): New keywords
+	(ebuild-mode-commands-perl-module): New keywords
+	(ebuild-mode-commands-perl-app): New keywords
 
 2007-07-04  Christian Faulhammer  <opfer@gentoo.org>
 
