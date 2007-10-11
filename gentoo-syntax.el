@@ -261,9 +261,13 @@ A formfeed is not considered whitespace by this function."
 
 (defvar ebuild-mode-commands-multilib
   '("has_multilib_profile" "get_libdir" "get_multilibdir" "get_libdir_override"
-    "get_abi_" "get_install_abis" "get_all_abis" "get_all_libdirs" "is_final_abi"
+    "get_abi_var" "get_install_abis" "get_all_abis" "get_all_libdirs" "is_final_abi"
     "number_abis" "get_ml_incdir" "prep_ml_includes" "create_ml_includes"
-    "get_libname" "multilib_env" "multilib_toolchain_setup"))
+    "get_libname" "multilib_env" "multilib_toolchain_setup" "get_abi_CFLAGS"
+    "get_abi_LDFLAGS" "get_abi_CHOST" "get_abi_FAKE_TARGETS" "get_abi_CDEFINE"
+    "get_abi_LIBDIR" "create_ml_includes-absolute" "create_ml_includes-tidy_path"
+    "create_ml_includes-listdirs" "create_ml_includes-makedestdirs" "create_ml_includes-allfiles"
+    "create_ml_includes-sym_for_dir"))
 
 (defvar ebuild-mode-commands-java-ant-2
   '("java-ant_bsfix_files" "java-ant_bsfix_one" "java-ant_rewrite-classpath"
