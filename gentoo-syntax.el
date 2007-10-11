@@ -125,6 +125,14 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-fixheadtails
   '("ht_fix_file" "ht_fix_all"))
 
+(defvar ebuild-mode-commands-webapp
+  '("webapp_checkfileexists" "webapp_import_config" "webapp_strip_appdir"
+    "webapp_strip_d" "webapp_strip_cwd" "webapp_configfile" "webapp_hook_script"
+    "webapp_postinst_txt" "webapp_postupgrade_txt" "webapp_runbycgibin"
+    "webapp_serverowned" "webapp_server_configfile" "webapp_sqlscript"
+    "webapp_src_install" "webapp_pkg_postinst" "webapp_pkg_setup"
+    "webapp_getinstalltype" "webapp_src_preinst" "webapp_pkg_prerm"))
+
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
@@ -501,6 +509,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-cron font-lock-type-face)
 	(list ebuild-mode-commands-libtool font-lock-type-face)
 	(list ebuild-mode-commands-fixheadtails font-lock-type-face)
+	(list ebuild-mode-commands-webapp font-lock-type-face)
 	(list ebuild-mode-commands-darcs font-lock-type-face)
 	(list ebuild-mode-commands-nsplugin font-lock-type-face)
 	(list ebuild-mode-commands-latex-package font-lock-type-face)
