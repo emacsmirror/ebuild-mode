@@ -5,8 +5,8 @@
 	added comment about deprecated eclasses
 	(ebuild-mode-commands-toolchain): Added missing functions from
 	marienz' ebuild-mode
-	(ebuild-mode-commands-fixheadtails): Added missing functions from
-	marienz' ebuild-mode
+	(ebuild-mode-commands-fixheadtails): Added from marienz'
+	ebuild-mode
 	(ebuild-mode-commands-webapp): Added from marienz' ebuild-mode
 
 2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
