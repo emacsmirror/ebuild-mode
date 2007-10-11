@@ -30,6 +30,7 @@
 	(ebuild-mode-commands-distutils): Added from marienz' ebuild-mode
 	(ebuild-mode-commands-depend.apache): Added from marienz' ebuild-mode
 	(ebuild-mode-commands-apache-module): Added from marienz' ebuild-mode
+	(ebuild-mode-commands-gnome2): Added from marienz' ebuild-mode
 
 2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
 
