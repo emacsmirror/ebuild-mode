@@ -338,7 +338,10 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-flag-o-matic
   '("append-flags" "append-ldflags" "filter-flags" "filter-ldflags"
     "filter-mfpmath" "get-flag" "is-flag" "replace-cpu-flags" "replace-flags"
-    "strip-flags" "strip-unsupported-flags"))
+    "strip-flags" "strip-unsupported-flags" "setup-allowed-flags" "filter-lfs-flags"
+    "append-lfs-flags" "test_flag" "test_version_info" "has_hardened" "has_pic"
+    "has_pie" "has_ssp_all" "has_ssp" "has_m64" "has_m32" "replace-sparc64-flags"
+    "fstack-flags" "gcc2-flags"))
 
 (defvar ebuild-mode-commands-python
   '("NEED_PYTHON" "DOCS" "python_version" "python_tkinter_exists" "python_mod_exists"
