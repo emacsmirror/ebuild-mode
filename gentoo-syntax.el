@@ -119,6 +119,9 @@ A formfeed is not considered whitespace by this function."
     "fix_libtool_libdir_paths" "is_multilib" "is_cxx" "is_d" "is_f77" "is_f95"
     "is_fortran" "is_gcj" "is_objc" "is_objcxx" "is_ada"))
 
+(defvar ebuild-mode-commands-toolchain
+  '("elibtoolize" "uclibctoolize" "darwintoolize"))
+
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
