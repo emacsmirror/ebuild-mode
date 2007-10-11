@@ -188,6 +188,9 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-db4-fix
   '("dodb4-fix"))
 
+(defvar ebuild-mode-commands-64-bit
+  '("64-but"))
+
 (defvar ebuild-mode-commands-xfce44
   '("xfce44_beta" "xfce44" "xfce44_gzipped" "xfce44_zipped" "xfce44_plugin" "xfce44_panel_plugin"
     "xfce44_thunar_plugin" "xfce44_goodies" "xfce44_goodies_panel_plugin" "xfce44_goodies_thunar_plugin"
@@ -513,6 +516,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-libtool font-lock-type-face)
 	(list ebuild-mode-commands-fixheadtails font-lock-type-face)
 	(list ebuild-mode-commands-webapp font-lock-type-face)
+	(list ebuild-mode-commands-64-bit font-lock-type-face)
 	(list ebuild-mode-commands-darcs font-lock-type-face)
 	(list ebuild-mode-commands-nsplugin font-lock-type-face)
 	(list ebuild-mode-commands-latex-package font-lock-type-face)
