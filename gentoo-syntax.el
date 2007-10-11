@@ -283,9 +283,8 @@ A formfeed is not considered whitespace by this function."
     "java-pkg_ensure-test" "java-pkg_register-ant-task" "ejunit" "eant"
     "ejavac" "java-pkg_filter-compiler" "java-pkg_force-compiler" "use_doc"))
 
-;; contains functions from bash-completion, fdo-mime, gnome2-utils
 (defvar ebuild-mode-commands-bash-completion
-  '("dobashcompletion"))
+  '("dobashcompletion" "bash-completion_pkg_postinst"))
 
 (defvar ebuild-mode-commands-fdo-mime
   '("fdo-mime_desktop_database_update" "fdo-mime_mime_database_update"))
