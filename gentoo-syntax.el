@@ -341,7 +341,8 @@ A formfeed is not considered whitespace by this function."
   '("update_vim_helptags"))
 
 (defvar ebuild-mode-commands-vim-plugin
-  '("update_vim_afterscripts" "display_vim_plugin_help"))
+  '("vim-plugin_src_install" "vim-plugin_pkg_postinst" "vim-plugin_pkg_postrm"
+    "update_vim_afterscripts" "display_vim_plugin_help"))
 
 (defvar ebuild-mode-commands-sandbox
   '("adddeny" "addpredict" "addread" "addwrite"))
