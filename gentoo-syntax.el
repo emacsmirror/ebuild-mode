@@ -191,7 +191,7 @@ A formfeed is not considered whitespace by this function."
   '("dodb4-fix"))
 
 (defvar ebuild-mode-commands-64-bit
-  '("64-but"))
+  '("64-bit"))
 
 (defvar ebuild-mode-commands-xfce44
   '("xfce44_beta" "xfce44" "xfce44_gzipped" "xfce44_zipped" "xfce44_plugin" "xfce44_panel_plugin"
@@ -374,7 +374,7 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-python
   '("NEED_PYTHON" "DOCS" "python_version" "python_tkinter_exists" "python_mod_exists"
     "python_mod_compile" "python_mod_optimize" "python_mod_cleanup" "python_makesym"
-    "python_disably_pyc" "python_enable_pyc"))
+    "python_disable_pyc" "python_enable_pyc"))
 
 (defvar ebuild-mode-commands-common-lisp-common-3
   '("do-debian-credits" "standard-impl-postinst" "standard-impl-postrm"))
@@ -431,14 +431,14 @@ A formfeed is not considered whitespace by this function."
   '("perlinfo" "fixlocalpod" "updatepod"))
 
 (defvar ebuild-mode-commands-distutils
-  '("distutils_python_version" "disutils_python_tkinter"))
+  '("distutils_python_version" "distutils_python_tkinter"))
 
-(defvar ebuild-mode-commands-depend.apache
+(defvar ebuild-mode-commands-depend-apache
   '("need_apache" "need_apache1" "need_apache2"))
 
 (defvar ebuild-mode-commands-apache-module
   '("apache-module_pkg_setup" "apache-module_src_compile" "apache-module_src_install"
-    "apache-module_pkg_postinst" "acache_cd_dir" "apache_mod_file" "apache_doc_magic"))
+    "apache-module_pkg_postinst" "apache_cd_dir" "apache_mod_file" "apache_doc_magic"))
 
 (defvar ebuild-mode-commands-kernel-2
   '("debug-print-kernel2-variables" "handle_genpatches" "detect_version" "kernel_is"
@@ -489,7 +489,7 @@ A formfeed is not considered whitespace by this function."
    	(list ebuild-mode-commands-games-q3mod font-lock-type-face)
    	(list ebuild-mode-commands-games-ut2k4mod font-lock-type-face)
    	(list ebuild-mode-commands-games font-lock-type-face)
-   	(list ebuild-mode-commands-depend.apache font-lock-type-face)
+   	(list ebuild-mode-commands-depend-apache font-lock-type-face)
    	(list ebuild-mode-commands-apache-module font-lock-type-face)
    	(list ebuild-mode-commands-kernel-2 font-lock-type-face)
    	(list ebuild-mode-commands-kernel-mod font-lock-type-face)

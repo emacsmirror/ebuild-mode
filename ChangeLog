@@ -27,7 +27,7 @@
 	(ebuild-mode-commands-check-kernel): Added from marienz'
 	ebuild-mode
 	(ebuild-mode-commands-distutils): Added from marienz' ebuild-mode
-	(ebuild-mode-commands-depend.apache): Added from marienz' ebuild-mode
+	(ebuild-mode-commands-depend-apache): Added from marienz' ebuild-mode
 	(ebuild-mode-commands-apache-module): Added from marienz' ebuild-mode
 	(ebuild-mode-commands-gnome2): Added from marienz' ebuild-mode
 	added comment about deprecated eclasses
