@@ -429,6 +429,13 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-distutils
   '("distutils_python_version" "disutils_python_tkinter"))
 
+(defvar ebuild-mode-commands-depend.apache
+  '("need_apache" "need_apache1" "need_apache2"))
+
+(defvar ebuild-mode-commands-apache-module
+  '("apache-module_pkg_setup" "apache-module_src_compile" "apache-module_src_install"
+    "apache-module_pkg_postinst" "acache_cd_dir" "apache_mod_file" "apache_doc_magic"))
+
 (defvar ebuild-mode-commands-kernel-2
   '("debug-print-kernel2-variables" "handle_genpatches" "detect_version" "kernel_is"
     "kernel_is_2_4" "kernel_is_2_6" "kernel_header_destdir" "cross_pre_c_headers"
@@ -478,6 +485,8 @@ A formfeed is not considered whitespace by this function."
    	(list ebuild-mode-commands-games-q3mod font-lock-type-face)
    	(list ebuild-mode-commands-games-ut2k4mod font-lock-type-face)
    	(list ebuild-mode-commands-games font-lock-type-face)
+   	(list ebuild-mode-commands-depend.apache font-lock-type-face)
+   	(list ebuild-mode-commands-apache-module font-lock-type-face)
    	(list ebuild-mode-commands-kernel-2 font-lock-type-face)
    	(list ebuild-mode-commands-kernel-mod font-lock-type-face)
    	(list ebuild-mode-commands-check-kernel font-lock-type-face)
