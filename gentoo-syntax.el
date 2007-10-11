@@ -320,9 +320,8 @@ A formfeed is not considered whitespace by this function."
   '("stripdots" "mysql_check_version_range" "mysql_mv_patches" "mysql_version_is_at_least"
     "mysql_lib_symlinks"))
 
-;; commands for all Source Code Managment or other package system eclasses
 (defvar ebuild-mode-commands-cvs
-  '("cvs_src_unpack"))
+  '("cvs_src_unpack" "cvs-fetch"))
 
 (defvar ebuild-mode-commands-subversion
   '("subversion_src_unpack"))
