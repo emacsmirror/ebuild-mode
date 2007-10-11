@@ -122,6 +122,9 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-libtool
   '("elibtoolize" "uclibctoolize" "darwintoolize"))
 
+(defvar ebuild-mode-commands-fixheadtails
+  '("ht_fix_file" "ht_fix_all"))
+
 (defvar ebuild-mode-commands-darcs
   '("darcs_src_unpack"))
 
@@ -497,6 +500,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-freebsd font-lock-type-face)
 	(list ebuild-mode-commands-cron font-lock-type-face)
 	(list ebuild-mode-commands-libtool font-lock-type-face)
+	(list ebuild-mode-commands-fixheadtails font-lock-type-face)
 	(list ebuild-mode-commands-darcs font-lock-type-face)
 	(list ebuild-mode-commands-nsplugin font-lock-type-face)
 	(list ebuild-mode-commands-latex-package font-lock-type-face)
