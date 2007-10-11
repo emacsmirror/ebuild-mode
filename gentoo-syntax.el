@@ -414,7 +414,7 @@ A formfeed is not considered whitespace by this function."
   '("games_get_libdir" "egamesconf" "egamesinstall" "gameswrapper" "dogamesbin" "dogamessbin"
     "dogameslib" "dogameslib.a" "dogameslib.so" "newgamesbin" "newgamessbin" "games_make_wrapper"
     "gamesowners" "gamesperms" "prepgamesdirs" "gamesenv" "games_ut_unpack" "games_umod_unpack"
-    "games_link_mods"))
+    "games_link_mods" "games_ut_unpack"))
 
 (defvar ebuild-mode-commands-perl-app
   '("perl-app_src_prep"))
