@@ -390,6 +390,9 @@ A formfeed is not considered whitespace by this function."
   '("ruby_econf" "ruby_emake" "doruby" "ruby_einstall" "erubydoc" "erubyconf" "erubymake"
     "erubyinstall" "RUBY_OPTIONAL"))
 
+(defvar ebuild-mode-commands-check-kernel
+  '("is_2_4_kernel" "is_2_5_kernel" "is_2_6_kernel" "kernel_supports_modules"))
+
 (defvar ebuild-mode-commands-elisp-common
   '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
@@ -473,6 +476,7 @@ A formfeed is not considered whitespace by this function."
    	(list ebuild-mode-commands-games font-lock-type-face)
    	(list ebuild-mode-commands-kernel-2 font-lock-type-face)
    	(list ebuild-mode-commands-kernel-mod font-lock-type-face)
+   	(list ebuild-mode-commands-check-kernel font-lock-type-face)
    	(list ebuild-mode-commands-mysql font-lock-type-face)
    	(list ebuild-mode-commands-mysql_fx font-lock-type-face)
 	(list ebuild-mode-commands-gst-plugins10 font-lock-type-face)
