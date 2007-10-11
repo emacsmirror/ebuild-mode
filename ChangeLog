@@ -3,6 +3,8 @@
 	* gentoo-syntax.el (ebuild-mode-commands-flag-o-matic): Added
 	missing functions from marienz' ebuild-mode
 	added comment about deprecated eclasses
+	(ebuild-mode-commands-toolchain): Added missing functions from
+	marienz' ebuild-mode
 
 2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
 
