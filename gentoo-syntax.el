@@ -332,7 +332,7 @@ A formfeed is not considered whitespace by this function."
   '("cvs_src_unpack" "cvs-fetch"))
 
 (defvar ebuild-mode-commands-subversion
-  '("subversion_src_unpack"))
+  '("subversion_src_unpack" "subversion_svn_fetch" "subversion_bootstrap"))
 
 (defvar ebuild-mode-commands-git
   '("git_src_unpack"))
