@@ -369,7 +369,8 @@ A formfeed is not considered whitespace by this function."
 
 (defvar ebuild-mode-commands-python
   '("NEED_PYTHON" "DOCS" "python_version" "python_tkinter_exists" "python_mod_exists"
-    "python_mod_compile" "python_mod_optimize" "python_mod_cleanup" "python_makesym"))
+    "python_mod_compile" "python_mod_optimize" "python_mod_cleanup" "python_makesym"
+    "python_disably_pyc" "python_enable_pyc"))
 
 (defvar ebuild-mode-commands-common-lisp-common-3
   '("do-debian-credits" "standard-impl-postinst" "standard-impl-postrm"))
