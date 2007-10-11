@@ -119,7 +119,7 @@ A formfeed is not considered whitespace by this function."
     "fix_libtool_libdir_paths" "is_multilib" "is_cxx" "is_d" "is_f77" "is_f95"
     "is_fortran" "is_gcj" "is_objc" "is_objcxx" "is_ada"))
 
-(defvar ebuild-mode-commands-toolchain
+(defvar ebuild-mode-commands-libtool
   '("elibtoolize" "uclibctoolize" "darwintoolize"))
 
 (defvar ebuild-mode-commands-darcs
@@ -496,6 +496,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-qt4 font-lock-type-face)
 	(list ebuild-mode-commands-freebsd font-lock-type-face)
 	(list ebuild-mode-commands-cron font-lock-type-face)
+	(list ebuild-mode-commands-libtool font-lock-type-face)
 	(list ebuild-mode-commands-darcs font-lock-type-face)
 	(list ebuild-mode-commands-nsplugin font-lock-type-face)
 	(list ebuild-mode-commands-latex-package font-lock-type-face)
