@@ -31,6 +31,8 @@
 
 ;;; Code:
 
+;;; eclasses which use is deprecated: gcc
+
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
       ;; from simple.el of Emacs 22.1
