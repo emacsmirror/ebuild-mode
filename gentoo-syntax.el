@@ -426,6 +426,9 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-commands-perl-module
   '("perlinfo" "fixlocalpod" "updatepod"))
 
+(defvar ebuild-mode-commands-distutils
+  '("distutils_python_version" "disutils_python_tkinter"))
+
 (defvar ebuild-mode-commands-kernel-2
   '("debug-print-kernel2-variables" "handle_genpatches" "detect_version" "kernel_is"
     "kernel_is_2_4" "kernel_is_2_6" "kernel_header_destdir" "cross_pre_c_headers"
@@ -469,6 +472,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-functions font-lock-type-face)
    	(list ebuild-mode-commands-perl-app font-lock-type-face)
    	(list ebuild-mode-commands-perl-module font-lock-type-face)
+   	(list ebuild-mode-commands-distutils font-lock-type-face)
    	(list ebuild-mode-commands-games-etmod font-lock-type-face)
    	(list ebuild-mode-commands-games-mods font-lock-type-face)
    	(list ebuild-mode-commands-games-q3mod font-lock-type-face)
