@@ -16,6 +16,7 @@
 	from marienz' ebuild-mode
 	(ebuild-mode-commands-multilib): Added missing functions
 	from marienz' ebuild-mode
+	(ebuild-mode-commands-64-bit): Added from marienz' ebuild-mode
 
 2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
 
