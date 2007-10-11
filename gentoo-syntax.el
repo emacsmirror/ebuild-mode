@@ -302,6 +302,10 @@ A formfeed is not considered whitespace by this function."
   '("gnome2_gconf_install" "gconf_uninstall" "icon_cache_update" "gnome2_omf_fix"
     "gnome2_scrollkeeper_update"))
 
+(defvar ebuild-mode-commands-gnome2
+  '("gnome2_src_configure" "gnome2_src_compile" "gnome2_src_install" "gnome2_gconf_uninstall"
+    "gnome2_pkg_postinst" "gnome2_pkg_postrm"))
+
 (defvar ebuild-mode-commands-alternatives
   '("alternatives_pkg_postinst" "alternatives_pkg_postrm" "alternatives_makesym"
     "alternatives_auto_makesym"))
@@ -508,6 +512,7 @@ A formfeed is not considered whitespace by this function."
 	(list ebuild-mode-commands-eutils font-lock-type-face)
 	(list ebuild-mode-commands-bash-completion font-lock-type-face)
 	(list ebuild-mode-commands-gnome2-utils font-lock-type-face)
+	(list ebuild-mode-commands-gnome2 font-lock-type-face)
 	(list ebuild-mode-commands-fdo-mime font-lock-type-face)
 	(list ebuild-mode-commands-java-ant-2 font-lock-type-face)
 	(list ebuild-mode-commands-java-utils-2 font-lock-type-face)
