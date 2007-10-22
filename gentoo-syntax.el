@@ -388,7 +388,9 @@ A formfeed is not considered whitespace by this function."
     "reregister-all-common-lisp-implementations"))
 
 (defvar ebuild-mode-commands-common-lisp
-  '("common-lisp-system-symlink" "common-lisp-install"))
+  ;; common-lisp-system-symlink is obsolete
+  '("common-lisp-symlink-asdf" "common-lisp-system-symlink"
+    "common-lisp-install"))
 
 (defvar ebuild-mode-commands-ruby
   '("ruby_econf" "ruby_emake" "doruby" "ruby_einstall" "erubydoc" "erubyconf" "erubymake"
