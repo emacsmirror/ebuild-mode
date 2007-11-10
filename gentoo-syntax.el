@@ -596,6 +596,7 @@ A formfeed is not considered whitespace by this function."
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (setq sh-shell-file "/bin/bash")
+  (setq sh-shell 'bash)
   (setq tab-width 4)
   (setq indent-tabs-mode t)
   ;; run user-defined hooks

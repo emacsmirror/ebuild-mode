@@ -1,6 +1,7 @@
 2007-11-10  Ulrich Mueller  <ulm@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode): Set sh-shell-file to bash.
+	* gentoo-syntax.el (ebuild-mode): Set sh-shell-file to "/bin/bash"
+	and sh-shell to bash.
 
 2007-10-22  Ulrich Mueller  <ulm@gentoo.org>
 
