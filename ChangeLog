@@ -1,3 +1,7 @@
+2007-11-10  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode): Set sh-shell-file to bash.
+
 2007-10-22  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-commands-common-lisp):
