@@ -638,6 +638,7 @@ A formfeed is not considered whitespace by this function."
   (make-local-hook 'write-contents-hooks) ; needed for XEmacs
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
+  (sh-set-shell "bash")
   (setq tab-width 4)
   (setq indent-tabs-mode t))
 

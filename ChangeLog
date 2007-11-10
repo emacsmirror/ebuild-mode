@@ -1,6 +1,7 @@
 2007-11-10  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode): Set shell to bash.
+	(eselect-mode): Ditto.
 
 2007-10-22  Ulrich Mueller  <ulm@gentoo.org>
 
