@@ -667,7 +667,109 @@ A formfeed is not considered whitespace by this function."
 	 (list 'lambda '(mode) (concat "*ebuild " command "*"))))
     (compile (format "ebuild %s %s" buffer-file-name command))))
 
+
+;;; Modify package keywords.
+;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
+
+(defvar ebuild-mode-arch-stable-list
+  '("*" "alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
+    "s390" "sh" "sparc" "x86"))
+
+(defvar ebuild-mode-arch-list
+  `(,@ebuild-mode-arch-stable-list "sparc-fbsd" "x86-fbsd"))
+
+(defvar ebuild-mode-keywords-regexp
+  "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
+
+(defun ebuild-mode-get-keywords ()
+  (save-excursion
+    (goto-char (point-min))
+    (let ((case-fold-search nil))
+      (re-search-forward ebuild-mode-keywords-regexp)
+      (and (re-search-forward ebuild-mode-keywords-regexp nil t)
+	   (error "More than one KEYWORDS assignment found"))
+      (mapcar (lambda (s)
+		(string-match "^\\([-~]?\\)\\(.*\\)" s)
+		(cons (match-string 2 s) (match-string 1 s)))
+	      (split-string (match-string-no-properties 1))))))
+
+(defun ebuild-mode-put-keywords (kw)
+  (save-excursion
+    (goto-char (point-min))
+    (let ((case-fold-search nil))
+      (re-search-forward ebuild-mode-keywords-regexp)
+      (and (re-search-forward ebuild-mode-keywords-regexp nil t)
+	   (error "More than one KEYWORDS assignment found"))
+      (replace-match
+       (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
+       t t nil 1))))
+
+(defun ebuild-mode-sort-keywords (kw)
+  (sort kw
+	(lambda (a b)
+	  (cond ((string-equal (car a) "*") t)
+		((string-equal (car b) "*") nil)
+		(t (string-lessp (car a) (car b)))))))
+
+(defun ebuild-mode-modify-keywords (kw)
+  "Set keywords. KW is an alist of architectures and leaders."
+  (let ((keywords (ebuild-mode-get-keywords)))
+    (dolist (k kw)
+      (let* ((arch (car k))
+	     (leader (cdr k))
+	     (old-k (assoc arch keywords)))
+	(cond
+	 ;; remove keywords
+	 ((null leader)
+	  (setq keywords (and (not (string-equal arch "all"))
+			      (delq old-k keywords))))
+	 ;; modify all non-masked keywords in the list
+	 ((string-equal arch "all")
+	  (dolist (e keywords)
+	    (if (or (equal (cdr e) "") (equal (cdr e) "~"))
+		(setcdr e leader))))
+	 ;; modify keyword
+	 (old-k (setcdr old-k leader))
+	 ;; add keyword
+	 (t (setq keywords (append keywords (list k)))))))
+    (ebuild-mode-put-keywords
+     (ebuild-mode-sort-keywords keywords))))
+
+(defun ebuild-mode-keyword-stable (arch)
+  "Set stable keyword for ARCH."
+  (interactive
+   (list
+    (completing-read "Stable arch: "
+		     (mapcar 'list (cons "all" ebuild-mode-arch-stable-list))
+		     nil t)))
+  (ebuild-mode-modify-keywords `((,arch . ""))))
+
+(defun ebuild-mode-keyword-unstable (arch)
+  "Set unstable keyword for ARCH."
+  (interactive
+   (list
+    (completing-read "Unstable arch: "
+		     (mapcar 'list (cons "all" ebuild-mode-arch-list))
+		     nil t)))
+  (ebuild-mode-modify-keywords `((,arch . "~"))))
+
+(defun ebuild-mode-keyword-drop (arch)
+  "Drop keyword for ARCH."
+  (interactive
+   (list
+    (completing-read "Drop arch: "
+		     (mapcar 'list (cons "all" ebuild-mode-arch-list))
+		     nil t)))
+  (ebuild-mode-modify-keywords `((,arch . nil))))
+
+
+;;; Keybindings.
+
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
+;; The following three keybindings are preliminary and may change again.
+(define-key ebuild-mode-map "\C-c\C-s" 'ebuild-mode-keyword-stable)
+(define-key ebuild-mode-map "\C-c\C-u" 'ebuild-mode-keyword-unstable)
+(define-key ebuild-mode-map "\C-c\C-d" 'ebuild-mode-keyword-drop)
 
 (and (< emacs-major-version 22)
      ;; make TAB key work
