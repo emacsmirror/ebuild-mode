@@ -2,6 +2,9 @@
 
 	* gentoo-syntax.el (ebuild-mode): Set shell to bash.
 	(eselect-mode): Ditto.
+	(ebuild-commands-list): New variable, replaces previous alist.
+	(ebuild-run-command): Use it.
+	Add local variables block to declare utf-8 encoding.
 
 2007-10-22  Ulrich Mueller  <ulm@gentoo.org>
 

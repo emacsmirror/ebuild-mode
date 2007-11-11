@@ -642,18 +642,21 @@ A formfeed is not considered whitespace by this function."
   (setq tab-width 4)
   (setq indent-tabs-mode t))
 
-(defvar ebuild-commands-alist
-  (mapcar 'list
-	  '("help" "setup" "fetch" "digest" "manifest" "unpack" "compile"
-	    "test" "preinst" "postinst" "install" "qmerge" "merge"
-	    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean")))
+
+;;; Run ebuild command.
+
+(defvar ebuild-commands-list
+  '("help" "setup" "fetch" "digest" "manifest" "unpack" "compile"
+    "test" "preinst" "postinst" "install" "qmerge" "merge"
+    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean"))
 
 ;;;###autoload
 (defun ebuild-run-command (command)
   "Run ebuild COMMAND, with output to a compilation buffer."
   (interactive
-   (list (completing-read
-	  "Run ebuild command: " ebuild-commands-alist nil t)))
+   (list (completing-read "Run ebuild command: "
+			  (mapcar 'list ebuild-commands-list)
+			  nil t)))
   (or (assoc command ebuild-commands-alist)
       (error "Ebuild command \"%s\" not known" command))
   (let ((process-environment
@@ -685,5 +688,9 @@ A formfeed is not considered whitespace by this function."
 
 (provide 'gentoo-syntax)
 (provide 'ebuild-mode)			; backwards compatibility
+
+;; Local Variables:
+;; coding: utf-8
+;; End:
 
 ;;; gentoo-syntax.el ends here
