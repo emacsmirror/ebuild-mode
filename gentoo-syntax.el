@@ -672,8 +672,8 @@ A formfeed is not considered whitespace by this function."
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
 
 (defvar ebuild-mode-arch-stable-list
-  '("*" "alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
-    "s390" "sh" "sparc" "x86"))
+  '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
+    "ppc-macos" "s390" "sh" "sparc" "x86"))
 
 (defvar ebuild-mode-arch-list
   `(,@ebuild-mode-arch-stable-list "sparc-fbsd" "x86-fbsd"))
@@ -681,28 +681,30 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-keywords-regexp
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
-(defun ebuild-mode-get-keywords ()
+(defun ebuild-mode-get-keywords (&optional noerror)
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (re-search-forward ebuild-mode-keywords-regexp)
-      (and (re-search-forward ebuild-mode-keywords-regexp nil t)
-	   (error "More than one KEYWORDS assignment found"))
-      (mapcar (lambda (s)
-		(string-match "^\\([-~]?\\)\\(.*\\)" s)
-		(cons (match-string 2 s) (match-string 1 s)))
-	      (split-string (match-string-no-properties 1))))))
+      (and (re-search-forward ebuild-mode-keywords-regexp nil noerror)
+	   (not (and (re-search-forward ebuild-mode-keywords-regexp nil t)
+		     (or noerror
+			 (error "More than one KEYWORDS assignment found"))))
+	   (mapcar (lambda (s)
+		     (string-match "^\\([-~]?\\)\\(.*\\)" s)
+		     (cons (match-string 2 s) (match-string 1 s)))
+		   (split-string (match-string-no-properties 1)))))))
 
-(defun ebuild-mode-put-keywords (kw)
+(defun ebuild-mode-put-keywords (kw &optional noerror)
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (re-search-forward ebuild-mode-keywords-regexp)
-      (and (re-search-forward ebuild-mode-keywords-regexp nil t)
-	   (error "More than one KEYWORDS assignment found"))
-      (replace-match
-       (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
-       t t nil 1))))
+      (and (re-search-forward ebuild-mode-keywords-regexp nil noerror)
+	   (not (and (re-search-forward ebuild-mode-keywords-regexp nil t)
+		     (or noerror
+			 (error "More than one KEYWORDS assignment found"))))
+	   (replace-match
+	    (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
+	    t t nil 1)))))
 
 (defun ebuild-mode-sort-keywords (kw)
   (sort kw
@@ -726,8 +728,13 @@ A formfeed is not considered whitespace by this function."
 	 ;; modify all non-masked keywords in the list
 	 ((string-equal arch "all")
 	  (dolist (e keywords)
-	    (if (or (equal (cdr e) "") (equal (cdr e) "~"))
-		(setcdr e leader))))
+	    (and (or (equal (cdr e) "")
+		     (equal (cdr e) "~"))
+		 (member (car e)
+			 (if (equal leader "")
+			     ebuild-mode-arch-stable-list
+			   ebuild-mode-arch-list))
+		 (setcdr e leader))))
 	 ;; modify keyword
 	 (old-k (setcdr old-k leader))
 	 ;; add keyword
@@ -753,12 +760,23 @@ A formfeed is not considered whitespace by this function."
 		     nil t)))
   (ebuild-mode-modify-keywords `((,arch . "~"))))
 
+(defun ebuild-mode-keyword-mask (arch)
+  "Mask keyword for ARCH."
+  (interactive
+   (list
+    (completing-read "Mask arch: "
+		     (mapcar 'list (append '("all" "*")
+					   ebuild-mode-arch-list))
+		     nil t)))
+  (ebuild-mode-modify-keywords `((,arch . "-"))))
+
 (defun ebuild-mode-keyword-drop (arch)
   "Drop keyword for ARCH."
   (interactive
    (list
     (completing-read "Drop arch: "
-		     (mapcar 'list (cons "all" ebuild-mode-arch-list))
+		     (mapcar 'list (append '("all" "*")
+					   ebuild-mode-arch-list))
 		     nil t)))
   (ebuild-mode-modify-keywords `((,arch . nil))))
 
@@ -766,9 +784,10 @@ A formfeed is not considered whitespace by this function."
 ;;; Keybindings.
 
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-;; The following three keybindings are preliminary and may change again.
+;; The following four keybindings are preliminary and may change.
 (define-key ebuild-mode-map "\C-c\C-s" 'ebuild-mode-keyword-stable)
 (define-key ebuild-mode-map "\C-c\C-u" 'ebuild-mode-keyword-unstable)
+(define-key ebuild-mode-map "\C-c\C-m" 'ebuild-mode-keyword-mask)
 (define-key ebuild-mode-map "\C-c\C-d" 'ebuild-mode-keyword-drop)
 
 (and (< emacs-major-version 22)

@@ -3,7 +3,8 @@
 	* gentoo-syntax.el (ebuild-mode-get-keywords)
 	(ebuild-mode-put-keywords, ebuild-mode-sort-keywords)
 	(ebuild-mode-modify-keywords, ebuild-mode-keyword-stable)
-	(ebuild-mode-keyword-unstable, ebuild-mode-keyword-drop):
+	(ebuild-mode-keyword-unstable, ebuild-mode-keyword-mask)
+	(ebuild-mode-keyword-drop):
 	New functions for package keyword modification.
 	(ebuild-mode-arch-stable-list, ebuild-mode-arch-list)
 	(ebuild-mode-keywords-regexp): New variables.
