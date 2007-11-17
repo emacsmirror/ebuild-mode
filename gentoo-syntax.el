@@ -742,53 +742,68 @@ A formfeed is not considered whitespace by this function."
     (ebuild-mode-put-keywords
      (ebuild-mode-sort-keywords keywords))))
 
-(defun ebuild-mode-keyword-stable (arch)
-  "Set stable keyword for ARCH."
+(defun ebuild-mode-keyword (arch mode)
+  "Keyword manipulation."
   (interactive
    (list
-    (completing-read "Stable arch: "
-		     (mapcar 'list (cons "all" ebuild-mode-arch-stable-list))
-		     nil t)))
-  (ebuild-mode-modify-keywords `((,arch . ""))))
+    (completing-read "Architecture: "
+		     (mapcar 'list
+			     (append '("all" "*") ebuild-mode-arch-list))
+		     nil t)
+    (let ((compl-alist
+	   '(("unstable" . "~")
+	     ("stable" . "")
+	     ("mask" . "-")
+	     ("drop" . nil))))
+      (cdr (assoc (completing-read "Action: " compl-alist
+				   nil t nil nil "unstable")
+		  compl-alist)))))
+  (ebuild-mode-modify-keywords (list (cons arch mode))))
 
-(defun ebuild-mode-keyword-unstable (arch)
-  "Set unstable keyword for ARCH."
-  (interactive
-   (list
-    (completing-read "Unstable arch: "
-		     (mapcar 'list (cons "all" ebuild-mode-arch-list))
-		     nil t)))
-  (ebuild-mode-modify-keywords `((,arch . "~"))))
+(defun ebuild-mode-ekeyword-complete (s predicate mode)
+  (string-match "^\\(.*[[:space:]]\\)?\\(.*\\)$" s)
+  (let* ((s1 (match-string 1 s))
+	 (s2 (match-string 2 s))
+	 (c2 (funcall
+	      (cond ((null mode) 'try-completion)
+		    ((eq mode t) 'all-completions)
+		    ((eq mode 'lambda) 'test-completion))
+	      s2 
+	      (mapcar 'list
+		      (if (string-equal s2 "")
+			  '("" "~" "-" "^")
+			(string-match "^\\([-^~]?\\)" s2)
+			(mapcar
+			 (lambda (x) (concat (match-string 1 s2) x " "))
+			 (cond ((equal (match-string 1 s2) "")
+				(cons "all" ebuild-mode-arch-stable-list))
+			       ((equal (match-string 1 s2) "~")
+				(cons "all" ebuild-mode-arch-list))
+			       (t
+				(append '("all" "*")
+					ebuild-mode-arch-list))))))
+	      predicate)))
+    (if (stringp c2) (concat s1 c2) c2)))
 
-(defun ebuild-mode-keyword-mask (arch)
-  "Mask keyword for ARCH."
-  (interactive
-   (list
-    (completing-read "Mask arch: "
-		     (mapcar 'list (append '("all" "*")
-					   ebuild-mode-arch-list))
-		     nil t)))
-  (ebuild-mode-modify-keywords `((,arch . "-"))))
-
-(defun ebuild-mode-keyword-drop (arch)
-  "Drop keyword for ARCH."
-  (interactive
-   (list
-    (completing-read "Drop arch: "
-		     (mapcar 'list (append '("all" "*")
-					   ebuild-mode-arch-list))
-		     nil t)))
-  (ebuild-mode-modify-keywords `((,arch . nil))))
+(defun ebuild-mode-ekeyword (keywords)
+  "Keyword manipulation. Accepts the same input format as ekeyword."
+  (interactive 
+   (list (completing-read "Keywords: " 'ebuild-mode-ekeyword-complete)))
+  (ebuild-mode-modify-keywords
+   (mapcar (lambda (s)
+	     (string-match "^\\([-^~]?\\)\\(.*\\)" s)
+	     (cons (match-string 2 s)
+		   (and (not (equal (match-string 1 s) "^"))
+			(match-string 1 s))))
+	   (split-string keywords))))
 
 
 ;;; Keybindings.
 
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-;; The following four keybindings are preliminary and may change.
-(define-key ebuild-mode-map "\C-c\C-s" 'ebuild-mode-keyword-stable)
-(define-key ebuild-mode-map "\C-c\C-u" 'ebuild-mode-keyword-unstable)
-(define-key ebuild-mode-map "\C-c\C-m" 'ebuild-mode-keyword-mask)
-(define-key ebuild-mode-map "\C-c\C-d" 'ebuild-mode-keyword-drop)
+;; The following two keybindings are preliminary and may change.
+(define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
+(define-key ebuild-mode-map "\C-c\C-a" 'ebuild-mode-ekeyword)
 
 (and (< emacs-major-version 22)
      ;; make TAB key work

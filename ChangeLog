@@ -2,6 +2,12 @@
 
 	* gentoo-syntax.el (ebuild-run-command): Bug fix, use
 	ebuild-commands-list instead of alist.
+	(ebuild-mode-keyword, ebuild-mode-ekeyword-complete)
+	(ebuild-mode-ekeyword): New functions, rewritten user interface.
+	(ebuild-mode-map): Keybindings adapted accordingly.
+	(ebuild-mode-keyword-stable, ebuild-mode-keyword-unstable)
+	(ebuild-mode-keyword-mask, ebuild-mode-keyword-drop):
+	Functions removed.
 
 2007-11-11  Ulrich Mueller  <ulm@gentoo.org>
 
