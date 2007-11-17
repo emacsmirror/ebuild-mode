@@ -1,3 +1,8 @@
+2007-11-17  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-run-command): Bug fix, use
+	ebuild-commands-list instead of alist.
+
 2007-11-11  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-get-keywords)

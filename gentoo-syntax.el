@@ -657,7 +657,7 @@ A formfeed is not considered whitespace by this function."
    (list (completing-read "Run ebuild command: "
 			  (mapcar 'list ebuild-commands-list)
 			  nil t)))
-  (or (assoc command ebuild-commands-alist)
+  (or (member command ebuild-commands-list)
       (error "Ebuild command \"%s\" not known" command))
   (let ((process-environment
 	 (cons "NOCOLOR=true" process-environment))
