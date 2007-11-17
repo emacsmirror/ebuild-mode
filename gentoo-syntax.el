@@ -772,16 +772,15 @@ A formfeed is not considered whitespace by this function."
 	      (mapcar 'list
 		      (if (string-equal s2 "")
 			  '("" "~" "-" "^")
-			(string-match "^\\([-^~]?\\)" s2)
-			(mapcar
-			 (lambda (x) (concat (match-string 1 s2) x " "))
-			 (cond ((equal (match-string 1 s2) "")
-				(cons "all" ebuild-mode-arch-stable-list))
-			       ((equal (match-string 1 s2) "~")
-				(cons "all" ebuild-mode-arch-list))
-			       (t
-				(append '("all" "*")
-					ebuild-mode-arch-list))))))
+			(string-match "^[-^~]?" s2)
+			(let ((s3 (match-string 0 s2)))
+			  (mapcar (lambda (x) (concat s3 x " "))
+				  (append '("all")
+					  (and (member s3 '("-" "^"))
+					       '("*"))
+					  (if (equal s3 "")
+					      ebuild-mode-arch-stable-list
+					    ebuild-mode-arch-list))))))
 	      predicate)))
     (if (stringp c2) (concat s1 c2) c2)))
 
