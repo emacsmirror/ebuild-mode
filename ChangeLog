@@ -8,6 +8,8 @@
 	gentoo-syntax.el.
 
 	* gentoo-syntax.el: Move keyword lists to new files and load them.
+	(ebuild-mode-keyword): Ask first for the action, then for the
+	architecture. Suggestion by Flameeyes.
 
 2007-11-17  Ulrich Mueller  <ulm@gentoo.org>
 

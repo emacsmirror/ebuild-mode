@@ -212,23 +212,23 @@ A formfeed is not considered whitespace by this function."
     (ebuild-mode-put-keywords
      (ebuild-mode-sort-keywords keywords))))
 
-(defun ebuild-mode-keyword (arch mode)
+(defun ebuild-mode-keyword (action arch)
   "Keyword manipulation."
   (interactive
    (list
-    (completing-read "Architecture: "
-		     (mapcar 'list
-			     (append '("all" "*") ebuild-mode-arch-list))
-		     nil t)
-    (let ((compl-alist
+    (let ((action-alist
 	   '(("unstable" . "~")
 	     ("stable" . "")
 	     ("mask" . "-")
 	     ("drop" . nil))))
-      (cdr (assoc (completing-read "Action: " compl-alist
+      (cdr (assoc (completing-read "Action: " action-alist
 				   nil t nil nil "unstable")
-		  compl-alist)))))
-  (ebuild-mode-modify-keywords (list (cons arch mode))))
+		  action-alist)))
+    (completing-read "Architecture: "
+		     (mapcar 'list
+			     (append '("all" "*") ebuild-mode-arch-list))
+		     nil t)))
+  (ebuild-mode-modify-keywords (list (cons arch action))))
 
 (defun ebuild-mode-ekeyword-complete (s predicate mode)
   (string-match "^\\(.*[[:space:]]\\)?\\(.*\\)$" s)
