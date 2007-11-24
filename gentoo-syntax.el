@@ -267,12 +267,25 @@ A formfeed is not considered whitespace by this function."
 	   (split-string keywords))))
 
 
+;;; echangelog support.
+
+(defun ebuild-mode-echangelog (text)
+  (interactive "sLog entry: ")
+  (with-current-buffer (get-buffer-create "*echangelog*")
+    (setq buffer-read-only nil)
+    (erase-buffer)
+    (display-buffer (current-buffer))
+    (call-process "echangelog" nil t nil text)))
+
+
 ;;; Keybindings.
 
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-;; The following two keybindings are preliminary and may change.
+;; The following keybindings are preliminary and may change
+;; without prior warning.
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-a" 'ebuild-mode-ekeyword)
+(define-key ebuild-mode-map "\C-c\C-l" 'ebuild-mode-echangelog)
 
 (and (< emacs-major-version 22)
      ;; make TAB key work
