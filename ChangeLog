@@ -1,3 +1,14 @@
+2007-11-24  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Makefile (DISTFILES): Add new files.
+
+	* eselect-mode-keywords.el: Ditto.
+
+	* ebuild-mode-keywords.el: New file, split off from
+	gentoo-syntax.el.
+
+	* gentoo-syntax.el: Move keyword lists to new files and load them.
+
 2007-11-17  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-run-command): Bug fix, use
