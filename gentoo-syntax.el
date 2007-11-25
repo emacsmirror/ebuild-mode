@@ -269,7 +269,7 @@ A formfeed is not considered whitespace by this function."
 
 ;;; echangelog support.
 
-(defun ebuild-mode-echangelog (text)
+(defun ebuild-run-echangelog (text)
   (interactive "sLog entry: ")
   (with-current-buffer (get-buffer-create "*echangelog*")
     (setq buffer-read-only nil)
@@ -279,13 +279,14 @@ A formfeed is not considered whitespace by this function."
 
 
 ;;; Keybindings.
+;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
 
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
 ;; The following keybindings are preliminary and may change
 ;; without prior warning.
+(define-key ebuild-mode-map "\C-c\C-a" 'ebuild-run-echangelog)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
-(define-key ebuild-mode-map "\C-c\C-a" 'ebuild-mode-ekeyword)
-(define-key ebuild-mode-map "\C-c\C-l" 'ebuild-mode-echangelog)
+(define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
 
 (and (< emacs-major-version 22)
      ;; make TAB key work

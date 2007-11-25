@@ -10,7 +10,7 @@
 	* gentoo-syntax.el: Move keyword lists to new files and load them.
 	(ebuild-mode-keyword): Ask first for the action, then for the
 	architecture. Suggestion by Flameeyes.
-	(ebuild-mode-echangelog): New function, support for echangelog.
+	(ebuild-run-echangelog): New function, support for echangelog.
 
 2007-11-17  Ulrich Mueller  <ulm@gentoo.org>
 
