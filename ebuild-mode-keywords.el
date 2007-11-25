@@ -413,7 +413,7 @@
 
 (defvar ebuild-mode-keywords-games-mods
   '("default_client" "games-mods_make_ded_exec" "games-mods_make_init.d"
-    "games-mods_make_conf.d"))`
+    "games-mods_make_conf.d"))
 
 (defvar ebuild-mode-keywords-games-q3mod
   '("games-q3mod_make_q3ded_exec" "games-q3mod_make_quake3_exec"
