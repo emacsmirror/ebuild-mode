@@ -1,3 +1,8 @@
+2007-11-26  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-run-echangelog): Fix bug that the
+	default directory was still the one from the previous command.
+
 2007-11-24  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Makefile (DISTFILES): Add new files.

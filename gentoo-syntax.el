@@ -271,16 +271,14 @@ A formfeed is not considered whitespace by this function."
 
 (defun ebuild-run-echangelog (text)
   (interactive "sLog entry: ")
-  (with-current-buffer (get-buffer-create "*echangelog*")
-    (setq buffer-read-only nil)
-    (erase-buffer)
-    (display-buffer (current-buffer))
-    (call-process "echangelog" nil t nil text)))
+  (let ((bufname "*echangelog*"))
+    (with-output-to-temp-buffer bufname
+      (call-process "echangelog" nil (get-buffer bufname) nil text))))
 
 
 ;;; Keybindings.
-;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
 
+;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
 ;; The following keybindings are preliminary and may change
 ;; without prior warning.
