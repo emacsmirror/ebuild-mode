@@ -1,3 +1,7 @@
+2007-12-15  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.8 released.
+
 2007-11-26  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-run-echangelog): Fix bug that the
@@ -222,7 +226,7 @@
 
 2007-06-21  Ulrich Mueller  <ulm@gentoo.org>
 
-	* Version 1.6 released
+	* Version 1.6 released.
 
 	* gentoo-syntax.el: Rename file.
 	(interpreter-mode-alist): Syntax highlighting for Gentoo init
