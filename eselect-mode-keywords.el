@@ -1,6 +1,13 @@
 ;;; eselect-mode-keywords.el
 
-;; Copyright (C) 2007  Gentoo Foundation
+;; Copyright 2006-2007 Gentoo Foundation
+
+;; Author: Matthew Kennedy <mkennedy@gentoo.org>
+;;	Diego Pettenò <flameeyes@gentoo.org>
+;;	Christian Faulhammer <opfer@gentoo.org>
+;;	Ulrich Müller <ulm@gentoo.org>
+;; Maintainer: <emacs@gentoo.org>
+;; Keywords: languages
 
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -13,9 +20,9 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-;; Boston, MA 02111-1307, USA.
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
 
 ;;; Commentary:
 
@@ -51,5 +58,10 @@
 	(list eselect-mode-keywords-3 font-lock-warning-face)
 	(list eselect-mode-keywords-eselect font-lock-type-face)
 	(list eselect-mode-keywords-5 font-lock-type-face))))
+
+;; Local Variables:
+;; coding: utf-8
+;; fill-column: 78
+;; End:
 
 ;;; eselect-mode-keywords.el ends here

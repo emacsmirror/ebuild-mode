@@ -1,14 +1,15 @@
-;;; gentoo-syntax.el --- a mode for editing .ebuild, .eclass and .eselect files.
+;;; gentoo-syntax.el --- modes for editing Gentoo specific files
 
-;; Copyright (C) 2006-2007  Gentoo Foundation
+;; Copyright 2006-2007 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
-;; Author: Diego Pettenò <flameeyes@gentoo.org>
-;; Author: Christian Faulhammer <opfer@gentoo.org>
-;; Author: Ulrich Müller <ulm@gentoo.org>
-;; Keywords: convenience
+;;	Diego Pettenò <flameeyes@gentoo.org>
+;;	Christian Faulhammer <opfer@gentoo.org>
+;;	Ulrich Müller <ulm@gentoo.org>
+;; Maintainer: <emacs@gentoo.org>
 ;; Version: 1.8
-;;
+;; Keywords: languages, processes
+
 ;; This file is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
 ;; the Free Software Foundation; either version 2, or (at your option)
@@ -20,9 +21,9 @@
 ;; GNU General Public License for more details.
 
 ;; You should have received a copy of the GNU General Public License
-;; along with GNU Emacs; see the file COPYING.  If not, write to
-;; the Free Software Foundation, Inc., 59 Temple Place - Suite 330,
-;; Boston, MA 02111-1307, USA.
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
 
 ;;; Commentary:
 
