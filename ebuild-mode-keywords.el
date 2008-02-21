@@ -1,6 +1,6 @@
 ;;; ebuild-mode-keywords.el
 
-;; Copyright 2006-2007 Gentoo Foundation
+;; Copyright 2006-2008 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
@@ -326,7 +326,7 @@
 
 (defvar ebuild-mode-keywords-pam
   '("dopamd" "newpamd" "dopamsecurity" "newpamsecurity" "getpam_mod_dir"
-    "dopammod" "newpammod" "pamd_mimic_system" "clean_pamd"))
+    "dopammod" "newpammod" "pamd_mimic" "clean_pamd"))
 
 (defvar ebuild-mode-keywords-mysql
   '("bitkeeper_fetch" "mysql_disable_test" "mysql_init_vars"

@@ -1,3 +1,8 @@
+2008-02-21  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-pam):
+	Change "pamd_mimic_system" in "pamd_mimic".
+
 2007-12-15  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Version 1.8 released.
