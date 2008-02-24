@@ -1,13 +1,13 @@
 ;;; gentoo-syntax.el --- modes for editing Gentoo specific files
 
-;; Copyright 2006-2007 Gentoo Foundation
+;; Copyright 2006-2008 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
 ;;	Christian Faulhammer <opfer@gentoo.org>
 ;;	Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Version: 1.8
+;; Version: 1.9_pre
 ;; Keywords: languages, processes
 
 ;; This file is free software; you can redistribute it and/or modify
@@ -143,11 +143,11 @@ A formfeed is not considered whitespace by this function."
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
 
 (defvar ebuild-mode-arch-stable-list
-  '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
-    "ppc-macos" "s390" "sh" "sparc" "x86"))
+  '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "ppc" "ppc64"
+    "s390" "sh" "sparc" "x86"))
 
 (defvar ebuild-mode-arch-list
-  `(,@ebuild-mode-arch-stable-list "sparc-fbsd" "x86-fbsd"))
+  `(,@ebuild-mode-arch-stable-list "mips" "sparc-fbsd" "x86-fbsd"))
 
 (defvar ebuild-mode-keywords-regexp
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
