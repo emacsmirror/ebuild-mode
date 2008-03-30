@@ -4,6 +4,8 @@
 	quieten the byte-compiler.
 	(ebuild-mode): Call make-local-hook only for XEmacs.
 	(eselect-mode): Ditto.
+	(ebuild-mode-get-keywords): Don't use match-string-no-properties
+	since the function doesn't exist in XEmacs 21.4.
 
 2008-02-24  Ulrich Mueller  <ulm@gentoo.org>
 
