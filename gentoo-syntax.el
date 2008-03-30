@@ -29,6 +29,8 @@
 
 ;;; Code:
 
+(require 'sh-script)
+
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
       ;; from simple.el of Emacs 22.1
@@ -92,7 +94,9 @@ A formfeed is not considered whitespace by this function."
 ;;;###autoload
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
   "Major mode for Portage .ebuild and .eclass files."
-  (make-local-hook 'write-contents-hooks) ; needed for XEmacs
+  (if (featurep 'xemacs)
+      ;; make-local-hook gives a byte-compiler warning in GNU Emacs
+      (make-local-hook 'write-contents-hooks))
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (sh-set-shell "bash")
@@ -104,7 +108,8 @@ A formfeed is not considered whitespace by this function."
 ;;;###autoload
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
   "Major mode for .eselect files."
-  (make-local-hook 'write-contents-hooks) ; needed for XEmacs
+  (if (featurep 'xemacs)
+      (make-local-hook 'write-contents-hooks))
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (sh-set-shell "bash")
