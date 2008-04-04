@@ -1,3 +1,6 @@
+# Copyright 2007-2008 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
 PN = gentoo-syntax
 PV = $(shell sed '/^[ \t]*\* .*[Vv]ersion/!d;s/[^0-9.]*\([0-9.]*\).*/\1/;q' \
 	ChangeLog)
