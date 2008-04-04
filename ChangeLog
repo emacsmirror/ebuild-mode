@@ -2,8 +2,7 @@
 
 	* gentoo-syntax.el (sh-script): Require sh-script, in order to
 	quieten the byte-compiler.
-	(ebuild-mode): Call make-local-hook only for XEmacs.
-	(eselect-mode): Ditto.
+	(ebuild-mode, eselect-mode): Call make-local-hook only for XEmacs.
 	(ebuild-mode-get-keywords): Don't use match-string-no-properties
 	since the function doesn't exist in XEmacs 21.4.
 
@@ -28,12 +27,9 @@
 
 2007-11-24  Ulrich Mueller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el, eselect-mode-keywords.el:
+	New files, split off from gentoo-syntax.el.
 	* Makefile (DISTFILES): Add new files.
-
-	* eselect-mode-keywords.el: Ditto.
-
-	* ebuild-mode-keywords.el: New file, split off from
-	gentoo-syntax.el.
 
 	* gentoo-syntax.el: Move keyword lists to new files and load them.
 	(ebuild-mode-keyword): Ask first for the action, then for the
@@ -65,8 +61,7 @@
 
 2007-11-10  Ulrich Mueller  <ulm@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode): Set shell to bash.
-	(eselect-mode): Ditto.
+	* gentoo-syntax.el (ebuild-mode, eselect-mode): Set shell to bash.
 	(ebuild-commands-list): New variable, replaces previous alist.
 	(ebuild-run-command): Use it.
 	Add local variables block to declare utf-8 encoding.
@@ -79,49 +74,38 @@
 
 2007-10-11  Christian Faulhammer  <opfer@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-commands-flag-o-matic): Added
-	missing functions from marienz' ebuild-mode
-	(ebuild-mode-commands-toolchain): Added missing functions from
-	marienz' ebuild-mode
-	(ebuild-mode-commands-fixheadtails): Added from marienz'
-	ebuild-mode
-	(ebuild-mode-commands-webapp): Added from marienz' ebuild-mode
-	(ebuild-mode-commands-cvs): Added missing functions from
-	marienz' ebuild-mode
-	(ebuild-mode-commands-bash-completion): Added missing functions
-	from marienz' ebuild-mode
-	(ebuild-mode-commands-vim-plugin): Added missing functions
-	from marienz' ebuild-mode
-	(ebuild-mode-commands-multilib): Added missing functions
-	from marienz' ebuild-mode
-	(ebuild-mode-commands-64-bit): Added from marienz' ebuild-mode
-	(ebuild-mode-commands-toolchain-funcs): Added missing functions
-	from marienz' ebuild-mode
-	(ebuild-mode-commands-games): Added missing functions from
-	marienz' ebuild-mode
-	(ebuild-mode-commands-subversion): Added missing functions from
-	marienz' ebuild-mode
-	(ebuild-mode-commands-python): Added missing functions from
-	marienz' ebuild-mode
-	(ebuild-mode-commands-check-kernel): Added from marienz'
-	ebuild-mode
-	(ebuild-mode-commands-distutils): Added from marienz' ebuild-mode
-	(ebuild-mode-commands-depend-apache): Added from marienz' ebuild-mode
-	(ebuild-mode-commands-apache-module): Added from marienz' ebuild-mode
-	(ebuild-mode-commands-gnome2): Added from marienz' ebuild-mode
-	added comment about deprecated eclasses
+	* gentoo-syntax.el (ebuild-mode-commands-flag-o-matic)
+	(ebuild-mode-commands-toolchain)
+	(ebuild-mode-commands-fixheadtails)
+	(ebuild-mode-commands-webapp)
+	(ebuild-mode-commands-cvs)
+	(ebuild-mode-commands-bash-completion)
+	(ebuild-mode-commands-vim-plugin)
+	(ebuild-mode-commands-multilib)
+	(ebuild-mode-commands-64-bit)
+	(ebuild-mode-commands-toolchain-funcs)
+	(ebuild-mode-commands-games)
+	(ebuild-mode-commands-subversion)
+	(ebuild-mode-commands-python)
+	(ebuild-mode-commands-check-kernel)
+	(ebuild-mode-commands-distutils)
+	(ebuild-mode-commands-depend-apache)
+	(ebuild-mode-commands-apache-module)
+	(ebuild-mode-commands-gnome2):
+	Added missing functions from marienz' ebuild-mode.
+	Added comment about deprecated eclasses.
 
 2007-10-09  Christian Faulhammer  <opfer@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-commands-functions): Added
-	standard functions of ebuild.sh
+	* gentoo-syntax.el (ebuild-mode-commands-functions):
+	Added standard functions of ebuild.sh
 	(ebuild-mode-commands-eutils): Added missing functions from
 	marienz' ebuild-mode
 
 2007-09-22  Ulrich Mueller  <ulm@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-commands-toolchain-funcs): Remove
-	spurious braces from tc-getBUILD_CC keyword.
+	* gentoo-syntax.el (ebuild-mode-commands-toolchain-funcs):
+	Remove spurious braces from tc-getBUILD_CC keyword.
 	(ebuild-mode-commands-php-common-r1): Add a space.
 
 2007-09-01  Ulrich Mueller  <ulm@gentoo.org>
