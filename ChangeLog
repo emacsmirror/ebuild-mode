@@ -1,3 +1,9 @@
+2008-09-07  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Add EAPI
+	variable, so it gets highlighted
+	Remove all occurrences of PHP 4 functions
+
 2008-05-08  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Version 1.9 released.

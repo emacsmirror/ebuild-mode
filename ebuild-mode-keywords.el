@@ -2,7 +2,7 @@
 
 ;; Copyright 2006-2008 Gentoo Foundation
 
-;; Author: Matthew Kennedy <mkennedy@gentoo.org>
+;; Authors: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
 ;;	Christian Faulhammer <opfer@gentoo.org>
 ;;	Ulrich Müller <ulm@gentoo.org>
@@ -24,7 +24,7 @@
 
 ;;; Commentary:
 
-;; The commands have been grouped into lists of source (eclass).
+;; The commands have been grouped into lists of source (mainly eclass).
 ;; We map each set of keywords to the basic faces: font-lock-*-face.
 
 ;;; Code:
@@ -51,7 +51,7 @@
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
-  '("which"))
+  '("which" "EAPI"))
 
 (defvar ebuild-mode-keywords-gnustep-funcs
   '("egnustep_prefix" "egnustep_install_domain" "egnustep_env"
@@ -142,10 +142,6 @@
 (defvar ebuild-mode-keywords-php-sapi
   '("php-sapi_is_providerbuild" "php-sapi_check_java_config"
     "php-sapi_securityupgrade" "php-sapi_warning_mssql_freetds"))
-
-(defvar ebuild-mode-keywords-php4_4-sapi
-  '("php4_4-sapi_check_use_flags" "php4_4-sapi_set_php_ini_dir"
-    "php4_4-sapi_install_ini"))
 
 (defvar ebuild-mode-keywords-php5-sapi-r3
   '("php5-sapi-r3_check_awkward_uses"))
@@ -508,7 +504,6 @@
 	(list ebuild-mode-keywords-php-ext font-lock-type-face)
 	(list ebuild-mode-keywords-php-pear-r1 font-lock-type-face)
 	(list ebuild-mode-keywords-php-sapi font-lock-type-face)
-	(list ebuild-mode-keywords-php4_4-sapi font-lock-type-face)
 	(list ebuild-mode-keywords-php5-sapi-r3 font-lock-type-face)
 	(list ebuild-mode-keywords-toolchain font-lock-type-face)
 	(list ebuild-mode-keywords-toolchain-binutils font-lock-type-face)
