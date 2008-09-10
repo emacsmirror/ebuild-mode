@@ -2,7 +2,7 @@
 
 ;; Copyright 2006-2008 Gentoo Foundation
 
-;; Authors: Matthew Kennedy <mkennedy@gentoo.org>
+;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
 ;;	Christian Faulhammer <opfer@gentoo.org>
 ;;	Ulrich Müller <ulm@gentoo.org>
