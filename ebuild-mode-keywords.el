@@ -53,6 +53,10 @@
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
   '("which" "EAPI"))
 
+(defvar ebuild-mode-keywords-deprecated
+  ;; deprecated eclass functions
+  '("elisp-comp"))
+
 (defvar ebuild-mode-keywords-gnustep-funcs
   '("egnustep_prefix" "egnustep_install_domain" "egnustep_env"
     "egnustep_system_root" "egnustep_local_root" "egnustep_network_root"
@@ -402,7 +406,7 @@
     "kernel_supports_modules"))
 
 (defvar ebuild-mode-keywords-elisp-common
-  '("elisp-comp" "elisp-compile" "elisp-install" "elisp-site-file-install"
+  '("elisp-compile" "elisp-install" "elisp-site-file-install"
     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file"))
 
 (defvar ebuild-mode-keywords-elisp
@@ -479,6 +483,7 @@
   '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
   (list	(list ebuild-mode-keywords-sandbox font-lock-warning-face)
    	(list ebuild-mode-keywords-warn font-lock-warning-face)
+   	(list ebuild-mode-keywords-deprecated font-lock-warning-face)
    	(list ebuild-mode-keywords-0 font-lock-type-face)
 	(list ebuild-mode-keywords-functions font-lock-type-face)
    	(list ebuild-mode-keywords-perl-app font-lock-type-face)

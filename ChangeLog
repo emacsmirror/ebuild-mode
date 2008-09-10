@@ -1,3 +1,9 @@
+2008-09-10  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-deprecated):
+	New variable.
+	(ebuild-mode-keywords-elisp-common): Deprecate "elisp-comp".
+
 2008-09-07  Christian Faulhammer  <opfer@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Add EAPI
