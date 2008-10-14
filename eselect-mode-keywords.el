@@ -1,6 +1,6 @@
 ;;; eselect-mode-keywords.el
 
-;; Copyright 2006-2007 Gentoo Foundation
+;; Copyright 2006-2008 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
@@ -25,6 +25,8 @@
 ;;; Commentary:
 
 ;;; Code:
+
+(require 'font-lock)
 
 (defvar eselect-mode-keywords-0
   '("die" "is_function" "has"))
