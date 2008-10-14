@@ -28,6 +28,7 @@
 ;;; Code:
 
 (require 'sh-script)
+(require 'easymenu)
 
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
@@ -100,6 +101,7 @@ A formfeed is not considered whitespace by this function."
   (sh-set-shell "bash")
   (setq tab-width 4)
   (setq indent-tabs-mode t)
+  (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
   ;; run user-defined hooks
   (run-hooks 'ebuild-mode-hook))
 
@@ -292,6 +294,15 @@ A formfeed is not considered whitespace by this function."
 (define-key ebuild-mode-map "\C-c\C-a" 'ebuild-run-echangelog)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
+
+;; Menu support for both Emacs and XEmacs.
+(easy-menu-define ebuild-mode-menu ebuild-mode-map
+  "Menu for ebuild-mode."
+  '("Ebuild"
+    ["Run ebuild command" ebuild-run-command]
+    ["Run echangelog" ebuild-run-echangelog]
+    ["Set/unset keyword" ebuild-mode-keyword]
+    ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]))
 
 (and (< emacs-major-version 22)
      ;; make TAB key work

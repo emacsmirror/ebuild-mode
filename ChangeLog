@@ -1,5 +1,9 @@
 2008-10-14  Ulrich Mueller  <ulm@gentoo.org>
 
+	* gentoo-syntax.el (easymenu): Require.
+	(ebuild-mode-menu): Add menu support for both Emacs and XEmacs.
+	(ebuild-mode): Activate the menu.
+
 	* ebuild-mode-keywords.el (font-lock): Require, needed for XEmacs.
 	* eselect-mode-keywords.el (font-lock): Likewise.
 
