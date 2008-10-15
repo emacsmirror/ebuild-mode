@@ -101,7 +101,8 @@ A formfeed is not considered whitespace by this function."
   (sh-set-shell "bash")
   (setq tab-width 4)
   (setq indent-tabs-mode t)
-  (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
+  (and (boundp 'ebuild-mode-menu)
+       (easy-menu-add ebuild-mode-menu))	; needed for XEmacs
   ;; run user-defined hooks
   (run-hooks 'ebuild-mode-hook))
 
