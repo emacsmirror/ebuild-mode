@@ -221,18 +221,19 @@ A formfeed is not considered whitespace by this function."
     (ebuild-mode-put-keywords
      (ebuild-mode-sort-keywords keywords))))
 
+(defvar ebuild-mode-action-alist
+  '(("unstable" . "~")
+    ("stable" . "")
+    ("mask" . "-")
+    ("drop" . nil)))
+
 (defun ebuild-mode-keyword (action arch)
   "Keyword manipulation."
   (interactive
    (list
-    (let ((action-alist
-	   '(("unstable" . "~")
-	     ("stable" . "")
-	     ("mask" . "-")
-	     ("drop" . nil))))
-      (cdr (assoc (completing-read "Action: " action-alist
-				   nil t nil nil "unstable")
-		  action-alist)))
+    (cdr (assoc (completing-read "Action: " ebuild-mode-action-alist
+				 nil t nil nil "unstable")
+		ebuild-mode-action-alist))
     (completing-read "Architecture: "
 		     (mapcar 'list
 			     (append '("all" "*") ebuild-mode-arch-list))
@@ -298,10 +299,39 @@ A formfeed is not considered whitespace by this function."
 ;; Menu support for both Emacs and XEmacs.
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
   "Menu for ebuild-mode."
-  '("Ebuild"
-    ["Run ebuild command" ebuild-run-command]
+  `("Ebuild"
+    ("Run ebuild command"
+     ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
+	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
     ["Run echangelog" ebuild-run-echangelog]
-    ["Set/unset keyword" ebuild-mode-keyword]
+    ("Keywords"
+     ;; *** FIXME ***
+     ;; sort of pointless, since it needs four mouse clicks to set a keyword
+     ("all"
+      ,@(mapcar
+	 (lambda (b)
+	   `[,(car b)
+	     (ebuild-mode-modify-keywords '(("all" . ,(cdr b))))])
+	 ebuild-mode-action-alist))
+     ,@(mapcar
+	(lambda (a)
+	  (cons a
+		(mapcar
+		 (lambda (b)
+		   `[,(car b)
+		     (ebuild-mode-modify-keywords '((,a . ,(cdr b))))
+		     :style radio
+		     :selected (string-equal
+				,(cdr b)
+				(cdr (assoc ,a (ebuild-mode-get-keywords t))))
+		     :active ,(cond
+			       ((member a ebuild-mode-arch-stable-list) t)
+			       ((string-equal a "*")
+				(not (member (cdr b) '("" "~"))))
+			       ((not (string-equal (cdr b) ""))))])
+		 ebuild-mode-action-alist)))
+	(cons "*" (sort (copy-sequence ebuild-mode-arch-list)
+			'string-lessp))))
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]))
 
 (and (< emacs-major-version 22)

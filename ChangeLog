@@ -1,3 +1,10 @@
+2008-10-15  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-action-alist): New variable.
+	(ebuild-mode-keyword): Use it.
+	(ebuild-mode-menu): Add submenus for ebuild commands and for
+	keyword manipulation.
+
 2008-10-14  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (easymenu): Require.
