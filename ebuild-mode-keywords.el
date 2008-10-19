@@ -29,8 +29,6 @@
 
 ;;; Code:
 
-(require 'font-lock)
-
 ;; eclasses which use is deprecated: gcc
 
 (defvar ebuild-mode-keywords-0

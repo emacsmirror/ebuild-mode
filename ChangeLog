@@ -4,6 +4,7 @@
 	"run-hooks", since major mode hooks are already implicitely called
 	and would therefore run twice.
 	(ebuild-mode-hook, eselect-mode-hook): Don't define.
+	(font-lock): Require, needed for XEmacs.
 
 2008-10-15  Ulrich Mueller  <ulm@gentoo.org>
 
@@ -17,9 +18,6 @@
 	* gentoo-syntax.el (easymenu): Require.
 	(ebuild-mode-menu): Add menu support for both Emacs and XEmacs.
 	(ebuild-mode): Activate the menu.
-
-	* ebuild-mode-keywords.el (font-lock): Require, needed for XEmacs.
-	* eselect-mode-keywords.el (font-lock): Likewise.
 
 2008-09-26  Christian Faulhammer  <opfer@gentoo.org>
 

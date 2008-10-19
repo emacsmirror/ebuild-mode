@@ -28,6 +28,7 @@
 ;;; Code:
 
 (require 'sh-script)
+(require 'font-lock)
 (require 'easymenu)
 
 (eval-and-compile
