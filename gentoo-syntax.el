@@ -84,12 +84,6 @@ A formfeed is not considered whitespace by this function."
 	    (delete-region (match-beginning 0) (point))
 	    (indent-to end-col)))))))
 
-(defvar ebuild-mode-hook nil
-  "List of functions to call when entering ebuild-mode.")
-
-(defvar eselect-mode-hook nil
-  "List of functions to call when entering eselect-mode.")
-
 ;;;###autoload
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
   "Major mode for Portage .ebuild and .eclass files."
@@ -99,12 +93,10 @@ A formfeed is not considered whitespace by this function."
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (sh-set-shell "bash")
-  (setq tab-width 4)
-  (setq indent-tabs-mode t)
   (and (boundp 'ebuild-mode-menu)
        (easy-menu-add ebuild-mode-menu))	; needed for XEmacs
-  ;; run user-defined hooks
-  (run-hooks 'ebuild-mode-hook))
+  (setq tab-width 4)
+  (setq indent-tabs-mode t))
 
 ;;;###autoload
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
@@ -115,9 +107,7 @@ A formfeed is not considered whitespace by this function."
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (sh-set-shell "bash")
   (setq tab-width 4)
-  (setq indent-tabs-mode t)
-  ;; run user-defined hooks
-  (run-hooks 'eselect-mode-hook))
+  (setq indent-tabs-mode t))
 
 
 ;;; Run ebuild command.
