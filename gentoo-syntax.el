@@ -60,8 +60,8 @@ A formfeed is not considered whitespace by this function."
     (error "Keywords argument must be a list of strings"))
 
   (cons (concat prefix "\\<"
-		(regexp-opt keywords-list t) "\\>"
-		suffix)
+		(regexp-opt keywords-list t)
+		"\\>" suffix)
 	face))
 
 (load "ebuild-mode-keywords" nil t)

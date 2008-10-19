@@ -1,7 +1,7 @@
 2008-10-19  Christian Faulhammer  <opfer@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-make-keywords-list): Revert r1051,
-	not compatible with XEmacs and Emacs <=21
+	* gentoo-syntax.el (ebuild-mode-make-keywords-list): Revert change
+	of 2008-09-26, not compatible with XEmacs and Emacs <=21
 
 2008-10-19  Ulrich Mueller  <ulm@gentoo.org>
 
