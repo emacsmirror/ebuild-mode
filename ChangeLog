@@ -9,6 +9,8 @@
 	(ebuild-mode-keywords-python): add python_get_{lib,site}dir
 	(ebuild-mode-keywords-functions-eapi2): Add functions introduced
 	with EAPI=2
+	(ebuild-mode-keywords-functions-default): Add default functions
+	introduced with EAPI=2
 
 2008-10-19  Christian Faulhammer  <opfer@gentoo.org>
 

@@ -51,6 +51,9 @@
 (defvar ebuild-mode-keywords-functions-eapi2
   '("pkg_info" "src_prepare" "src_configure"))
 
+(defvar ebuild-mode-keywords-functions-default
+  '("default_pkg_nofetch" "default_src_unpack" "default_src_prepare" "default_src_configure" "default_src_compile" "default_src_test"))
+
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
@@ -490,6 +493,7 @@
    	(list ebuild-mode-keywords-0 font-lock-type-face)
 	(list ebuild-mode-keywords-functions font-lock-type-face)
 	(list ebuild-mode-keywords-functions-eapi2 font-lock-type-face)
+	(list ebuild-mode-keywords-functions-default font-lock-type-face)
    	(list ebuild-mode-keywords-perl-app font-lock-type-face)
    	(list ebuild-mode-keywords-perl-module font-lock-type-face)
    	(list ebuild-mode-keywords-distutils font-lock-type-face)
