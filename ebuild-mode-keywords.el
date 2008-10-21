@@ -336,7 +336,7 @@
     "mysql_version_is_at_least" "mysql_lib_symlinks"))
 
 (defvar ebuild-mode-keywords-cvs
-  '("cvs_src_unpack" "cvs-fetch"))
+  '("cvs_src_unpack" "cvs_fetch"))
 
 (defvar ebuild-mode-keywords-subversion
   '("subversion_src_unpack" "subversion_fetch" "subversion_bootstrap"))
