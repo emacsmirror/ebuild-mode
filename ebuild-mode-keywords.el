@@ -339,13 +339,13 @@
   '("cvs_src_unpack" "cvs-fetch"))
 
 (defvar ebuild-mode-keywords-subversion
-  '("subversion_src_unpack" "subversion_svn_fetch" "subversion_bootstrap"))
+  '("subversion_src_unpack" "subversion_fetch" "subversion_bootstrap"))
 
 (defvar ebuild-mode-keywords-git
-  '("git_src_unpack"))
+  '("git_src_unpack" "git_fetch" "git_bootstrap"))
 
 (defvar ebuild-mode-keywords-mercurial
-  '("mercurial_src_unpack"))
+  '("mercurial_src_unpack" "mercurial_fetch"))
 
 (defvar ebuild-mode-keywords-rpm
   '("rpm_src_unpack"))
