@@ -48,6 +48,9 @@
     "src_install" "pkg_preinst" "pkg_postinst" "pkg_prerm" "pkg_postrm"
     "pkg_config"))
 
+(defvar ebuild-mode-keywords-functions-eapi2
+  '("pkg_info" "src_prepare" "src_configure"))
+
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
@@ -486,6 +489,7 @@
    	(list ebuild-mode-keywords-deprecated font-lock-warning-face)
    	(list ebuild-mode-keywords-0 font-lock-type-face)
 	(list ebuild-mode-keywords-functions font-lock-type-face)
+	(list ebuild-mode-keywords-functions-eapi2 font-lock-type-face)
    	(list ebuild-mode-keywords-perl-app font-lock-type-face)
    	(list ebuild-mode-keywords-perl-module font-lock-type-face)
    	(list ebuild-mode-keywords-distutils font-lock-type-face)

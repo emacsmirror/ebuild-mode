@@ -7,6 +7,8 @@
 	(ebuild-mode-keywords-distutils): add distutils_src_unpack() as it
 	is used sometimes
 	(ebuild-mode-keywords-python): add python_get_{lib,site}dir
+	(ebuild-mode-keywords-functions-eapi2): Add functions introduced
+	with EAPI=2
 
 2008-10-19  Christian Faulhammer  <opfer@gentoo.org>
 
