@@ -441,7 +441,7 @@
   '("perlinfo" "fixlocalpod" "updatepod"))
 
 (defvar ebuild-mode-keywords-distutils
-  '("distutils_python_version" "distutils_python_tkinter"))
+  '("distutils_python_version" "distutils_python_tkinter" "distutils_src_unpack"))
 
 (defvar ebuild-mode-keywords-depend-apache
   '("need_apache" "need_apache1" "need_apache2"))
