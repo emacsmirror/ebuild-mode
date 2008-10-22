@@ -297,34 +297,7 @@ A formfeed is not considered whitespace by this function."
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
     ["Run echangelog" ebuild-run-echangelog]
-    ("Keywords"
-     ;; *** FIXME ***
-     ;; sort of pointless, since it needs four mouse clicks to set a keyword
-     ("all"
-      ,@(mapcar
-	 (lambda (b)
-	   `[,(car b)
-	     (ebuild-mode-modify-keywords '(("all" . ,(cdr b))))])
-	 ebuild-mode-action-alist))
-     ,@(mapcar
-	(lambda (a)
-	  (cons a
-		(mapcar
-		 (lambda (b)
-		   `[,(car b)
-		     (ebuild-mode-modify-keywords '((,a . ,(cdr b))))
-		     :style radio
-		     :selected (string-equal
-				,(cdr b)
-				(cdr (assoc ,a (ebuild-mode-get-keywords t))))
-		     :active ,(cond
-			       ((member a ebuild-mode-arch-stable-list) t)
-			       ((string-equal a "*")
-				(not (member (cdr b) '("" "~"))))
-			       ((not (string-equal (cdr b) ""))))])
-		 ebuild-mode-action-alist)))
-	(cons "*" (sort (copy-sequence ebuild-mode-arch-list)
-			'string-lessp))))
+    ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]))
 
 (and (< emacs-major-version 22)
