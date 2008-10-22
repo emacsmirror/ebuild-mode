@@ -345,6 +345,9 @@
   '("stripdots" "mysql_check_version_range" "mysql_mv_patches"
     "mysql_version_is_at_least" "mysql_lib_symlinks"))
 
+(defvar ebuild-mode-keywords-bzr
+  '("bzr_src_unpack" "bzr_fetch" "bzr_bootstrap"))
+
 (defvar ebuild-mode-keywords-cvs
   '("cvs_src_unpack" "cvs_fetch"))
 
@@ -545,6 +548,7 @@
 	(list ebuild-mode-keywords-db-use font-lock-type-face)
 	(list ebuild-mode-keywords-xfce44 font-lock-type-face)
 	(list ebuild-mode-keywords-autotools font-lock-type-face)
+	(list ebuild-mode-keywords-bzr font-lock-type-face)
 	(list ebuild-mode-keywords-cvs font-lock-type-face)
 	(list ebuild-mode-keywords-subversion font-lock-type-face)
 	(list ebuild-mode-keywords-git font-lock-type-face)

@@ -4,6 +4,8 @@
 	(ebuild-mode-keywords-eclass-documentation): add documentation
 	strings of eclasses.  Still needs some work as comment-face will
 	always override it
+	(ebuild-mode-keywords-bzr): add bzr.eclass functions, though not
+	officially in the tree, it will get there soon
 
 2008-10-21  Christian Faulhammer  <opfer@gentoo.org>
 
