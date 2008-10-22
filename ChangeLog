@@ -9,7 +9,8 @@
 
 2008-10-21  Christian Faulhammer  <opfer@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-mercurial): add mercurial_fetch()
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-mercurial): add mercurial_fetch()
 	(ebuild-mode-keywords-git): add git_fetch() and git_bootstrap
 	(ebuild-mode-keywords-subversion): rename subversion_svn_fetch()
 	to subversion_fetch() (eclass has changed)

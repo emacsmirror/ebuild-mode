@@ -52,11 +52,13 @@
   '("pkg_info" "src_prepare" "src_configure"))
 
 (defvar ebuild-mode-keywords-functions-default
-  '("default_pkg_nofetch" "default_src_unpack" "default_src_prepare" "default_src_configure" "default_src_compile" "default_src_test"))
+  '("default_pkg_nofetch" "default_src_unpack" "default_src_prepare"
+    "default_src_configure" "default_src_compile" "default_src_test"))
 
 ;; comment-face will always override the eclass documentation strings
 (defvar ebuild-mode-keywords-eclass-documentation
-  '("@BLURB" "@CODE" "@DESCRIPTION" "@ECLASS-VARIABLE" "@ECLASS" "@EXAMPLE" "@FUNCTION" "@MAINTAINER" "@RETURN" "@USAGE" "@VARIABLE"))
+  '("@BLURB" "@CODE" "@DESCRIPTION" "@ECLASS-VARIABLE" "@ECLASS" "@EXAMPLE"
+    "@FUNCTION" "@MAINTAINER" "@RETURN" "@USAGE" "@VARIABLE"))
 
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
@@ -454,7 +456,8 @@
   '("perlinfo" "fixlocalpod" "updatepod"))
 
 (defvar ebuild-mode-keywords-distutils
-  '("distutils_python_version" "distutils_python_tkinter" "distutils_src_unpack"))
+  '("distutils_python_version" "distutils_python_tkinter"
+    "distutils_src_unpack"))
 
 (defvar ebuild-mode-keywords-depend-apache
   '("need_apache" "need_apache1" "need_apache2"))
