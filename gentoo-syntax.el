@@ -67,6 +67,9 @@ A formfeed is not considered whitespace by this function."
 (load "ebuild-mode-keywords" nil t)
 (load "eselect-mode-keywords" nil t)
 
+(font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
+(font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)
+
 (defun ebuild-mode-tabify ()
   ;; Tabify whitespace at beginning of lines.
   ;; We cannot use the following since XEmacs doesn't support tabify-regexp.

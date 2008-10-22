@@ -27,35 +27,40 @@
 ;;; Code:
 
 (defvar eselect-mode-keywords-0
-  '("die" "is_function" "has"))
+  '(("die" "is_function" "has")
+    font-lock-type-face))
 
 (defvar eselect-mode-keywords-1
-  '("store_config" "load_config" "add_config"))
+  '(("store_config" "load_config" "add_config")
+    font-lock-type-face))
 
 (defvar eselect-mode-keywords-2
-  '("svn_date_to_version"))
+  '(("svn_date_to_version")
+    font-lock-type-face))
 
 (defvar eselect-mode-keywords-3
-  '("list_libdirs"))
+  '(("list_libdirs")
+    font-lock-warning-face))
 
 (defvar eselect-mode-keywords-eselect
-  '("highlight" "highlight_warning" "space" "write_error_msg"
-    "write_kv_list_entry" "write_list_start" "write_numbered_list"
-    "write_numbered_list_entry"))
+  '(("highlight" "highlight_warning" "space" "write_error_msg"
+     "write_kv_list_entry" "write_list_start" "write_numbered_list"
+     "write_numbered_list_entry")
+    font-lock-type-face))
 
 (defvar eselect-mode-keywords-5
-  '("is_number" "canonicalise"))
+  '(("is_number" "canonicalise")
+    font-lock-type-face))
 
-(font-lock-add-keywords
- 'eselect-mode
- (mapcar
-  '(lambda (x) (apply 'ebuild-mode-make-keywords-list x))
-  (list (list eselect-mode-keywords-0 font-lock-type-face)
-	(list eselect-mode-keywords-1 font-lock-type-face)
-	(list eselect-mode-keywords-2 font-lock-type-face)
-	(list eselect-mode-keywords-3 font-lock-warning-face)
-	(list eselect-mode-keywords-eselect font-lock-type-face)
-	(list eselect-mode-keywords-5 font-lock-type-face))))
+(defvar eselect-mode-font-lock-keywords
+  (mapcar
+   (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
+   (list eselect-mode-keywords-0
+	 eselect-mode-keywords-1
+	 eselect-mode-keywords-2
+	 eselect-mode-keywords-3
+	 eselect-mode-keywords-eselect
+	 eselect-mode-keywords-5)))
 
 ;; Local Variables:
 ;; coding: utf-8

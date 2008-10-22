@@ -1,5 +1,13 @@
 2008-10-22  Ulrich Mueller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Move face
+	definitions to individual variables.
+	(ebuild-mode-font-lock-keywords): New variable; move actual call
+	of font-lock-add-keywords to gentoo-syntax.el.
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-*)
+	(eselect-mode-font-lock-keywords): Likewise.
+
 	* gentoo-syntax.el (ebuild-mode-menu): Remove pointless submenus
 	for keyword manipulation.
 
