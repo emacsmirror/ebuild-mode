@@ -1,3 +1,10 @@
+2008-10-22  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-eclass-documentation): add documentation
+	strings of eclasses.  Still needs some work as comment-face will
+	always override it
+
 2008-10-21  Christian Faulhammer  <opfer@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-mercurial): add mercurial_fetch()

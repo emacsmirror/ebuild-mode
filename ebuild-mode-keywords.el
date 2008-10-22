@@ -54,6 +54,10 @@
 (defvar ebuild-mode-keywords-functions-default
   '("default_pkg_nofetch" "default_src_unpack" "default_src_prepare" "default_src_configure" "default_src_compile" "default_src_test"))
 
+;; comment-face will always override the eclass documentation strings
+(defvar ebuild-mode-keywords-eclass-documentation
+  '("@BLURB" "@CODE" "@DESCRIPTION" "@ECLASS-VARIABLE" "@ECLASS" "@EXAMPLE" "@FUNCTION" "@MAINTAINER" "@RETURN" "@USAGE" "@VARIABLE"))
+
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
@@ -492,6 +496,7 @@
    	(list ebuild-mode-keywords-deprecated font-lock-warning-face)
    	(list ebuild-mode-keywords-0 font-lock-type-face)
 	(list ebuild-mode-keywords-functions font-lock-type-face)
+	(list ebuild-mode-keywords-eclass-documentation font-lock-type-face)
 	(list ebuild-mode-keywords-functions-eapi2 font-lock-type-face)
 	(list ebuild-mode-keywords-functions-default font-lock-type-face)
    	(list ebuild-mode-keywords-perl-app font-lock-type-face)
