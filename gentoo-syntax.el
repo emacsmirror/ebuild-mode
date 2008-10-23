@@ -150,15 +150,15 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-arch-list
   `(,@ebuild-mode-arch-stable-list "mips" "sparc-fbsd" "x86-fbsd"))
 
-(defvar ebuild-mode-keywords-regexp
+(defvar ebuild-mode-arch-regexp
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
 (defun ebuild-mode-get-keywords (&optional noerror)
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (and (re-search-forward ebuild-mode-keywords-regexp nil noerror)
-	   (not (and (re-search-forward ebuild-mode-keywords-regexp nil t)
+      (and (re-search-forward ebuild-mode-arch-regexp nil noerror)
+	   (not (and (re-search-forward ebuild-mode-arch-regexp nil t)
 		     (or noerror
 			 (error "More than one KEYWORDS assignment found"))))
 	   (mapcar (lambda (s)
@@ -173,8 +173,8 @@ A formfeed is not considered whitespace by this function."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (and (re-search-forward ebuild-mode-keywords-regexp nil noerror)
-	   (not (and (re-search-forward ebuild-mode-keywords-regexp nil t)
+      (and (re-search-forward ebuild-mode-arch-regexp nil noerror)
+	   (not (and (re-search-forward ebuild-mode-arch-regexp nil t)
 		     (or noerror
 			 (error "More than one KEYWORDS assignment found"))))
 	   (replace-match

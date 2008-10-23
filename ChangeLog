@@ -10,6 +10,8 @@
 
 	* gentoo-syntax.el (ebuild-mode-menu): Remove pointless submenus
 	for keyword manipulation.
+	(ebuild-mode-arch-regexp): Rename from ebuild-mode-keywords-regexp
+	to avoid confusion with variables for syntactic keywords.
 
 2008-10-22  Christian Faulhammer  <opfer@gentoo.org>
 
