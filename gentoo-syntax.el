@@ -64,9 +64,8 @@ A formfeed is not considered whitespace by this function."
 		"\\>" suffix)
 	face))
 
-(load "ebuild-mode-keywords" nil t)
-(load "eselect-mode-keywords" nil t)
-
+(require 'ebuild-mode-keywords)
+(require 'eselect-mode-keywords)
 (font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
 (font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)
 

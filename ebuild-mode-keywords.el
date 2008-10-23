@@ -689,6 +689,8 @@
 	 ebuild-mode-keywords-elisp
 	 ebuild-mode-keywords-elisp-common)))
 
+(provide 'ebuild-mode-keywords)
+
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78

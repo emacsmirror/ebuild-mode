@@ -1,6 +1,6 @@
 ;;; eselect-mode-keywords.el
 
-;; Copyright 2006-2007 Gentoo Foundation
+;; Copyright 2006-2008 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
@@ -61,6 +61,8 @@
 	 eselect-mode-keywords-3
 	 eselect-mode-keywords-eselect
 	 eselect-mode-keywords-5)))
+
+(provide 'eselect-mode-keywords)
 
 ;; Local Variables:
 ;; coding: utf-8
