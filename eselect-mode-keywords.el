@@ -54,13 +54,9 @@
 
 (defvar eselect-mode-font-lock-keywords
   (mapcar
-   (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
-   (list eselect-mode-keywords-0
-	 eselect-mode-keywords-1
-	 eselect-mode-keywords-2
-	 eselect-mode-keywords-3
-	 eselect-mode-keywords-eselect
-	 eselect-mode-keywords-5)))
+   (lambda (x)
+     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
+   (all-completions "eselect-mode-keywords-" obarray 'boundp)))
 
 (provide 'eselect-mode-keywords)
 
