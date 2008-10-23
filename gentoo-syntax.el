@@ -58,7 +58,6 @@ A formfeed is not considered whitespace by this function."
   ;; Note: XEmacs doesn't have generic.el
   (unless (listp keywords-list)
     (error "Keywords argument must be a list of strings"))
-
   (cons (concat prefix "\\<"
 		(regexp-opt keywords-list t)
 		"\\>" suffix)
@@ -66,6 +65,7 @@ A formfeed is not considered whitespace by this function."
 
 (require 'ebuild-mode-keywords)
 (require 'eselect-mode-keywords)
+
 (font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
 (font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)
 
