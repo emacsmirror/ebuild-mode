@@ -597,8 +597,6 @@
      (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
    (all-completions "ebuild-mode-keywords-" obarray 'boundp)))
 
-(provide 'ebuild-mode-keywords)
-
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78

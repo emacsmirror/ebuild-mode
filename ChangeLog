@@ -12,17 +12,14 @@
 	definitions to individual variables.
 	(ebuild-mode-font-lock-keywords): New variable; move actual call
 	of font-lock-add-keywords to gentoo-syntax.el.
-	(ebuild-mode-keywords): Provide.
 
 	* eselect-mode-keywords.el (eselect-mode-keywords-*)
 	(eselect-mode-font-lock-keywords): Likewise.
-	(eselect-mode-keywords): Provide.
 
 	* gentoo-syntax.el (ebuild-mode-menu): Remove pointless submenus
 	for keyword manipulation.
 	(ebuild-mode-arch-regexp): Rename from ebuild-mode-keywords-regexp
 	to avoid confusion with variables for syntactic keywords.
-	(ebuild-mode-keywords, eselect-mode-keywords): Require.
 
 2008-10-22  Christian Faulhammer  <opfer@gentoo.org>
 
