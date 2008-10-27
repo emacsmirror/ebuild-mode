@@ -4,6 +4,7 @@
 	python_need_rebuild function
 	(ebuild-mode-keywords-autotools): add WANT_AUTOCONF and
 	WANT_AUTOMAKE variables
+	(ebuild-mode-keywords-gnome2): add DOCS variable
 
 2008-10-23  Ulrich Mueller  <ulm@gentoo.org>
 
