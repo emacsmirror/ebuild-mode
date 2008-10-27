@@ -277,7 +277,7 @@
 
 (defvar ebuild-mode-keywords-autotools
   '(("eautoreconf" "eaclocal" "_elibtoolize" "eautoconf" "eautoheader"
-     "eautomake")
+     "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gtk-sharp-component
