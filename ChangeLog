@@ -3,7 +3,7 @@
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): add
 	python_need_rebuild function
 	(ebuild-mode-keywords-autotools): add WANT_AUTOCONF and
-	WANT_AUTOMAKE variables 
+	WANT_AUTOMAKE variables
 
 2008-10-23  Ulrich Mueller  <ulm@gentoo.org>
 
