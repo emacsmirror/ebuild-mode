@@ -1,3 +1,8 @@
+2008-10-27  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): add
+	python_need_rebuild function
+
 2008-10-23  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-font-lock-keywords):
