@@ -592,12 +592,6 @@
      "version_is_at_least" "version_compare" "version_sort")
     font-lock-type-face))
 
-(defvar ebuild-mode-font-lock-keywords
-  (mapcar
-   (lambda (x)
-     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
-   (all-completions "ebuild-mode-keywords-" obarray 'boundp)))
-
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78

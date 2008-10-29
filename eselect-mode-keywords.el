@@ -52,12 +52,6 @@
   '(("is_number" "canonicalise")
     font-lock-type-face))
 
-(defvar eselect-mode-font-lock-keywords
-  (mapcar
-   (lambda (x)
-     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
-   (all-completions "eselect-mode-keywords-" obarray 'boundp)))
-
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78

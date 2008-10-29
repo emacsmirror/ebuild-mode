@@ -66,6 +66,18 @@ A formfeed is not considered whitespace by this function."
 (load "ebuild-mode-keywords" nil t)
 (load "eselect-mode-keywords" nil t)
 
+(defvar ebuild-mode-font-lock-keywords
+  (mapcar
+   (lambda (x)
+     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
+   (all-completions "ebuild-mode-keywords-" obarray 'boundp)))
+
+(defvar eselect-mode-font-lock-keywords
+  (mapcar
+   (lambda (x)
+     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
+   (all-completions "eselect-mode-keywords-" obarray 'boundp)))
+
 (font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
 (font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)
 

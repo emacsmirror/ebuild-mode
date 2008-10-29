@@ -1,3 +1,10 @@
+2008-10-29  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-font-lock-keywords)
+	(eselect-mode-font-lock-keywords): Move definitions from
+	{ebuild,eselect}-mode-keywords.el to here to avoid warnings
+	during byte-compilation.
+
 2008-10-27  Christian Faulhammer  <opfer@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): add
