@@ -1,3 +1,8 @@
+2008-11-14  Christian Faulhammer  <opfer@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gems): Add
+	gems.eclass' functions
+
 2008-10-29  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-font-lock-keywords)
