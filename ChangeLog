@@ -1,7 +1,11 @@
+2008-12-27  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.10 released.
+
 2008-11-14  Christian Faulhammer  <opfer@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-gems): Add
-	gems.eclass' functions
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gems):
+	Add gems.eclass' functions
 
 2008-10-29  Ulrich Mueller  <ulm@gentoo.org>
 
@@ -12,8 +16,8 @@
 
 2008-10-27  Christian Faulhammer  <opfer@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): add
-	python_need_rebuild function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	add python_need_rebuild function
 	(ebuild-mode-keywords-autotools): add WANT_AUTOCONF and
 	WANT_AUTOMAKE variables
 	(ebuild-mode-keywords-gnome2): add DOCS variable
