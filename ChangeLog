@@ -1,3 +1,8 @@
+2008-12-30  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2):
+	Add EANT_NEEDS_TOOLS variable
+
 2008-12-27  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Version 1.10 released.
