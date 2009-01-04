@@ -1,6 +1,6 @@
 ;;; ebuild-mode-keywords.el
 
-;; Copyright 2006-2008 Gentoo Foundation
+;; Copyright 2006-2009 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
@@ -298,15 +298,11 @@
      "deprange-iterate-numbers" "deprange-iterate-suffixes" "deprange-dual"
      "need-kde" "set-kdedir" "need-qt" "set-qtdir" "qtver-from-kdever"
      "min-kde-ver" "kde_sandbox_patch" "kde_remove_flag" "buildsycoca"
-     "postprocess_desktop_entries")
+     "postprocess_desktop_entries" "slot_rebuild")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde-meta
   '(("create_fullpaths" "change_makefiles" "set_common_variables")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-kde
-  '(("slot_rebuild")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gst-plugins
