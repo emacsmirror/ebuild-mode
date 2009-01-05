@@ -255,7 +255,7 @@ A formfeed is not considered whitespace by this function."
 	      (cond ((null mode) 'try-completion)
 		    ((eq mode t) 'all-completions)
 		    ((eq mode 'lambda) 'test-completion))
-	      s2 
+	      s2
 	      (mapcar 'list
 		      (if (string-equal s2 "")
 			  '("" "~" "-" "^")
@@ -273,7 +273,7 @@ A formfeed is not considered whitespace by this function."
 
 (defun ebuild-mode-ekeyword (keywords)
   "Keyword manipulation. Accepts the same input format as ekeyword."
-  (interactive 
+  (interactive
    (list (completing-read "Keywords: " 'ebuild-mode-ekeyword-complete)))
   (ebuild-mode-modify-keywords
    (mapcar (lambda (s)
