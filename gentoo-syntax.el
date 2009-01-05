@@ -1,13 +1,13 @@
 ;;; gentoo-syntax.el --- modes for editing Gentoo specific files
 
-;; Copyright 2006-2008 Gentoo Foundation
+;; Copyright 2006-2009 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
 ;;	Christian Faulhammer <fauli@gentoo.org>
 ;;	Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Version: 1.10_pre
+;; Version: 1.11_pre
 ;; Keywords: languages, processes
 
 ;; This file is free software: you can redistribute it and/or modify

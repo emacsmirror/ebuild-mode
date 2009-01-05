@@ -1,3 +1,10 @@
+2009-01-05  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Makefile (PV): Extract PV from lisp instead of ChangeLog, so
+	that I won't forget updating it anymore (it was wrong in 1.10).
+
+	* gentoo-syntax.el: Update version number and copyright years.
+
 2009-01-04  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el: join the two independent kde function
@@ -467,5 +474,5 @@
 
 	* version 1.4
 
-Copyright 2007-2008 Gentoo Foundation
+Copyright 2007-2009 Gentoo Foundation
 Distributed under the terms of the GNU General Public License v2
