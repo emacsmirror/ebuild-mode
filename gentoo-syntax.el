@@ -52,6 +52,9 @@ A formfeed is not considered whitespace by this function."
 	(delete-region (point) (match-end 0))))))
 ))
 
+;; suppress byte-compiler warning
+(defvar ebuild-mode-menu)
+
 (defun ebuild-mode-make-keywords-list (keywords-list face
 						     &optional prefix suffix)
   ;; based on `generic-make-keywords-list' from generic.el
@@ -109,8 +112,7 @@ A formfeed is not considered whitespace by this function."
   (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
   (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
   (sh-set-shell "bash")
-  (and (boundp 'ebuild-mode-menu)
-       (easy-menu-add ebuild-mode-menu))	; needed for XEmacs
+  (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
   (setq tab-width 4)
   (setq indent-tabs-mode t))
 
