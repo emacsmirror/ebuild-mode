@@ -5,6 +5,8 @@
 
 	* gentoo-syntax.el: Update version number and copyright years.
 	(ebuild-mode-menu): Define variable to avoid a compiler warning.
+	(ebuild-mode-ekeyword-complete): Account for completion-boundaries
+	of Emacs 23.
 
 2009-01-04  Christian Faulhammer  <fauli@gentoo.org>
 

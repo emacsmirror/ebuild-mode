@@ -251,27 +251,32 @@ A formfeed is not considered whitespace by this function."
 
 (defun ebuild-mode-ekeyword-complete (s predicate mode)
   (string-match "^\\(.*[[:space:]]\\)?\\(.*\\)$" s)
-  (let* ((s1 (match-string 1 s))
-	 (s2 (match-string 2 s))
-	 (c2 (funcall
-	      (cond ((null mode) 'try-completion)
-		    ((eq mode t) 'all-completions)
-		    ((eq mode 'lambda) 'test-completion))
-	      s2
-	      (mapcar 'list
-		      (if (string-equal s2 "")
-			  '("" "~" "-" "^")
-			(string-match "^[-^~]?" s2)
-			(let ((s3 (match-string 0 s2)))
-			  (mapcar (lambda (x) (concat s3 x " "))
-				  (append '("all")
-					  (and (member s3 '("-" "^"))
-					       '("*"))
-					  (if (equal s3 "")
-					      ebuild-mode-arch-stable-list
-					    ebuild-mode-arch-list))))))
-	      predicate)))
-    (if (stringp c2) (concat s1 c2) c2)))
+  (if (eq (car-safe mode) 'boundaries) ; GNU Emacs 23
+      (cons 'boundaries
+	    (cons (match-beginning 2)
+		  (string-match "[[:space:]]" (cdr mode))))
+    (let* ((s1 (match-string 1 s))
+	   (s2 (match-string 2 s))
+	   (c2 (funcall
+		(cond ((null mode) 'try-completion)
+		      ((eq mode t) 'all-completions)
+		      ((eq mode 'lambda) 'test-completion)
+		      (t 'ignore))
+		s2
+		(mapcar 'list
+			(if (string-equal s2 "")
+			    '("" "~" "-" "^")
+			  (string-match "^[-^~]?" s2)
+			  (let ((s3 (match-string 0 s2)))
+			    (mapcar (lambda (x) (concat s3 x " "))
+				    (append '("all")
+					    (and (member s3 '("-" "^"))
+						 '("*"))
+					    (if (equal s3 "")
+						ebuild-mode-arch-stable-list
+					      ebuild-mode-arch-list))))))
+		predicate)))
+      (if (stringp c2) (concat s1 c2) c2))))
 
 (defun ebuild-mode-ekeyword (keywords)
   "Keyword manipulation. Accepts the same input format as ekeyword."
