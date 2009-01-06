@@ -309,8 +309,6 @@ A formfeed is not considered whitespace by this function."
 
 ;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-;; The following keybindings are preliminary and may change
-;; without prior warning.
 (define-key ebuild-mode-map "\C-c\C-a" 'ebuild-run-echangelog)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
