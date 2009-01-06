@@ -250,17 +250,22 @@ A formfeed is not considered whitespace by this function."
   (ebuild-mode-modify-keywords (list (cons arch action))))
 
 (defun ebuild-mode-ekeyword-complete (s predicate mode)
-  (string-match "^\\(.*[[:space:]]\\)?\\(.*\\)$" s)
+  (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
   (if (eq (car-safe mode) 'boundaries) ; GNU Emacs 23
       (cons 'boundaries
 	    (cons (match-beginning 2)
-		  (string-match "[[:space:]]" (cdr mode))))
+		  (string-match "\\s-" (cdr mode))))
     (let* ((s1 (match-string 1 s))
 	   (s2 (match-string 2 s))
 	   (c2 (funcall
 		(cond ((null mode) 'try-completion)
 		      ((eq mode t) 'all-completions)
-		      ((eq mode 'lambda) 'test-completion)
+		      ((eq mode 'lambda)
+		       (if (fboundp 'test-completion)
+			   'test-completion
+			 ;; Emacs 21 and XEmacs don't have test-completion
+			 (lambda (&rest args)
+			   (eq (apply 'try-completion args) t))))
 		      (t 'ignore))
 		s2
 		(mapcar 'list

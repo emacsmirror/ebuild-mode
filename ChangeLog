@@ -6,7 +6,9 @@
 	* gentoo-syntax.el: Update version number and copyright years.
 	(ebuild-mode-menu): Define variable to avoid a compiler warning.
 	(ebuild-mode-ekeyword-complete): Account for completion-boundaries
-	of Emacs 23.
+	in GNU Emacs 23. Substitute the test-completion function in case
+	it is undefined (it's missing in Emacs 21 and XEmacs). Don't use
+	character classes in regexps since XEmacs doesn't support them.
 
 2009-01-04  Christian Faulhammer  <fauli@gentoo.org>
 
