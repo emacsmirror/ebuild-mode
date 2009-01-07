@@ -1,3 +1,7 @@
+2009-01-07  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.11 released.
+
 2009-01-05  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Makefile (PV): Extract PV from lisp instead of ChangeLog, so
