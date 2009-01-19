@@ -76,6 +76,10 @@
   '(("elisp-comp")
     font-lock-warning-face))
 
+(defvar ebuild-mode-keywords-go-mono
+  '(("go-mono_src_prepare" "go-mono_src_configure" "go-mono_src_install")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-gnustep-funcs
   '(("egnustep_prefix" "egnustep_install_domain" "egnustep_env"
      "egnustep_system_root" "egnustep_local_root" "egnustep_network_root"
