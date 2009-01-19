@@ -1,6 +1,7 @@
 2009-01-19  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-go-mono): Add new go-mono.eclass
+	(ebuild-mode-keywords-mono): Add new mono.eclass
 
 2009-01-07  Ulrich Mueller  <ulm@gentoo.org>
 
