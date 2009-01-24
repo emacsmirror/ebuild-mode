@@ -1,3 +1,8 @@
+2009-01-24  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic): add
+	append-cxxflags() function
+
 2009-01-19  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-go-mono): Add new go-mono.eclass

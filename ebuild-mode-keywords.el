@@ -461,7 +461,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-flag-o-matic
-  '(("append-flags" "append-ldflags" "filter-flags" "filter-ldflags"
+  '(("append-flags" "append-cxxflags" "append-ldflags" "filter-flags" "filter-ldflags"
      "filter-mfpmath" "get-flag" "is-flag" "replace-cpu-flags" "replace-flags"
      "strip-flags" "strip-unsupported-flags" "setup-allowed-flags"
      "filter-lfs-flags" "append-lfs-flags" "test_flag" "test_version_info"
