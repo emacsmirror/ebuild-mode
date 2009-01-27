@@ -103,14 +103,20 @@ A formfeed is not considered whitespace by this function."
 	    (delete-region (match-beginning 0) (point))
 	    (indent-to end-col)))))))
 
+(defun ebuild-mode-before-save ()
+  (delete-trailing-whitespace)
+  (ebuild-mode-tabify)
+  ;;(copyright-update)			; doesn't exist in XEmacs
+  ;; return nil, otherwise the file is presumed to be written
+  nil)
+
 ;;;###autoload
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
   "Major mode for Portage .ebuild and .eclass files."
   (if (featurep 'xemacs)
       ;; make-local-hook gives a byte-compiler warning in GNU Emacs
       (make-local-hook 'write-contents-hooks))
-  (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
-  (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
+  (add-hook 'write-contents-hooks 'ebuild-mode-before-save t t)
   (sh-set-shell "bash")
   (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
   (setq tab-width 4)
@@ -121,8 +127,7 @@ A formfeed is not considered whitespace by this function."
   "Major mode for .eselect files."
   (if (featurep 'xemacs)
       (make-local-hook 'write-contents-hooks))
-  (add-hook 'write-contents-hooks 'delete-trailing-whitespace t t)
-  (add-hook 'write-contents-hooks 'ebuild-mode-tabify t t)
+  (add-hook 'write-contents-hooks 'ebuild-mode-before-save t t)
   (sh-set-shell "bash")
   (setq tab-width 4)
   (setq indent-tabs-mode t))
