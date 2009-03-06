@@ -553,7 +553,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-perl-module
-  '(("perlinfo" "fixlocalpod" "updatepod")
+  '(("perlinfo" "fixlocalpod")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-distutils

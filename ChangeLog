@@ -1,3 +1,8 @@
+2009-03-06  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-perl-module):
+	updatepod() has been pruned from the perl-module eclass.
+
 2009-01-27  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-before-save): New hook function,
