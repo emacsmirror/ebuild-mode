@@ -377,7 +377,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome2
-  '(("gnome2_src_configure" "gnome2_src_compile" "gnome2_src_install"
+  '(("gnome2_src_configure" "gnome2_src_compile" "gnome2_src_install" "gnome2_src_unpack"
      "gnome2_gconf_uninstall" "gnome2_pkg_postinst" "gnome2_pkg_postrm" "DOCS")
     font-lock-type-face))
 

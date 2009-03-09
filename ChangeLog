@@ -1,3 +1,8 @@
+2009-03-09  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2): Add
+	gnome2_src_unpack function
+
 2009-03-06  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-perl-module):
