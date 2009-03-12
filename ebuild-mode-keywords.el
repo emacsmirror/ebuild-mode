@@ -435,7 +435,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-rpm
-  '(("rpm_src_unpack")
+  '(("rpm_src_unpack" "rpm_spec_epatch")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vim
