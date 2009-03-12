@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-rpm): add
 	rpm_spec_epatch function
+	(ebuild-mode-keywords-cmake-utils): add support for cmake-utils.eclass
 
 2009-03-09  Christian Faulhammer  <fauli@gentoo.org>
 

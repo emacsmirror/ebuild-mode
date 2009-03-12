@@ -84,6 +84,14 @@
   '(("egacinstall" "mono_multilib_comply")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-cmake-utils
+  '(("cmake-utils_use_with" "cmake-utils_use_enable" "cmake-utils_use_disable"
+     "cmake-utils_use_no" "cmake-utils_use_want" "cmake-utils_use_build"
+     "cmake-utils_use_has" "cmake-utils_has" "cmake-utils_use" "cmake-utils_src_configure"
+     "cmake-utils_src_compile" "cmake-utils_src_make" "cmake-utils_src_install"
+     "cmake-utils_src_test")
+  font-lock-type-face))
+
 (defvar ebuild-mode-keywords-gnustep-funcs
   '(("egnustep_prefix" "egnustep_install_domain" "egnustep_env"
      "egnustep_system_root" "egnustep_local_root" "egnustep_network_root"
