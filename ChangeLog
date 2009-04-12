@@ -1,3 +1,9 @@
+2009-04-12  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2-utils):
+	Add gnome2_gconf_savelist and gnome2_icon_savelist functions, and
+	some corrections.
+
 2009-03-12  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-rpm): add

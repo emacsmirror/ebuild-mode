@@ -380,8 +380,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome2-utils
-  '(("gnome2_gconf_install" "gconf_uninstall" "icon_cache_update"
-     "gnome2_omf_fix" "gnome2_scrollkeeper_update")
+  '(("gnome2_gconf_savelist" "gnome2_gconf_install" "gnome2_gconf_uninstall"
+     "gnome2_icon_savelist" "gnome2_icon_cache_update" "gnome2_omf_fix"
+     "gnome2_scrollkeeper_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome2
