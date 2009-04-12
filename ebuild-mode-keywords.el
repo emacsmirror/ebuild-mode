@@ -87,9 +87,9 @@
 (defvar ebuild-mode-keywords-cmake-utils
   '(("cmake-utils_use_with" "cmake-utils_use_enable" "cmake-utils_use_disable"
      "cmake-utils_use_no" "cmake-utils_use_want" "cmake-utils_use_build"
-     "cmake-utils_use_has" "cmake-utils_has" "cmake-utils_use" "cmake-utils_src_configure"
-     "cmake-utils_src_compile" "cmake-utils_src_make" "cmake-utils_src_install"
-     "cmake-utils_src_test")
+     "cmake-utils_use_has" "cmake-utils_has" "cmake-utils_use"
+     "cmake-utils_src_configure" "cmake-utils_src_compile"
+     "cmake-utils_src_make" "cmake-utils_src_install" "cmake-utils_src_test")
   font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnustep-funcs
@@ -368,7 +368,8 @@
      "java-pkg_current-vm-matches" "java-pkg_get-target" "java-pkg_get-javac"
      "java-pkg_javac-args" "java-pkg_get-jni-cflags" "java-pkg_ensure-gcj"
      "java-pkg_ensure-test" "java-pkg_register-ant-task" "ejunit" "eant"
-     "ejavac" "java-pkg_filter-compiler" "java-pkg_force-compiler" "use_doc" "EANT_NEEDS_TOOLS")
+     "ejavac" "java-pkg_filter-compiler" "java-pkg_force-compiler" "use_doc"
+     "EANT_NEEDS_TOOLS")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bash-completion
@@ -386,8 +387,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome2
-  '(("gnome2_src_configure" "gnome2_src_compile" "gnome2_src_install" "gnome2_src_unpack"
-     "gnome2_gconf_uninstall" "gnome2_pkg_postinst" "gnome2_pkg_postrm" "DOCS")
+  '(("gnome2_src_configure" "gnome2_src_compile" "gnome2_src_install"
+     "gnome2_src_unpack" "gnome2_gconf_uninstall" "gnome2_pkg_postinst"
+     "gnome2_pkg_postrm" "DOCS")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-alternatives
@@ -470,12 +472,13 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-flag-o-matic
-  '(("append-flags" "append-cxxflags" "append-ldflags" "filter-flags" "filter-ldflags"
-     "filter-mfpmath" "get-flag" "is-flag" "replace-cpu-flags" "replace-flags"
-     "strip-flags" "strip-unsupported-flags" "setup-allowed-flags"
-     "filter-lfs-flags" "append-lfs-flags" "test_flag" "test_version_info"
-     "has_hardened" "has_pic" "has_pie" "has_ssp_all" "has_ssp" "has_m64"
-     "has_m32" "replace-sparc64-flags" "fstack-flags" "gcc2-flags")
+  '(("append-flags" "append-cxxflags" "append-ldflags" "filter-flags"
+     "filter-ldflags" "filter-mfpmath" "get-flag" "is-flag"
+     "replace-cpu-flags" "replace-flags" "strip-flags"
+     "strip-unsupported-flags" "setup-allowed-flags" "filter-lfs-flags"
+     "append-lfs-flags" "test_flag" "test_version_info" "has_hardened"
+     "has_pic" "has_pie" "has_ssp_all" "has_ssp" "has_m64" "has_m32"
+     "replace-sparc64-flags" "fstack-flags" "gcc2-flags")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python
