@@ -33,14 +33,14 @@
 
 (defvar ebuild-mode-keywords-0
   '(("best_version" "check_KV" "die" "diropts" "dobin" "docinto" "doconfd"
-     "dodir" "dodoc" "doenvd" "doexe" "dohard" "dohtml" "doinfo" "doinitd"
+     "dodir" "dodoc" "doenvd" "doexe" "dohtml" "doinfo" "doinitd"
      "doins" "dojar" "dolib" "dolib.a" "dolib.so" "doman" "domo" "dopython"
-     "dosbin" "dosed" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
+     "dosbin" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
      "einfon" "einstall" "elog" "emake" "ewarn" "exeinto" "exeopts" "fowners"
      "fperms" "has" "has_version" "hasq" "hasv" "insinto" "insopts" "into"
      "keepdir" "libopts" "newbin" "newconfd" "newdoc" "newenvd" "newexe"
      "newinitd" "newins" "newlib.a" "newlib.so" "newman" "newsbin" "prepall"
-     "prepalldocs" "prepallinfo" "prepallman" "prepallstrip" "unpack" "use"
+     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use"
      "use_enable" "use_with" "useq" "usev")
     font-lock-type-face))
 
@@ -73,7 +73,7 @@
 
 (defvar ebuild-mode-keywords-deprecated
   ;; deprecated eclass functions
-  '(("elisp-comp")
+  '(("elisp-comp" "prepalldocs" "dosed" "dohard")
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-go-mono
