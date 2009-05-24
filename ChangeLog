@@ -1,3 +1,8 @@
+2009-05-24  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-sort-keywords): Change sorting
+	order, reflecting a change in gentoolkit-dev.
+
 2009-05-05  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-deprecated): Add

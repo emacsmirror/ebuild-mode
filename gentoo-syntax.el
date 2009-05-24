@@ -204,7 +204,14 @@ A formfeed is not considered whitespace by this function."
 	(lambda (a b)
 	  (cond ((string-equal (car a) "*") t)
 		((string-equal (car b) "*") nil)
-		(t (string-lessp (car a) (car b)))))))
+		(t
+		 ;; split two-part keywords: first compare the OS
+		 ;; (after hyphen, if any), then the arch (before hyphen)
+		 (let ((as (split-string (car a) "-"))
+		       (bs (split-string (car b) "-")))
+		   (if (equal (cadr as) (cadr bs))
+		       (string-lessp (or (car as) "") (or (car bs) ""))
+		     (string-lessp (or (cadr as) "") (or (cadr bs) "")))))))))
 
 (defun ebuild-mode-modify-keywords (kw)
   "Set keywords. KW is an alist of architectures and leaders."
