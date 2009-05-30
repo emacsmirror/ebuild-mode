@@ -1,3 +1,7 @@
+2009-05-30  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.12 released.
+
 2009-05-24  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-sort-keywords): Change sorting
