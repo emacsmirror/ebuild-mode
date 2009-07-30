@@ -68,7 +68,7 @@
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
-  '(("which" "EAPI")
+  '(("which" "EAPI" "bindnow-flags")
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-deprecated
