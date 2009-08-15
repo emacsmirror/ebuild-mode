@@ -1,3 +1,13 @@
+2009-08-15  Ulrich Mueller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-config)
+	(eselect-mode-keywords-core, eselect-mode-keywords-manip)
+	(eselect-mode-keywords-multilib, eselect-mode-keywords-output)
+	(eselect-mode-keywords-package-manager)
+	(eselect-mode-keywords-path-manipulation)
+	(eselect-mode-keywords-tests): New function names and update
+	according to doc/developer-guide.txt of current eselect version.
+
 2009-07-30  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Warn on

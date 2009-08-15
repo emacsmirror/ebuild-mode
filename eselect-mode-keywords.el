@@ -1,6 +1,6 @@
 ;;; eselect-mode-keywords.el
 
-;; Copyright 2006-2008 Gentoo Foundation
+;; Copyright 2006-2009 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
@@ -26,30 +26,40 @@
 
 ;;; Code:
 
-(defvar eselect-mode-keywords-0
-  '(("die" "is_function" "has")
+(defvar eselect-mode-keywords-core
+  '(("die" "check_do" "do_action" "inherit" "sed")
     font-lock-type-face))
 
-(defvar eselect-mode-keywords-1
-  '(("store_config" "load_config" "add_config")
+(defvar eselect-mode-keywords-output
+  '(("write_error_msg" "write_warning_msg" "write_list_start"
+     "write_numbered_list_entry" "write_kv_list_entry" "write_numbered_list"
+     "highlight" "highlight_warning" "highlight_marker" "space")
     font-lock-type-face))
 
-(defvar eselect-mode-keywords-2
+(defvar eselect-mode-keywords-tests
+  '(("has" "is_function" "is_number")
+    font-lock-type-face))
+
+(defvar eselect-mode-keywords-path-manipulation
+  '(("basename" "dirname" "canonicalise")
+    font-lock-type-face))
+
+(defvar eselect-mode-keywords-manip
   '(("svn_date_to_version")
     font-lock-type-face))
 
-(defvar eselect-mode-keywords-3
-  '(("list_libdirs")
-    font-lock-warning-face))
-
-(defvar eselect-mode-keywords-eselect
-  '(("highlight" "highlight_warning" "space" "write_error_msg"
-     "write_kv_list_entry" "write_list_start" "write_numbered_list"
-     "write_numbered_list_entry")
+(defvar eselect-mode-keywords-config
+  '(("store_config" "load_config" "append_config")
     font-lock-type-face))
 
-(defvar eselect-mode-keywords-5
-  '(("is_number" "canonicalise")
+(defvar eselect-mode-keywords-multilib
+  '(("list_libdirs")
+    ;; why does this use warning-face? -- ulm
+    font-lock-warning-face))
+
+(defvar eselect-mode-keywords-package-manager
+  '(("arch" "envvar" "best_version" "has_version" "get_repositories"
+     "get_repo_news_dir")
     font-lock-type-face))
 
 ;; Local Variables:
