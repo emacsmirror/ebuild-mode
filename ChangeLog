@@ -14,8 +14,8 @@
 
 2009-05-05  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-deprecated): Add
-	prepalldocs, dosed and dohard, as we don't want to encourage
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-deprecated):
+	Add prepalldocs, dosed and dohard, as we don't want to encourage
 	people.
 
 2009-04-12  Ulrich Mueller  <ulm@gentoo.org>
