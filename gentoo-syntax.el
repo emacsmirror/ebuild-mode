@@ -55,31 +55,50 @@ A formfeed is not considered whitespace by this function."
 ;; suppress byte-compiler warning
 (defvar ebuild-mode-menu)
 
-(defun ebuild-mode-make-keywords-list (keywords-list face
-						     &optional prefix suffix)
-  ;; based on `generic-make-keywords-list' from generic.el
-  ;; Note: XEmacs doesn't have generic.el
-  (unless (listp keywords-list)
-    (error "Keywords argument must be a list of strings"))
-  (cons (concat prefix "\\<"
-		(regexp-opt keywords-list t)
-		"\\>" suffix)
-	face))
+(eval-and-compile
+  (defun ebuild-mode-make-keywords-list (keywords-list face
+						       &optional prefix suffix)
+    ;; based on `generic-make-keywords-list' from generic.el
+    ;; Note: XEmacs doesn't have generic.el
+    (unless (listp keywords-list)
+      (error "Keywords argument must be a list of strings"))
+    (cons (concat prefix "\\<"
+		  (regexp-opt keywords-list t)
+		  "\\>" suffix)
+	  face))
 
-(load "ebuild-mode-keywords" nil t)
-(load "eselect-mode-keywords" nil t)
+  (defun ebuild-mode-collect-equal-cdrs (src)
+    "For alist SRC, collect elements with equal cdr and concat their cars."
+    (let (dst e)
+      (dolist (c src dst)
+	(if (setq e (rassoc (cdr c) dst))
+	    (setcar e (append (car e) (car c)))
+	  (setq dst (cons (copy-sequence c) dst))))))
+)
+
+(eval-when-compile
+  (load "ebuild-mode-keywords" nil t)
+  (load "eselect-mode-keywords" nil t))
 
 (defvar ebuild-mode-font-lock-keywords
-  (mapcar
-   (lambda (x)
-     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
-   (all-completions "ebuild-mode-keywords-" obarray 'boundp)))
+  (eval-when-compile
+    (mapcar
+     (lambda (x)
+       (apply 'ebuild-mode-make-keywords-list x))
+     (ebuild-mode-collect-equal-cdrs
+      (mapcar
+       (lambda (x) (symbol-value (intern x)))
+       (all-completions "ebuild-mode-keywords-" obarray 'boundp))))))
 
 (defvar eselect-mode-font-lock-keywords
-  (mapcar
-   (lambda (x)
-     (apply 'ebuild-mode-make-keywords-list (symbol-value (intern x))))
-   (all-completions "eselect-mode-keywords-" obarray 'boundp)))
+  (eval-when-compile
+    (mapcar
+     (lambda (x)
+       (apply 'ebuild-mode-make-keywords-list x))
+     (ebuild-mode-collect-equal-cdrs
+      (mapcar
+       (lambda (x) (symbol-value (intern x)))
+       (all-completions "eselect-mode-keywords-" obarray 'boundp))))))
 
 (font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
 (font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)

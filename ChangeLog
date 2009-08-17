@@ -1,3 +1,12 @@
+2009-08-17  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-font-lock-keywords)
+	(eselect-mode-font-lock-keywords): It is more efficient to collect
+	all keywords for a font first, before computing their regexp.
+	Thanks to Elias Pipping for pointing this out.
+	(ebuild-mode-collect-equal-cdrs): New function.
+	(ebuild-mode-make-keywords-list): Define also at compile time.
+
 2009-08-16  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
