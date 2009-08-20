@@ -308,6 +308,7 @@
   '(("qt4_min_version" "qt4_min_version_list")
     font-lock-type-face))
 
+;; remove when KDE 3 leaves the tree
 (defvar ebuild-mode-keywords-kde-functions
   '(("get-parent-package" "get-child-packages" "is-parent-package"
      "need-automake" "need-autoconf" "deprange" "deprange-list"
@@ -317,6 +318,7 @@
      "postprocess_desktop_entries" "slot_rebuild")
     font-lock-type-face))
 
+;; remove when KDE 3 leaves the tree
 (defvar ebuild-mode-keywords-kde-meta
   '(("create_fullpaths" "change_makefiles" "set_common_variables")
     font-lock-type-face))

@@ -2,7 +2,8 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions),
 	(ebuild-mode-keywords-kde4-base),
-	(ebuild-mode-keywords-kde4-meta): Add new functions for KDE 4 eclasses
+	(ebuild-mode-keywords-kde4-meta): Add new functions for KDE 4
+	eclasses
 
 	* gentoo-syntax.el (ebuild-mode-insert-skeleton): Add new function
 	which inserts a skeleton ebuild on C-c C-n.  Code example taken
