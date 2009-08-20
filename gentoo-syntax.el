@@ -64,7 +64,8 @@ A formfeed is not considered whitespace by this function."
     (unless (listp keywords-list)
       (error "Keywords argument must be a list of strings"))
     (cons (concat prefix "\\<"
-		  (regexp-opt keywords-list t)
+		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
+		    (regexp-opt keywords-list t))
 		  "\\>" suffix)
 	  face))
 

@@ -1,4 +1,9 @@
-2009-08-20  Ulrich Mueller  <ulm@kph.uni-mainz.de>
+2009-08-20  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-make-keywords-list): Increase
+	max-specpdl-size to avoid an error in regexp-opt for Emacs 21.
+	At present, a minimum value of 650 is needed (while it is only
+	600 in Emacs 21).
 
 	* gentoo-syntax.el (ebuild-mode-complete-list): New function,
 	split off from ebuild-mode-ekeyword-complete.
