@@ -30,6 +30,27 @@
 (require 'sh-script)
 (require 'font-lock)
 (require 'easymenu)
+(require 'skeleton)
+
+;;; Skeleton
+(define-skeleton ebuild-mode-insert-skeleton
+  "Inserts a starting point for an ebuild"
+  nil
+"# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
+"# Distributed under the terms of the GNU General Public License v2\n"
+"# $Header: $\n"
+"\n"
+"DESCRIPTION=\"\"\n"
+"HOMEPAGE=\"\"\n"
+"SRC_URI=\"\"\n"
+"LICENSE=\"\"\n"
+"\n"
+"SLOT=\"0\"\n"
+"KEYWORDS=\"\"\n"
+"IUSE=\"\"\n"
+"\n"
+"DEPEND=\"\"\n"
+"RDEPEND=\"\$\{DEPEND\}\"\n")
 
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
@@ -343,6 +364,7 @@ A formfeed is not considered whitespace by this function."
 (define-key ebuild-mode-map "\C-c\C-a" 'ebuild-run-echangelog)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
+(define-key ebuild-mode-map "\C-c\C-n" 'ebuild-mode-insert-skeleton)
 
 ;; Menu support for both Emacs and XEmacs.
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
