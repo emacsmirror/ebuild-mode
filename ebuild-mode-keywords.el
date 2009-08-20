@@ -321,6 +321,22 @@
   '(("create_fullpaths" "change_makefiles" "set_common_variables")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-kde4-functions
+  '(("buildsycoca" "comment_all_add_subdirectory" "enable_selected_linguas"
+     "enable_selected_doc_linguas" "get_build_type" "migrate_store_dir"
+     "save_library_dependencies" "install_library_dependencies"
+     "load_library_dependencies")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-kde4-base
+  '(("kde4-base_src_make_doc")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-kde4-meta
+  '(("kde4-meta_create_extractlists" "kde4-meta_change_cmakelists"
+     "kde4-meta_src_make_doc")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-gst-plugins
   '(("gst-plugins_find_plugin_dir" "gst-plugins_update_registry"
      "gst-plugins_remove_unversioned_binaries")
