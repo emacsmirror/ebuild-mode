@@ -482,11 +482,12 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python
-  '(("NEED_PYTHON" "DOCS" "python_version" "python_tkinter_exists"
+  '(("NEED_PYTHON" "DOCS" "PYTHON" "python_version" "python_tkinter_exists"
      "python_mod_exists" "python_mod_compile" "python_mod_optimize"
-     "python_mod_cleanup" "python_disable_pyc"
-     "python_enable_pyc" "python_get_libdir" "python_get_sitedir"
-     "python_need_rebuild")
+     "python_mod_cleanup" "python_disable_pyc" "python_enable_pyc"
+     "python_get_libdir" "python_get_sitedir" "python_need_rebuild"
+     "validate_PYTHON_ABIS" "python_copy_sources" "python_set_build_dir_symlink"
+     "python_execute_function" "python_get_includedir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common-3
