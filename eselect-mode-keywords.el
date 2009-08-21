@@ -65,6 +65,7 @@
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78
+;; no-byte-compile: t
 ;; End:
 
 ;;; eselect-mode-keywords.el ends here

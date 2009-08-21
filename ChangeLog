@@ -1,5 +1,10 @@
 2009-08-21  Ulrich Mueller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el:
+	* eselect-mode-keywords.el: Add no-byte-compile to file variables.
+	These files are loaded by gentoo-syntax.el at compile time,
+	therefore the .elc files are not needed at run time.
+
 	* gentoo-syntax.el (ebuild-mode-portdir): New variable.
 	(ebuild-mode-licenses): New variable, initialise from license
 	directory of Portage tree.

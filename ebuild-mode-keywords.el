@@ -634,6 +634,7 @@
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78
+;; no-byte-compile: t
 ;; End:
 
 ;;; ebuild-mode-keywords.el ends here
