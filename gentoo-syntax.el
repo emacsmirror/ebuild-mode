@@ -303,6 +303,10 @@ A formfeed is not considered whitespace by this function."
   (ebuild-mode-modify-keywords (list (cons arch action))))
 
 (defun ebuild-mode-ekeyword-complete (s predicate mode)
+  "Completion function, to be used as second argument of `completing-read'.
+Return common substring of all completions of S for given PREDICATE.
+MODE can be nil, t, or `lambda'. See documentation of `try-completion'
+and `all-completions' for details."
   (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
   (if (eq (car-safe mode) 'boundaries) ; GNU Emacs 23
       (cons 'boundaries
