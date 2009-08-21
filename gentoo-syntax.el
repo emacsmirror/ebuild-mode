@@ -32,6 +32,26 @@
 (require 'easymenu)
 (require 'skeleton)
 
+;;; Skeleton
+(define-skeleton ebuild-mode-insert-skeleton
+  "Inserts a starting point for an ebuild"
+  nil
+"# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
+"# Distributed under the terms of the GNU General Public License v2\n"
+"# $Header: $\n"
+"\n"
+"DESCRIPTION=\"\"\n"
+"HOMEPAGE=\"\"\n"
+"SRC_URI=\"\"\n"
+"LICENSE=\"\"\n"
+"\n"
+"SLOT=\"0\"\n"
+"KEYWORDS=\"\"\n"
+"IUSE=\"\"\n"
+"\n"
+"DEPEND=\"\"\n"
+"RDEPEND=\"\$\{DEPEND\}\"\n")
+
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
       ;; from simple.el of Emacs 22.1
@@ -77,6 +97,10 @@ A formfeed is not considered whitespace by this function."
 	    (setcar e (append (car e) (car c)))
 	  (setq dst (cons (copy-sequence c) dst))))))
 )
+
+(eval-when-compile
+  (load "ebuild-mode-keywords" nil t)
+  (load "eselect-mode-keywords" nil t))
 
 (defvar ebuild-mode-font-lock-keywords
   (eval-when-compile
@@ -278,10 +302,7 @@ A formfeed is not considered whitespace by this function."
 		     nil t)))
   (ebuild-mode-modify-keywords (list (cons arch action))))
 
-(defun ebuild-mode-complete-list (s predicate mode coll-function)
-  "Completion function, doing the work for `ebuild-mode-ekeyword-complete'.
-S, PREDICATE, and MODE are as defined there. COLL-FUNCTION returns an
-alist whose keys are the possible completions for a given string."
+(defun ebuild-mode-ekeyword-complete (s predicate mode)
   (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
   (if (eq (car-safe mode) 'boundaries) ; GNU Emacs 23
       (cons 'boundaries
@@ -300,30 +321,20 @@ alist whose keys are the possible completions for a given string."
 			   (eq (apply 'try-completion args) t))))
 		      (t 'ignore))
 		s2
-		(funcall coll-function s2)
+		(mapcar 'list
+			(if (string-equal s2 "")
+			    '("" "~" "-" "^")
+			  (string-match "^[-^~]?" s2)
+			  (let ((s3 (match-string 0 s2)))
+			    (mapcar (lambda (x) (concat s3 x " "))
+				    (append '("all")
+					    (and (member s3 '("-" "^"))
+						 '("*"))
+					    (if (equal s3 "")
+						ebuild-mode-arch-stable-list
+					      ebuild-mode-arch-list))))))
 		predicate)))
       (if (stringp c2) (concat s1 c2) c2))))
-
-(defun ebuild-mode-ekeyword-complete (s predicate mode)
-  "Completion function, to be used as second argument of `completing-read'.
-Return common substring of all completions of S for given PREDICATE.
-MODE can be nil, t, or `lambda'. See documentaion of `try-completion'
-and `all-completions' for details."
-  (ebuild-mode-complete-list
-   s predicate mode
-   (lambda (s2)
-     (mapcar
-      'list
-      (if (string-equal s2 "")
-	  '("" "~" "-" "^")
-	(string-match "^[-^~]?" s2)
-	(let ((prefix (match-string 0 s2)))
-	  (mapcar (lambda (x) (concat prefix x " "))
-		  (append '("all")
-			  (and (member prefix '("-" "^")) '("*"))
-			  (if (equal prefix "")
-			      ebuild-mode-arch-stable-list
-			    ebuild-mode-arch-list)))))))))
 
 (defun ebuild-mode-ekeyword (keywords)
   "Keyword manipulation. Accepts the same input format as ekeyword."
@@ -337,60 +348,6 @@ and `all-completions' for details."
 			(match-string 1 s))))
 	   (split-string keywords))))
 
-;;; Licenses.
-
-;; List of popular licenses.
-;; From statistics at <http://gpnl.larrythecow.org/stats.php?q=license>
-(defvar ebuild-mode-common-licenses
-  '("GPL-2" "BSD" "LGPL-2.1" "Artistic" "as-is" "LGPL-2" "MIT" "GPL-3"
-    "public-domain" "Apache-2.0" "freedist"))
-
-(defun ebuild-mode-license-complete (s predicate mode)
-  "Completion function, to be used as second argument of `completing-read'.
-Return common substring of all completions of S for given PREDICATE.
-MODE can be nil, t, or `lambda'. See documentaion of `try-completion'
-and `all-completions' for details."
-  (ebuild-mode-complete-list
-   s predicate mode
-   (lambda (ignore) (mapcar (lambda (x) (list (concat x " ")))
-			    ebuild-mode-common-licenses))))
-
-;;; Skeleton support.
-
-(defsubst ebuild-mode-chop-whitespace (s)
-  "Return string S with whitespace removed from its end."
-  (substring s 0 (string-match "\\s-*\\'" s)))
-
-(define-skeleton ebuild-mode-insert-skeleton
-  "Insert a starting point for an ebuild."
-   nil
-   "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
-   "# Distributed under the terms of the GNU General Public License v2\n"
-   "# $Header: $\n"
-   "\n"
-   (let ((s (skeleton-read "EAPI: ")))
-     (if (or (string= "" s) (string= "0" s))
-	 ""
-       (concat "EAPI=" s "\n\n")))
-   "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
-   "HOMEPAGE=\"" (skeleton-read "Home page: " "http://") "\"\n"
-   "SRC_URI=\""
-   (completing-read "Source URI: " '(("http://") ("ftp://") ("mirror://")))
-   "\"\n"
-   "\n"
-   "LICENSE=\""
-   (ebuild-mode-chop-whitespace
-    (completing-read "License: " 'ebuild-mode-license-complete))
-   "\"\n"
-   "SLOT=\"0\"\n"
-   "KEYWORDS=\""
-   (ebuild-mode-chop-whitespace
-    (completing-read "Keywords: " 'ebuild-mode-ekeyword-complete))
-   "\"\n"
-   "IUSE=\"\"\n"
-   "\n"
-   "DEPEND=\"\"\n"
-   "RDEPEND=\"\$\{DEPEND\}\"\n")
 
 ;;; echangelog support.
 
@@ -417,7 +374,6 @@ and `all-completions' for details."
     ("Run ebuild command"
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
-    ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
     ["Run echangelog" ebuild-run-echangelog]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]))
