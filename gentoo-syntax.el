@@ -32,26 +32,6 @@
 (require 'easymenu)
 (require 'skeleton)
 
-;;; Skeleton
-(define-skeleton ebuild-mode-insert-skeleton
-  "Inserts a starting point for an ebuild"
-  nil
-"# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
-"# Distributed under the terms of the GNU General Public License v2\n"
-"# $Header: $\n"
-"\n"
-"DESCRIPTION=\"\"\n"
-"HOMEPAGE=\"\"\n"
-"SRC_URI=\"\"\n"
-"LICENSE=\"\"\n"
-"\n"
-"SLOT=\"0\"\n"
-"KEYWORDS=\"\"\n"
-"IUSE=\"\"\n"
-"\n"
-"DEPEND=\"\"\n"
-"RDEPEND=\"\$\{DEPEND\}\"\n")
-
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
       ;; from simple.el of Emacs 22.1
@@ -352,6 +332,49 @@ and `all-completions' for details."
 			(match-string 1 s))))
 	   (split-string keywords))))
 
+;;; Skeleton support.
+
+;; List of popular licenses.
+;; From statistics at <http://gpnl.larrythecow.org/stats.php?q=license>
+(defvar ebuild-mode-common-licenses
+  '("GPL-2" "BSD" "LGPL-2.1" "Artistic" "as-is" "LGPL-2" "MIT" "GPL-3"
+    "public-domain" "Apache-2.0" "freedist"))
+
+(define-skeleton ebuild-mode-insert-skeleton
+  "Insert a starting point for an ebuild."
+   nil
+   "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
+   "# Distributed under the terms of the GNU General Public License v2\n"
+   "# $Header: $\n"
+   "\n"
+   (let ((s (skeleton-read "EAPI: ")))
+     (if (or (string= "" s) (string= "0" s))
+	 ""
+       (concat "EAPI=" s "\n\n")))
+   "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
+   "HOMEPAGE=\"" (completing-read "Homepage: " '(("http://"))) "\"\n"
+   "SRC_URI=\""
+   (completing-read
+    "Source URI: " (mapcar 'list '("http://" "ftp://" "mirror://")))
+   "\"\n"
+   "\n"
+   "LICENSE=\""
+   ((completing-read
+     "License (null string to terminate): "
+     (mapcar 'list ebuild-mode-common-licenses))
+    str & " ")
+   -1 "\"\n"
+   "SLOT=\"0\"\n"
+   "KEYWORDS=\""
+   ((completing-read
+     "Keyword (null string to terminate): "
+     (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list))
+    str & " ")
+   -1 "\"\n"
+   "IUSE=\"\"\n"
+   "\n"
+   "DEPEND=\"\"\n"
+   "RDEPEND=\"\$\{DEPEND\}\"\n")
 
 ;;; echangelog support.
 
@@ -378,6 +401,7 @@ and `all-completions' for details."
     ("Run ebuild command"
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
+    ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
     ["Run echangelog" ebuild-run-echangelog]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]))
