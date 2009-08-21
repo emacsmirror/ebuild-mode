@@ -32,6 +32,9 @@
 (require 'easymenu)
 (require 'skeleton)
 
+
+;;; Compatibility code.
+
 (eval-and-compile
   (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
       ;; from simple.el of Emacs 22.1
@@ -53,8 +56,58 @@ A formfeed is not considered whitespace by this function."
 	(delete-region (point) (match-end 0))))))
 ))
 
+
+;;; Variables.
+
+(defvar ebuild-mode-portdir
+  "/usr/portage"
+  "Location of the Portage tree.")
+
+(defvar ebuild-mode-arch-list
+  (or
+   (condition-case nil
+       (let ((file (concat ebuild-mode-portdir "/profiles/arch.list")))
+	 (if (file-readable-p file)
+	     (with-temp-buffer
+	       (insert-file-contents-literally file)
+	       (while (re-search-forward "#.*$" nil t)
+		 (replace-match ""))
+	       (split-string (buffer-string)))))
+     (error nil))
+   '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
+     "s390" "sh" "sparc" "x86" "sparc-fbsd" "x86-fbsd"))
+  "List of architectures.")
+
+(defvar ebuild-mode-arch-regexp
+  "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
+
+(defvar ebuild-mode-licenses
+  (or
+   (condition-case nil
+       (directory-files (concat ebuild-mode-portdir "/licenses")
+			nil "\\`[^.]")
+     (error nil))
+   ;; could not read directory,, default to some popular licenses
+   '("Apache-2.0" "Artistic" "as-is" "BSD" "freedist" "GPL-2" "GPL-3"
+     "LGPL-2.1" "LGPL-2" "MIT" "public-domain"))
+  "List of licenses, determined from the Portage tree.")
+
+(defvar ebuild-mode-action-alist
+  '(("unstable" . "~")
+    ("stable" . "")
+    ("mask" . "-")
+    ("drop" . nil)))
+
+(defvar ebuild-commands-list
+  '("help" "setup" "fetch" "digest" "manifest" "unpack" "compile"
+    "test" "preinst" "postinst" "install" "qmerge" "merge"
+    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean"))
+
 ;; suppress byte-compiler warning
 (defvar ebuild-mode-menu)
+
+
+;;; Font-lock.
 
 (eval-and-compile
   (defun ebuild-mode-make-keywords-list (keywords-list face
@@ -104,6 +157,9 @@ A formfeed is not considered whitespace by this function."
 
 (font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
 (font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)
+
+
+;;; Mode definitions.
 
 (defun ebuild-mode-tabify ()
   ;; Tabify whitespace at beginning of lines.
@@ -156,11 +212,6 @@ A formfeed is not considered whitespace by this function."
 
 ;;; Run ebuild command.
 
-(defvar ebuild-commands-list
-  '("help" "setup" "fetch" "digest" "manifest" "unpack" "compile"
-    "test" "preinst" "postinst" "install" "qmerge" "merge"
-    "prerm" "postrm" "unmerge" "config" "package" "rpm" "clean"))
-
 ;;;###autoload
 (defun ebuild-run-command (command)
   "Run ebuild COMMAND, with output to a compilation buffer."
@@ -181,16 +232,6 @@ A formfeed is not considered whitespace by this function."
 
 ;;; Modify package keywords.
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
-
-(defvar ebuild-mode-arch-stable-list
-  '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "ppc" "ppc64"
-    "s390" "sh" "sparc" "x86"))
-
-(defvar ebuild-mode-arch-list
-  `(,@ebuild-mode-arch-stable-list "mips" "sparc-fbsd" "x86-fbsd"))
-
-(defvar ebuild-mode-arch-regexp
-  "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
 (defun ebuild-mode-get-keywords (&optional noerror)
   (save-excursion
@@ -251,10 +292,7 @@ A formfeed is not considered whitespace by this function."
 	  (dolist (e keywords)
 	    (and (or (equal (cdr e) "")
 		     (equal (cdr e) "~"))
-		 (member (car e)
-			 (if (equal leader "")
-			     ebuild-mode-arch-stable-list
-			   ebuild-mode-arch-list))
+		 (member (car e) ebuild-mode-arch-list)
 		 (setcdr e leader))))
 	 ;; modify keyword
 	 (old-k (setcdr old-k leader))
@@ -262,12 +300,6 @@ A formfeed is not considered whitespace by this function."
 	 (t (setq keywords (append keywords (list k)))))))
     (ebuild-mode-put-keywords
      (ebuild-mode-sort-keywords keywords))))
-
-(defvar ebuild-mode-action-alist
-  '(("unstable" . "~")
-    ("stable" . "")
-    ("mask" . "-")
-    ("drop" . nil)))
 
 (defun ebuild-mode-keyword (action arch)
   "Keyword manipulation."
@@ -314,9 +346,7 @@ and `all-completions' for details."
 				    (append '("all")
 					    (and (member s3 '("-" "^"))
 						 '("*"))
-					    (if (equal s3 "")
-						ebuild-mode-arch-stable-list
-					      ebuild-mode-arch-list))))))
+					    ebuild-mode-arch-list)))))
 		predicate)))
       (if (stringp c2) (concat s1 c2) c2))))
 
@@ -333,12 +363,6 @@ and `all-completions' for details."
 	   (split-string keywords))))
 
 ;;; Skeleton support.
-
-;; List of popular licenses.
-;; From statistics at <http://gpnl.larrythecow.org/stats.php?q=license>
-(defvar ebuild-mode-common-licenses
-  '("GPL-2" "BSD" "LGPL-2.1" "Artistic" "as-is" "LGPL-2" "MIT" "GPL-3"
-    "public-domain" "Apache-2.0" "freedist"))
 
 (define-skeleton ebuild-mode-insert-skeleton
   "Insert a starting point for an ebuild."
@@ -361,14 +385,16 @@ and `all-completions' for details."
    "LICENSE=\""
    ((completing-read
      "License (null string to terminate): "
-     (mapcar 'list ebuild-mode-common-licenses))
+     (mapcar 'list ebuild-mode-licenses))
     str & " ")
    -1 "\"\n"
    "SLOT=\"0\"\n"
    "KEYWORDS=\""
    ((completing-read
      "Keyword (null string to terminate): "
-     (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list))
+     (nconc
+      (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list)
+      (mapcar 'list ebuild-mode-arch-list)))
     str & " ")
    -1 "\"\n"
    "IUSE=\"\"\n"
