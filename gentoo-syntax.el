@@ -387,7 +387,7 @@ and `all-completions' for details."
      "License (null string to terminate): "
      (mapcar 'list ebuild-mode-licenses))
     str & " ")
-   -1 "\"\n"
+   & -1 "\"\n"
    "SLOT=\"0\"\n"
    "KEYWORDS=\""
    ((completing-read
@@ -396,7 +396,7 @@ and `all-completions' for details."
       (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list)
       (mapcar 'list ebuild-mode-arch-list)))
     str & " ")
-   -1 "\"\n"
+   & -1 "\"\n"
    "IUSE=\"\"\n"
    "\n"
    "DEPEND=\"\"\n"
