@@ -362,6 +362,11 @@ and `all-completions' for details."
 			(match-string 1 s))))
 	   (split-string keywords))))
 
+(defun ebuild-mode-all-keywords-unstable ()
+  "Mark all keywords as unstable."
+  (interactive)
+  (ebuild-mode-modify-keywords '(("all" . "~"))))
+
 ;;; Skeleton support.
 
 (define-skeleton ebuild-mode-insert-skeleton
@@ -418,6 +423,7 @@ and `all-completions' for details."
 (define-key ebuild-mode-map "\C-c\C-a" 'ebuild-run-echangelog)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
+(define-key ebuild-mode-map "\C-c\C-b" 'ebuild-mode-all-keywords-unstable)
 (define-key ebuild-mode-map "\C-c\C-n" 'ebuild-mode-insert-skeleton)
 
 ;; Menu support for both Emacs and XEmacs.
@@ -430,7 +436,8 @@ and `all-completions' for details."
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
     ["Run echangelog" ebuild-run-echangelog]
     ["Set/unset keyword" ebuild-mode-keyword]
-    ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]))
+    ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
+    ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]))
 
 (and (< emacs-major-version 22)
      ;; make TAB key work

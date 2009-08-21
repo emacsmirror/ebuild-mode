@@ -8,6 +8,8 @@
 	(ebuild-mode-insert-skeleton): Interactively ask for values.
 	Move function behind mode definitions and completion code.
 	(ebuild-mode-menu): Add ebuild-mode-insert-skeleton to menu.
+	(ebuild-mode-all-keywords-unstable): New function for this very
+	common operation, bind to C-c C-b key (mnemonics: "bump").
 
 2009-08-20  Ulrich Mueller  <ulm@gentoo.org>
 
