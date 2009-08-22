@@ -6,8 +6,9 @@
 	therefore the .elc files are not needed at run time.
 
 	* gentoo-syntax.el (ebuild-mode-portdir): New variable.
-	(ebuild-mode-licenses): New variable, initialise from license
-	directory of Portage tree.
+	(ebuild-mode-licenses, ebuild-mode-use-flags): New variables,
+	initialised from license and profile directories of Portage tree.
+	(ebuild-mode-restrict-list): New variable.
 	(ebuild-mode-arch-list): Initialise from profile directory.
 	(ebuild-mode-arch-stable-list): Variable removed.
 	(ebuild-mode-insert-skeleton): Interactively ask for values.

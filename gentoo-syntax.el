@@ -92,6 +92,23 @@ A formfeed is not considered whitespace by this function."
      "LGPL-2.1" "LGPL-2" "MIT" "public-domain"))
   "List of licenses, determined from the Portage tree.")
 
+(defvar ebuild-mode-restrict-list
+  '("binchecks" "bindist" "fetch" "installsources" "mirror"
+    "primaryuri" "strip" "test" "userpriv")
+  "List of RESTRICT features.")
+
+(defvar ebuild-mode-use-flags
+  (condition-case nil
+      (let ((file (concat ebuild-mode-portdir "/profiles/use.desc")))
+	(if (file-readable-p file)
+	    (with-temp-buffer
+	      (insert-file-contents-literally file)
+	      (while (re-search-forward "\\(\s-\\|#\\).*$" nil t)
+		 (replace-match ""))
+	      (split-string (buffer-string)))))
+    (error nil))
+  "List of USE flags.")
+
 (defvar ebuild-mode-action-alist
   '(("unstable" . "~")
     ("stable" . "")
@@ -376,10 +393,10 @@ and `all-completions' for details."
    "# Distributed under the terms of the GNU General Public License v2\n"
    "# $Header: $\n"
    "\n"
+   "EAPI="
    (let ((s (skeleton-read "EAPI: ")))
-     (if (or (string= "" s) (string= "0" s))
-	 ""
-       (concat "EAPI=" s "\n\n")))
+     (if (string= "0" s) "" s))
+   & "\n\n" | -5
    "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
    "HOMEPAGE=\"" (completing-read "Homepage: " '(("http://"))) "\"\n"
    "SRC_URI=\""
@@ -402,7 +419,18 @@ and `all-completions' for details."
       (mapcar 'list ebuild-mode-arch-list)))
     str & " ")
    & -1 "\"\n"
-   "IUSE=\"\"\n"
+   "IUSE=\""
+   ((completing-read
+     "USE flag (null string to terminate): "
+     (mapcar 'list ebuild-mode-use-flags))
+    str & " ")
+   & -1 "\"\n"
+   "RESTRICT=\""
+   ((completing-read
+     "RESTRICT (null string to terminate): "
+     (mapcar 'list ebuild-mode-restrict-list))
+    str & " ")
+   & (nil -1 "\"\n") | -10
    "\n"
    "DEPEND=\"\"\n"
    "RDEPEND=\"\$\{DEPEND\}\"\n")
