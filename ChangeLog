@@ -1,3 +1,8 @@
+2009-08-23  Ulrich Mueller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-multilib):
+	Change font to font-lock-type-face.
+
 2009-08-21  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el:

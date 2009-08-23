@@ -54,8 +54,7 @@
 
 (defvar eselect-mode-keywords-multilib
   '(("list_libdirs")
-    ;; why does this use warning-face? -- ulm
-    font-lock-warning-face))
+    font-lock-type-face))
 
 (defvar eselect-mode-keywords-package-manager
   '(("arch" "envvar" "best_version" "has_version" "get_repositories"
