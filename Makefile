@@ -23,4 +23,4 @@ dist: $(DISTFILES)
 	tar -tjvf $(P).tar.bz2
 
 clean:
-	-rm -f *~ *.tmp *.gz *.bz2
+	-rm -f *~ *.tmp *.gz *.bz2 *.info
