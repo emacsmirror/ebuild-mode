@@ -83,9 +83,13 @@ keybindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
+@section Writing a new ebuild
+
 @section Keywording
 In ebuild-mode an interface to manipulation of the KEYWORDS variable is
 provided in two different ways.
+
+@section Testing and interfacing with Portage
 
 @section Keybindings
 @table @kbd
