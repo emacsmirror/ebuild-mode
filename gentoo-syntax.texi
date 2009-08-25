@@ -32,6 +32,9 @@ under the terms of the GNU General Public License version 2.
 @end titlepage
 
 @node Top
+
+@contents
+
 @top gentoo-syntax: An introduction
 This collection of modes will help the user to efficiently write and
 edit ebuilds, eclasses and eselect modules which are special to Gentoo,
@@ -59,8 +62,6 @@ creation of new ebuilds by skeleton support.
 @menu
 * Functions:: What gentoo-syntax provides
 @end menu
-
-@contents
 
 @node Functions
 @chapter Available functionality
