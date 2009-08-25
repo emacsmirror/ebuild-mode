@@ -1,0 +1,46 @@
+\input texinfo.tex    @c -*-texinfo-*-
+@comment %**start of header
+@setfilename gentoo-syntax.info
+@settitle Major mode for Ebuilds, Eclasses and Eselect modules in Gentoo
+@c %**end of header
+
+@copying
+This manual is for gentoo-syntax, which is a major mode for ebuild,
+eclass and eselect module files.
+
+Copyright @copyright{} 2009 Christian Faulhammer
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the Creative Commons Attribution-Noncommercial-Share
+Alike 3.0.  A copy can be found on
+http://creativecommons.org/licenses/by-nc-sa/3.0/
+@end quotation
+@end copying
+
+@dircategory gentoo-syntax, a mode for ebuilds
+@direntry
+* gentoo-syntax: (gentoo-syntax).         Describing a mode for ebuilds, eclasses and eselect modules
+@end direntry
+
+
+@titlepage
+@title gentoo-syntax 1.13
+@subtitle Major mode for Gentoo files
+@author Christian Faulhammer
+@page
+@insertcopying
+@end titlepage
+
+@node Top
+@top gentoo-syntax: An introduction
+@menu
+* Functions:: What gentoo-syntax provides.
+@end menu
+
+@contents
+
+@node Functions
+@chapter Available functionality
+@section Keybindings
+@bye
