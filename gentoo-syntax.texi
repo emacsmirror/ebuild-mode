@@ -17,6 +17,7 @@ under the terms of the GNU General Public License version 2.
 @end copying
 
 @dircategory Gentoo
+@dircategory Emacs
 @direntry
 * gentoo-syntax: (gentoo-syntax).         Describing a mode for ebuilds, eclasses and eselect modules
 @end direntry
