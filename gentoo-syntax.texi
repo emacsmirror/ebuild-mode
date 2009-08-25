@@ -64,6 +64,18 @@ creation of new ebuilds by skeleton support.
 
 @node Functions
 @chapter Available functionality
+Two packages are available for installation:
+@code{app-emacs/gentoo-syntax} and @code{app-xemacs/gentoo-syntax}
+(there is support for GNU Emacs and XEmacs from the same source).  When
+installed through the normal package management in Gentoo and proper
+configuration of Emacs, gentoo-syntax loads the appropriate mode on
+opening files with the extensions @code{.ebuild}, @code{.eclass} and
+@code{.eselect}.
+
+If font-locking is enabled, keywords are highlighted, both the standard
+set available from vanilla Portage and special functions from all common
+eclasses.  Missing highlighting should be reported on
+@code{http://bugs.gentoo.org/}.
 @section Keybindings
 @table @kbd
 @item C-c C-e
