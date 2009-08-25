@@ -34,8 +34,31 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/
 
 @node Top
 @top gentoo-syntax: An introduction
+This collection of modes will help the user to efficiently write and edit ebuilds,
+eclasses and eselect modules which are special to Gentoo, a
+meta-distribution with various targets (Linux distribution, prefixed
+environments in other operating systems, and integration of other
+kernels and userlands like the BSDs).
+
+Ebuilds describe the build process and dependencies of a software
+package to automatically compile and install it under the control of a
+package manager.  They are simple text files, based on Bash shell
+scripts and there easy to create.  Eclasses are comparable to a library
+which provides generic functions that a set of ebuilds can use by
+sourcing it on request.
+
+Eselect is a framework to set one out of many alternatives as the
+default value or to activate many out of many choices.  An example is to
+choose the version of GNU Emacs called by the @code{/usr/bin/emacs}
+program.  Those modules are also near to Bash.
+
+gentoo-syntax provides two modes to edit the above three file types:
+Ebuild (Eclass) mode and Eselect mode.  Other features are the execution
+of often needed functions (like KEYWORDS manipulation) or fast-track
+creation of new ebuilds by skeleton support.
+
 @menu
-* Functions:: What gentoo-syntax provides.
+* Functions:: What gentoo-syntax provides
 @end menu
 
 @contents
