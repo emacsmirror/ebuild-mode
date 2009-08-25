@@ -18,7 +18,7 @@ http://creativecommons.org/licenses/by-nc-sa/3.0/
 @end quotation
 @end copying
 
-@dircategory gentoo-syntax, a mode for ebuilds
+@dircategory Gentoo
 @direntry
 * gentoo-syntax: (gentoo-syntax).         Describing a mode for ebuilds, eclasses and eselect modules
 @end direntry
