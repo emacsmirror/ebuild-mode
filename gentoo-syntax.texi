@@ -76,6 +76,15 @@ If font-locking is enabled, keywords are highlighted, both the standard
 set available from vanilla Portage and special functions from all common
 eclasses.  Missing highlighting should be reported on
 @code{http://bugs.gentoo.org/}.
+
+Generally all functionality is reachable through direct function calls,
+keybindings (described later) and menu entries, if the latter is
+activated.
+
+@section Keywording
+In ebuild-mode an interface to manipulation of the KEYWORDS variable is
+provided in two different ways.
+
 @section Keybindings
 @table @kbd
 @item C-c C-e
