@@ -66,4 +66,21 @@ creation of new ebuilds by skeleton support.
 @node Functions
 @chapter Available functionality
 @section Keybindings
+@table @kbd
+@item C-c C-e
+Run the ebuild command, you are prompted for the phase you want.
+@item C-c C-a
+Create a ChangeLog entry.
+@item C-c C-k
+Keywording is done via prompts that narrows down your choices which
+architectures to mark as testing, dropped among other things.
+@item C-c C-y
+Generate architecture keywords with the syntax from the ekeyword tool.
+@item C-c C-b
+Mark all architectures as testing.  Handy for version/revision bumps.
+@item C-c C-n
+Insert a skeleton ebuild contents, with prompts for desired eclass
+inclusions, licenses and USE flags.
+@end table
+
 @bye
