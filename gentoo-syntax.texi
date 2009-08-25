@@ -80,7 +80,8 @@ eclasses.  Missing highlighting should be reported on
 
 Generally all functionality is reachable through direct function calls,
 keybindings (described later) and menu entries, if the latter is
-activated.
+activated.  So every user has the choice for his/her preferred way of
+interfacing with Emacs.
 
 @section Keywording
 In ebuild-mode an interface to manipulation of the KEYWORDS variable is
