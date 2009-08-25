@@ -33,9 +33,9 @@ under the terms of the GNU General Public License version 2.
 
 @node Top
 @top gentoo-syntax: An introduction
-This collection of modes will help the user to efficiently write and edit ebuilds,
-eclasses and eselect modules which are special to Gentoo, a
-meta-distribution with various targets (Linux distribution, prefixed
+This collection of modes will help the user to efficiently write and
+edit ebuilds, eclasses and eselect modules which are special to Gentoo,
+a meta-distribution with various targets (Linux distribution, prefixed
 environments in other operating systems, and integration of other
 kernels and userlands like the BSDs).
 
