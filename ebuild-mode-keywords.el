@@ -549,7 +549,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
-  '(("NEED_EMACS" "DOCS")
+  '(("NEED_EMACS" "DOCS" "elisp_src_install" "elisp_src_compile"
+     "elisp_src_unpack" "elisp_src_prepare" "elisp_src_configure")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-games-etmod
