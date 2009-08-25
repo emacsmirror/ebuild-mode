@@ -1,5 +1,8 @@
 2009-08-26  Christian Faulhammer  <fauli@gentoo.org>
 
+	* gentoo-syntax.texi (Functions): Describe how to start an ebuild
+	from scratch
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp): Add ebuild
 	phases to highlighted keywords from elisp.eclass
 

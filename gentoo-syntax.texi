@@ -84,6 +84,13 @@ activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
 @section Writing a new ebuild
+Starting a completely new ebuild from scratch is best done by inserting
+an ebuild skeleton.  The function @code{ebuild-mode-skeleton} does this
+for you and can be called via @kbd{C-c C-n}.  You are prompted for the
+always needed information, while having the possibility to give more
+than one item (in LICENSE for example) and choose via tab completion
+from the possible choices.  Giving an empty input on items, that are not
+mandatory, will remove it from the buffer.
 
 @section Keywording
 In ebuild-mode an interface to manipulation of the KEYWORDS variable is
