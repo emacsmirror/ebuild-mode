@@ -155,8 +155,7 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-font-lock-keywords
   (eval-when-compile
     (mapcar
-     (lambda (x)
-       (apply 'ebuild-mode-make-keywords-list x))
+     (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
      (ebuild-mode-collect-equal-cdrs
       (mapcar
        (lambda (x) (symbol-value (intern x)))
@@ -165,8 +164,7 @@ A formfeed is not considered whitespace by this function."
 (defvar eselect-mode-font-lock-keywords
   (eval-when-compile
     (mapcar
-     (lambda (x)
-       (apply 'ebuild-mode-make-keywords-list x))
+     (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
      (ebuild-mode-collect-equal-cdrs
       (mapcar
        (lambda (x) (symbol-value (intern x)))
