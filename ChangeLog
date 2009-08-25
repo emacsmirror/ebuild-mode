@@ -1,8 +1,6 @@
 2009-08-25  Christian Faulhammer  <fauli@gentoo.org>
 
-	* gentoo-syntax.texi: New file for coming manual
-	Set category to Gentoo
-
+	* gentoo-syntax.texi: Add new Info manual
 	* Makefile: Generate Info file and add it on tarball generation
 
 2009-08-23  Ulrich Mueller  <ulm@gentoo.org>
