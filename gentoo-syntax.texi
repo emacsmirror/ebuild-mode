@@ -103,6 +103,24 @@ Prompt for actions with tab completion or
 ekeyword syntax.
 @end enumerate
 
+The first function is called @code{ebuild-mode-keyword} (bound to
+@kbd{C-c C-k}) and initially asks for the action to take which is one
+out of
+@table
+@item drop
+Remove the architecture entirely.
+@item mask
+State with a prefixed minus sign that the architecture is definitely not
+supported.
+@item stable
+Mark as stable.
+@item unstable
+Mark as testing.
+@end table
+
+After choosing the action the architectures to handle need to be chosen.
+Tab completion is available for all possible architectures.
+
 @section Testing and interfacing with Portage
 
 @section Keybindings
