@@ -2,6 +2,7 @@
 
 	* gentoo-syntax.texi (Functions): Describe how to start an ebuild
 	from scratch
+	(Functions): Describe keywording possibilities
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp): Add ebuild
 	phases to highlighted keywords from elisp.eclass

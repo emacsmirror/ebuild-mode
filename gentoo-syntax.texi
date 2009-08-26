@@ -95,7 +95,13 @@ modifications is simple and straightforward.
 
 @section Keywording
 In ebuild-mode an interface to manipulation of the KEYWORDS variable is
-provided in two different ways.
+provided in two different ways:
+@enumerate
+@item
+Prompt for actions with tab completion or
+@item
+ekeyword syntax.
+@end enumerate
 
 @section Testing and interfacing with Portage
 
