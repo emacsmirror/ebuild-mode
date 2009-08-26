@@ -90,7 +90,8 @@ for you and can be called via @kbd{C-c C-n}.  You are prompted for the
 always needed information, while having the possibility to give more
 than one item (in LICENSE for example) and choose via tab completion
 from the possible choices.  Giving an empty input on items, that are not
-mandatory, will remove it from the buffer.
+mandatory, will remove it from the buffer.  After that adding custom
+modifications is simple and straightforward.
 
 @section Keywording
 In ebuild-mode an interface to manipulation of the KEYWORDS variable is
