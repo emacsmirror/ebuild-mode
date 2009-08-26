@@ -102,7 +102,7 @@ provided in two different ways.
 @section Keybindings
 @table @kbd
 @item C-c C-e
-Run the ebuild command, you are prompted for the phase you want.
+Run Portage's ebuild command, you are prompted for the phase you want.
 @item C-c C-a
 Create a ChangeLog entry.
 @item C-c C-k
