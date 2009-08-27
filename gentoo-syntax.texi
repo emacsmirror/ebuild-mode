@@ -74,7 +74,9 @@ Two packages are available for installation:
 installed through the normal package management in Gentoo and proper
 configuration of Emacs, gentoo-syntax loads the appropriate mode on
 opening files with the extensions @code{.ebuild}, @code{.eclass} and
-@code{.eselect}.
+@code{.eselect}.  As the ebuild format is based on the Bash syntax,
+sh-mode is called as a base, where ebuild specific things are
+added/changed on top.
 
 If font-locking is enabled, keywords are highlighted, both the standard
 set available from vanilla Portage and special functions from all common
