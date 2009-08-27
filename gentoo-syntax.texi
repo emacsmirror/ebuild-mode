@@ -1,7 +1,7 @@
 \input texinfo.tex    @c -*-texinfo-*-
 @comment %**start of header
 @setfilename gentoo-syntax.info
-@settitle Major mode for Ebuilds, Eclasses and Eselect modules in Gentoo
+@settitle Major mode for ebuilds, eclasses and eselect modules in Gentoo
 @c %**end of header
 
 @copying
@@ -55,7 +55,7 @@ choose the version of GNU Emacs called by the @code{/usr/bin/emacs}
 program.  Those modules are also near to Bash.
 
 gentoo-syntax provides two modes to edit the above three file types:
-Ebuild (Eclass) mode and Eselect mode.  Other features are the execution
+ebuild (eclass) mode and eselect mode.  Other features are the execution
 of often needed commands (like KEYWORDS manipulation) or fast-track
 creation of new ebuilds by skeleton support.
 
