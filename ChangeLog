@@ -1,3 +1,7 @@
+2009-08-27  Christian Faulhammer  <fauli@gentoo.org>
+
+	* gentoo-syntax.texi (Functions): Describe ekeyword syntax usage
+
 2009-08-26  Christian Faulhammer  <fauli@gentoo.org>
 
 	* gentoo-syntax.texi (Functions): Describe how to start an ebuild

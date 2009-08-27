@@ -121,6 +121,23 @@ Mark as testing.
 After choosing the action the architectures to handle need to be chosen.
 Tab completion is available for all possible architectures.
 
+Using the ekeyword syntax for the @code{ebuild-mode-ekeyword} function
+(@kbd{C-c C-y} as keybinding) is equal what you can pass as argument to
+said utility from the @code{app-portage/gentoolkit-dev} package:
+@table @code
+@item ^<arch>
+Remove the architecture entirely.
+@item -<arch>
+State with a prefixed minus sign that the architecture is definitely not
+supported.
+@item <arch>
+Mark as stable.
+@item ~<arch>
+Mark as testing.
+@end table
+It is possible to use @code{all} instead of an individual architecture
+which works on all currently available architectures for the ebuild.
+
 @section Testing and interfacing with Portage
 
 @section Keybindings
