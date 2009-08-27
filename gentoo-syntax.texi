@@ -56,17 +56,17 @@ program.  Those modules are also near to Bash.
 
 gentoo-syntax provides two modes to edit the above three file types:
 Ebuild (Eclass) mode and Eselect mode.  Other features are the execution
-of often needed functions (like KEYWORDS manipulation) or fast-track
+of often needed commands (like KEYWORDS manipulation) or fast-track
 creation of new ebuilds by skeleton support.
 
 @menu
-* Functions:: What gentoo-syntax provides
+* Commands:: What gentoo-syntax provides
 * ebuild-mode:: What gentoo-syntax provides
 * eclass-mode:: What gentoo-syntax provides
 * eselect-mode:: What gentoo-syntax provides
 @end menu
 
-@node Functions, ebuild-mode, Top, Top
+@node Commands, ebuild-mode, Top, Top
 @chapter Available functionality
 Two packages are available for installation:
 @code{app-emacs/gentoo-syntax} and @code{app-xemacs/gentoo-syntax}
@@ -83,16 +83,16 @@ set available from vanilla Portage and special functions from all common
 eclasses.  Missing highlighting should be reported on
 @code{http://bugs.gentoo.org/}.
 
-Generally all functionality is reachable through direct function calls,
+Generally all functionality is reachable through direct commands,
 keybindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
-@node ebuild-mode, eclass-mode, Functions, Top
+@node ebuild-mode, eclass-mode, Commands, Top
 @chapter Describing ebuild-mode
 @section Writing a new ebuild
 Starting a completely new ebuild from scratch is best done by inserting
-an ebuild skeleton.  The function @code{ebuild-mode-skeleton} does this
+an ebuild skeleton.  The command @code{ebuild-mode-skeleton} does this
 for you and can be called via @kbd{C-c C-n}.  You are prompted for the
 always needed information, while having the possibility to give more
 than one item (in LICENSE for example) and choose via tab completion
@@ -110,7 +110,7 @@ Prompt for actions with tab completion or
 ekeyword syntax.
 @end enumerate
 
-The first function is called @code{ebuild-mode-keyword} (bound to
+The first command is called @code{ebuild-mode-keyword} (bound to
 @kbd{C-c C-k}) and initially asks for the action to take which is one
 out of
 @table @code
@@ -128,7 +128,7 @@ Mark as testing.
 After choosing the action the architectures to handle need to be chosen.
 Tab completion is available for all possible architectures.
 
-Using the ekeyword syntax for the @code{ebuild-mode-ekeyword} function
+Using the ekeyword syntax for the @code{ebuild-mode-ekeyword} command
 (@kbd{C-c C-y} as keybinding) is equal what you can pass as argument to
 said utility from the @code{app-portage/gentoolkit-dev} package:
 @table @code
@@ -146,9 +146,9 @@ It is possible to use @code{all} instead of an individual architecture
 which works on all currently available architectures for the ebuild.
 
 Handy for version/revision bumps is to mark all architectures from a
-copied stable ebuild as testing.  Either the @code{all} placeholder for
-the ekeyword syntax can be used or the keyboard shortcut @kbd{C-c C-b}
-(calling the @code{ebuild-mode-all-keywords-unstable} function).
+copied stable ebuild as testing.  The keybinding @kbd{C-c C-b} calling
+the @code{ebuild-mode-all-keywords-unstable} command can be used for
+this task.
 
 @section Testing and interfacing with Portage
 
@@ -184,7 +184,7 @@ Create a ChangeLog entry.
 @node eclass-mode, eselect-mode, ebuild-mode, Top
 @chapter Describing eclass-mode
 There is no special eclass-mode but ebuild-mode is used without the
-functions that make no sense in eclasses.
+commands that make no sense in eclasses.
 
 @node eselect-mode, ,eclass-mode, Top
 @chapter Describing eselect-mode
