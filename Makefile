@@ -6,9 +6,8 @@ PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
 	gentoo-syntax.el)
 P = $(PN)-$(PV)
 
-
-DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el \
-	eselect-mode-keywords.el ChangeLog gentoo-syntax.info
+DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el eselect-mode-keywords.el \
+	gentoo-syntax.texi gentoo-syntax.info ChangeLog
 
 
 .PHONY: all dist clean
