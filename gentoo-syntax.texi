@@ -181,6 +181,8 @@ Create a ChangeLog entry.
 
 @node eclass-mode, eselect-mode, ebuild-mode, Top
 @chapter Describing eclass-mode
+There is no special eclass-mode but ebuild-mode is used without the
+functions that make no sense in eclasses.
 
 @node eselect-mode, ,eclass-mode, Top
 @chapter Describing eselect-mode
