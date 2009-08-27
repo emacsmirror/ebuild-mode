@@ -61,9 +61,12 @@ creation of new ebuilds by skeleton support.
 
 @menu
 * Functions:: What gentoo-syntax provides
+* ebuild-mode:: What gentoo-syntax provides
+* eclass-mode:: What gentoo-syntax provides
+* eselect-mode:: What gentoo-syntax provides
 @end menu
 
-@node Functions
+@node Functions, ebuild-mode, Top, Top
 @chapter Available functionality
 Two packages are available for installation:
 @code{app-emacs/gentoo-syntax} and @code{app-xemacs/gentoo-syntax}
@@ -83,6 +86,8 @@ keybindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
+@node ebuild-mode, eclass-mode, Functions, Top
+@chapter Describing ebuild-mode
 @section Writing a new ebuild
 Starting a completely new ebuild from scratch is best done by inserting
 an ebuild skeleton.  The function @code{ebuild-mode-skeleton} does this
@@ -173,5 +178,11 @@ Run Portage's ebuild command, you are prompted for the phase you want.
 @item C-c C-a
 Create a ChangeLog entry.
 @end table
+
+@node eclass-mode, eselect-mode, ebuild-mode, Top
+@chapter Describing eclass-mode
+
+@node eselect-mode, ,eclass-mode, Top
+@chapter Describing eselect-mode
 
 @bye
