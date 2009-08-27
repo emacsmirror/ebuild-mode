@@ -145,7 +145,16 @@ the ekeyword syntax can be used or the keyboard shortcut @kbd{C-c C-b}
 
 @section Testing and interfacing with Portage
 
+Apart from the normal external program calls via @kbd{M-!}, ebuild-mode
+provides a direct interface to the ebuild utility found in the Portage
+program suite.  @kbd{C-c C-e} calls @code{ebuild-run-command} which asks
+for one of the possible actions as argument.  See the man page of ebuild
+what actions are provided.
 
+Creating a ChangeLog entry via the echangelog program from
+@code{app-portage/gentoolkit-dev} is achieved via
+@code{ebuild-run-echangelog} or @kbd{C-c C-a}.  Only type in the desired
+text, formatting, time stamps and changed files are added automatically.
 
 @section Keybindings
 @table @kbd
