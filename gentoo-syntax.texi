@@ -186,5 +186,5 @@ functions that make no sense in eclasses.
 
 @node eselect-mode, ,eclass-mode, Top
 @chapter Describing eselect-mode
-
+This mode only supports highlighting of special eselect keywords.
 @bye

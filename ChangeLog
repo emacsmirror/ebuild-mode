@@ -3,6 +3,7 @@
 	* gentoo-syntax.texi (Functions): Describe ekeyword syntax usage
 	(Functions): Document Portage interaction
 	(eclass-mode): Describe eclass-mode
+	(eselect-mode): Describe eselect-mode
 
 2009-08-26  Christian Faulhammer  <fauli@gentoo.org>
 
