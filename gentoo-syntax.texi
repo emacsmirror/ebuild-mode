@@ -138,7 +138,14 @@ Mark as testing.
 It is possible to use @code{all} instead of an individual architecture
 which works on all currently available architectures for the ebuild.
 
+Handy for version/revision bumps is to mark all architectures from a
+copied stable ebuild as testing.  Either the @code{all} placeholder for
+the ekeyword syntax can be used or the keyboard shortcut @kbd{C-c C-b}
+(calling the @code{ebuild-mode-all-keywords-unstable} function).
+
 @section Testing and interfacing with Portage
+
+
 
 @section Keybindings
 @table @kbd
