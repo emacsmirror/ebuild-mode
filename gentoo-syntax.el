@@ -92,6 +92,15 @@ A formfeed is not considered whitespace by this function."
      "LGPL-2.1" "LGPL-2" "MIT" "public-domain"))
   "List of licenses, determined from the Portage tree.")
 
+(defvar ebuild-mode-eclasses
+  (condition-case nil
+      (mapcar
+       (lambda (x) (substring x 0 (string-match "\\.eclass\\'" x)))
+       (directory-files (concat ebuild-mode-portdir "/eclass")
+			nil "\\.eclass\\'"))
+     (error nil))
+  "List of eclasses, determined from the Portage tree.")
+
 (defvar ebuild-mode-restrict-list
   '("binchecks" "bindist" "fetch" "installsources" "mirror"
     "primaryuri" "strip" "test" "userpriv")
@@ -395,6 +404,12 @@ and `all-completions' for details."
    (let ((s (skeleton-read "EAPI: ")))
      (if (string= "0" s) "" s))
    & "\n\n" | -5
+   "inherit "
+   ((completing-read
+     "Eclass (null string to terminate): "
+     (mapcar 'list ebuild-mode-eclasses))
+    str & " ")
+   & (nil -1 "\n\n") | -8
    "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
    "HOMEPAGE=\"" (completing-read "Homepage: " '(("http://"))) "\"\n"
    "SRC_URI=\""
