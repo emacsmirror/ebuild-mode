@@ -1,3 +1,8 @@
+2009-08-31  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info): Add
+	getfilevar_noexec highlighting
+
 2009-08-27  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Makefile (DISTFILES): Include Texinfo source in tarball.

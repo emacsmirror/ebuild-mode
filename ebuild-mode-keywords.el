@@ -266,11 +266,12 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-linux-info
-  '(("qout" "qeinfo" "qeerror" "getfilevar" "linux_chkconfig_present"
-     "linux_chkconfig_module" "linux_chkconfig_builtin"
-     "linux_chkconfig_string" "kernel_is" "get_localversion" "get_version"
-     "get_running_version" "check_kernel_built" "check_modules_supported"
-     "check_extra_config" "check_zlibinflate")
+  '(("qout" "qeinfo" "qeerror" "getfilevar" "getfilevar_noexec"
+     "linux_chkconfig_present" "linux_chkconfig_module"
+     "linux_chkconfig_builtin" "linux_chkconfig_string" "kernel_is"
+     "get_localversion" "get_version" "get_running_version"
+     "check_kernel_built" "check_modules_supported" "check_extra_config"
+     "check_zlibinflate")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-linux-mod
