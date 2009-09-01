@@ -1,3 +1,8 @@
+2009-09-01  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions):
+	Add slot_is_at_least
+
 2009-08-31  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info): Add

@@ -328,7 +328,7 @@
   '(("buildsycoca" "comment_all_add_subdirectory" "enable_selected_linguas"
      "enable_selected_doc_linguas" "get_build_type" "migrate_store_dir"
      "save_library_dependencies" "install_library_dependencies"
-     "load_library_dependencies")
+     "load_library_dependencies" "slot_is_at_least")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-base
