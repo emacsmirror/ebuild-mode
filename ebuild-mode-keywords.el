@@ -271,7 +271,7 @@
      "linux_chkconfig_builtin" "linux_chkconfig_string" "kernel_is"
      "get_localversion" "get_version" "get_running_version"
      "check_kernel_built" "check_modules_supported" "check_extra_config"
-     "check_zlibinflate")
+     "check_zlibinflate" "linux-info_get_any_version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-linux-mod
