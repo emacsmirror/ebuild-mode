@@ -1,7 +1,7 @@
 2009-09-07  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info): Add
-	linux-onfo_get_any_version function
+	linux-info_get_any_version function
 
 2009-09-01  Christian Faulhammer  <fauli@gentoo.org>
 
