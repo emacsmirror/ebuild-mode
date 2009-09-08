@@ -81,7 +81,7 @@
 
 	* gentoo-syntax.el (ebuild-mode-insert-skeleton): Add new function
 	which inserts a skeleton ebuild on C-c C-n.  Code example taken
-	in parts from skel.ebuild..
+	in parts from skel.ebuild.
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
 	keywords from reworked python.eclass
