@@ -394,7 +394,7 @@ and `all-completions' for details."
 ;;; Skeleton support.
 
 (define-skeleton ebuild-mode-insert-skeleton
-  "Insert a starting point for an ebuild."
+  "Insert a statement skeleton for a new ebuild."
    nil
    "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
    "# Distributed under the terms of the GNU General Public License v2\n"
