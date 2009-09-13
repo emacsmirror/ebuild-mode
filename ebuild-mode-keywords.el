@@ -550,8 +550,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
-  '(("NEED_EMACS" "DOCS" "elisp_src_install" "elisp_src_compile"
-     "elisp_src_unpack" "elisp_src_prepare" "elisp_src_configure")
+  '(("NEED_EMACS" "DOCS" "ELISP_PATCHES" "SITEFILE"
+     "elisp_pkg_setup" "elisp_pkg_postinst" "elisp_pkg_postrm"
+     "elisp_src_unpack" "elisp_src_prepare" "elisp_src_configure"
+     "elisp_src_compile" "elisp_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-games-etmod
