@@ -4,8 +4,8 @@
 
 2009-09-07  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info): Add
-	linux-info_get_any_version function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info):
+	Add linux-info_get_any_version function
 
 2009-09-01  Christian Faulhammer  <fauli@gentoo.org>
 
@@ -14,8 +14,8 @@
 
 2009-08-31  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info): Add
-	getfilevar_noexec highlighting
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-info):
+	Add getfilevar_noexec highlighting
 
 2009-08-27  Ulrich Mueller  <ulm@gentoo.org>
 
@@ -87,8 +87,8 @@
 	which inserts a skeleton ebuild on C-c C-n.  Code example taken
 	in parts from skel.ebuild.
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
-	keywords from reworked python.eclass
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add keywords from reworked python.eclass
 
 2009-08-17  Ulrich Mueller  <ulm@gentoo.org>
 
