@@ -1,3 +1,7 @@
+2009-09-18  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (auto-mode-alist): Recognise eblit files.
+
 2009-09-13  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp): Update.

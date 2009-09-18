@@ -488,9 +488,8 @@ and `all-completions' for details."
 	   ad-do-it)))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.ebuild\\'" . ebuild-mode))
-;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-mode))
+(add-to-list 'auto-mode-alist
+	     '("\\.\\(ebuild\\|eclass\\|eblit\\)\\'" . ebuild-mode))
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.eselect\\'" . eselect-mode))
 
