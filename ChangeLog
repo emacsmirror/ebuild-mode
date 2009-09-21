@@ -1,3 +1,8 @@
+2009-09-22  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el: Remove highlighting for xfce44.eclass,
+	which is deprecated
+
 2009-09-18  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (auto-mode-alist): Recognise eblit files.

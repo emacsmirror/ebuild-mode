@@ -242,14 +242,6 @@
   '(("64-bit")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-xfce44
-  '(("xfce44_beta" "xfce44" "xfce44_gzipped" "xfce44_zipped" "xfce44_plugin"
-     "xfce44_panel_plugin" "xfce44_thunar_plugin" "xfce44_goodies"
-     "xfce44_goodies_panel_plugin" "xfce44_goodies_thunar_plugin"
-     "xfce44_core_package" "xfce44_extra_package" "xfce44_single_make"
-     "xfce44_want_einstall")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-x11
   '(("vcards" "filter-patch" "check_version_h" "get_KV_info" "is_kernel"
      "strip_bins" "arch" "archq" "use_build")
