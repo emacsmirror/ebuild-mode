@@ -74,6 +74,7 @@ A formfeed is not considered whitespace by this function."
 		 (replace-match ""))
 	       (split-string (buffer-string)))))
      (error nil))
+   ;; could not read architectures from Portage tree, so fall back to default
    '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
      "s390" "sh" "sparc" "x86" "sparc-fbsd" "x86-fbsd"))
   "List of architectures.")
@@ -82,14 +83,10 @@ A formfeed is not considered whitespace by this function."
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
 (defvar ebuild-mode-licenses
-  (or
-   (condition-case nil
-       (directory-files (concat ebuild-mode-portdir "/licenses")
-			nil "\\`[^.]")
-     (error nil))
-   ;; could not read directory,, default to some popular licenses
-   '("Apache-2.0" "Artistic" "as-is" "BSD" "freedist" "GPL-2" "GPL-3"
-     "LGPL-2.1" "LGPL-2" "MIT" "public-domain"))
+  (condition-case nil
+      (directory-files (concat ebuild-mode-portdir "/licenses")
+		       nil "\\`[^.]")
+    (error nil))
   "List of licenses, determined from the Portage tree.")
 
 (defvar ebuild-mode-eclasses
