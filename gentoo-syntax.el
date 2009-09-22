@@ -179,8 +179,8 @@ A formfeed is not considered whitespace by this function."
 (defvar gentoo-newsitem-font-lock-keywords
   '(("^\\(Title\\|Author\\|Translator\
 \\|Content-Type\\|Posted\\|Revision\\|News-Item-Format\
-\\|Display-If-\\(Installed\\|Keyword:\\|Profile:\\)\\):"
-     . 'font-lock-keyword-face))
+\\|Display-If-\\(Installed\\|Keyword\\|Profile\\)\\):"
+     . font-lock-keyword-face))
   "Expressions to highlight in Gentoo newsitem mode.")
 
 (font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
