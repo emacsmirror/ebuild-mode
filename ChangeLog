@@ -1,5 +1,7 @@
 2009-09-22  Ulrich Mueller  <ulm@gentoo.org>
 
+	* Version 1.14 released.
+
 	* gentoo-syntax.el (ebuild-mode-licenses): Don't supply a default
 	list if licences can't be read from the Portage tree.
 	(ebuild-mode-use-flags): Allow only space or tab as separators.
