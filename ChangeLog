@@ -1,5 +1,11 @@
 2009-09-22  Ulrich Mueller  <ulm@gentoo.org>
 
+	* gentoo-syntax.el (gentoo-newsitem-font-lock-keywords)
+	(gentoo-newsitem-mode, gentoo-newsitem-insert-skeleton)
+	(gentoo-newsitem-mode-map, gentoo-newsitem-mode-menu):
+	New mode for editing of GLEP 42 news item files.
+	(auto-mode-alist): Add filename pattern for news items.
+
 	* Version 1.14 released.
 
 	* gentoo-syntax.el (ebuild-mode-licenses): Don't supply a default
