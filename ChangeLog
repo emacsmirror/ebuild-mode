@@ -2,6 +2,8 @@
 
 	* gentoo-syntax.el (ebuild-mode-licenses): Don't supply a default
 	list if licences can't be read from the Portage tree.
+	(ebuild-mode-use-flags): Allow only space or tab as separators.
+	Fixes issue with Emacs 22, bug 285989.
 
 	* Version 1.13 released.
 

@@ -109,7 +109,7 @@ A formfeed is not considered whitespace by this function."
 	(if (file-readable-p file)
 	    (with-temp-buffer
 	      (insert-file-contents-literally file)
-	      (while (re-search-forward "\\(\s-\\|#\\).*$" nil t)
+	      (while (re-search-forward "\\([ \t]\\|#\\).*$" nil t)
 		 (replace-match ""))
 	      (split-string (buffer-string)))))
     (error nil))
