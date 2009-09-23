@@ -1,3 +1,8 @@
+2009-09-23  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-hook, eselect-mode-hook):
+	Move adding of font-lock keywords into mode hooks.
+
 2009-09-22  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (gentoo-newsitem-font-lock-keywords)

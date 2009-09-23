@@ -177,16 +177,12 @@ A formfeed is not considered whitespace by this function."
        (all-completions "eselect-mode-keywords-" obarray 'boundp))))))
 
 (defvar gentoo-newsitem-font-lock-keywords
-  '(("^\\(Title\\|Author\\|Translator\
-\\|Content-Type\\|Posted\\|Revision\\|News-Item-Format\
-\\|Display-If-\\(Installed\\|Keyword\\|Profile\\)\\):"
-     . font-lock-keyword-face))
-  "Expressions to highlight in Gentoo newsitem mode.")
-
-(font-lock-add-keywords 'ebuild-mode ebuild-mode-font-lock-keywords)
-(font-lock-add-keywords 'eselect-mode eselect-mode-font-lock-keywords)
-(font-lock-add-keywords 'gentoo-newsitem-mode
-			gentoo-newsitem-font-lock-keywords)
+  (eval-when-compile
+    (list (ebuild-mode-make-keywords-list
+	   '("Title" "Author" "Translator" "Content-Type" "Posted"
+	     "Revision" "News-Item-Format" "Display-If-Installed"
+	     "Display-If-Keyword" "Display-If-Profile")
+	   'font-lock-keyword-face "^" ":"))))
 
 
 ;;; Mode definitions.
@@ -229,6 +225,10 @@ A formfeed is not considered whitespace by this function."
   (setq tab-width 4)
   (setq indent-tabs-mode t))
 
+(add-hook 'ebuild-mode-hook
+	  (lambda () (font-lock-add-keywords
+		      nil ebuild-mode-font-lock-keywords)))
+
 ;;;###autoload
 (define-derived-mode eselect-mode shell-script-mode "Eselect"
   "Major mode for .eselect files."
@@ -239,9 +239,15 @@ A formfeed is not considered whitespace by this function."
   (setq tab-width 4)
   (setq indent-tabs-mode t))
 
+(add-hook 'eselect-mode-hook
+	  (lambda () (font-lock-add-keywords
+		      nil eselect-mode-font-lock-keywords)))
+
 ;;;###autoload
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
   "Major mode for Gentoo GLEP 42 news items."
+  (make-local-variable 'font-lock-defaults)
+  (setq 'font-lock-defaults '(gentoo-newsitem-font-lock-keywords t))
   (setq fill-column 72))
 
 ;;; Run ebuild command.
