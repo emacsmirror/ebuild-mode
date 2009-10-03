@@ -1,3 +1,8 @@
+2009-10-03  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-games-mods):
+	Changes for updated eclass
+
 2009-09-23  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-hook, eselect-mode-hook):
