@@ -1,3 +1,8 @@
+2009-10-04  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic): add
+	no-as-needed function
+
 2009-10-03  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-games-mods):
