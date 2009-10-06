@@ -1,3 +1,9 @@
+2009-10-06  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions):
+	add_blocker, block_other_slots and add_kdebase_dep are new
+	functions
+
 2009-10-04  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic): add
