@@ -2,6 +2,8 @@
 
 	* Version 1.15 released.
 
+	* gentoo-syntax.el (gentoo-newsitem-mode): Fix typo.
+
 2009-10-06  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions):

@@ -247,7 +247,7 @@ A formfeed is not considered whitespace by this function."
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
   "Major mode for Gentoo GLEP 42 news items."
   (make-local-variable 'font-lock-defaults)
-  (setq 'font-lock-defaults '(gentoo-newsitem-font-lock-keywords t))
+  (setq font-lock-defaults '(gentoo-newsitem-font-lock-keywords t))
   (setq fill-column 72))
 
 ;;; Run ebuild command.
