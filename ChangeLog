@@ -1,3 +1,7 @@
+2009-10-08  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.15 released.
+
 2009-10-06  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-kde4-functions):
