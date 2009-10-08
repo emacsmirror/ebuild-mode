@@ -24,7 +24,7 @@ under the terms of the GNU General Public License version 2.
 
 
 @titlepage
-@title gentoo-syntax 1.13
+@title gentoo-syntax 1.15
 @subtitle Major mode for Gentoo files
 @author Christian Faulhammer
 @page
