@@ -41,7 +41,7 @@
     font-lock-type-face))
 
 (defvar eselect-mode-keywords-path-manipulation
-  '(("basename" "dirname" "canonicalise")
+  '(("basename" "dirname" "canonicalise" "relative_name")
     font-lock-type-face))
 
 (defvar eselect-mode-keywords-manip

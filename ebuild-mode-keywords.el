@@ -543,7 +543,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
-  '(("NEED_EMACS" "DOCS" "ELISP_PATCHES" "SITEFILE"
+  '(("NEED_EMACS" "ELISP_PATCHES" "ELISP_TEXINFO" "SITEFILE" "DOCS"
      "elisp_pkg_setup" "elisp_pkg_postinst" "elisp_pkg_postrm"
      "elisp_src_unpack" "elisp_src_prepare" "elisp_src_configure"
      "elisp_src_compile" "elisp_src_install")
