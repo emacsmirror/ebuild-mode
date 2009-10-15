@@ -499,7 +499,7 @@
      "python_mod_cleanup" "python_disable_pyc" "python_enable_pyc"
      "python_get_libdir" "python_get_sitedir" "python_need_rebuild"
      "validate_PYTHON_ABIS" "python_copy_sources" "python_set_build_dir_symlink"
-     "python_execute_function" "python_get_includedir")
+     "python_execute_function" "python_get_includedir" "python_convert_shebangs")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common-3
