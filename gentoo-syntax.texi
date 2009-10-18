@@ -205,6 +205,7 @@ It gets automatically loaded when a file name matches the criteria of
 GLEP 42 (see there for details), but can also be invoked through the
 @code{gentoo-newsitem-mode} function.  The only available keybinding is
 @kbd{C-c C-n} which starts a skeleton assistant similar to the one
-available in @code{ebuild-mode}.  
+available in @code{ebuild-mode}.  All mandatory information are asked
+from the user so no item is forgotten.
 
 @bye
