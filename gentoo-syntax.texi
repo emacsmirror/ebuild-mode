@@ -64,6 +64,7 @@ creation of new ebuilds by skeleton support.
 * ebuild-mode:: Editing ebuilds
 * eclass-mode:: Editing eclasses
 * eselect-mode:: Editing eselect modules
+* gentoo-newsitem-mode:: Editing GLEP 42 news items 
 @end menu
 
 @node Commands, ebuild-mode, Top, Top
@@ -186,7 +187,10 @@ Create a ChangeLog entry.
 There is no special eclass-mode but ebuild-mode is used without the
 commands that make no sense in eclasses.
 
-@node eselect-mode, ,eclass-mode, Top
+@node eselect-mode, gentoo-newsitem-mode ,eclass-mode, Top
 @chapter Describing eselect-mode
 This mode only supports highlighting of special eselect keywords.
+
+@node gentoo-newsitem-mode, ,eselect-mode, Top
+@chapter Describing gentoo-newsitem-mode for GLEP 42 news items
 @bye
