@@ -1,3 +1,7 @@
+2009-10-18  Christian Faulhammer  <fauli@gentoo.org>
+
+	* gentoo-syntax.texi (Top): Describe menu items correctly
+
 2009-10-16  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add

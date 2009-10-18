@@ -61,9 +61,9 @@ creation of new ebuilds by skeleton support.
 
 @menu
 * Commands:: What gentoo-syntax provides
-* ebuild-mode:: What gentoo-syntax provides
-* eclass-mode:: What gentoo-syntax provides
-* eselect-mode:: What gentoo-syntax provides
+* ebuild-mode:: Editing ebuilds
+* eclass-mode:: Editing eclasses
+* eselect-mode:: Editing eselect modules
 @end menu
 
 @node Commands, ebuild-mode, Top, Top
