@@ -7,7 +7,7 @@ PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
 P = $(PN)-$(PV)
 
 DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el eselect-mode-keywords.el \
-	gentoo-syntax.texi gentoo-syntax.info ChangeLog
+	gentoo-syntax.texi ChangeLog
 
 
 .PHONY: all dist clean
@@ -15,7 +15,7 @@ DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el eselect-mode-keywords.el \
 all:
 
 gentoo-syntax.info: gentoo-syntax.texi
-	makeinfo gentoo-syntax.texi
+	makeinfo $<
 
 dist: $(DISTFILES)
 	tar -cjf $(P).tar.bz2 --transform='s%^%$(P)/%' $^

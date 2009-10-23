@@ -1,3 +1,8 @@
+2009-10-23  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Makefile (DISTFILES): Omit the Info file from the tarball.
+	(gentoo-syntax.info): Use automatic variable.
+
 2009-10-18  Christian Faulhammer  <fauli@gentoo.org>
 
 	* gentoo-syntax.texi (Top): Describe menu items correctly
