@@ -5,8 +5,8 @@
 
 2009-10-16  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
-	python_convert_shebangs function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_convert_shebangs function
 
 2009-10-09  Ulrich Mueller  <ulm@gentoo.org>
 
