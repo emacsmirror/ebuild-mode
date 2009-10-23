@@ -1,5 +1,8 @@
 2009-10-23  Ulrich Mueller  <ulm@gentoo.org>
 
+	* eselect-mode-keywords.el (eselect-mode-keywords-warn):
+	New variable.
+
 	* Makefile (DISTFILES): Omit the Info file from the tarball.
 	(gentoo-syntax.info): Use automatic variable.
 

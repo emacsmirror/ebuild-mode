@@ -26,6 +26,10 @@
 
 ;;; Code:
 
+(defvar eselect-mode-keywords-warn
+  '(("eval")
+    font-lock-warning-face))
+
 (defvar eselect-mode-keywords-core
   '(("die" "check_do" "do_action" "inherit" "sed")
     font-lock-type-face))
