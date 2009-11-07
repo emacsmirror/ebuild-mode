@@ -64,7 +64,7 @@ creation of new ebuilds by skeleton support.
 * ebuild-mode:: Editing ebuilds
 * eclass-mode:: Editing eclasses
 * eselect-mode:: Editing eselect modules
-* gentoo-newsitem-mode:: Editing GLEP 42 news items 
+* gentoo-newsitem-mode:: Editing GLEP 42 news items
 @end menu
 
 @node Commands, ebuild-mode, Top, Top
