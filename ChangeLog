@@ -1,3 +1,8 @@
+2009-11-09  Ulrich Mueller  <ulm@gentoo.org>
+
+	* eselect-mode-keywords.el (eselect-mode-keywords-output):
+	Add is_output_mode function.
+
 2009-11-09  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-ant-2):

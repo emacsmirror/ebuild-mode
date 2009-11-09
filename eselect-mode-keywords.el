@@ -37,7 +37,8 @@
 (defvar eselect-mode-keywords-output
   '(("write_error_msg" "write_warning_msg" "write_list_start"
      "write_numbered_list_entry" "write_kv_list_entry" "write_numbered_list"
-     "highlight" "highlight_warning" "highlight_marker" "space")
+     "highlight" "highlight_warning" "highlight_marker" "is_output_mode"
+     "space")
     font-lock-type-face))
 
 (defvar eselect-mode-keywords-tests
