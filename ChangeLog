@@ -26,8 +26,8 @@
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp):
 	Add ELISP_TEXINFO variable.
 
-	* eselect-mode-keywords.el
-	(eselect-mode-keywords-path-manipulation): Add relative_name.
+	* eselect-mode-keywords.el (eselect-mode-keywords-path-manipulation):
+	Add relative_name function.
 
 2009-10-08  Ulrich Mueller  <ulm@gentoo.org>
 
