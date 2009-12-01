@@ -234,10 +234,6 @@
   '(("db_ver_to_slot" "db_findver" "db_includedir" "db_libname")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-db4-fix
-  '(("dodb4-fix")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-64-bit
   '(("64-bit")
     font-lock-type-face))

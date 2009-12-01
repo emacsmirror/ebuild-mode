@@ -2,7 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
 	add tc-getPKG_CONFIG and tc-has-tlsfunctions
-	remove many obsolete eclasses: check-kernel
+	remove many obsolete eclasses: check-kernel, db4-fix
 
 2009-11-09  Ulrich Mueller  <ulm@gentoo.org>
 
