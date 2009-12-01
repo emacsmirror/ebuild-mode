@@ -318,11 +318,6 @@
      "kde4-meta_src_make_doc")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gst-plugins
-  '(("gst-plugins_find_plugin_dir" "gst-plugins_update_registry"
-     "gst-plugins_remove_unversioned_binaries")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-gst-plugins10
   '(("gst-plugins10_find_plugin_dir"
      "gst-plugins10_remove_unversioned_binaries")
