@@ -550,10 +550,6 @@
      "games-q3mod_make_init.d" "games-q3mod_make_conf.d")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-games-ut2k4mod
-  '(("check_dvd")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-games
   '(("games_get_libdir" "egamesconf" "egamesinstall" "gameswrapper"
      "dogamesbin" "dogamessbin" "dogameslib" "dogameslib.a" "dogameslib.so"
