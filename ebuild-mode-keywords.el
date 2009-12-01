@@ -533,11 +533,6 @@
   '(("gems_src_install" "gems-location")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-check-kernel
-  '(("is_2_4_kernel" "is_2_5_kernel" "is_2_6_kernel"
-     "kernel_supports_modules")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-elisp-common
   '(("elisp-compile" "elisp-install" "elisp-site-file-install"
      "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file")
