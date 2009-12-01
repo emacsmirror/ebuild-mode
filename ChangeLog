@@ -1,3 +1,7 @@
+2009-12-01  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.16 released.
+
 2009-12-01  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
