@@ -541,11 +541,6 @@
      "elisp_src_compile" "elisp_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-games-etmod
-  '(("games-etmod_make_etded_exec" "games-etmod_make_enemy-territory_exec"
-     "games-etmod_make_init.d" "games-etmod_make_conf.d")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-games-mods
   '(("default_client" "games-mods_make_initd" "games-mods_make_confd")
     font-lock-type-face))
