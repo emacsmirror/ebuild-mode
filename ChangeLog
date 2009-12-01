@@ -1,10 +1,10 @@
 2009-12-01  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
-	add tc-getPKG_CONFIG and tc-has-tlsfunctions remove many obsolete
-	eclasses: check-kernel, db4-fix, games-etmod, games-ut2k4mod,
-	gnustep-funcs, gst-plugins, gtk-sharp-component, mozconfig, x11,
-	64-bit, kernel-mod, php5-sapi-r3, php-ext
+	add tc-getPKG_CONFIG and tc-has-tls functions. remove many
+	obsolete eclasses: check-kernel, db4-fix, games-etmod,
+	games-ut2k4mod, gnustep-funcs, gst-plugins, gtk-sharp-component,
+	mozconfig, x11, 64-bit, kernel-mod, php5-sapi-r3, php-ext
 
 2009-11-09  Ulrich Mueller  <ulm@gentoo.org>
 

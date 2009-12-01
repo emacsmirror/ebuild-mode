@@ -107,10 +107,11 @@
 (defvar ebuild-mode-keywords-toolchain-funcs
   '(("tc-getPROG" "tc-getAR" "tc-getAS" "tc-getCC" "tc-getCPP" "tc-getCXX"
      "tc-getLD" "tc-getSTRIP" "tc-getNM" "tc-getRANLIB" "tc-getF77"
-     "tc-getF90" "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC" "tc-getPKG_CONFIG"
-     "tc-export" "tc-is-cross-compiler" "tc-ninja_magic_to_arch" "tc-has-tls"
-     "tc-arch-kernel" "tc-arch" "tc-endian" "gcc-fullversion" "gcc-version"
-     "gcc-major-version" "gcc-minor-version" "gcc-micro-version")
+     "tc-getF90" "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC"
+     "tc-getPKG_CONFIG" "tc-export" "tc-is-cross-compiler"
+     "tc-ninja_magic_to_arch" "tc-has-tls" "tc-arch-kernel" "tc-arch"
+     "tc-endian" "gcc-fullversion" "gcc-version" "gcc-major-version"
+     "gcc-minor-version" "gcc-micro-version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain
@@ -445,8 +446,9 @@
      "python_mod_exists" "python_mod_compile" "python_mod_optimize"
      "python_mod_cleanup" "python_disable_pyc" "python_enable_pyc"
      "python_get_libdir" "python_get_sitedir" "python_need_rebuild"
-     "validate_PYTHON_ABIS" "python_copy_sources" "python_set_build_dir_symlink"
-     "python_execute_function" "python_get_includedir" "python_convert_shebangs")
+     "validate_PYTHON_ABIS" "python_copy_sources"
+     "python_set_build_dir_symlink" "python_execute_function"
+     "python_get_includedir" "python_convert_shebangs")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common-3
