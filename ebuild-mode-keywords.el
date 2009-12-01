@@ -218,10 +218,6 @@
   '(("db_ver_to_slot" "db_findver" "db_includedir" "db_libname")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-64-bit
-  '(("64-bit")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-confutils
   '(("confutils_init" "confutils_require_any" "confutils_use_conflict"
      "confutils_use_depend_all" "confutils_use_depend_any"
