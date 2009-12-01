@@ -558,15 +558,6 @@
      "generate_sparc_asm" "headers___fix")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-kernel-mod
-  '(("kernel-mod_getmakefilevar" "kernel-mod_getversion"
-     "kernel-mod_configoption_present" "kernel-mod_configoption_module"
-     "kernel-mod_configoption_builtin" "kernel-mod_modules_supported"
-     "kernel-mod_check_modules_supported"
-     "kernel-mod_checkzlibinflate_configured" "kernel-mod_is_2_4_kernel"
-     "kernel-mod_is_2_5_kernel" "kernel-mod_is_2_6_kernel")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-versionator
   '(("get_all_version_components" "get_version_components" "get_major_version"
      "get_version_component_range" "get_after_major_version"
