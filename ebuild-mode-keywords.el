@@ -170,13 +170,6 @@
      "php-ext-base-r1_addtoinifiles")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-php-ext
-  '(("php-ext_buildinilist" "php-ext_extension_is_present"
-     "php-ext_addextensiontoinifile" "php-ext_addextension"
-     "php-ext_setting_is_present" "php-ext_addtoinifile"
-     "php-ext_addtoinifiles")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-php-pear-r1
   '(("fix_PEAR_PV")
     font-lock-type-face))
