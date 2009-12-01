@@ -195,11 +195,6 @@
      "warn_mozilla_launcher_stub")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mozconfig
-  '(("mozconfig_init" "makemake" "mozconfig_annotate" "mozconfig_use_enable"
-     "mozconfig_use_with" "mozconfig_use_extension" "mozconfig_final")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozconfig-2
   '(("mozconfig_config")
     font-lock-type-face))
