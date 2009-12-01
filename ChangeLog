@@ -1,7 +1,7 @@
 2009-12-01  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
-	add tc-getPKG_CONFIG function
+	add tc-getPKG_CONFIG and tc-has-tlsfunctions
 
 2009-11-09  Ulrich Mueller  <ulm@gentoo.org>
 
