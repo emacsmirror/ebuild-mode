@@ -274,10 +274,6 @@
      "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gtk-sharp-component
-  '(("gtk-sharp-component_fix_makefiles")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-qt3
   '(("qt_min_version" "qt_min_version_list")
     font-lock-type-face))
