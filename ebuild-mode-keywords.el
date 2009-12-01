@@ -181,15 +181,6 @@
   '(("fix_PEAR_PV")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-php-sapi
-  '(("php-sapi_is_providerbuild" "php-sapi_check_java_config"
-     "php-sapi_securityupgrade" "php-sapi_warning_mssql_freetds")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-php5-sapi-r3
-  '(("php5-sapi-r3_check_awkward_uses")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozilla-launcher
   '(("update_mozilla_launcher_symlinks" "install_mozilla_launcher_stub"
      "warn_mozilla_launcher_stub")
