@@ -92,15 +92,6 @@
      "cmake-utils_src_make" "cmake-utils_src_install" "cmake-utils_src_test")
   font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gnustep-funcs
-  '(("egnustep_prefix" "egnustep_install_domain" "egnustep_env"
-     "egnustep_system_root" "egnustep_local_root" "egnustep_network_root"
-     "egnustep_user_root" "egnustep_user_root_suffix" "egnustep_make"
-     "egnustep_package_config" "egnustep_package_config_info"
-     "egnustep_install" "egnustep_doc" "objc_available"
-     "objc_not_available_info" "ffi_available" "ffi_not_available_info")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-freebsd
   '(("doperiodic" "freebsd_get_bmake" "freebsd_do_patches"
      "freebsd_rename_libraries")
