@@ -29,8 +29,6 @@
 
 ;;; Code:
 
-;; eclasses which use is deprecated: gcc
-
 (defvar ebuild-mode-keywords-0
   '(("best_version" "check_KV" "die" "diropts" "dobin" "docinto" "doconfd"
      "dodir" "dodoc" "doenvd" "doexe" "dohtml" "doinfo" "doinitd"
