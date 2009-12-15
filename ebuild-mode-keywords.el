@@ -257,21 +257,6 @@
   '(("eqmake4")
     font-lock-type-face))
 
-;; remove when KDE 3 leaves the tree
-(defvar ebuild-mode-keywords-kde-functions
-  '(("get-parent-package" "get-child-packages" "is-parent-package"
-     "need-automake" "need-autoconf" "deprange" "deprange-list"
-     "deprange-iterate-numbers" "deprange-iterate-suffixes" "deprange-dual"
-     "need-kde" "set-kdedir" "need-qt" "set-qtdir" "qtver-from-kdever"
-     "min-kde-ver" "kde_sandbox_patch" "kde_remove_flag" "buildsycoca"
-     "postprocess_desktop_entries" "slot_rebuild")
-    font-lock-type-face))
-
-;; remove when KDE 3 leaves the tree
-(defvar ebuild-mode-keywords-kde-meta
-  '(("create_fullpaths" "change_makefiles" "set_common_variables")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-kde4-functions
   '(("buildsycoca" "comment_all_add_subdirectory" "enable_selected_linguas"
      "enable_selected_doc_linguas" "get_build_type" "migrate_store_dir"
