@@ -253,6 +253,10 @@
   '(("qt4_min_version" "qt4_min_version_list")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-qt4-r2
+  '(("eqmake4")
+    font-lock-type-face))
+
 ;; remove when KDE 3 leaves the tree
 (defvar ebuild-mode-keywords-kde-functions
   '(("get-parent-package" "get-child-packages" "is-parent-package"
