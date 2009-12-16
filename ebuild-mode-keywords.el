@@ -470,7 +470,7 @@
   '(("gems_src_install" "gems-location")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-ruby-ng
+(defvar ebuild-mode-keywords-ruby-fakegem
   '(("ruby_fakegem_gemsdir" "ruby_fakegem_doins" "ruby_fakegem_newsins"
      "ruby_fakegem_genspec" "ruby_fakegem_binwrapper" "all_fakegem_compile" "all_ruby_unpack"
      "all_ruby_compile" "each_fakegem_test" "each_ruby_test" "each_fakegem_install"
