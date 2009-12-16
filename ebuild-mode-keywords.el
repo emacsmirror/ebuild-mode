@@ -477,6 +477,11 @@
      "each_ruby_install" "all_fakegem_install" "all_ruby_install")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-ruby-ng
+  '(("ruby_implementation_depend" "ruby_samelib" "ruby_add_rdepend" "ruby_add_bdepend"
+     "doruby" "ruby_get_libruby" "ruby_get_hdrdir" "")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-elisp-common
   '(("elisp-compile" "elisp-install" "elisp-site-file-install"
      "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file")
