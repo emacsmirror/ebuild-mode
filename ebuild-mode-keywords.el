@@ -387,7 +387,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-git
-  '(("git_src_unpack" "git_fetch" "git_bootstrap")
+  '(("git_src_unpack" "git_fetch" "git_bootstrap" "git_submodules")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mercurial

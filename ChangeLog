@@ -3,6 +3,7 @@
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem): Add
 	ruby-fakegem eclass
 	(ebuild-mode-keywords-ruby-ng): Add ruby-ng eclass
+	(ebuild-mode-keywords-git): Add git_submodules function
 
 2009-12-15  Christian Faulhammer  <fauli@gentoo.org>
 
