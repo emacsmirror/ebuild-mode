@@ -1,3 +1,9 @@
+2009-12-27  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
+	python_generate_wrapper_scripts and python_set_active_version
+	functions
+
 2009-12-16  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem): Add
