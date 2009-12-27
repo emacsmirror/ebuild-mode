@@ -257,6 +257,13 @@
   '(("eqmake4")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-qt4-build
+  '(("fix_includes" "setqtenv" "standard_configure_options" "build_directories"
+     "install_directories" "install_qconfigs" "generate_qconfigs" "skip_qmake_build_patch"
+     "skip_project_generation_patch" "symlink_binaries_to_buildtree"
+     "fix_library_files" "qt_use" "qt_mkspecs_dir" "")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-kde4-functions
   '(("buildsycoca" "comment_all_add_subdirectory" "enable_selected_linguas"
      "enable_selected_doc_linguas" "get_build_type" "migrate_store_dir"
