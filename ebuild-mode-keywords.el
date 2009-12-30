@@ -258,10 +258,11 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qt4-build
-  '(("fix_includes" "setqtenv" "standard_configure_options" "build_directories"
-     "install_directories" "install_qconfigs" "generate_qconfigs" "skip_qmake_build_patch"
+  '(("fix_includes" "setqtenv" "standard_configure_options"
+     "build_directories" "install_directories" "install_qconfigs"
+     "generate_qconfigs" "skip_qmake_build_patch"
      "skip_project_generation_patch" "symlink_binaries_to_buildtree"
-     "fix_library_files" "qt_use" "qt_mkspecs_dir" "")
+     "fix_library_files" "qt_use" "qt_mkspecs_dir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-functions
@@ -444,8 +445,8 @@
      "python_get_libdir" "python_get_sitedir" "python_need_rebuild"
      "validate_PYTHON_ABIS" "python_copy_sources"
      "python_set_build_dir_symlink" "python_execute_function"
-     "python_get_includedir" "python_convert_shebangs" "python_set_active_version"
-     "python_generate_wrapper_scripts")
+     "python_get_includedir" "python_convert_shebangs"
+     "python_set_active_version" "python_generate_wrapper_scripts")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common-3
@@ -480,14 +481,15 @@
 
 (defvar ebuild-mode-keywords-ruby-fakegem
   '(("ruby_fakegem_gemsdir" "ruby_fakegem_doins" "ruby_fakegem_newsins"
-     "ruby_fakegem_genspec" "ruby_fakegem_binwrapper" "all_fakegem_compile" "all_ruby_unpack"
-     "all_ruby_compile" "each_fakegem_test" "each_ruby_test" "each_fakegem_install"
-     "each_ruby_install" "all_fakegem_install" "all_ruby_install")
+     "ruby_fakegem_genspec" "ruby_fakegem_binwrapper" "all_fakegem_compile"
+     "all_ruby_unpack" "all_ruby_compile" "each_fakegem_test" "each_ruby_test"
+     "each_fakegem_install" "each_ruby_install" "all_fakegem_install"
+     "all_ruby_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ruby-ng
-  '(("ruby_implementation_depend" "ruby_samelib" "ruby_add_rdepend" "ruby_add_bdepend"
-     "doruby" "ruby_get_libruby" "ruby_get_hdrdir" "")
+  '(("ruby_implementation_depend" "ruby_samelib" "ruby_add_rdepend"
+     "ruby_add_bdepend" "doruby" "ruby_get_libruby" "ruby_get_hdrdir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp-common
