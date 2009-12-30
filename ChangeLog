@@ -1,14 +1,14 @@
 2009-12-27  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
-	python_generate_wrapper_scripts and python_set_active_version
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_generate_wrapper_scripts and python_set_active_version
 	functions
 	(ebuild-mode-keywords-qt4-build): Add qt4-build eclass
 
 2009-12-16  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem): Add
-	ruby-fakegem eclass
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem):
+	Add ruby-fakegem eclass
 	(ebuild-mode-keywords-ruby-ng): Add ruby-ng eclass
 	(ebuild-mode-keywords-git): Add git_submodules function
 
@@ -22,8 +22,8 @@
 
 2009-12-13  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-eutils): add
-	eshopts_push and eshopts_pop functions
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eutils):
+	Add eshopts_push and eshopts_pop functions
 
 2009-12-01  Ulrich Mueller  <ulm@gentoo.org>
 
