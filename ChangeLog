@@ -1,3 +1,8 @@
+2009-12-30  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-run-command): Use file-relative-name,
+	to make it work for ebuild files on remote systems.
+
 2009-12-27  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):

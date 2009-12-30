@@ -261,13 +261,12 @@ A formfeed is not considered whitespace by this function."
 			  nil t)))
   (or (member command ebuild-commands-list)
       (error "Ebuild command \"%s\" not known" command))
-  (let ((process-environment
-	 (cons "NOCOLOR=true" process-environment))
-	;;(compilation-mode-hook
-	;; (lambda () (setq truncate-lines t)))
+  (let ((file (file-relative-name buffer-file-name))
+	(process-environment (cons "NOCOLOR=true" process-environment))
+	;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
 	(compilation-buffer-name-function
 	 (list 'lambda '(mode) (concat "*ebuild " command "*"))))
-    (compile (format "ebuild %s %s" buffer-file-name command))))
+    (compile (format "ebuild %s %s" file command))))
 
 
 ;;; Modify package keywords.
