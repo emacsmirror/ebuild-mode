@@ -1,3 +1,8 @@
+2010-01-07  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-module):
+	Add texlive-module.eclass
+
 2009-12-30  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-run-command): Use file-relative-name,
