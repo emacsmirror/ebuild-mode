@@ -74,6 +74,10 @@
   '(("elisp-comp" "prepalldocs" "dosed" "dohard")
     font-lock-warning-face))
 
+(defvar ebuild-mode-keywords-base
+  '(("base_src_work" "base_src_install_docs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-go-mono
   '(("go-mono_src_prepare" "go-mono_src_configure" "go-mono_src_install")
     font-lock-type-face))

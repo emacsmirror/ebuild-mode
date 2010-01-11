@@ -1,3 +1,8 @@
+2010-01-11  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-base): Add
+	base.eclass
+
 2010-01-07  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-module):
