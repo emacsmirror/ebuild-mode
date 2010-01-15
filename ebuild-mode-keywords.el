@@ -251,7 +251,7 @@
 
 (defvar ebuild-mode-keywords-autotools
   '(("eautoreconf" "eaclocal" "_elibtoolize" "eautoconf" "eautoheader"
-     "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
+     "eautopoint" "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qt3
