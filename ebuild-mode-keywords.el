@@ -230,7 +230,7 @@
   '(("check_vermagic" "use_m" "convert_to_m" "update_depmod" "update_modules"
      "move_old_moduledb" "update_moduledb" "remove_moduledb" "set_kvobj"
      "get-KERNEL_CC" "generate_modulesd" "find_module_params"
-     "strip_modulenames")
+     "strip_modulenames" "linux-mod_pkg_setup_binary")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-nsplugin
