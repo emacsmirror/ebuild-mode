@@ -2,6 +2,8 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-mod): Add
 	linux-mod_pkg_setup_binary function
+	(ebuild-mode-keywords-linux-info): Add
+	get_makefile_extract_function function
 
 2010-01-15  Christian Faulhammer  <fauli@gentoo.org>
 
