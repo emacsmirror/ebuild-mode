@@ -1,14 +1,14 @@
 2010-01-17  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-mod): Add
-	linux-mod_pkg_setup_binary function
-	(ebuild-mode-keywords-linux-info): Add
-	get_makefile_extract_function function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-linux-mod):
+	Add linux-mod_pkg_setup_binary function
+	(ebuild-mode-keywords-linux-info):
+	Add get_makefile_extract_function function
 
 2010-01-15  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools): Add
-	eautopoint function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools):
+	Add eautopoint function
 
 2010-01-13  Christian Faulhammer  <fauli@gentoo.org>
 
@@ -17,8 +17,8 @@
 
 2010-01-11  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-base): Add
-	base.eclass
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-base):
+	Add base.eclass
 
 2010-01-07  Christian Faulhammer  <fauli@gentoo.org>
 
@@ -818,5 +818,5 @@
 
 	* version 1.4
 
-Copyright 2007-2009 Gentoo Foundation
+Copyright 2007-2010 Gentoo Foundation
 Distributed under the terms of the GNU General Public License v2

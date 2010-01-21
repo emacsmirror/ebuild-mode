@@ -223,7 +223,8 @@
      "linux_chkconfig_builtin" "linux_chkconfig_string" "kernel_is"
      "get_localversion" "get_version" "get_running_version"
      "check_kernel_built" "check_modules_supported" "check_extra_config"
-     "check_zlibinflate" "linux-info_get_any_version" "get_makefile_extract_function")
+     "check_zlibinflate" "linux-info_get_any_version"
+     "get_makefile_extract_function")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-linux-mod
@@ -245,8 +246,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-texlive-module
-  '(("texlive-module_make_language_def_lines" "texlive-module_make_language_dat_lines"
-     "texlive-module_add_format")
+  '(("texlive-module_make_language_def_lines"
+     "texlive-module_make_language_dat_lines" "texlive-module_add_format")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools
@@ -502,7 +503,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ruby-ng-gnome2
-  '(("each_ruby_configure" "each_ruby_compile" "each_ruby_install" "all_ruby_install")
+  '(("each_ruby_configure" "each_ruby_compile" "each_ruby_install"
+     "all_ruby_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp-common
