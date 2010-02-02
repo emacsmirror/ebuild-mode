@@ -456,7 +456,9 @@
      "validate_PYTHON_ABIS" "python_copy_sources"
      "python_set_build_dir_symlink" "python_execute_function"
      "python_get_includedir" "python_convert_shebangs"
-     "python_set_active_version" "python_generate_wrapper_scripts")
+     "python_set_active_version" "python_generate_wrapper_scripts"
+     "python_get_library" "python_get_version" "python_execute_nosetest"
+     "python_execute_py.test" "python_execute_trial")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common-3
