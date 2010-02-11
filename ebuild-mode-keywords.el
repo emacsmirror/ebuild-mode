@@ -458,7 +458,8 @@
      "python_get_includedir" "python_convert_shebangs"
      "python_set_active_version" "python_generate_wrapper_scripts"
      "python_get_library" "python_get_version" "python_execute_nosetest"
-     "python_execute_py.test" "python_execute_trial")
+     "python_execute_py.test" "python_execute_trial" "python_get_implementation"
+     "python_get_implementational_package")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common-3

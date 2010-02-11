@@ -1,3 +1,8 @@
+2010-02-11  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
+	python_get_implementation() and python_get_implementational_package()
+
 2010-02-02  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
