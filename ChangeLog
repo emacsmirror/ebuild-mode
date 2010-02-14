@@ -6,6 +6,9 @@
 	(ebuild-mode-insert-skeleton): Use it.
 	(ebuild-mode-arch-list, ebuild-mode-use-flags): Don't test if
 	files are readable, because we ignore errors anyway.
+	(ebuild-mode-arch-list, ebuild-mode-licenses)
+	(ebuild-mode-eclasses, ebuild-mode-use-flags): Handle only file
+	errors in condition-case.
 	(ebuild-mode-arch-lessp): New function, predicate for sort.
 	(ebuild-mode-arch-list): Sort list of architectures.
 	(ebuild-mode-sort-keywords): Function removed.

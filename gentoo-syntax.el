@@ -88,7 +88,7 @@ A formfeed is not considered whitespace by this function."
 	 (while (re-search-forward "#.*$" nil t)
 	   (replace-match ""))
 	 (sort (split-string (buffer-string)) 'ebuild-mode-arch-lessp))
-     (error nil))
+     (file-error nil))
    ;; could not read architectures from Portage tree, so fall back to default
    '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
      "s390" "sh" "sparc" "x86" "sparc-fbsd" "x86-fbsd"))
@@ -105,7 +105,7 @@ A formfeed is not considered whitespace by this function."
   (condition-case nil
       (directory-files (concat ebuild-mode-portdir "/licenses")
 		       nil "\\`[^.]")
-    (error nil))
+    (file-error nil))
   "List of licenses, determined from the Portage tree.")
 
 (defvar ebuild-mode-eclasses
@@ -114,7 +114,7 @@ A formfeed is not considered whitespace by this function."
        (lambda (x) (substring x 0 (string-match "\\.eclass\\'" x)))
        (directory-files (concat ebuild-mode-portdir "/eclass")
 			nil "\\.eclass\\'"))
-     (error nil))
+     (file-error nil))
   "List of eclasses, determined from the Portage tree.")
 
 (defvar ebuild-mode-restrict-list
@@ -130,7 +130,7 @@ A formfeed is not considered whitespace by this function."
 	(while (re-search-forward "[ \t#].*$" nil t)
 	  (replace-match ""))
 	(split-string (buffer-string)))
-    (error nil))
+    (file-error nil))
   "List of USE flags.")
 
 (defvar ebuild-mode-action-alist
