@@ -453,7 +453,7 @@ and `all-completions' for details."
      "Keyword (null string to terminate): "
      (nconc
       (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list)
-      (mapcar 'list ebuild-mode-arch-list)))
+      (mapcar 'list ebuild-mode-arch-stable-list)))
     str & " ")
    & -1 "\"\n"
    "IUSE=\""

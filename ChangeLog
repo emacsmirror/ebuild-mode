@@ -2,8 +2,8 @@
 
 	* gentoo-syntax.el: Partially undo change of 2009-08-21.
 	(ebuild-mode-arch-stable-list): Reintroduce variable.
-	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete):
-	Use ebuild-mode-arch-stable-list variable.
+	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete)
+	(ebuild-mode-insert-skeleton): Use it.
 
 2010-02-11  Christian Faulhammer  <fauli@gentoo.org>
 
