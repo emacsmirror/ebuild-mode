@@ -426,7 +426,7 @@ and `all-completions' for details."
    "\n"
    "EAPI="
    (let ((s (skeleton-read "EAPI: ")))
-     (if (string= "0" s) "" s))
+     (if (string-equal "0" s) "" s))
    & "\n\n" | -5
    "inherit "
    ((completing-read
