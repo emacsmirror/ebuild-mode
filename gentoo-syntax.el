@@ -59,6 +59,22 @@ A formfeed is not considered whitespace by this function."
 
 ;;; Variables.
 
+;; Predicate function for comparison of architecture keywords
+;; (needed for variable definitions below)
+(defun ebuild-mode-arch-lessp (a b)
+  (let* ((aa (if (consp a) (car a) a))
+	 (bb (if (consp b) (car b) b))
+	 (as (split-string aa "-"))
+	 (bs (split-string bb "-")))
+    (cond ((string-equal aa "*") t)
+	  ((string-equal bb "*") nil)
+	  ;; two-part keywords: first compare the OS (after hyphen, if any),
+	  ;; then the arch (before hyphen)
+	  ((not (string-equal (or (cadr as) "") (or (cadr bs) "")))
+	   (string-lessp (or (cadr as) "") (or (cadr bs) "")))
+	  (t
+	   (string-lessp (or (car as) "") (or (car bs) ""))))))
+
 (defvar ebuild-mode-portdir
   "/usr/portage"
   "Location of the Portage tree.")
@@ -71,7 +87,7 @@ A formfeed is not considered whitespace by this function."
 	  (concat ebuild-mode-portdir "/profiles/arch.list"))
 	 (while (re-search-forward "#.*$" nil t)
 	   (replace-match ""))
-	 (split-string (buffer-string)))
+	 (sort (split-string (buffer-string)) 'ebuild-mode-arch-lessp))
      (error nil))
    ;; could not read architectures from Portage tree, so fall back to default
    '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
@@ -303,20 +319,6 @@ A formfeed is not considered whitespace by this function."
 	    (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
 	    t t nil 1)))))
 
-(defun ebuild-mode-sort-keywords (kw)
-  (sort kw
-	(lambda (a b)
-	  (cond ((string-equal (car a) "*") t)
-		((string-equal (car b) "*") nil)
-		(t
-		 ;; split two-part keywords: first compare the OS
-		 ;; (after hyphen, if any), then the arch (before hyphen)
-		 (let ((as (split-string (car a) "-"))
-		       (bs (split-string (car b) "-")))
-		   (if (equal (cadr as) (cadr bs))
-		       (string-lessp (or (car as) "") (or (car bs) ""))
-		     (string-lessp (or (cadr as) "") (or (cadr bs) "")))))))))
-
 (defun ebuild-mode-modify-keywords (kw)
   "Set keywords. KW is an alist of architectures and leaders."
   (let ((keywords (ebuild-mode-get-keywords)))
@@ -344,7 +346,7 @@ A formfeed is not considered whitespace by this function."
 	 ;; add keyword
 	 (t (setq keywords (append keywords (list k)))))))
     (ebuild-mode-put-keywords
-     (ebuild-mode-sort-keywords keywords))))
+     (sort keywords 'ebuild-mode-arch-lessp))))
 
 (defun ebuild-mode-keyword (action arch)
   "Keyword manipulation."

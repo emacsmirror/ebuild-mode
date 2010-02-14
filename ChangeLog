@@ -5,7 +5,11 @@
 	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete)
 	(ebuild-mode-insert-skeleton): Use it.
 	(ebuild-mode-arch-list): Don't test if arch.list is readable,
-	because we ignore errors anyway.
+	because we ignore errors anyway. Sort list of architectures.
+	(ebuild-mode-arch-lessp): New function, predicate for sort.
+	(ebuild-mode-sort-keywords): Function removed.
+	(ebuild-mode-modify-keywords): Pass ebuild-mode-arch-lessp as
+	predicate function for sort.
 
 2010-02-11  Christian Faulhammer  <fauli@gentoo.org>
 
