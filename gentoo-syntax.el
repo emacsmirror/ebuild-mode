@@ -79,6 +79,10 @@ A formfeed is not considered whitespace by this function."
      "s390" "sh" "sparc" "x86" "sparc-fbsd" "x86-fbsd"))
   "List of architectures.")
 
+(defvar ebuild-mode-arch-stable-list
+  '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "ppc" "ppc64"
+    "s390" "sh" "sparc" "x86"))
+
 (defvar ebuild-mode-arch-regexp
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
@@ -331,7 +335,10 @@ A formfeed is not considered whitespace by this function."
 	  (dolist (e keywords)
 	    (and (or (equal (cdr e) "")
 		     (equal (cdr e) "~"))
-		 (member (car e) ebuild-mode-arch-list)
+		 (member (car e)
+			 (if (equal leader "")
+			     ebuild-mode-arch-stable-list
+			   ebuild-mode-arch-list))
 		 (setcdr e leader))))
 	 ;; modify keyword
 	 (old-k (setcdr old-k leader))
@@ -385,7 +392,9 @@ and `all-completions' for details."
 				    (append '("all")
 					    (and (member s3 '("-" "^"))
 						 '("*"))
-					    ebuild-mode-arch-list)))))
+					    (if (equal s3 "")
+						ebuild-mode-arch-stable-list
+					      ebuild-mode-arch-list))))))
 		predicate)))
       (if (stringp c2) (concat s1 c2) c2))))
 

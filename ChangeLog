@@ -1,3 +1,10 @@
+2010-02-14  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el: Partially undo change of 2009-08-21.
+	(ebuild-mode-arch-stable-list): Reintroduce variable.
+	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete):
+	Use ebuild-mode-arch-stable-list variable.
+
 2010-02-11  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
