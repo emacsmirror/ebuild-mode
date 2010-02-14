@@ -66,13 +66,12 @@ A formfeed is not considered whitespace by this function."
 (defvar ebuild-mode-arch-list
   (or
    (condition-case nil
-       (let ((file (concat ebuild-mode-portdir "/profiles/arch.list")))
-	 (if (file-readable-p file)
-	     (with-temp-buffer
-	       (insert-file-contents-literally file)
-	       (while (re-search-forward "#.*$" nil t)
-		 (replace-match ""))
-	       (split-string (buffer-string)))))
+       (with-temp-buffer
+	 (insert-file-contents-literally
+	  (concat ebuild-mode-portdir "/profiles/arch.list"))
+	 (while (re-search-forward "#.*$" nil t)
+	   (replace-match ""))
+	 (split-string (buffer-string)))
      (error nil))
    ;; could not read architectures from Portage tree, so fall back to default
    '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"

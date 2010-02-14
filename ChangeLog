@@ -4,6 +4,8 @@
 	(ebuild-mode-arch-stable-list): Reintroduce variable.
 	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete)
 	(ebuild-mode-insert-skeleton): Use it.
+	(ebuild-mode-arch-list): Don't test if arch.list is readable,
+	because we ignore errors anyway.
 
 2010-02-11  Christian Faulhammer  <fauli@gentoo.org>
 
