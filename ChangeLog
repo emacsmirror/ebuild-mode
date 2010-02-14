@@ -5,8 +5,8 @@
 
 2010-02-02  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
-	python_get_library(), python_get_version(),
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_get_library(), python_get_version(),
 	python_execute_nosetest(), python_execute_py.test(),
 	python_execute_trial()
 
