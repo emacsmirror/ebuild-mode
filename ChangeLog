@@ -4,9 +4,10 @@
 	(ebuild-mode-arch-stable-list): Reintroduce variable.
 	(ebuild-mode-modify-keywords, ebuild-mode-ekeyword-complete)
 	(ebuild-mode-insert-skeleton): Use it.
-	(ebuild-mode-arch-list): Don't test if arch.list is readable,
-	because we ignore errors anyway. Sort list of architectures.
+	(ebuild-mode-arch-list, ebuild-mode-use-flags): Don't test if
+	files are readable, because we ignore errors anyway.
 	(ebuild-mode-arch-lessp): New function, predicate for sort.
+	(ebuild-mode-arch-list): Sort list of architectures.
 	(ebuild-mode-sort-keywords): Function removed.
 	(ebuild-mode-modify-keywords): Pass ebuild-mode-arch-lessp as
 	predicate function for sort.
