@@ -62,16 +62,14 @@ A formfeed is not considered whitespace by this function."
 ;; Predicate function for comparison of architecture keywords
 ;; (needed for variable definitions below)
 (defun ebuild-mode-arch-lessp (a b)
-  (let ((as (split-string (or (car-safe a) a) "-"))
-	(bs (split-string (or (car-safe b) b) "-")))
-    (cond ((equal as '("*")) t)
-	  ((equal bs '("*")) nil)
-	  ;; two-part keywords: first compare the OS (after hyphen, if any),
-	  ;; then the arch (before hyphen)
-	  ((not (string-equal (or (cadr as) "") (or (cadr bs) "")))
-	   (string-lessp (or (cadr as) "") (or (cadr bs) "")))
-	  (t
-	   (string-lessp (or (car as) "") (or (car bs) ""))))))
+  (let* ((tail (make-list 2 ""))
+	 (as (nconc (split-string (or (car-safe a) a) "-") tail))
+	 (bs (nconc (split-string (or (car-safe b) b) "-") tail)))
+    ;; two-part keywords: first compare the OS (after hyphen, if any),
+    ;; then the architecture (before hyphen)
+    (if (string-equal (cadr as) (cadr bs))
+	(string-lessp (car as) (car bs))
+      (string-lessp (cadr as) (cadr bs)))))
 
 (defvar ebuild-mode-portdir
   "/usr/portage"
