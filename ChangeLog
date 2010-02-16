@@ -1,3 +1,8 @@
+2010-02-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-ant-2): Add
+	java-pkg_get-bootclasspath()
+
 2010-02-14  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el: Partially undo change of 2009-08-21.
