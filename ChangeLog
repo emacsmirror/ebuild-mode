@@ -1,7 +1,7 @@
 2010-02-16  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-ant-2): Add
-	java-pkg_get-bootclasspath()
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-ant-2):
+	Add java-pkg_get-bootclasspath()
 
 2010-02-14  Ulrich Mueller  <ulm@gentoo.org>
 
@@ -853,5 +853,5 @@
 	* version 1.4
 
 Copyright 2007-2010 Gentoo Foundation
-Distributed under the terms of the GNU General Public License v2
+Distributed under the terms of the GNU General Public License v2 or later
 $Id$
