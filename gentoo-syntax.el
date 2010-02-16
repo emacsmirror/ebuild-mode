@@ -93,8 +93,7 @@ A formfeed is not considered whitespace by this function."
   "List of architectures.")
 
 (defvar ebuild-mode-arch-stable-list
-  '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "ppc" "ppc64"
-    "s390" "sh" "sparc" "x86"))
+  ebuild-mode-arch-list)
 
 (defvar ebuild-mode-arch-regexp
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
