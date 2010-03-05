@@ -5,8 +5,8 @@
 
 2010-02-21  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-mysql): Add
-	xtradb_applicable() and pbxt_applicable()
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-mysql):
+	Add xtradb_applicable() and pbxt_applicable()
 
 2010-02-16  Christian Faulhammer  <fauli@gentoo.org>
 
