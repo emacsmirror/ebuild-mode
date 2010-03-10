@@ -1,3 +1,8 @@
+2010-03-10  Ulrich Mueller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-arch-stable-list): Initialise from
+	profiles.desc, bug 304133.
+
 2010-03-02  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):

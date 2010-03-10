@@ -93,7 +93,23 @@ A formfeed is not considered whitespace by this function."
   "List of architectures.")
 
 (defvar ebuild-mode-arch-stable-list
-  ebuild-mode-arch-list)
+  (or
+   (condition-case nil
+       (with-temp-buffer
+	 (insert-file-contents-literally
+	  (concat ebuild-mode-portdir "/profiles/profiles.desc"))
+	 (let (arch archs)
+	   (while (re-search-forward
+		   "^[ \t]*\\([^ \t\n#]+\\)[ \t]+[^ \t\n#]+[ \t]+stable\\>"
+		   nil t)
+	     (setq arch (match-string 1))
+	     (and (not (member arch archs))
+		  (member arch ebuild-mode-arch-list)
+		  (setq archs (cons arch archs))))
+	   (sort archs 'ebuild-mode-arch-lessp)))
+     (file-error nil))
+   ;; fall back to list of all architectures
+   ebuild-mode-arch-list))
 
 (defvar ebuild-mode-arch-regexp
   "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
