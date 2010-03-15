@@ -386,7 +386,7 @@
 (defvar ebuild-mode-keywords-mysql
   '(("bitkeeper_fetch" "mysql_disable_test" "mysql_init_vars"
      "configure_minimal" "configure_common" "configure_40_41_50"
-     "configure_51" "xtradb_applicable" "pbxt_applicable")
+     "configure_51" "xtradb_applicable" "pbxt_applicable" "pbxt_available")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mysql_fx
