@@ -1,3 +1,8 @@
+2010-03-15  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
+	python_clean_sitedirs()
+
 2010-03-10  Ulrich Mueller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-arch-stable-list): Initialise from
