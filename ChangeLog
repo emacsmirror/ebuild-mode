@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
 	python_clean_sitedirs()
+	(ebuild-mode-keywords-xorg-2): Add xorg-2.eclass
 
 2010-03-10  Ulrich Mueller  <ulm@gentoo.org>
 
