@@ -1,3 +1,8 @@
+2010-03-16  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
+	Add tc-getRC() and tc-getDLLWRAP()
+
 2010-03-15  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
