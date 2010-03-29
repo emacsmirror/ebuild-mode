@@ -574,7 +574,7 @@
   '(("xorg-2_patch_source" "xorg-2_reconf_source" "xorg-2_font_configure"
      "xorg-2_flags_setup" "cleanup_fonts" "setup_fonts" "remove_font_metadata"
      "create_fonts_scale" "create_fonts_dir")
-  font-lock-type-face))
+    font-lock-type-face))
 
 (defvar ebuild-mode-xfconf
   '(("xfconf_use_debug")
