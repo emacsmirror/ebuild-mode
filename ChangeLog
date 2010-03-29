@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt3): Remove
 	entire deprecated block
+	(ebuild-mode-xfconf): Import new eclass
 
 2010-03-22  Christian Faulhammer  <fauli@gentoo.org>
 

@@ -576,6 +576,10 @@
      "create_fonts_scale" "create_fonts_dir")
   font-lock-type-face))
 
+(defvar ebuild-mode-xfconf
+  '(("xfconf_use_debug")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-versionator
   '(("get_all_version_components" "get_version_components" "get_major_version"
      "get_version_component_range" "get_after_major_version"
