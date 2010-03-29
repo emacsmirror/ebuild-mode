@@ -257,10 +257,6 @@
      "eautopoint" "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-qt3
-  '(("qt_min_version" "qt_min_version_list")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-qt4
   '(("qt4_min_version" "qt4_min_version_list")
     font-lock-type-face))
