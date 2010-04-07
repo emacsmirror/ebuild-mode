@@ -1,3 +1,8 @@
+2010-04-07  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng): Add
+	ruby_get_version() and ruby_get_implementation()
+
 2010-03-29  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt3): Remove

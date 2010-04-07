@@ -499,7 +499,8 @@
 
 (defvar ebuild-mode-keywords-ruby-ng
   '(("ruby_implementation_depend" "ruby_samelib" "ruby_add_rdepend"
-     "ruby_add_bdepend" "doruby" "ruby_get_libruby" "ruby_get_hdrdir")
+     "ruby_add_bdepend" "doruby" "ruby_get_libruby" "ruby_get_hdrdir"
+     "ruby_get_version" "ruby_get_implementation")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ruby-ng-gnome2
