@@ -443,7 +443,8 @@
      "strip-unsupported-flags" "setup-allowed-flags" "filter-lfs-flags"
      "append-lfs-flags" "test_flag" "test_version_info" "has_hardened"
      "has_pic" "has_pie" "has_ssp_all" "has_ssp" "has_m64" "has_m32"
-     "replace-sparc64-flags" "fstack-flags" "gcc2-flags" "no-as-needed")
+     "replace-sparc64-flags" "fstack-flags" "gcc2-flags" "no-as-needed"
+     "append-libs")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python
