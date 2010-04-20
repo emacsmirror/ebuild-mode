@@ -1,3 +1,7 @@
+2010-04-20  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-font): Add fonts.eclass
+
 2010-04-07  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng): Add

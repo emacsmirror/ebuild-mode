@@ -105,6 +105,10 @@
   '(("docrondir" "docron" "docrontab")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-font
+  '(("font_cleanup_dirs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-toolchain-binutils
   '(("is_cross" "add_src_uri" "tc-binutils_unpack"
      "tc-binutils_apply_patches")
