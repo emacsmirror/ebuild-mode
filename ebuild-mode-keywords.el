@@ -119,7 +119,7 @@
      "tc-getLD" "tc-getSTRIP" "tc-getNM" "tc-getRANLIB" "tc-getF77"
      "tc-getF90" "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC"
      "tc-getRC" "tc-getDLLWRAP" "tc-getPKG_CONFIG" "tc-export"
-     "tc-is-cross-compiler" "tc-ninja_magic_to_arch" "tc-has-tls"
+     "tc-is-cross-compiler" "tc-ninja_magic_to_arch" "tc-has-tls" "tc-is-hardfloat"
      "tc-arch-kernel" "tc-arch" "tc-endian" "gcc-fullversion" "gcc-version"
      "gcc-major-version" "gcc-minor-version" "gcc-micro-version")
     font-lock-type-face))
