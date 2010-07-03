@@ -1,7 +1,7 @@
 2010-04-26  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng): Add
-	ruby_rbconfig_value() function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng):
+	Add ruby_rbconfig_value() function
 
 2010-04-22  Christian Faulhammer  <fauli@gentoo.org>
 
@@ -10,24 +10,25 @@
 
 2010-04-20  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-font): Add fonts.eclass
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-font):
+	Add fonts.eclass
 
 2010-04-07  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng): Add
-	ruby_get_version() and ruby_get_implementation()
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng):
+	Add ruby_get_version() and ruby_get_implementation()
 	(ebuild-mode-keywords-flag-o-matic): Add append-libs()
 
 2010-03-29  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt3): Remove
-	entire deprecated block
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt3):
+	Remove entire deprecated block
 	(ebuild-mode-xfconf): Import new eclass
 
 2010-03-22  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Remove
-	python_set_build_dir_symlink() function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Remove python_set_build_dir_symlink() function
 
 2010-03-16  Christian Faulhammer  <fauli@gentoo.org>
 
@@ -36,15 +37,15 @@
 
 2010-03-15  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-python): Add
-	python_clean_sitedirs()
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-python):
+	Add python_clean_sitedirs()
 	(ebuild-mode-keywords-xorg-2): Add xorg-2.eclass
 	(ebuild-mode-keywords-mysql): Add pbxt_available()
 
 2010-03-10  Ulrich Mueller  <ulm@gentoo.org>
 
-	* gentoo-syntax.el (ebuild-mode-arch-stable-list): Initialise from
-	profiles.desc, bug 304133.
+	* gentoo-syntax.el (ebuild-mode-arch-stable-list):
+	Initialise from	profiles.desc, bug 304133.
 
 2010-03-02  Christian Faulhammer  <fauli@gentoo.org>
 
