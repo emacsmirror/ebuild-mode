@@ -119,9 +119,10 @@
      "tc-getLD" "tc-getSTRIP" "tc-getNM" "tc-getRANLIB" "tc-getF77"
      "tc-getF90" "tc-getFORTRAN" "tc-getGCJ" "tc-getBUILD_CC"
      "tc-getRC" "tc-getDLLWRAP" "tc-getPKG_CONFIG" "tc-export"
-     "tc-is-cross-compiler" "tc-ninja_magic_to_arch" "tc-has-tls" "tc-is-hardfloat"
-     "tc-arch-kernel" "tc-arch" "tc-endian" "gcc-fullversion" "gcc-version"
-     "gcc-major-version" "gcc-minor-version" "gcc-micro-version")
+     "tc-is-cross-compiler" "tc-ninja_magic_to_arch" "tc-has-tls"
+     "tc-is-hardfloat" "tc-arch-kernel" "tc-arch" "tc-endian"
+     "gcc-fullversion" "gcc-version" "gcc-major-version" "gcc-minor-version"
+     "gcc-micro-version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain
@@ -319,7 +320,7 @@
 
 (defvar ebuild-mode-keywords-java-ant-2
   '(("java-ant_bsfix_files" "java-ant_bsfix_one" "java-ant_rewrite-classpath"
-     "java-ant_ignore-system-classes" "java-ant_xml-rewrite" 
+     "java-ant_ignore-system-classes" "java-ant_xml-rewrite"
      "java-ant_rewrite-bootclasspath" "java-pkg_get-bootclasspath")
     font-lock-type-face))
 
@@ -457,10 +458,11 @@
      "python_mod_cleanup" "python_disable_pyc" "python_enable_pyc"
      "python_get_libdir" "python_get_sitedir" "python_need_rebuild"
      "validate_PYTHON_ABIS" "python_copy_sources"
-     "python_execute_function" "python_get_includedir" "python_convert_shebangs"
-     "python_set_active_version" "python_generate_wrapper_scripts"
-     "python_get_library" "python_get_version" "python_execute_nosetest"
-     "python_execute_py.test" "python_execute_trial" "python_get_implementation"
+     "python_execute_function" "python_get_includedir"
+     "python_convert_shebangs" "python_set_active_version"
+     "python_generate_wrapper_scripts" "python_get_library"
+     "python_get_version" "python_execute_nosetest" "python_execute_py.test"
+     "python_execute_trial" "python_get_implementation"
      "python_get_implementational_package" "python_clean_sitedirs")
     font-lock-type-face))
 
