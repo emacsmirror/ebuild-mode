@@ -1,3 +1,7 @@
+2010-07-09  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.17 released.
+
 2010-04-26  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-ng):

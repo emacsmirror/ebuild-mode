@@ -7,7 +7,7 @@
 ;;	Christian Faulhammer <fauli@gentoo.org>
 ;;	Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Version: 1.16
+;; Version: 1.17
 ;; Keywords: languages, processes
 
 ;; $Id$
