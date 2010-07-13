@@ -548,8 +548,10 @@
   '(("perl-app_src_prep")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-perl-module
-  '(("perlinfo" "fixlocalpod")
+(defvar ebuild-mode-keywords-perl-helper
+  '(("perlinfo" "perl_set_version" "fixlocalpod" "perl_delete_localpod"
+     "perl_fix_osx_extra" "perl_delete_module_manpages" "perl_delete_packlist"
+     "perl_remove_temppath" "perl_link_duallife_scripts" "perl_set_eprefix")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-distutils
