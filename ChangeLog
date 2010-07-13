@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
 	qt_assistant_cleanup() and qt_nolibx11() functions
+	(ebuild-mode-keywords-xorg-2): Remove cleanup_fonts() function
 
 2010-07-09  Ulrich Mueller  <ulm@gentoo.org>
 
