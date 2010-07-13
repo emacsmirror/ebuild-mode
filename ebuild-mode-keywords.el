@@ -275,7 +275,7 @@
      "build_directories" "install_directories" "install_qconfigs"
      "generate_qconfigs" "skip_qmake_build_patch"
      "skip_project_generation_patch" "symlink_binaries_to_buildtree"
-     "fix_library_files" "qt_use" "qt_mkspecs_dir")
+     "fix_library_files" "qt_use" "qt_mkspecs_dir" "qt_assistant_cleanup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-functions
