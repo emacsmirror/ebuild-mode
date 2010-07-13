@@ -6,6 +6,7 @@
 	(ebuild-mode-keywords-python): Remove validate_PYTHON_ABIS() as it is an
 	internal function, rename python_clean_sitedir() to
 	python_clean_installation_image()
+	(ebuild-mode-keywords-kde4-base): Add get_build_type() function
 
 2010-07-09  Ulrich Mueller  <ulm@gentoo.org>
 

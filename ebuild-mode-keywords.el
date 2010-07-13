@@ -288,7 +288,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-base
-  '(("kde4-base_src_make_doc")
+  '(("kde4-base_src_make_doc" "get_build_type")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-meta
