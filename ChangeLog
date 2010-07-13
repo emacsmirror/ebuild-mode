@@ -1,7 +1,7 @@
 2010-07-13  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
-	qt_assistant_cleanup() function
+	qt_assistant_cleanup() and qt_nolibx11() functions
 
 2010-07-09  Ulrich Mueller  <ulm@gentoo.org>
 
