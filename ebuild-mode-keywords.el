@@ -596,7 +596,8 @@
      "replace_version_separator" "replace_all_version_separators"
      "delete_version_separator" "delete_all_version_separators"
      "get_version_component_count" "get_last_version_component_index"
-     "version_is_at_least" "version_compare" "version_sort")
+     "version_is_at_least" "version_compare" "version_sort"
+     "version_format_string")
     font-lock-type-face))
 
 ;; Local Variables:

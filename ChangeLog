@@ -1,3 +1,8 @@
+2010-07-19  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-versionator): Add
+	version_format_string() function
+
 2010-07-13  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
