@@ -262,6 +262,10 @@
      "eautopoint" "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-autotools-utils
+  '(("myeconfargs" "remove_libtool_files")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-qt4
   '(("qt4_min_version" "qt4_min_version_list")
     font-lock-type-face))
