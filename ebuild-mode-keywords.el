@@ -389,6 +389,13 @@
      "dopammod" "newpammod" "pamd_mimic" "clean_pamd")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-haskell-cabal
+  '(("cabal-hscolour-haddock" "cabal-hscolour" "cabal-version" "cabal-bootstrap"
+     "cabal-mksetup" "cabal-mksetup" "cabal-haddock" "cabal-configure"
+     "cabal-configure" "cabal-build" "cabal-copy" "cabal-pkg" "cabal-is-dummy-lib"
+     "cabal_flag")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mysql
   '(("bitkeeper_fetch" "mysql_disable_test" "mysql_init_vars"
      "configure_minimal" "configure_common" "configure_40_41_50"
