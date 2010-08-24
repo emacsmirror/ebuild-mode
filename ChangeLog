@@ -10,16 +10,16 @@
 
 2010-07-19  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-versionator): Add
-	version_format_string() function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-versionator):
+	Add version_format_string() function
 
 2010-07-13  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
-	qt_assistant_cleanup() and qt_nolibx11() functions
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build):
+	Add qt_assistant_cleanup() and qt_nolibx11() functions
 	(ebuild-mode-keywords-xorg-2): Remove cleanup_fonts() function
-	(ebuild-mode-keywords-python): Remove validate_PYTHON_ABIS() as it is an
-	internal function, rename python_clean_sitedir() to
+	(ebuild-mode-keywords-python): Remove validate_PYTHON_ABIS() as it
+	is an internal function, rename python_clean_sitedir() to
 	python_clean_installation_image()
 	(ebuild-mode-keywords-kde4-base): Add get_build_type() function
 	(ebuild-mode-keywords-perl-helper): Add support for new
