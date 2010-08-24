@@ -253,6 +253,7 @@ A formfeed is not considered whitespace by this function."
   (add-hook 'write-contents-hooks 'ebuild-mode-before-save t t)
   (sh-set-shell "bash")
   (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
+  (setq fill-column 72)
   (setq tab-width 4)
   (setq indent-tabs-mode t))
 
