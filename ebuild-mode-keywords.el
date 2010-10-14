@@ -390,10 +390,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-haskell-cabal
-  '(("cabal-hscolour-haddock" "cabal-hscolour" "cabal-version" "cabal-bootstrap"
-     "cabal-mksetup" "cabal-mksetup" "cabal-haddock" "cabal-configure"
-     "cabal-configure" "cabal-build" "cabal-copy" "cabal-pkg" "cabal-is-dummy-lib"
-     "cabal_flag")
+  '(("cabal-hscolour-haddock" "cabal-hscolour" "cabal-version"
+     "cabal-bootstrap" "cabal-mksetup" "cabal-haddock" "cabal-configure"
+     "cabal-build" "cabal-copy" "cabal-pkg" "cabal-is-dummy-lib" "cabal_flag")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mysql
