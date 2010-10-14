@@ -1,5 +1,8 @@
 2010-10-14  Ulrich Mueller  <ulm@gentoo.org>
 
+	* gentoo-syntax.el (ebuild-commands-list): Add "prepare" and
+	"configure" ebuild commands.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-haskell-cabal):
 	Remove duplicate keywords.
 
