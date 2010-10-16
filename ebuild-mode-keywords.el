@@ -453,14 +453,15 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-flag-o-matic
-  '(("append-flags" "append-cxxflags" "append-ldflags" "filter-flags"
-     "filter-ldflags" "filter-mfpmath" "get-flag" "is-flag"
-     "replace-cpu-flags" "replace-flags" "strip-flags"
-     "strip-unsupported-flags" "setup-allowed-flags" "filter-lfs-flags"
-     "append-lfs-flags" "test_flag" "test_version_info" "has_hardened"
-     "has_pic" "has_pie" "has_ssp_all" "has_ssp" "has_m64" "has_m32"
-     "replace-sparc64-flags" "fstack-flags" "gcc2-flags" "no-as-needed"
-     "append-libs")
+  '(("filter-flags"  "filter-lfs-flags"  "append-cppflags" "append-cflags"
+     "append-cxxflags"  "append-fflags" "append-lfs-flags"  "append-flags"
+     "replace-flags" "replace-cpu-flags" "is-flagq" "is-flag" "is-ldflagq"
+     "is-ldflag" "filter-mfpmath" "strip-flags" "test-flag-CC" "test-flag-CXX"
+     "test-flag-F77" "test-flag-FC" "test-flags-CC" "test-flags-CXX"
+     "test-flags-F77" "test-flags-FC" "test-flags" "test_version_info"
+     "strip-unsupported-flags" "get-flag" "has_m64" "has_m32"
+     "replace-sparc64-flags" "append-libs" "append-ldflags" "filter-ldflags"
+     "raw-ldflags" "no-as-needed")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python
