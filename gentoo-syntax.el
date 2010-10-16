@@ -153,10 +153,10 @@ A formfeed is not considered whitespace by this function."
     ("drop" . nil)))
 
 (defvar ebuild-commands-list
-  '("help" "setup" "clean" "fetch" "digest" "manifest" "unpack"
-    "prepare" "configure" "compile" "test" "preinst" "install"
-    "postinst" "qmerge" "merge" "unmerge" "prerm" "postrm" "config"
-    "package" "rpm"))
+  '("clean" "cleanrm" "compile" "config" "configure" "depend" "digest"
+    "fetch" "fetchall" "help" "info" "install" "manifest" "merge"
+    "package" "postinst" "postrm" "preinst" "prepare" "prerm"
+    "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack"))
 
 ;; suppress byte-compiler warning
 (defvar ebuild-mode-menu)

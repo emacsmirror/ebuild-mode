@@ -1,5 +1,8 @@
 2010-10-16  Ulrich Mueller  <ulm@gentoo.org>
 
+	* gentoo-syntax.el (ebuild-commands-list): Alphabetic order.
+	Add "cleanrm", "depend", "fetchall", "info", and "pretend".
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-flag-o-matic):
 	Update list of functions. Patch by Thomas Kahle <tom111@gmx.de>
 	in bug 341255.
