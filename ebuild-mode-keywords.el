@@ -570,6 +570,10 @@
      "distutils_src_unpack")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-scons-utils
+  '(("test-scons_clean_makeopts")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-depend-apache
   '(("need_apache" "need_apache1" "need_apache2")
     font-lock-type-face))
