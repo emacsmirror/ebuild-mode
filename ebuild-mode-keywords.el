@@ -571,7 +571,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-scons-utils
-  '(("test-scons_clean_makeopts")
+  '(("escons" "scons_clean_makeopts" "use_scons")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-depend-apache
