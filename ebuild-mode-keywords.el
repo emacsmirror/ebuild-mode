@@ -326,7 +326,8 @@
 (defvar ebuild-mode-keywords-java-ant-2
   '(("java-ant_bsfix_files" "java-ant_bsfix_one" "java-ant_rewrite-classpath"
      "java-ant_ignore-system-classes" "java-ant_xml-rewrite"
-     "java-ant_rewrite-bootclasspath" "java-pkg_get-bootclasspath")
+     "java-ant_rewrite-bootclasspath" "java-pkg_get-bootclasspath"
+     "java-ant_remove-taskdefs")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-utils-2
