@@ -4,6 +4,7 @@
 	new eclass scons-utils
 	(ebuild-mode-keywords-java-ant-2): Add java-ant_remove-taskdefs()
 	function
+	(ebuild-mode-keywords-eutils): Add path_exists() function
 
 2010-10-16  Ulrich Mueller  <ulm@gentoo.org>
 
