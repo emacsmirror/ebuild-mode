@@ -1,7 +1,7 @@
 2010-10-18  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-scons-utils): Add
-	new eclass scons-utils
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-scons-utils):
+	Add new eclass scons-utils
 	(ebuild-mode-keywords-java-ant-2): Add java-ant_remove-taskdefs()
 	function
 	(ebuild-mode-keywords-eutils): Add path_exists() function
