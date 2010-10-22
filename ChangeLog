@@ -1,3 +1,7 @@
+2010-10-22  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.18 released.
+
 2010-10-18  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-scons-utils):
