@@ -1,3 +1,8 @@
+2010-10-25  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-common):
+	Added texlive-common.eclass
+
 2010-10-24  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-module):
