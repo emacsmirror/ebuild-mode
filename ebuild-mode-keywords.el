@@ -254,7 +254,8 @@
 
 (defvar ebuild-mode-keywords-texlive-module
   '(("texlive-module_make_language_def_lines"
-     "texlive-module_make_language_dat_lines" "texlive-module_add_format")
+     "texlive-module_make_language_dat_lines" "texlive-module_add_format"
+     "texlive-module_synonyms_to_language_lua_line" "texlive-module_make_language_lua_lines")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools

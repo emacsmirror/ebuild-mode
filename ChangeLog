@@ -1,3 +1,9 @@
+2010-10-24  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-module):
+	Add texlive-module_synonyms_to_language_lua_line() and
+	texlive-module_make_language_lua_lines() functions
+
 2010-10-22  Ulrich Mueller  <ulm@gentoo.org>
 
 	* Version 1.18 released.
