@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-texlive-common):
 	Added texlive-common.eclass
+	(ebuild-mode-keywords-deprecated): python_mod_compile() is deprecated
 
 2010-10-24  Christian Faulhammer  <fauli@gentoo.org>
 

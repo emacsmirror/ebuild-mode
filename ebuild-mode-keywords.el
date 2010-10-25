@@ -73,7 +73,7 @@
 
 (defvar ebuild-mode-keywords-deprecated
   ;; deprecated eclass functions
-  '(("elisp-comp" "prepalldocs" "dosed" "dohard")
+  '(("elisp-comp" "prepalldocs" "dosed" "dohard" "python_mod_compile")
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-base
@@ -472,14 +472,13 @@
 
 (defvar ebuild-mode-keywords-python
   '(("NEED_PYTHON" "DOCS" "PYTHON" "python_version"
-     "python_mod_compile" "python_mod_optimize"
-     "python_mod_cleanup" "python_disable_pyc" "python_enable_pyc"
-     "python_get_libdir" "python_get_sitedir" "python_need_rebuild"
-     "python_copy_sources" "python_execute_function" "python_get_includedir"
-     "python_convert_shebangs" "python_set_active_version"
-     "python_generate_wrapper_scripts" "python_get_library"
-     "python_get_version" "python_execute_nosetest" "python_execute_py.test"
-     "python_execute_trial" "python_get_implementation"
+     "python_mod_optimize" "python_mod_cleanup" "python_disable_pyc"
+     "python_enable_pyc" "python_get_libdir" "python_get_sitedir"
+     "python_need_rebuild" "python_copy_sources" "python_execute_function"
+     "python_get_includedir" "python_convert_shebangs"
+     "python_set_active_version" "python_generate_wrapper_scripts"
+     "python_get_library" "python_get_version" "python_execute_nosetest"
+     "python_execute_py.test" "python_execute_trial" "python_get_implementation"
      "python_get_implementational_package" "python_clean_installation_image")
     font-lock-type-face))
 
