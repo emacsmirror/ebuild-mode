@@ -167,7 +167,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-darcs
-  '(("darcs_src_unpack")
+  '(("darcs_src_unpack" "darcs_patchcount")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-php-common-r1
