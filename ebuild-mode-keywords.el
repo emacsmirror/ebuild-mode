@@ -532,8 +532,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp-common
-  '(("elisp-compile" "elisp-install" "elisp-site-file-install"
-     "elisp-site-regen" "elisp-emacs-version" "elisp-make-autoload-file")
+  '(("elisp-compile" "elisp-emacs-version" "elisp-need-emacs"
+     "elisp-make-autoload-file" "elisp-install" "elisp-site-file-install"
+     "elisp-site-regen")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
