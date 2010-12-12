@@ -1,3 +1,8 @@
+2010-12-12  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2-utils):
+	Add gnome2_schemas_savelist(), gnome2_schemas_update() functions
+
 2010-11-23  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-elisp-common):
