@@ -9,7 +9,7 @@
 This manual is for gentoo-syntax, which is a major mode for ebuild,
 eclass and eselect module files.
 
-Copyright @copyright{} 2009-2010 Gentoo Foundation
+Copyright @copyright{} 2009-2011 Gentoo Foundation
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
