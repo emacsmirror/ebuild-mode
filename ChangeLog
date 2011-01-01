@@ -1,3 +1,11 @@
+2011-01-01  Ulrich Mueller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi4)
+	(ebuild-mode-keywords-functions-eapi4): New variables for keywords
+	and functions of EAPI 4.
+	(ebuild-mode-keywords-functions-default):
+	Add default_src_install() function.
+
 2010-12-12  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-gnome2-utils):

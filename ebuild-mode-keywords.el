@@ -44,6 +44,10 @@
      "use_enable" "use_with" "useq" "usev")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-eapi4
+  '(("docompress" "nonfatal")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-functions
   '(("pkg_nofetch" "pkg_setup" "src_unpack" "src_compile" "src_test"
      "src_install" "pkg_preinst" "pkg_postinst" "pkg_prerm" "pkg_postrm"
@@ -54,9 +58,14 @@
   '(("pkg_info" "src_prepare" "src_configure")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-functions-eapi4
+  '(("pkg_pretend")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-functions-default
   '(("default_pkg_nofetch" "default_src_unpack" "default_src_prepare"
-     "default_src_configure" "default_src_compile" "default_src_test")
+     "default_src_configure" "default_src_compile" "default_src_test"
+     "default_src_install")
     font-lock-type-face))
 
 ;; comment-face will always override the eclass documentation strings
