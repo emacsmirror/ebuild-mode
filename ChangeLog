@@ -1,3 +1,9 @@
+2011-01-04  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem): Add
+	ruby_fakegem_install_gemspec(), ruby_fakegem_metadata_gemspec()
+	functions
+
 2011-01-01  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi4)
