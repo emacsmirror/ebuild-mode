@@ -3,6 +3,8 @@
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-ruby-fakegem): Add
 	ruby_fakegem_install_gemspec(), ruby_fakegem_metadata_gemspec()
 	functions
+	(ebuild-mode-keywords-python): Add
+	python_merge_intermediate_installation_images() function
 
 2011-01-01  Ulrich Mueller  <ulm@gentoo.org>
 
