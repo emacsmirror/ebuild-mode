@@ -268,7 +268,8 @@
 (defvar ebuild-mode-keywords-texlive-module
   '(("texlive-module_make_language_def_lines"
      "texlive-module_make_language_dat_lines" "texlive-module_add_format"
-     "texlive-module_synonyms_to_language_lua_line" "texlive-module_make_language_lua_lines")
+     "texlive-module_synonyms_to_language_lua_line"
+     "texlive-module_make_language_lua_lines")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools
@@ -373,7 +374,8 @@
 (defvar ebuild-mode-keywords-gnome2-utils
   '(("gnome2_gconf_savelist" "gnome2_gconf_install" "gnome2_gconf_uninstall"
      "gnome2_icon_savelist" "gnome2_icon_cache_update" "gnome2_omf_fix"
-     "gnome2_scrollkeeper_update" "gnome2_schemas_savelist" "gnome2_schemas_update")
+     "gnome2_scrollkeeper_update" "gnome2_schemas_savelist"
+     "gnome2_schemas_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome2
@@ -487,8 +489,9 @@
      "python_get_includedir" "python_convert_shebangs" "python_abi_depend"
      "python_set_active_version" "python_generate_wrapper_scripts"
      "python_get_library" "python_get_version" "python_execute_nosetest"
-     "python_execute_py.test" "python_execute_trial" "python_get_implementation"
-     "python_get_implementational_package" "python_clean_installation_image"
+     "python_execute_py.test" "python_execute_trial"
+     "python_get_implementation" "python_get_implementational_package"
+     "python_clean_installation_image"
      "python_merge_intermediate_installation_images")
     font-lock-type-face))
 
@@ -524,8 +527,9 @@
 
 (defvar ebuild-mode-keywords-ruby-fakegem
   '(("ruby_fakegem_gemsdir" "ruby_fakegem_doins" "ruby_fakegem_newsins"
-     "ruby_fakegem_genspec" "ruby_fakegem_binwrapper" "ruby_fakegem_install_gemspec"
-     "ruby_fakegem_metadata_gemspec" "all_fakegem_compile" "all_fakegem_install" "all_ruby_install"
+     "ruby_fakegem_genspec" "ruby_fakegem_binwrapper"
+     "ruby_fakegem_install_gemspec" "ruby_fakegem_metadata_gemspec"
+     "all_fakegem_compile" "all_fakegem_install" "all_ruby_install"
      "all_ruby_unpack" "all_ruby_compile" "each_fakegem_test" "each_ruby_test"
      "each_fakegem_install" "each_ruby_install")
     font-lock-type-face))
