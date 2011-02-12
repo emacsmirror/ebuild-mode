@@ -1,3 +1,8 @@
+2011-02-12  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-mount-boot): Add
+	mount-boot eclass.
+
 2011-01-05  Ulrich Mueller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-xfconf): Fix typo

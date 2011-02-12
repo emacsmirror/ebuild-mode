@@ -338,6 +338,10 @@
      "create_ml_includes-allfiles" "create_ml_includes-sym_for_dir")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mount-boot
+  '(("mount-boot_mount_boot_partition" "mount-boot_umount_boot_partition")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-java-ant-2
   '(("java-ant_bsfix_files" "java-ant_bsfix_one" "java-ant_rewrite-classpath"
      "java-ant_ignore-system-classes" "java-ant_xml-rewrite"
