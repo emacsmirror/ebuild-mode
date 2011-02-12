@@ -407,7 +407,7 @@
 
 (defvar ebuild-mode-keywords-pam
   '(("dopamd" "newpamd" "dopamsecurity" "newpamsecurity" "getpam_mod_dir"
-     "dopammod" "newpammod" "pamd_mimic" "clean_pamd")
+     "dopammod" "newpammod" "pamd_mimic" "clean_pamd" "pammod_hide_symbols")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-haskell-cabal

@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-mount-boot): Add
 	mount-boot eclass.
+	(ebuild-mode-keywords-pam): Add pammod_hide_symbols() function.
 
 2011-01-05  Ulrich Mueller  <ulm@gentoo.org>
 
