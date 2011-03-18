@@ -640,8 +640,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vmware-bundle
-  '(("vmware-bundle_extract-bundle-component" "vmware-bundle_extract-component"
-     "")
+  '(("vmware-bundle_extract-bundle-component" "vmware-bundle_extract-component")
     font-lock-type-face))
 
 ;; Local Variables:
