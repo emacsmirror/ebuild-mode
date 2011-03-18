@@ -2,6 +2,7 @@
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2): Add
 	ejunit4() function.
+	(ebuild-mode-keywords-vmware-bundle): Add vmware-bundle eclass.
 
 2011-02-12  Christian Faulhammer  <fauli@gentoo.org>
 
