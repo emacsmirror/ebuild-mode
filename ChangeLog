@@ -1,3 +1,8 @@
+2011-03-19  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
+	prepare_directories() function.
+
 2011-03-18  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2): Add
