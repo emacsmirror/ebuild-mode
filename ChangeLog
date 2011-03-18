@@ -1,3 +1,8 @@
+2011-03-18  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2): Add
+	ejunit4() function.
+
 2011-02-12  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-mount-boot): Add

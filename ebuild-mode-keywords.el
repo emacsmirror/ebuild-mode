@@ -362,7 +362,7 @@
      "java-pkg_set-current-vm" "java-pkg_get-current-vm"
      "java-pkg_current-vm-matches" "java-pkg_get-target" "java-pkg_get-javac"
      "java-pkg_javac-args" "java-pkg_get-jni-cflags" "java-pkg_ensure-gcj"
-     "java-pkg_ensure-test" "java-pkg_register-ant-task" "ejunit" "eant"
+     "java-pkg_ensure-test" "java-pkg_register-ant-task" "ejunit" "ejunit4" "eant"
      "ejavac" "java-pkg_filter-compiler" "java-pkg_force-compiler" "use_doc"
      "EANT_NEEDS_TOOLS")
     font-lock-type-face))
