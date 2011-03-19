@@ -4,7 +4,7 @@
 	prepare_directories() function.
 	(ebuild-mode-keywords-multilib): Remove a bunch of functions that
 	are not available anymore.
-	Remove mozconfig-2.eclass and mocoreconf.eclass
+	Remove mozconfig-2.eclass, mocoreconf.eclass and games-q3mod.eclass
 
 2011-03-18  Christian Faulhammer  <fauli@gentoo.org>
 
