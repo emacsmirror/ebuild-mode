@@ -1,3 +1,9 @@
+2011-03-26  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain): Add
+	setup_multilib_osdirnames() and remove
+	disgusting_gcc_multilib_HACK() instead.
+
 2011-03-19  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
