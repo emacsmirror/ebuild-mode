@@ -1,3 +1,8 @@
+2011-04-10  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools): Add
+	autotools_m4dir_include() function
+
 2011-03-26  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain): Add

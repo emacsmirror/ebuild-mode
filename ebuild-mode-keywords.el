@@ -264,7 +264,7 @@
 
 (defvar ebuild-mode-keywords-autotools
   '(("eautoreconf" "eaclocal" "_elibtoolize" "eautoconf" "eautoheader"
-     "eautopoint" "eautomake" "WANT_AUTOCONF" "WANT_AUTOMAKE")
+     "eautopoint" "eautomake" "autotools_m4dir_include" "WANT_AUTOCONF" "WANT_AUTOMAKE")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools-utils
