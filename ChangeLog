@@ -1,32 +1,32 @@
 2011-04-10  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools): Add
-	autotools_m4dir_include() function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-autotools):
+	Add autotools_m4dir_include() function
 
 2011-03-26  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain): Add
-	setup_multilib_osdirnames() and remove
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain):
+	Add setup_multilib_osdirnames() and remove
 	disgusting_gcc_multilib_HACK() instead.
 
 2011-03-19  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build): Add
-	prepare_directories() function.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-qt4-build):
+	Add prepare_directories() function.
 	(ebuild-mode-keywords-multilib): Remove a bunch of functions that
 	are not available anymore.
 	Remove mozconfig-2.eclass, mocoreconf.eclass and games-q3mod.eclass
 
 2011-03-18  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2): Add
-	ejunit4() function.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-java-utils-2):
+	Add ejunit4() function.
 	(ebuild-mode-keywords-vmware-bundle): Add vmware-bundle eclass.
 
 2011-02-12  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-mount-boot): Add
-	mount-boot eclass.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-mount-boot):
+	Add mount-boot eclass.
 	(ebuild-mode-keywords-pam): Add pammod_hide_symbols() function.
 
 2011-01-05  Ulrich Mueller  <ulm@gentoo.org>
