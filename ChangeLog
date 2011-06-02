@@ -1,6 +1,7 @@
 2011-06-02  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-ghc-packages): Add ghc-package.eclass
+	(ebuild-mode-keywords-systemd): Add systemd.eclass
 
 2011-04-10  Christian Faulhammer  <fauli@gentoo.org>
 

@@ -98,6 +98,11 @@
      "ghc-elem" "ghc-listpkg")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-systemd
+  '(("systemd_get_unitdir" "systemd_dounit" "systemd_enable_service" "systemd_with_unitdir"
+     "systemd_to_myeconfargs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-go-mono
   '(("go-mono_src_prepare" "go-mono_src_configure" "go-mono_src_install")
     font-lock-type-face))
