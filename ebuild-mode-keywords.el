@@ -89,6 +89,15 @@
   '(("base_src_work" "base_src_install_docs")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-ghc-packages
+  '(("ghc-getghc" "ghc-getghcpkg" "ghc-getghcpkgbin" "ghc-version" "ghc-cabal"
+     "ghc-bestcabalversion" "ghc-sanecabal" "ghc-saneghc" "ghc-supports-shared-libraries"
+     "ghc-extractportageversion" "ghc-libdir" "ghc-confdir" "ghc-localpkgconf"
+     "ghc-makeghcilib" "ghc-fixlibpath" "ghc-setup-pkg" "ghc-install-pkg"
+     "ghc-register-pkg" "ghc-reregister" "ghc-unregister-pkg" "ghc-reverse"
+     "ghc-elem" "ghc-listpkg")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-go-mono
   '(("go-mono_src_prepare" "go-mono_src_configure" "go-mono_src_install")
     font-lock-type-face))
