@@ -3,6 +3,7 @@
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-systemd): Add
 	systemd_dotmpfilesd() and systemd_newunit() functions
 	(ebuild-mode-keywords-check_reqs): Add check_reqs.eclass
+	(ebuild-mode-keywords-office-ext): Add office_ext.eclass
 
 2011-12-23  Ulrich Mueller  <ulm@gentoo.org>
 

@@ -96,6 +96,11 @@
      "check-reqs_disk" "check-reqs_start_phase" "check-reqs_unsatisfied")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-office-ext
+  '(("office-ext_flush_unopkg_cache" "office-ext_get_implementation" "office-ext_add_extension"
+     "office-ext_remove_extension")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-ghc-packages
   '(("ghc-getghc" "ghc-getghcpkg" "ghc-getghcpkgbin" "ghc-version" "ghc-cabal"
      "ghc-bestcabalversion" "ghc-sanecabal" "ghc-saneghc" "ghc-supports-shared-libraries"
