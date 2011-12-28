@@ -100,7 +100,7 @@
 
 (defvar ebuild-mode-keywords-systemd
   '(("systemd_get_unitdir" "systemd_dounit" "systemd_enable_service" "systemd_with_unitdir"
-     "systemd_to_myeconfargs" "systemd_dotmpfilesd")
+     "systemd_to_myeconfargs" "systemd_dotmpfilesd" "systemd_newunit")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-go-mono
