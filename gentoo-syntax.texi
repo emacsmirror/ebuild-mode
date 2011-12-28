@@ -26,7 +26,7 @@ later version published by the Free Software Foundation.
 
 
 @titlepage
-@title gentoo-syntax 1.18
+@title gentoo-syntax 1.20
 @subtitle Major mode for Gentoo files
 @author Christian Faulhammer
 @page
