@@ -89,6 +89,13 @@
   '(("base_src_work" "base_src_install_docs")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-check_reqs
+  '(("check-reqs_pkg_setup" "check-reqs_pkg_pretend" "check-reqs_prepare"
+     "check-reqs_run" "check-reqs_get_mebibytes" "check-reqs_get_number"
+     "check-reqs_get_unit" "check-reqs_output" "check-reqs_memory"
+     "check-reqs_disk" "check-reqs_start_phase" "check-reqs_unsatisfied")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-ghc-packages
   '(("ghc-getghc" "ghc-getghcpkg" "ghc-getghcpkgbin" "ghc-version" "ghc-cabal"
      "ghc-bestcabalversion" "ghc-sanecabal" "ghc-saneghc" "ghc-supports-shared-libraries"
