@@ -6,6 +6,8 @@
 	(ebuild-mode-keywords-office-ext): Add office_ext.eclass
 	(ebuild-mode-keywords-toolchain-funcs): Add tc-getBUILD_PROG(),
 	tc-getBUILD_CPP(), tc-getBUILD_CXX() functions
+	(ebuild-mode-keywords-bash-completion-r1): Add
+	bash-completion-r1.eclass and deprecate old version
 
 2011-12-23  Ulrich Mueller  <ulm@gentoo.org>
 

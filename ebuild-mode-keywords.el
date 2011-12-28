@@ -82,7 +82,7 @@
 
 (defvar ebuild-mode-keywords-deprecated
   ;; deprecated eclass functions
-  '(("elisp-comp" "prepalldocs" "dosed" "dohard" "python_mod_compile")
+  '(("elisp-comp" "prepalldocs" "dosed" "dohard" "python_mod_compile" "dobashcompletion" "bash-completion_pkg_postinst")
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-base
@@ -379,8 +379,8 @@
      "EANT_NEEDS_TOOLS")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-bash-completion
-  '(("dobashcompletion" "bash-completion_pkg_postinst")
+(defvar ebuild-mode-keywords-bash-completion-r1
+  '(("dobashcomp" "newbashcomp")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fdo-mime
