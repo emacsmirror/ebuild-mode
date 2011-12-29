@@ -10,6 +10,8 @@
 	add_version to shared()
 	(ebuild-mode-keywords-eutils): Add functions in_iuse() and usex()
 	(ebuild-mode-keywords-autotools): Add eaclocal_amflags() function
+	(ebuild-mode-keywords-multilib): Remove functions
+	get_libdir_override() and get_multilibdir()
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 

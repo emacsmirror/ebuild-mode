@@ -345,8 +345,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib
-  '(("has_multilib_profile" "get_libdir" "get_multilibdir"
-     "get_libdir_override" "get_abi_var" "get_install_abis" "get_all_abis"
+  '(("has_multilib_profile" "get_libdir" "get_abi_var" "get_install_abis" "get_all_abis"
      "get_all_libdirs" "is_final_abi" "number_abis" "get_libname" "multilib_env"
      "multilib_toolchain_setup" "get_abi_CFLAGS" "get_abi_LDFLAGS"
      "get_abi_CHOST" "get_abi_FAKE_TARGETS" "get_abi_LIBDIR")
