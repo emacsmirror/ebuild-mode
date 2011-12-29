@@ -313,8 +313,8 @@
 (defvar ebuild-mode-keywords-qt4-build
   '(("fix_includes" "setqtenv" "standard_configure_options"
      "build_directories" "install_directories" "install_qconfigs"
-     "generate_qconfigs" "skip_qmake_build_patch"
-     "skip_project_generation_patch" "symlink_binaries_to_buildtree"
+     "generate_qconfigs" "skip_qmake_build"
+     "skip_project_generation" "symlink_binaries_to_buildtree"
      "fix_library_files" "qt_use" "qt_mkspecs_dir" "qt_assistant_cleanup"
      "qt_nolibx11" "prepare_directories")
     font-lock-type-face))
