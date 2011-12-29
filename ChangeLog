@@ -18,6 +18,8 @@
 	(ebuild-mode-keywords-kernel-2): Remove generate_sparc_asm() function
 	(ebuild-mode-keywords-qt4-build): Rename
 	skip_project_generation_patch() and skip_qmake_build_patch()
+	(ebuild-mode-keywords-gnome2-utils): Add
+	gnome2_environment_reset() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 
