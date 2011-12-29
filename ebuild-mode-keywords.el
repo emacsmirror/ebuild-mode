@@ -181,7 +181,7 @@
      "gcc_version_patch" "setup_multilib_osdirnames" "gcc-multilib-configure"
      "disable_multilib_libjava" "fix_libtool_libdir_paths" "is_multilib"
      "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_gcj" "is_objc"
-     "is_objcxx" "is_ada")
+     "is_objcxx" "is_ada" "huse")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-libtool

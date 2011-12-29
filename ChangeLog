@@ -5,8 +5,8 @@
 	tc-getBUILD_LD(), tc-getBUILD_STRIP(), tc-getBUILD_NM(),
 	tc-getBUILD_RANLIB(), tc-getBUILD_OBJCOPY() and
 	tc-getBUILD_PKG_CONFIG()
-	(ebuild-mode-keywords-toolchain): Add gcc-multilib-configure()
-	function.  Remove functions gcc-library-configure() and
+	(ebuild-mode-keywords-toolchain): Add gcc-multilib-configure() and
+	huse() functions.  Remove functions gcc-library-configure() and
 	add_version to shared()
 	(ebuild-mode-keywords-eutils): Add functions in_iuse() and usex()
 	(ebuild-mode-keywords-autotools): Add eaclocal_amflags() function
