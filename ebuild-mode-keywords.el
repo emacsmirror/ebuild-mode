@@ -185,7 +185,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-libtool
-  '(("elibtoolize" "uclibctoolize" "darwintoolize")
+  '(("elibtoolize" "uclibctoolize" "darwintoolize" "ELT_find_ltmain_sh"
+     "ELT_try_and_apply_patch" "ELT_libtool_version" "ELT_walk_patches"
+     "elibtoolize" "VER_major" "VER_minor" "VER_micro" "VER_to_int")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fixheadtails
@@ -336,12 +338,6 @@
 (defvar ebuild-mode-keywords-gst-plugins10
   '(("gst-plugins10_find_plugin_dir"
      "gst-plugins10_remove_unversioned_binaries")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-libtool
-  '(("ELT_find_ltmain_sh" "ELT_try_and_apply_patch" "ELT_libtool_version"
-     "ELT_walk_patches" "elibtoolize" "VER_major" "VER_minor" "VER_micro"
-     "VER_to_int")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib
