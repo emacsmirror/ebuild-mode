@@ -362,6 +362,13 @@
      "java-ant_remove-taskdefs")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-java-vm-2
+  '(("java-vm_check-nsplugin" "java-vm_sandbox-predict" "java-vm_set-nsplugin"
+     "java_set_default_vm_" "get_system_arch" "set_java_env" "java-vm_set-pax-markings"
+     "java-vm_revdep-mask" "java_get_plugin_dir_" "install_mozilla_plugin"
+     "java_mozilla_clean_")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-java-utils-2
   '(("java-pkg_doexamples" "java-pkg_dojar" "java-pkg_regjar"
      "java-pkg_newjar" "java-pkg_addcp" "java-pkg_doso" "java-pkg_regso"
