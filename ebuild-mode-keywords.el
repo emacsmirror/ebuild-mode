@@ -271,7 +271,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-nsplugin
-  '(("src_mv_plugins" "pkg_mv_plugins" "inst_plugin")
+  '(("src_mv_plugins" "pkg_mv_plugins" "inst_plugin" "share_plugins_dir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-latex-package
