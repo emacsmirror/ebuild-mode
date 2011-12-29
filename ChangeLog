@@ -9,6 +9,7 @@
 	function.  Remove functions gcc-library-configure() and
 	add_version to shared()
 	(ebuild-mode-keywords-eutils): Add in_iuse() function
+	(ebuild-mode-keywords-autotools): Add eaclocal_amflags() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 
