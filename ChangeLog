@@ -5,6 +5,7 @@
 	tc-getBUILD_LD(), tc-getBUILD_STRIP(), tc-getBUILD_NM(),
 	tc-getBUILD_RANLIB(), tc-getBUILD_OBJCOPY() and
 	tc-getBUILD_PKG_CONFIG()
+	(ebuild-mode-keywords-toolchain): Add gcc-multilib-configure() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 

@@ -179,7 +179,7 @@
      "do_gcc_HTB_patches" "do_gcc_SSP_patches" "update_gcc_for_libc_ssp"
      "update_gcc_for_libssp" "do_gcc_PIE_patches" "should_we_gcc_config"
      "do_gcc_config" "should_we_eselect_compiler" "do_eselect_compiler"
-     "gcc_version_patch" "setup_multilib_osdirnames"
+     "gcc_version_patch" "setup_multilib_osdirnames" "gcc-multilib-configure"
      "disable_multilib_libjava" "fix_libtool_libdir_paths" "is_multilib"
      "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_gcj" "is_objc"
      "is_objcxx" "is_ada")
