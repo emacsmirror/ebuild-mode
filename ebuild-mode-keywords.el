@@ -181,7 +181,7 @@
      "gcc_version_patch" "setup_multilib_osdirnames" "gcc-multilib-configure"
      "disable_multilib_libjava" "fix_libtool_libdir_paths" "is_multilib"
      "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_gcj" "is_objc"
-     "is_objcxx" "is_ada" "huse")
+     "is_objcxx" "is_ada")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-libtool
@@ -419,7 +419,8 @@
      "built_with_use" "epunt_cxx" "make_wrapper" "gen_usr_ldscript" "usex"
      "draw_line" "have_NPTL" "get_number_of_jobs" "egetent" "unpack_pdv"
      "unpack_makeself" "cdrom_load_next" "cdrom_locate_file_on_cd"
-     "find_unpackable_file" "eshopts_push" "eshopts_pop" "path_exists")
+     "find_unpackable_file" "eshopts_push" "eshopts_pop" "path_exists"
+     "use_if_iuse")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-pam
