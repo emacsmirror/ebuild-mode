@@ -6,6 +6,7 @@
 	tc-getBUILD_RANLIB(), tc-getBUILD_OBJCOPY() and
 	tc-getBUILD_PKG_CONFIG()
 	(ebuild-mode-keywords-toolchain): Add gcc-multilib-configure() function
+	(ebuild-mode-keywords-eutils): Add in_iuse() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 
