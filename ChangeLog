@@ -13,6 +13,7 @@
 	(ebuild-mode-keywords-multilib): Remove functions
 	get_libdir_override() and get_multilibdir()
 	(ebuild-mode-keywords-java-vm-2): Add java-vm-2.eclass
+	(ebuild-mode-keywords-libtool): Add elt_patch_dir() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 

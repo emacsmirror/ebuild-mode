@@ -187,7 +187,8 @@
 (defvar ebuild-mode-keywords-libtool
   '(("elibtoolize" "uclibctoolize" "darwintoolize" "ELT_find_ltmain_sh"
      "ELT_try_and_apply_patch" "ELT_libtool_version" "ELT_walk_patches"
-     "elibtoolize" "VER_major" "VER_minor" "VER_micro" "VER_to_int")
+     "elibtoolize" "VER_major" "VER_minor" "VER_micro" "VER_to_int"
+     "elt_patch_dir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fixheadtails
