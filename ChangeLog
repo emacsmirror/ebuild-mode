@@ -15,6 +15,7 @@
 	(ebuild-mode-keywords-java-vm-2): Add java-vm-2.eclass
 	(ebuild-mode-keywords-libtool): Add elt_patch_dir() function
 	(ebuild-mode-keywords-nsplugin): Add share_plugins_dir() function
+	(ebuild-mode-keywords-kernel-2): Remove generate_sparc_asm() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 

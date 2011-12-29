@@ -628,7 +628,7 @@
      "compile_headers" "compile_headers_tweak_config" "install_universal"
      "install_headers" "install_sources" "preinst_headers" "postinst_sources"
      "postinst_headers" "setup_headers" "unipatch" "getfilevar" "detect_arch"
-     "generate_sparc_asm" "headers___fix")
+     "headers___fix")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xorg-2
