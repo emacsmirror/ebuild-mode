@@ -13,7 +13,7 @@ ECLASSES=$(cd $(portageq portdir)/eclass/;ls *.eclass)
 
 # Obsolete eclasses or ones which contain no functions
 for filter in git bash-completion gems ruby qt4 php-ext-pecl-r1 \
-    php-ext-source-r1 gnome.org gnustep-2 
+    php-ext-source-r1 gnome.org gnustep-2 java-mvn-src
 do
     ECLASSES=${ECLASSES//${filter}.eclass/}
 done
