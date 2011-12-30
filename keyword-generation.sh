@@ -20,7 +20,7 @@ echo Output in ${TMPFILE}
 for eclass in ${ECLASSES}
 do
     echo '(defvar ebuild-mode-keywords-'${eclass//.eclass/} >>${TMPFILE}
-    echo -n \'\(\($(grep '^[a-Z_-.]*()' $(portageq portdir)/eclass/${eclass}|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
+    echo -n \'\(\($(grep '^[a-Z_-.0-9]*()' $(portageq portdir)/eclass/${eclass}|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
     echo >>${TMPFILE}
     echo font-lock-type-face\)\)>>${TMPFILE}
     echo >>${TMPFILE}
