@@ -11,9 +11,9 @@
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 ECLASSES=$(cd $(portageq portdir)/eclass/;ls *.eclass)
 
+# Obsolete eclasses or ones which contain no functions
 for filter in git bash-completion gems ruby qt4 php-ext-pecl-r1 \
-    php-ext-source-r1 gnome.org # Obsolete eclasses or ones which
-				# contain no functions
+    php-ext-source-r1 gnome.org gnustep-2 
 do
     ECLASSES=${ECLASSES//${filter}.eclass/}
 done
