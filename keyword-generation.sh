@@ -9,11 +9,18 @@
 # Generate a raw list for app-emacs/gentoo-syntax
 
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
-
-for i in *.eclass
+ECLASSES=$(cd $(portageq portdir)/eclass/;ls *.eclass)
+for filter in git.eclass
 do
-    echo '(defvar ebuild-mode-keywords-'${i//.eclass/} >>${TMPFILE}
-    echo -n \'\(\($(grep '^[a-Z_-]*()' $i|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
+    ECLASSES=${ECLASSES//${filter}/}
+done
+
+echo Output in ${TMPFILE}
+
+for eclass in ${ECLASSES}
+do
+    echo '(defvar ebuild-mode-keywords-'${eclass//.eclass/} >>${TMPFILE}
+    echo -n \'\(\($(grep '^[a-Z_-.]*()' $(portageq portdir)/eclass/${eclass}|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
     echo >>${TMPFILE}
     echo font-lock-type-face\)\)>>${TMPFILE}
     echo >>${TMPFILE}
