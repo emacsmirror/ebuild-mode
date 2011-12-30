@@ -14,13 +14,13 @@ ECLASSES=$(cd $(portageq portdir)/eclass/;ls *.eclass)
 # Obsolete eclasses or ones which contain no functions
 for filter in git bash-completion gems ruby qt4 php-ext-pecl-r1 \
     php-ext-source-r1 gnome.org gnustep-2 java-mvn-src kde4-meta-pkg \
-    leechcraft
+    leechcraft mythtv
 do
     ECLASSES=${ECLASSES//${filter}.eclass/}
 done
 
 echo Output in ${TMPFILE}
-echo Manual parsing of mercurial.eclass needed! Do not forget
+echo Manual parsing of mercurial.eclass needed! Do not forget!
 
 for eclass in ${ECLASSES}
 do
