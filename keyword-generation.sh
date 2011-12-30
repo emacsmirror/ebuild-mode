@@ -20,6 +20,7 @@ do
 done
 
 echo Output in ${TMPFILE}
+echo Manual parsing of mercurial.eclass needed! Do not forget
 
 for eclass in ${ECLASSES}
 do
