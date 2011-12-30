@@ -174,7 +174,7 @@
      "create_gcc_env_entry" "add_profile_eselect_conf" "create_eselect_conf"
      "guess_patch_type_in_dir" "do_gcc_rename_java_bins"
      "gcc-compiler-configure" "gcc_do_configure" "gcc_do_make" "gcc_do_filter_flags"
-     "gcc_movelibs" "gcc_quick_unpack" "exclude_gcc_patches" "do_gcc_stub"
+     "gcc_movelibs" "gcc_quick_unpack" "exclude_gcc_patches"
      "do_gcc_HTB_patches" "do_gcc_SSP_patches" "update_gcc_for_libc_ssp"
      "update_gcc_for_libssp" "do_gcc_PIE_patches" "should_we_gcc_config"
      "do_gcc_config" "should_we_eselect_compiler" "do_eselect_compiler"

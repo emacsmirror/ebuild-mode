@@ -1,3 +1,8 @@
+2011-12-30  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain): Remove
+	do_gcc_stub() function
+
 2011-12-29  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain-funcs):
