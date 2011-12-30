@@ -1,7 +1,8 @@
 2011-12-30  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-toolchain): Remove
-	do_gcc_stub() function
+	* ebuild-mode-keywords.el: All keywords are now from a
+	auto-generated list apart from some special sections.  So many new
+	functions, some go away.
 
 2011-12-29  Christian Faulhammer  <fauli@gentoo.org>
 
