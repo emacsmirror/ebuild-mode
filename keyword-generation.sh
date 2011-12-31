@@ -25,8 +25,18 @@ echo Manual parsing of mercurial.eclass needed! Do not forget!
 for eclass in ${ECLASSES}
 do
     echo '(defvar ebuild-mode-keywords-'${eclass//.eclass/} >>${TMPFILE}
-    echo -n \'\(\($(grep '^[a-Z_-.0-9]*()' $(portageq portdir)/eclass/${eclass}|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
+    echo -n \'\(\($(LC_ALL=C grep '^[A-Za-z0-9._-]*()' $(portageq portdir)/eclass/${eclass}|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
     echo >>${TMPFILE}
     echo font-lock-type-face\)\)>>${TMPFILE}
     echo >>${TMPFILE}
 done
+
+emacs -q --batch \
+    --visit ${TMPFILE} \
+    --eval "(emacs-lisp-mode)" \
+    --eval "(indent-region (point-min) (point-max))" \
+    --eval "(let ((fill-column 78)
+                  (fill-indent-according-to-mode t)
+                  (paragraph-start \"^.\"))
+              (fill-region (point-min) (point-max)))" \
+    --eval "(save-buffer)" --kill
