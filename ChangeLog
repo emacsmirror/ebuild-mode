@@ -1,3 +1,8 @@
+2012-01-21  Christian Faulhammer  <fauli@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-savedconfig): Add
+	savedconfig_pkg_postinst() function
+
 2011-12-31  Ulrich Mueller  <ulm@gentoo.org>
 
 	* keyword-generation.sh: Set C locale for grep.	Reformat output.

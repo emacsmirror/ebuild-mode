@@ -620,7 +620,7 @@ font-lock-type-face))
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-savedconfig
-  '(("save_config" "restore_config")
+  '(("save_config" "restore_config" "savedconfig_pkg_postinst")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-scons-utils
