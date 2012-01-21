@@ -1,4 +1,4 @@
-# Copyright 2007-2011 Gentoo Foundation
+# Copyright 2007-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2 or later
 # $Id$
 
