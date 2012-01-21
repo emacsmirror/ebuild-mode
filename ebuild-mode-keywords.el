@@ -116,7 +116,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools
-  '(("eautoreconf" "eaclocal_amflags" "eaclocal" "_elibtoolize" "eautoheader" "eautoconf" "eautomake" "eautopoint" "autotools_env_setup" "autotools_run_tool" "autotools_check_macro" "autotools_check_macro_val" "autotools_get_subdirs" "autotools_get_auxdir" "_autotools_m4dir_include" "autotools_m4dir_include" "autotools_m4sysdir_include")
+  '(("eautoreconf" "eaclocal_amflags" "eaclocal" "_elibtoolize" "eautoheader" "eautoconf" "eautomake" "eautopoint" "autotools_env_setup" "autotools_run_tool" "autotools_check_macro" "autotools_check_macro_val" "autotools_get_subdirs" "autotools_get_auxdir" "_autotools_m4dir_include" "autotools_m4dir_include" "autotools_m4sysdir_include" "config_rpath_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools-utils
