@@ -4,6 +4,7 @@
 	savedconfig_pkg_postinst() function
 	(ebuild-mode-keywords-autotools): Add config_rpath_update() function
 	(ebuild-mode-keywords-cdrom): Add cdrom.eclass
+	(ebuild-mode-keywords-flag-o-matic): Remove has_hardened() function
 
 2011-12-31  Ulrich Mueller  <ulm@gentoo.org>
 
