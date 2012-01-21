@@ -143,6 +143,10 @@
   '(("cannadic_pkg_setup" "cannadic-install" "dicsdir-install" "cannadic_src_install" "update-cannadic-dir" "cannadic_pkg_postinst" "cannadic_pkg_postrm")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-cdrom
+  '(("cdrom_get_cds" "cdrom_load_next_cd" "_cdrom_locate_file_on_cd")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-check-reqs
   '(("check_reqs" "check-reqs_pkg_setup" "check-reqs_pkg_pretend" "check-reqs_prepare" "check-reqs_run" "check-reqs_get_mebibytes" "check-reqs_get_number" "check-reqs_get_unit" "check-reqs_output" "check-reqs_memory" "check-reqs_disk" "check-reqs_start_phase" "check-reqs_unsatisfied")
     font-lock-type-face))
@@ -232,7 +236,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-eutils
-  '(("epause" "ebeep" "ebeep" "epause" "ecvs_clean" "esvn_clean" "estack_push" "estack_pop" "eshopts_push" "eshopts_pop" "eumask_push" "eumask_pop" "epatch" "epatch_user" "emktemp" "edos2unix" "make_desktop_entry" "validate_desktop_entries" "make_session_desktop" "domenu" "newmenu" "doicon" "newicon" "find_unpackable_file" "unpack_pdv" "unpack_makeself" "cdrom_get_cds" "cdrom_load_next_cd" "_cdrom_locate_file_on_cd" "strip-linguas" "preserve_old_lib" "preserve_old_lib_notify" "built_with_use" "epunt_cxx" "make_wrapper" "path_exists" "in_iuse" "use_if_iuse" "usex" "check_license")
+  '(("epause" "ebeep" "ebeep" "epause" "ecvs_clean" "esvn_clean" "estack_push" "estack_pop" "eshopts_push" "eshopts_pop" "eumask_push" "eumask_pop" "epatch" "epatch_user" "emktemp" "edos2unix" "make_desktop_entry" "validate_desktop_entries" "make_session_desktop" "domenu" "newmenu" "doicon" "newicon" "find_unpackable_file" "unpack_pdv" "unpack_makeself" "strip-linguas" "preserve_old_lib" "preserve_old_lib_notify" "built_with_use" "epunt_cxx" "make_wrapper" "path_exists" "in_iuse" "use_if_iuse" "usex" "check_license")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fdo-mime
