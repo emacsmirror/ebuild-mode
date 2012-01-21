@@ -7,6 +7,7 @@
 	(ebuild-mode-keywords-flag-o-matic): Remove has_hardened()
 	function, mark has_m64() and has_m32() as deprecated, add
 	all-flag-vars() function
+	(ebuild-mode-keywords-python): Add python_clean_py-compile_files() function
 
 2011-12-31  Ulrich Mueller  <ulm@gentoo.org>
 
