@@ -252,7 +252,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-flag-o-matic
-  '(("setup-allowed-flags" "_filter-hardened" "_filter-var" "filter-flags" "filter-lfs-flags" "append-cppflags" "append-cflags" "append-cxxflags" "append-fflags" "append-lfs-flags" "append-flags" "replace-flags" "replace-cpu-flags" "_is_flagq" "is-flagq" "is-flag" "is-ldflagq" "is-ldflag" "filter-mfpmath" "strip-flags" "test-flag-PROG" "test-flag-CC" "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flags-PROG" "test-flags-CC" "test-flags-CXX" "test-flags-F77" "test-flags-FC" "test-flags" "test_version_info" "strip-unsupported-flags" "get-flag" "test_flag()" "replace-sparc64-flags" "append-libs" "append-ldflags" "filter-ldflags" "raw-ldflags" "no-as-needed")
+  '(("setup-allowed-flags" "_filter-hardened" "_filter-var" "filter-flags" "filter-lfs-flags" "append-cppflags" "append-cflags" "append-cxxflags" "append-fflags" "append-lfs-flags" "append-flags" "replace-flags" "replace-cpu-flags" "_is_flagq" "is-flagq" "is-flag" "is-ldflagq" "is-ldflag" "filter-mfpmath" "strip-flags" "test-flag-PROG" "test-flag-CC" "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flags-PROG" "test-flags-CC" "test-flags-CXX" "test-flags-F77" "test-flags-FC" "test-flags" "test_version_info" "strip-unsupported-flags" "get-flag" "test_flag()" "replace-sparc64-flags" "append-libs" "append-ldflags" "filter-ldflags" "raw-ldflags" "no-as-needed" "all-flag-vars")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-font-ebdftopcf
