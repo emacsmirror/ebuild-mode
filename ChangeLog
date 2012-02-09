@@ -1,17 +1,18 @@
 2012-01-21  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-savedconfig): Add
-	savedconfig_pkg_postinst() function
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-savedconfig):
+	Add savedconfig_pkg_postinst() function
 	(ebuild-mode-keywords-autotools): Add config_rpath_update() function
 	(ebuild-mode-keywords-cdrom): Add cdrom.eclass
 	(ebuild-mode-keywords-flag-o-matic): Remove has_hardened()
 	function, mark has_m64() and has_m32() as deprecated, add
 	all-flag-vars() function
-	(ebuild-mode-keywords-python): Add python_clean_py-compile_files() function
+	(ebuild-mode-keywords-python): Add python_clean_py-compile_files()
+	function
 
 2011-12-31  Ulrich Müller  <ulm@gentoo.org>
 
-	* keyword-generation.sh: Set C locale for grep.	Reformat output.
+	* keyword-generation.sh: Set C locale for grep. Reformat output.
 
 2011-12-30  Christian Faulhammer  <fauli@gentoo.org>
 
@@ -38,21 +39,21 @@
 	(ebuild-mode-keywords-libtool): Add elt_patch_dir() function
 	(ebuild-mode-keywords-nsplugin): Add share_plugins_dir() function
 	(ebuild-mode-keywords-kernel-2): Remove generate_sparc_asm() function
-	(ebuild-mode-keywords-qt4-build): Rename
-	skip_project_generation_patch() and skip_qmake_build_patch()
-	(ebuild-mode-keywords-gnome2-utils): Add
-	gnome2_environment_reset() function
+	(ebuild-mode-keywords-qt4-build):
+	Rename skip_project_generation_patch() and skip_qmake_build_patch()
+	(ebuild-mode-keywords-gnome2-utils):
+	Add gnome2_environment_reset() function
 
 2011-12-28  Christian Faulhammer  <fauli@gentoo.org>
 
-	* ebuild-mode-keywords.el (ebuild-mode-keywords-systemd): Add
-	systemd_dotmpfilesd() and systemd_newunit() functions
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-systemd):
+	Add systemd_dotmpfilesd() and systemd_newunit() functions
 	(ebuild-mode-keywords-check_reqs): Add check_reqs.eclass
 	(ebuild-mode-keywords-office-ext): Add office_ext.eclass
 	(ebuild-mode-keywords-toolchain-funcs): Add tc-getBUILD_PROG(),
 	tc-getBUILD_CPP(), tc-getBUILD_CXX() functions
-	(ebuild-mode-keywords-bash-completion-r1): Add
-	bash-completion-r1.eclass and deprecate old version
+	(ebuild-mode-keywords-bash-completion-r1):
+	Add bash-completion-r1.eclass and deprecate old version
 
 2011-12-23  Ulrich Müller  <ulm@gentoo.org>
 
@@ -1123,6 +1124,6 @@
 
 	* version 1.4
 
-Copyright 2007-2011 Gentoo Foundation
+Copyright 2007-2012 Gentoo Foundation
 Distributed under the terms of the GNU General Public License v2 or later
 $Id$
