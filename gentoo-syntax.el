@@ -112,7 +112,7 @@ A formfeed is not considered whitespace by this function."
    ebuild-mode-arch-list))
 
 (defvar ebuild-mode-arch-regexp
-  "^KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
+  "^[ \t]*KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
 (defvar ebuild-mode-licenses
   (condition-case nil

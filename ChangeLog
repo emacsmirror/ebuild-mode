@@ -1,3 +1,8 @@
+2012-02-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-arch-regexp): Allow whitespace at
+	beginning of line, bug 402573.
+
 2012-01-21  Christian Faulhammer  <fauli@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-savedconfig):
