@@ -21,7 +21,7 @@ later version published by the Free Software Foundation.
 @dircategory Gentoo
 @dircategory Emacs
 @direntry
-* gentoo-syntax: (gentoo-syntax).         Describing a mode for ebuilds, eclasses and eselect modules
+* gentoo-syntax: (gentoo-syntax).       Major mode for ebuilds, eclasses and eselect modules.
 @end direntry
 
 
@@ -62,11 +62,11 @@ of often needed commands (like KEYWORDS manipulation) or fast-track
 creation of new ebuilds by skeleton support.
 
 @menu
-* Commands:: What gentoo-syntax provides
-* ebuild-mode:: Editing ebuilds
-* eclass-mode:: Editing eclasses
-* eselect-mode:: Editing eselect modules
-* gentoo-newsitem-mode:: Editing GLEP 42 news items
+* Commands:: What gentoo-syntax provides.
+* ebuild-mode:: Editing ebuilds.
+* eclass-mode:: Editing eclasses.
+* eselect-mode:: Editing eselect modules.
+* gentoo-newsitem-mode:: Editing GLEP 42 news items.
 @end menu
 
 @node Commands, ebuild-mode, Top, Top
@@ -92,7 +92,7 @@ activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
 @node ebuild-mode, eclass-mode, Commands, Top
-@chapter Describing ebuild-mode
+@chapter ebuild-mode
 @section Writing a new ebuild
 Starting a completely new ebuild from scratch is best done by inserting
 an ebuild skeleton.  The command @code{ebuild-mode-skeleton} does this
@@ -185,16 +185,16 @@ Create a ChangeLog entry.
 @end table
 
 @node eclass-mode, eselect-mode, ebuild-mode, Top
-@chapter Describing eclass-mode
+@chapter eclass-mode
 There is no special eclass-mode but ebuild-mode is used without the
 commands that make no sense in eclasses.
 
 @node eselect-mode, gentoo-newsitem-mode ,eclass-mode, Top
-@chapter Describing eselect-mode
+@chapter eselect-mode
 This mode only supports highlighting of special eselect keywords.
 
 @node gentoo-newsitem-mode, ,eselect-mode, Top
-@chapter Describing gentoo-newsitem-mode for GLEP 42 news items
+@chapter gentoo-newsitem-mode for GLEP 42 news items
 This mode supports the highlighting of relevant keywords for GLEP 42
 news items.  These news items get displayed if special criteria for
 installed packages or profiles are met on the user's system.  Special

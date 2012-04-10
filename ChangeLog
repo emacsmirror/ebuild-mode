@@ -1,3 +1,7 @@
+2012-04-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.texi: Small syntax fixes.
+
 2012-02-09  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-arch-regexp): Allow whitespace at
