@@ -1,7 +1,6 @@
 #!/bin/bash
 # Copyright 2011-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2 or later
-# $Id: $
 
 # Authors:
 # Christian Faulhammer <fauli@gentoo.org>

@@ -1,5 +1,4 @@
 \input texinfo.tex    @c -*-texinfo-*-
-@c $Id$
 @c %**start of header
 @setfilename gentoo-syntax.info
 @settitle Major mode for ebuilds, eclasses and eselect modules in Gentoo

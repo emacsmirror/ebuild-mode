@@ -1,6 +1,5 @@
 # Copyright 2007-2012 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2 or later
-# $Id$
 
 PN = gentoo-syntax
 PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
