@@ -93,8 +93,8 @@
   '(("inherit")
     font-lock-type-face))
 
-;; All keyword lists below this line are auto-generated from
-keyword-generation.sh
+;; All keyword lists below this line are auto-generated
+;; from keyword-generation.sh
 
 (defvar ebuild-mode-keywords-alternatives
   '(("alternatives_auto_makesym" "alternatives_makesym"
