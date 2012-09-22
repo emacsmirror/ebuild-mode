@@ -1,3 +1,8 @@
+2012-09-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
+	Fix quoting.
+
 2012-09-22  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.20 released.
