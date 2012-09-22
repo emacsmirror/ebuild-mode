@@ -1,5 +1,7 @@
 2012-09-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* Makefile (DISTFILES): Include keyword-generation.sh.
+
 	* gentoo-syntax.el (ebuild-mode-font-lock-keywords): Addition of
 	keywords in the previous change had caused this variable to exceed
 	the 32 kbyte size limit for regular expressions. Unfortunately,
