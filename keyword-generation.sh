@@ -8,23 +8,29 @@
 # Generate a raw list for app-emacs/gentoo-syntax
 
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
-ECLASSES=$(cd $(portageq portdir)/eclass/;ls *.eclass)
-
+ECLASSDIR="$(portageq portdir)/eclass"
+ECLASSES=$(cd ${ECLASSDIR}; ls *.eclass)
 # Obsolete eclasses or ones which contain no functions
-for filter in git bash-completion gems ruby qt4 php-ext-pecl-r1 \
-    php-ext-source-r1 gnome.org gnustep-2 java-mvn-src kde4-meta-pkg \
-    leechcraft mythtv obs-download tetex tetex-3
-do
-    ECLASSES=${ECLASSES//${filter}.eclass/}
-done
+OBSOLETE="bash-completion gems git gnome.org gnustep-2 java-mvn-src \
+    kde4-meta-pkg leechcraft mythtv obs-download qt4 ruby"
+
+has() {
+    local needle=$1 item
+    shift
+    for item in "$@"; do
+        [[ ${item} = ${needle} ]] && return 0
+    done
+    return 1
+}
 
 echo Output in ${TMPFILE}
 echo Manual parsing of mercurial.eclass needed! Do not forget!
 
-for eclass in ${ECLASSES}
-do
+for eclass in ${ECLASSES}; do
+    has ${eclass%.eclass} ${OBSOLETE} && continue
+    grep -q "^# @DEAD$" "${ECLASSDIR}/${eclass}" && continue
     echo '(defvar ebuild-mode-keywords-'${eclass//.eclass/} >>${TMPFILE}
-    echo -n \'\(\($(LC_ALL=C grep '^[A-Za-z0-9._-]*()' $(portageq portdir)/eclass/${eclass}|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
+    echo -n \'\(\($(LC_ALL=C grep '^[A-Za-z0-9._-]*()' "${ECLASSDIR}/${eclass}"|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
     echo >>${TMPFILE}
     echo font-lock-type-face\)\)>>${TMPFILE}
     echo >>${TMPFILE}

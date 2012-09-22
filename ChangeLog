@@ -1,3 +1,11 @@
+2012-09-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: Drop dead or removed eclasses from
+	obsolete list. Sort it alphabetically. Skip any eclass that is
+	marked with a @DEAD token.
+	(has): New function.
+	(ECLASSDIR, OBSOLETE): New variables.
+
 2012-04-10  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-syntax.texi: Small syntax fixes.
