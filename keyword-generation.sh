@@ -4,6 +4,7 @@
 
 # Authors:
 # Christian Faulhammer <fauli@gentoo.org>
+# Ulrich Müller <ulm@gentoo.org>
 #
 # Generate a raw list for app-emacs/gentoo-syntax
 
