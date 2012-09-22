@@ -2,7 +2,8 @@
 
 	* keyword-generation.sh: Drop dead or removed eclasses from
 	obsolete list. Sort it alphabetically. Skip any eclass that is
-	marked with a @DEAD token.
+	marked with a @DEAD token. Use the shell for parsing of eclasses'
+	environment.
 	(has): New function.
 	(ECLASSDIR, OBSOLETE): New variables.
 

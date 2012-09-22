@@ -24,21 +24,26 @@ has() {
     return 1
 }
 
-echo Output in ${TMPFILE}
-echo Manual parsing of mercurial.eclass needed! Do not forget!
+echo "Output in ${TMPFILE}"
 
 for eclass in ${ECLASSES}; do
     has ${eclass%.eclass} ${OBSOLETE} && continue
     grep -q "^# @DEAD$" "${ECLASSDIR}/${eclass}" && continue
-    echo '(defvar ebuild-mode-keywords-'${eclass//.eclass/} >>${TMPFILE}
-    echo -n \'\(\($(LC_ALL=C grep '^[A-Za-z0-9._-]*()' "${ECLASSDIR}/${eclass}"|sed -e 's:\(^.*\)().*:"\1":g')\)>>${TMPFILE}
-    echo >>${TMPFILE}
-    echo font-lock-type-face\)\)>>${TMPFILE}
-    echo >>${TMPFILE}
+
+    functions=$(env -i bash -c \
+        ". ${ECLASSDIR}/${eclass}; declare -F" 2>/dev/null \
+        | sed 's/.*[[:space:]]\(.*\)/"\1"/')
+
+    {
+        echo "(defvar ebuild-mode-keywords-${eclass%.eclass}"
+        echo "  '(("${functions}")"
+        echo "    font-lock-type-face))"
+        echo
+    } >>"${TMPFILE}"
 done
 
 emacs -q --batch \
-    --visit ${TMPFILE} \
+    --visit "${TMPFILE}" \
     --eval "(emacs-lisp-mode)" \
     --eval "(indent-region (point-min) (point-max))" \
     --eval "(let ((fill-column 78)
