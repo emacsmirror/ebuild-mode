@@ -1,5 +1,23 @@
 2012-09-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi5):
+	New variable, functions that are new in EAPI 5.
+	(ebuild-mode-keywords-functions-default): Add "default".
+	(ebuild-mode-keywords-eclass-documentation): Add new keywords from
+	eclass-to-manpage.awk.
+	(ebuild-mode-keywords-boost-utils, ebuild-mode-keywords-chromium)
+	(ebuild-mode-keywords-intel-sdp, ebuild-mode-keywords-l10n)
+	(ebuild-mode-keywords-mozlinguas)
+	(ebuild-mode-keywords-multiprocessing)
+	(ebuild-mode-keywords-myspell-r2, ebuild-mode-keywords-oasis)
+	(ebuild-mode-keywords-python-distutils-ng)
+	(ebuild-mode-keywords-unpacker, ebuild-mode-keywords-vala)
+	(ebuild-mode-keywords-vcs-snapshot)
+	(ebuild-mode-keywords-vdr-plugin-2): New variables.
+	(ebuild-mode-keywords-tla, ebuild-mode-keywords-vmware)
+	(ebuild-mode-keywords-vmware-mod): Variables removed.
+	(ebuild-mode-keywords-*): Regenerated from eclasses.
+
 	* keyword-generation.sh: Drop dead or removed eclasses from
 	obsolete list. Sort it alphabetically. Skip any eclass that is
 	marked with a @DEAD token. Use the shell for parsing of eclasses'
