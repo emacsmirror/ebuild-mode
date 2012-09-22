@@ -1,5 +1,7 @@
 2012-09-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.20 released.
+
 	* Makefile (DISTFILES): Include keyword-generation.sh.
 
 	* gentoo-syntax.el (ebuild-mode-font-lock-keywords): Addition of
