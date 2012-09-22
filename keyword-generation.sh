@@ -32,7 +32,7 @@ for eclass in ${ECLASSES}; do
 
     functions=$(env -i bash -c \
         ". ${ECLASSDIR}/${eclass}; declare -F" 2>/dev/null \
-        | sed 's/.*[[:space:]]\(.*\)/"\1"/')
+        | sed 's/.*[[:space:]]//;/^_/d;s/.*/"&"/')
 
     {
         echo "(defvar ebuild-mode-keywords-${eclass%.eclass}"

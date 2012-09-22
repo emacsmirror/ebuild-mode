@@ -1,5 +1,14 @@
 2012-09-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* gentoo-syntax.el (ebuild-mode-font-lock-keywords): Addition of
+	keywords in the previous change had caused this variable to exceed
+	the 32 kbyte size limit for regular expressions. Unfortunately,
+	this is a hard limit in Emacs' C code, MAX_BUF_SIZE in regex.c,
+	that cannot be increased.
+	* keyword-generation.sh: Filter all function names starting with
+	an underscore, in order to shorten the keywords list.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi5):
 	New variable, functions that are new in EAPI 5.
 	(ebuild-mode-keywords-functions-default): Add "default".
