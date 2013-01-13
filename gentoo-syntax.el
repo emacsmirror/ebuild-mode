@@ -1,6 +1,6 @@
 ;;; gentoo-syntax.el --- modes for editing Gentoo specific files
 
-;; Copyright 2006-2012 Gentoo Foundation
+;; Copyright 2006-2013 Gentoo Foundation
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
