@@ -1,3 +1,13 @@
+2013-01-13  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-syntax.el (ebuild-mode-collect-equal-cdrs): New optional
+	argument LIMIT starts a new element in the destination list, after
+	that number of elements from the source list have been collected.
+	(ebuild-mode-font-lock-keywords): Limit regexp size by calling
+	ebuild-mode-collect-equal-cdrs with the limit argument; a value
+	of 1000 appears to keep the size is below the 32 kbyte limit.
+	See also the change of 2012-09-22.
+
 2012-09-23  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):

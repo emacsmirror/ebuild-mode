@@ -175,11 +175,13 @@ A formfeed is not considered whitespace by this function."
 		  "\\>" suffix)
 	  face))
 
-  (defun ebuild-mode-collect-equal-cdrs (src)
-    "For alist SRC, collect elements with equal cdr and concat their cars."
+  (defun ebuild-mode-collect-equal-cdrs (src &optional limit)
+    "For alist SRC, collect elements with equal cdr and concat their cars.
+Optional argument LIMIT restarts collection after that number of elements."
     (let (dst e)
       (dolist (c src dst)
-	(if (setq e (rassoc (cdr c) dst))
+	(if (and (setq e (rassoc (cdr c) dst))
+		 (not (and limit (> (length (car e)) limit))))
 	    (setcar e (append (car e) (car c)))
 	  (setq dst (cons (copy-sequence c) dst))))))
 )
@@ -193,9 +195,9 @@ A formfeed is not considered whitespace by this function."
     (mapcar
      (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
      (ebuild-mode-collect-equal-cdrs
-      (mapcar
-       (lambda (x) (symbol-value (intern x)))
-       (all-completions "ebuild-mode-keywords-" obarray 'boundp))))))
+      (mapcar (lambda (x) (symbol-value (intern x)))
+	      (all-completions "ebuild-mode-keywords-" obarray 'boundp))
+      1000))))
 
 (defvar eselect-mode-font-lock-keywords
   (eval-when-compile
