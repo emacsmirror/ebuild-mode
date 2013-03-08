@@ -1,5 +1,8 @@
 2013-03-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated
+	from eclasses.
+
 	* keyword-generation.sh: Don't output variables with an empty list
 	of functions.
 
