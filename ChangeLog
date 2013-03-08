@@ -1,3 +1,8 @@
+2013-03-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: Don't output variables with an empty list
+	of functions.
+
 2013-01-13  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-collect-equal-cdrs): New optional
