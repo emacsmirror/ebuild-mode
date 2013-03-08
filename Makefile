@@ -18,8 +18,8 @@ gentoo-syntax.info: gentoo-syntax.texi
 	makeinfo $<
 
 dist: $(DISTFILES)
-	tar -cjf $(P).tar.bz2 --transform='s%^%$(P)/%' $^
-	tar -tjvf $(P).tar.bz2
+	tar -cJf $(P).tar.xz --transform='s%^%$(P)/%' $^
+	tar -tJvf $(P).tar.xz
 
 clean:
-	-rm -f *~ *.tmp *.gz *.bz2 *.info
+	-rm -f *~ *.tmp *.gz *.bz2 *.xz *.info
