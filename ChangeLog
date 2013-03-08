@@ -1,5 +1,7 @@
 2013-03-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.21 released.
+
 	* Makefile (dist): Use xz for compression.
 	(clean): Also remove *.xz.
 
