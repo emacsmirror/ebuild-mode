@@ -187,8 +187,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 )
 
 (eval-when-compile
-  (load "ebuild-mode-keywords" nil t)
-  (load "eselect-mode-keywords" nil t))
+  (load "ebuild-mode-keywords" nil t))
 
 (defvar ebuild-mode-font-lock-keywords
   (eval-when-compile
@@ -198,15 +197,6 @@ Optional argument LIMIT restarts collection after that number of elements."
       (mapcar (lambda (x) (symbol-value (intern x)))
 	      (all-completions "ebuild-mode-keywords-" obarray 'boundp))
       1000))))
-
-(defvar eselect-mode-font-lock-keywords
-  (eval-when-compile
-    (mapcar
-     (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
-     (ebuild-mode-collect-equal-cdrs
-      (mapcar
-       (lambda (x) (symbol-value (intern x)))
-       (all-completions "eselect-mode-keywords-" obarray 'boundp))))))
 
 (defvar gentoo-newsitem-font-lock-keywords
   (eval-when-compile
@@ -261,20 +251,6 @@ Optional argument LIMIT restarts collection after that number of elements."
 (add-hook 'ebuild-mode-hook
 	  (lambda () (font-lock-add-keywords
 		      nil ebuild-mode-font-lock-keywords)))
-
-;;;###autoload
-(define-derived-mode eselect-mode shell-script-mode "Eselect"
-  "Major mode for .eselect files."
-  (if (featurep 'xemacs)
-      (make-local-hook 'write-contents-hooks))
-  (add-hook 'write-contents-hooks 'ebuild-mode-before-save t t)
-  (sh-set-shell "bash")
-  (setq tab-width 4)
-  (setq indent-tabs-mode t))
-
-(add-hook 'eselect-mode-hook
-	  (lambda () (font-lock-add-keywords
-		      nil eselect-mode-font-lock-keywords)))
 
 ;;;###autoload
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
@@ -557,14 +533,12 @@ and `all-completions' for details."
      ;; make TAB key work
      (defadvice sh-must-be-shell-mode
        (around ebuild-mode-sh-must-be-shell-mode activate)
-       (or (memq major-mode '(ebuild-mode eselect-mode))
+       (or (eq major-mode 'ebuild-mode)
 	   ad-do-it)))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
 	     '("\\.\\(ebuild\\|eclass\\|eblit\\)\\'" . ebuild-mode))
-;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.eselect\\'" . eselect-mode))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist
