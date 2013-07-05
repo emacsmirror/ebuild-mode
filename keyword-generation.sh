@@ -11,9 +11,8 @@
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 ECLASSDIR="$(portageq portdir)/eclass"
 ECLASSES=$(cd ${ECLASSDIR}; ls *.eclass)
-# Obsolete eclasses or ones which contain no functions
-OBSOLETE="bash-completion gems git gnome.org gnustep-2 java-mvn-src \
-    kde4-meta-pkg leechcraft mythtv obs-download qt4 ruby"
+# Obsolete eclasses
+OBSOLETE="bash-completion gems git leechcraft ruby x-modular"
 
 has() {
     local needle=$1 item

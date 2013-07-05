@@ -1,5 +1,8 @@
 2013-07-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* keyword-generation.sh (OBSOLETE): Clean up list of obsolete
+	eclasses.
+
 	* Rename package to ebuild-mode.
 	* ebuild-mode.el: File renamed from gentoo-syntax.el.
 	(gentoo-syntax): Don't provide feature.
