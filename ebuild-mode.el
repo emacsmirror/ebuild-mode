@@ -490,9 +490,6 @@ and `all-completions' for details."
 (add-to-list 'auto-mode-alist
 	     '("\\.\\(ebuild\\|eclass\\|eblit\\)\\'" . ebuild-mode))
 
-;;;###autoload
-(add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
-
 (provide 'ebuild-mode)
 
 ;; Local Variables:

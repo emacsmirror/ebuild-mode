@@ -1,5 +1,7 @@
 2013-07-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (interpreter-mode-alist): Don't add runscript.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated
 	from eclasses.
 
