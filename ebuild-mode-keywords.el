@@ -154,7 +154,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bash-completion-r1
-  '(("dobashcomp" "newbashcomp")
+  '(("dobashcomp" "get_bashcompdir" "newbashcomp")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-boost-utils
@@ -349,7 +349,8 @@
   '(("built_with_use" "check_license" "doicon" "domenu" "ebeep" "ecvs_clean"
      "edos2unix" "emktemp" "epatch" "epatch_user" "epause" "epunt_cxx"
      "eqawarn" "eshopts_pop" "eshopts_push" "estack_pop" "estack_push"
-     "esvn_clean" "eumask_pop" "eumask_push" "in_iuse" "make_desktop_entry"
+     "esvn_clean" "eumask_pop" "eumask_push" "evar_pop" "evar_push"
+     "evar_push_set" "in_iuse" "isdigit" "make_desktop_entry"
      "make_session_desktop" "make_wrapper" "newicon" "newmenu" "path_exists"
      "preserve_old_lib" "preserve_old_lib_notify" "prune_libtool_files"
      "strip-linguas" "use_if_iuse" "validate_desktop_entries")
@@ -405,8 +406,8 @@
 
 (defvar ebuild-mode-keywords-freebsd
   '(("doperiodic" "freebsd_do_patches" "freebsd_get_bmake"
-     "freebsd_rename_libraries" "freebsd_src_compile" "freebsd_src_install"
-     "freebsd_src_unpack")
+     "freebsd_multilib_multibuild_wrapper" "freebsd_rename_libraries"
+     "freebsd_src_compile" "freebsd_src_install" "freebsd_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-freedict
@@ -446,8 +447,9 @@
      "ghc-localpkgconf" "ghc-makeghcilib" "ghc-package-exists"
      "ghc-package_pkg_postinst" "ghc-package_pkg_prerm" "ghc-register-pkg"
      "ghc-reregister" "ghc-reverse" "ghc-sanecabal" "ghc-setup-pkg"
-     "ghc-supports-shared-libraries" "ghc-supports-threaded-runtime"
-     "ghc-unregister-pkg" "ghc-version")
+     "ghc-supports-dynamic-by-default" "ghc-supports-shared-libraries"
+     "ghc-supports-smp" "ghc-supports-threaded-runtime" "ghc-unregister-pkg"
+     "ghc-version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-git-2
@@ -490,6 +492,13 @@
      "gnome2_query_immodules_gtk2" "gnome2_query_immodules_gtk3"
      "gnome2_schemas_savelist" "gnome2_schemas_update"
      "gnome2_scrollkeeper_savelist" "gnome2_scrollkeeper_update")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-gnome-games
+  '(("gnome-games_pkg_postinst" "gnome-games_pkg_postrm"
+     "gnome-games_pkg_preinst" "gnome-games_pkg_setup"
+     "gnome-games_src_compile" "gnome-games_src_configure"
+     "gnome-games_src_install" "gnome-games_src_prepare")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome-python-common
@@ -543,9 +552,10 @@
 (defvar ebuild-mode-keywords-haskell-cabal
   '(("cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-copy"
      "cabal-haddock" "cabal-hscolour" "cabal-hscolour-haddock"
-     "cabal-is-dummy-lib" "cabal-mksetup" "cabal-pkg" "cabal-version"
-     "cabal_chdeps" "cabal_flag" "cabal_src_compile" "cabal_src_configure"
-     "cabal_src_install" "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
+     "cabal-is-dummy-lib" "cabal-mksetup" "cabal-pkg" "cabal-show-brokens"
+     "cabal-show-brokens-and-die" "cabal-version" "cabal_chdeps" "cabal_flag"
+     "cabal_src_compile" "cabal_src_configure" "cabal_src_install"
+     "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
      "haskell-cabal_src_configure" "haskell-cabal_src_install"
      "haskell-cabal_src_test")
     font-lock-type-face))
@@ -707,8 +717,7 @@
      "linux-mod_pkg_preinst" "linux-mod_pkg_setup"
      "linux-mod_pkg_setup_binary" "linux-mod_src_compile"
      "linux-mod_src_install" "move_old_moduledb" "remove_moduledb" "set_kvobj"
-     "strip_modulenames" "update_depmod" "update_moduledb" "update_modules"
-     "use_m")
+     "strip_modulenames" "update_depmod" "update_moduledb" "use_m")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-makeedit
@@ -723,6 +732,10 @@
   '(("egacinstall" "mono_multilib_comply")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mono-env
+  '(("mono-env_pkg_setup")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mount-boot
   '(("mount-boot_mount_boot_partition" "mount-boot_pkg_postinst"
      "mount-boot_pkg_postrm" "mount-boot_pkg_preinst" "mount-boot_pkg_prerm"
@@ -734,13 +747,13 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozcoreconf-2
-  '(("makemake2" "moz_pkgsetup" "mozconfig_annotate" "mozconfig_final"
-     "mozconfig_init" "mozconfig_use_enable" "mozconfig_use_extension"
-     "mozconfig_use_with" "mozversion_is_new_enough")
+  '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
+     "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with"
+     "mozversion_is_new_enough")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozextension
-  '(("xpi_install" "xpi_unpack")
+  '(("mozversion_extension_location" "xpi_install" "xpi_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozilla-launcher
@@ -753,13 +766,16 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multibuild
-  '(("multibuild_for_best_variant" "multibuild_foreach_variant"
+  '(("multibuild_copy_sources" "multibuild_for_best_variant"
+     "multibuild_foreach_variant" "multibuild_merge_root"
      "multibuild_parallel_foreach_variant" "run_in_build_dir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib-build
-  '(("multilib_check_headers" "multilib_for_best_abi" "multilib_foreach_abi"
-     "multilib_get_enabled_abis" "multilib_parallel_foreach_abi")
+  '(("multilib_check_headers" "multilib_copy_sources" "multilib_for_best_abi"
+     "multilib_foreach_abi" "multilib_get_enabled_abis"
+     "multilib_install_wrappers" "multilib_parallel_foreach_abi"
+     "multilib_prepare_wrappers")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib
@@ -768,6 +784,11 @@
      "get_all_libdirs" "get_install_abis" "get_libdir" "get_libname"
      "get_modname" "has_multilib_profile" "is_final_abi" "multilib_env"
      "multilib_toolchain_setup" "number_abis")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-multilib-minimal
+  '(("multilib-minimal_src_compile" "multilib-minimal_src_configure"
+     "multilib-minimal_src_install" "multilib-minimal_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multiprocessing
@@ -832,6 +853,13 @@
      "mythtv-plugins_src_prepare")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-netsurf
+  '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
+     "multilib_src_test" "netsurf_make" "netsurf_src_compile"
+     "netsurf_src_configure" "netsurf_src_install" "netsurf_src_prepare"
+     "netsurf_src_test")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-nsplugins
   '(("inst_plugin" "pkg_mv_plugins" "share_plugins_dir" "src_mv_plugins")
     font-lock-type-face))
@@ -851,11 +879,10 @@
      "obs-service_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-office-ext
-  '(("office-ext_add_extension" "office-ext_flush_unopkg_cache"
-     "office-ext_get_implementation" "office-ext_pkg_postinst"
-     "office-ext_pkg_prerm" "office-ext_remove_extension"
-     "office-ext_src_install" "office-ext_src_unpack")
+(defvar ebuild-mode-keywords-office-ext-r1
+  '(("office-ext-r1_add_extension" "office-ext-r1_pkg_postinst"
+     "office-ext-r1_pkg_prerm" "office-ext-r1_remove_extension"
+     "office-ext-r1_src_install" "office-ext-r1_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-openib
@@ -989,9 +1016,10 @@
 
 (defvar ebuild-mode-keywords-python-utils-r1
   '(("python_doheader" "python_domodule" "python_doscript" "python_export"
-     "python_get_EPYTHON" "python_get_PYTHON" "python_get_includedir"
-     "python_get_library_path" "python_get_sitedir" "python_moduleinto"
-     "python_newscript" "python_optimize" "python_scriptinto")
+     "python_get_CFLAGS" "python_get_EPYTHON" "python_get_LIBS"
+     "python_get_PYTHON" "python_get_includedir" "python_get_library_path"
+     "python_get_sitedir" "python_moduleinto" "python_newscript"
+     "python_optimize" "python_scriptinto" "python_wrapper_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmail
@@ -1186,13 +1214,14 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-udev
-  '(("get_udevdir" "udev_dorules" "udev_get_udevdir" "udev_newrules")
+  '(("get_udevdir" "udev_dorules" "udev_get_udevdir" "udev_newrules"
+     "udev_reload")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-unpacker
   '(("find_unpackable_file" "unpack_banner" "unpack_cpio" "unpack_deb"
-     "unpack_makeself" "unpack_pdv" "unpacker" "unpacker_src_unpack"
-     "unpacker_src_uri_depends")
+     "unpack_makeself" "unpack_pdv" "unpack_zip" "unpacker"
+     "unpacker_src_unpack" "unpacker_src_uri_depends")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-user
@@ -1249,7 +1278,7 @@
 (defvar ebuild-mode-keywords-vim
   '(("apply_vim_patches" "update_vim_symlinks" "vim_pkg_postinst"
      "vim_pkg_postrm" "vim_pkg_setup" "vim_src_compile" "vim_src_configure"
-     "vim_src_install" "vim_src_prepare" "vim_src_test" "vim_src_unpack")
+     "vim_src_install" "vim_src_prepare" "vim_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vim-plugin
@@ -1316,18 +1345,6 @@
   '(("xfconf_pkg_postinst" "xfconf_pkg_postrm" "xfconf_pkg_preinst"
      "xfconf_src_configure" "xfconf_src_install" "xfconf_src_prepare"
      "xfconf_src_unpack" "xfconf_use_debug")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-x-modular
-  '(("create_font_cache" "create_fonts_dir" "create_fonts_scale"
-     "discover_font_dirs" "install_driver_hwdata" "remove_font_metadata"
-     "setup_fonts" "x-modular_debug_setup" "x-modular_dri_check"
-     "x-modular_font_configure" "x-modular_patch_source"
-     "x-modular_pkg_postinst" "x-modular_pkg_postrm" "x-modular_pkg_preinst"
-     "x-modular_reconf_source" "x-modular_server_supports_drivers_check"
-     "x-modular_specs_check" "x-modular_src_compile" "x-modular_src_configure"
-     "x-modular_src_install" "x-modular_src_make" "x-modular_src_prepare"
-     "x-modular_src_unpack" "x-modular_unpack_source")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xorg-2
