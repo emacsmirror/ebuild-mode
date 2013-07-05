@@ -6,7 +6,7 @@ PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
 	gentoo-syntax.el)
 P = $(PN)-$(PV)
 
-DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el \
+DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el gentoo-newsitem-mode.el \
 	gentoo-syntax.texi keyword-generation.sh ChangeLog
 
 

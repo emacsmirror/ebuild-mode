@@ -1,3 +1,12 @@
+2013-07-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-newsitem-mode.el: New file, split off from
+	gentoo-syntax.el.
+	* gentoo-syntax.el (gentoo-newsitem-font-lock-keywords)
+	(gentoo-newsitem-mode, gentoo-newsitem-insert-skeleton):
+	Variable and functions moved to gentoo-newsitem-mode.el.
+	* Makefile (DISTFILES): Update.
+
 2013-07-04  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el: Remove eselect-mode; it will be maintained

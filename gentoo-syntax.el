@@ -198,15 +198,6 @@ Optional argument LIMIT restarts collection after that number of elements."
 	      (all-completions "ebuild-mode-keywords-" obarray 'boundp))
       1000))))
 
-(defvar gentoo-newsitem-font-lock-keywords
-  (eval-when-compile
-    (list (ebuild-mode-make-keywords-list
-	   '("Title" "Author" "Translator" "Content-Type" "Posted"
-	     "Revision" "News-Item-Format" "Display-If-Installed"
-	     "Display-If-Keyword" "Display-If-Profile")
-	   'font-lock-keyword-face "^" ":"))))
-
-
 ;;; Mode definitions.
 
 (defun ebuild-mode-tabify ()
@@ -251,13 +242,6 @@ Optional argument LIMIT restarts collection after that number of elements."
 (add-hook 'ebuild-mode-hook
 	  (lambda () (font-lock-add-keywords
 		      nil ebuild-mode-font-lock-keywords)))
-
-;;;###autoload
-(define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
-  "Major mode for Gentoo GLEP 42 news items."
-  (make-local-variable 'font-lock-defaults)
-  (setq font-lock-defaults '(gentoo-newsitem-font-lock-keywords t))
-  (setq fill-column 72))
 
 ;;; Run ebuild command.
 
@@ -463,32 +447,6 @@ and `all-completions' for details."
    "DEPEND=\"\"\n"
    "RDEPEND=\"\$\{DEPEND\}\"\n")
 
-(define-skeleton gentoo-newsitem-insert-skeleton
-  "Insert a skeleton for a Gentoo GLEP 42 news item."
-   nil
-   "Title: " (skeleton-read "Title: ") "\n"
-   "Author: " (skeleton-read
-	       "Author's real name and e-mail address: "
-	       (concat user-full-name " <" user-mail-address ">"))
-   "\n"
-   ((skeleton-read "Further author (null string to terminate): ")
-    "Author: " str "\n")
-   ((skeleton-read "Translator (null string to terminate): ")
-    "Translator: " str "\n")
-   "Content-Type: text/plain\n"
-   "Posted: " (skeleton-read "Date of posting: "
-			     (format-time-string "%Y-%m-%d"))
-   "\n"
-   "Revision: 1\n"
-   "News-Item-Format: 1.0\n"
-   ((skeleton-read "Display-If-Installed: (null string to terminate): ")
-    "Display-If-Installed: " str "\n")
-   ((skeleton-read "Display-If-Keyword: (null string to terminate): ")
-    "Display-If-Keyword: " str "\n")
-   ((skeleton-read "Display-If-Profile: (null string to terminate): ")
-    "Display-If-Profile: " str "\n")
-   "\n")
-
 ;;; echangelog support.
 
 (defun ebuild-run-echangelog (text)
@@ -521,14 +479,6 @@ and `all-completions' for details."
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
     ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]))
 
-(define-key gentoo-newsitem-mode-map
-  "\C-c\C-n" 'gentoo-newsitem-insert-skeleton)
-
-(easy-menu-define gentoo-newsitem-mode-menu gentoo-newsitem-mode-map
-  "Menu for gentoo-newsitem-mode."
-  `("Newsitem"
-    ["Insert skeleton" gentoo-newsitem-insert-skeleton]))
-
 (and (< emacs-major-version 22)
      ;; make TAB key work
      (defadvice sh-must-be-shell-mode
@@ -539,11 +489,6 @@ and `all-completions' for details."
 ;;;###autoload
 (add-to-list 'auto-mode-alist
 	     '("\\.\\(ebuild\\|eclass\\|eblit\\)\\'" . ebuild-mode))
-
-;;;###autoload
-(add-to-list 'auto-mode-alist
-	     '("/[0-9]\\{4\\}-[01][0-9]-[0-3][0-9]-.+\\.[a-z]\\{2\\}\\.txt\\'"
-	       . gentoo-newsitem-mode))
 
 ;;;###autoload
 (add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
