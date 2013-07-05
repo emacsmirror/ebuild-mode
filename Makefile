@@ -1,20 +1,20 @@
 # Copyright 2007-2013 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2 or later
 
-PN = gentoo-syntax
+PN = ebuild-mode
 PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
-	gentoo-syntax.el)
+	ebuild-mode.el)
 P = $(PN)-$(PV)
 
-DISTFILES = gentoo-syntax.el ebuild-mode-keywords.el gentoo-newsitem-mode.el \
-	gentoo-syntax.texi keyword-generation.sh ChangeLog
+DISTFILES = ebuild-mode.el ebuild-mode-keywords.el gentoo-newsitem-mode.el \
+	ebuild-mode.texi keyword-generation.sh ChangeLog
 
 
 .PHONY: all dist clean
 
 all:
 
-gentoo-syntax.info: gentoo-syntax.texi
+ebuild-mode.info: ebuild-mode.texi
 	makeinfo $<
 
 dist: $(DISTFILES)

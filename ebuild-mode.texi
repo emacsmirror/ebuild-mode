@@ -1,11 +1,11 @@
 \input texinfo.tex    @c -*-texinfo-*-
 @c %**start of header
-@setfilename gentoo-syntax.info
+@setfilename ebuild-mode.info
 @settitle Major mode for ebuilds and eclasses in Gentoo
 @c %**end of header
 
 @copying
-This manual is for gentoo-syntax, which is a major mode for ebuild
+This manual is for ebuild-mode, which is a major mode for ebuild
 and eclass files.
 
 Copyright @copyright{} 2009-2013 Gentoo Foundation
@@ -20,12 +20,12 @@ later version published by the Free Software Foundation.
 @dircategory Gentoo
 @dircategory Emacs
 @direntry
-* gentoo-syntax: (gentoo-syntax).       Major mode for ebuild and eclass files.
+* ebuild-mode: (ebuild-mode).   Major mode for ebuild and eclass files.
 @end direntry
 
 
 @titlepage
-@title gentoo-syntax 1.21
+@title ebuild-mode 1.21
 @subtitle Major mode for ebuilds and eclasses in Gentoo
 @author Christian Faulhammer
 @page
@@ -36,7 +36,7 @@ later version published by the Free Software Foundation.
 
 @contents
 
-@top gentoo-syntax: An introduction
+@top ebuild-mode: An introduction
 This collection of modes will help the user to efficiently write and
 edit ebuilds and eclasses which are special to Gentoo,
 a meta-distribution with various targets (Linux distribution, prefixed
@@ -50,13 +50,13 @@ scripts and there easy to create.  Eclasses are comparable to a library
 which provides generic functions that a set of ebuilds can use by
 sourcing it on request.
 
-gentoo-syntax provides ebuild (eclass) mode to edit the above two
-file types.  Other features are the execution of often needed commands
+ebuild-mode provides a major mode to edit the above two file types.
+Other features are the execution of often needed commands
 (like KEYWORDS manipulation) or fast-track creation of new ebuilds
 by skeleton support.
 
 @menu
-* Commands:: What gentoo-syntax provides.
+* Commands:: What ebuild-mode provides.
 * ebuild-mode:: Editing ebuilds.
 * eclass-mode:: Editing eclasses.
 * gentoo-newsitem-mode:: Editing GLEP 42 news items.
@@ -65,10 +65,10 @@ by skeleton support.
 @node Commands, ebuild-mode, Top, Top
 @chapter Available functionality
 Two packages are available for installation:
-@code{app-emacs/gentoo-syntax} and @code{app-xemacs/gentoo-syntax}
+@code{app-emacs/ebuild-mode} and @code{app-xemacs/ebuild-mode}
 (there is support for GNU Emacs and XEmacs from the same source).  When
 installed through the normal package management in Gentoo and proper
-configuration of Emacs, gentoo-syntax loads the appropriate mode on
+configuration of Emacs, ebuild-mode loads the appropriate mode on
 opening files with the extensions @code{.ebuild} and @code{.eclass}.
 As the ebuild format is based on the Bash syntax, sh-mode is called as
 a base, where ebuild specific things are added/changed on top.

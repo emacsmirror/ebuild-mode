@@ -1,4 +1,4 @@
-;;; gentoo-syntax.el --- modes for editing Gentoo specific files
+;;; ebuild-mode.el --- edit Gentoo ebuild and eclass files
 
 ;; Copyright 2006-2013 Gentoo Foundation
 
@@ -493,11 +493,10 @@ and `all-completions' for details."
 ;;;###autoload
 (add-to-list 'interpreter-mode-alist '("runscript" . sh-mode))
 
-(provide 'gentoo-syntax)
-(provide 'ebuild-mode)			; backwards compatibility
+(provide 'ebuild-mode)
 
 ;; Local Variables:
 ;; coding: utf-8
 ;; End:
 
-;;; gentoo-syntax.el ends here
+;;; ebuild-mode.el ends here

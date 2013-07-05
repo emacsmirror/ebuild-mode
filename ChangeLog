@@ -1,5 +1,13 @@
 2013-07-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* Rename package to ebuild-mode.
+	* ebuild-mode.el: File renamed from gentoo-syntax.el.
+	(gentoo-syntax): Don't provide feature.
+	* ebuild-mode.texi: File renamed from gentoo-syntax.texi.
+	* Makefile (PN): Rename to ebuild-mode.
+	(PV, DISTFILES): Update.
+	(ebuild-mode.info): Rename.
+
 	* gentoo-newsitem-mode.el: New file, split off from
 	gentoo-syntax.el.
 	* gentoo-syntax.el (gentoo-newsitem-font-lock-keywords)
