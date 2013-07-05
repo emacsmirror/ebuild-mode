@@ -6,7 +6,7 @@
 # Christian Faulhammer <fauli@gentoo.org>
 # Ulrich Müller <ulm@gentoo.org>
 #
-# Generate a raw list for app-emacs/gentoo-syntax
+# Generate a raw list for app-emacs/ebuild-mode
 
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 ECLASSDIR="$(portageq portdir)/eclass"
