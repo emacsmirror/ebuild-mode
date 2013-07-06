@@ -408,7 +408,7 @@ and `all-completions' for details."
      "Eclass (null string to terminate): "
      (mapcar 'list ebuild-mode-eclasses))
     str & " ")
-   & (nil -1 "\n\n") | -8
+   & -1 & "\n\n" | -8
    "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
    "HOMEPAGE=\"" (completing-read "Homepage: " '(("http://"))) "\"\n"
    "SRC_URI=\""
@@ -442,7 +442,7 @@ and `all-completions' for details."
      "RESTRICT (null string to terminate): "
      (mapcar 'list ebuild-mode-restrict-list))
     str & " ")
-   & (nil -1 "\"\n") | -10
+   & -1 & "\"\n" | -10
    "\n"
    "DEPEND=\"\"\n"
    "RDEPEND=\"\$\{DEPEND\}\"\n")

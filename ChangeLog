@@ -1,3 +1,8 @@
+2013-07-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Work around
+	problem with nested interactors in XEmacs.
+
 2013-07-06  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.22 released.
