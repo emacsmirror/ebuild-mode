@@ -1,5 +1,8 @@
 2013-07-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el: Add no-update-autoloads to file
+	variables.
+
 	* ebuild-mode.el (ebuild-mode-arch-list): Add amd64-fbsd to
 	fallback list.
 

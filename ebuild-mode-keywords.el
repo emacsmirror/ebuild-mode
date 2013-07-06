@@ -1364,6 +1364,7 @@
 ;; coding: utf-8
 ;; fill-column: 78
 ;; no-byte-compile: t
+;; no-update-autoloads: t
 ;; End:
 
 ;;; ebuild-mode-keywords.el ends here
