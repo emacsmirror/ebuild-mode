@@ -395,20 +395,24 @@ and `all-completions' for details."
 (define-skeleton ebuild-mode-insert-skeleton
   "Insert a statement skeleton for a new ebuild."
    nil
+   ;; standard header
    "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
    "# Distributed under the terms of the GNU General Public License v2\n"
    "# $Header: $\n"
    "\n"
+   ;; EAPI
    "EAPI="
    (let ((s (skeleton-read "EAPI: ")))
      (if (string-equal "0" s) "" s))
    & "\n\n" | -5
+   ;; inherited eclasses
    "inherit "
    ((completing-read
      "Eclass (null string to terminate): "
      (mapcar 'list ebuild-mode-eclasses))
     str & " ")
    & -1 & "\n\n" | -8
+   ;; first variables block
    "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
    "HOMEPAGE=\"" (completing-read "Homepage: " '(("http://"))) "\"\n"
    "SRC_URI=\""
@@ -416,6 +420,7 @@ and `all-completions' for details."
     "Source URI: " (mapcar 'list '("http://" "ftp://" "mirror://")))
    "\"\n"
    "\n"
+   ;; second variables block
    "LICENSE=\""
    ((completing-read
      "License (null string to terminate): "
@@ -444,6 +449,7 @@ and `all-completions' for details."
     str & " ")
    & -1 & "\"\n" | -10
    "\n"
+   ;; dependencies
    "DEPEND=\"\"\n"
    "RDEPEND=\"\$\{DEPEND\}\"\n")
 
