@@ -441,7 +441,7 @@ and `all-completions' for details."
      "USE flag (null string to terminate): "
      (mapcar 'list ebuild-mode-use-flags))
     str & " ")
-   & -1 "\"\n"
+   & -1 & "\"\n" | -6
    "RESTRICT=\""
    ((completing-read
      "RESTRICT (null string to terminate): "

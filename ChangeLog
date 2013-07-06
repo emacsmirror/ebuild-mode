@@ -1,7 +1,8 @@
 2013-07-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-skeleton): Work around
-	problem with nested interactors in XEmacs.
+	problem with nested interactors in XEmacs. Suppress IUSE if its
+	value is empty; the variable is no longer mandatory.
 
 2013-07-06  Ulrich Müller  <ulm@gentoo.org>
 
