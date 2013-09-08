@@ -154,7 +154,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bash-completion-r1
-  '(("dobashcomp" "get_bashcompdir" "newbashcomp")
+  '(("dobashcomp" "get_bashcompdir" "get_bashhelpersdir" "newbashcomp")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-boost-utils
@@ -455,8 +455,13 @@
 (defvar ebuild-mode-keywords-git-2
   '(("git-2_bootstrap" "git-2_branch" "git-2_cleanup" "git-2_fetch" "git-2_gc"
      "git-2_init_variables" "git-2_initial_clone" "git-2_migrate_repository"
-     "git-2_move_source" "git-2_prepare_storedir" "git-2_src_unpack"
-     "git-2_submodules" "git-2_update_repo")
+     "git-2_move_source" "git-2_prepare_storedir" "git-2_r3_wrapper"
+     "git-2_src_unpack" "git-2_submodules" "git-2_update_repo")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-git-r3
+  '(("git-r3_checkout" "git-r3_fetch" "git-r3_peek_remote_ref"
+     "git-r3_pkg_outofdate" "git-r3_src_fetch" "git-r3_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gkrellm-plugin
@@ -503,6 +508,7 @@
 (defvar ebuild-mode-keywords-gnome2-utils
   '(("gnome2_disable_deprecation_warning" "gnome2_environment_reset"
      "gnome2_gconf_install" "gnome2_gconf_savelist" "gnome2_gconf_uninstall"
+     "gnome2_gdk_pixbuf_savelist" "gnome2_gdk_pixbuf_update"
      "gnome2_icon_cache_update" "gnome2_icon_savelist" "gnome2_omf_fix"
      "gnome2_query_immodules_gtk2" "gnome2_query_immodules_gtk3"
      "gnome2_schemas_savelist" "gnome2_schemas_update"
@@ -551,13 +557,13 @@
 
 (defvar ebuild-mode-keywords-haskell-cabal
   '(("cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-copy"
-     "cabal-haddock" "cabal-hscolour" "cabal-hscolour-haddock"
-     "cabal-is-dummy-lib" "cabal-mksetup" "cabal-pkg" "cabal-show-brokens"
-     "cabal-show-brokens-and-die" "cabal-version" "cabal_chdeps" "cabal_flag"
-     "cabal_src_compile" "cabal_src_configure" "cabal_src_install"
-     "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
-     "haskell-cabal_src_configure" "haskell-cabal_src_install"
-     "haskell-cabal_src_test")
+     "cabal-die-if-nonempty" "cabal-haddock" "cabal-hscolour"
+     "cabal-hscolour-haddock" "cabal-is-dummy-lib" "cabal-mksetup" "cabal-pkg"
+     "cabal-show-brokens" "cabal-show-brokens-and-die" "cabal-show-old"
+     "cabal-version" "cabal_chdeps" "cabal_flag" "cabal_src_compile"
+     "cabal_src_configure" "cabal_src_install" "haskell-cabal_pkg_setup"
+     "haskell-cabal_src_compile" "haskell-cabal_src_configure"
+     "haskell-cabal_src_install" "haskell-cabal_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-horde
@@ -655,7 +661,7 @@
      "comment_all_add_subdirectory" "enable_selected_doc_linguas"
      "enable_selected_linguas" "get_kde_version"
      "install_library_dependencies" "load_library_dependencies"
-     "migrate_store_dir" "save_library_dependencies")
+     "save_library_dependencies")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-meta
@@ -782,8 +788,8 @@
 (defvar ebuild-mode-keywords-multilib-build
   '(("multilib_check_headers" "multilib_copy_sources" "multilib_for_best_abi"
      "multilib_foreach_abi" "multilib_get_enabled_abis"
-     "multilib_install_wrappers" "multilib_parallel_foreach_abi"
-     "multilib_prepare_wrappers")
+     "multilib_install_wrappers" "multilib_is_native_abi"
+     "multilib_parallel_foreach_abi" "multilib_prepare_wrappers")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib-minimal
@@ -1018,8 +1024,9 @@
   '(("python_doheader" "python_domodule" "python_doscript" "python_export"
      "python_get_CFLAGS" "python_get_EPYTHON" "python_get_LIBS"
      "python_get_PYTHON" "python_get_includedir" "python_get_library_path"
-     "python_get_sitedir" "python_moduleinto" "python_newscript"
-     "python_optimize" "python_scriptinto" "python_wrapper_setup")
+     "python_get_sitedir" "python_is_python3" "python_moduleinto"
+     "python_newscript" "python_optimize" "python_scriptinto"
+     "python_wrapper_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmail
@@ -1146,8 +1153,9 @@
 (defvar ebuild-mode-keywords-systemd
   '(("systemd_dotmpfilesd" "systemd_dounit" "systemd_enable_service"
      "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
-     "systemd_newtmpfilesd" "systemd_newunit" "systemd_to_myeconfargs"
-     "systemd_update_catalog" "systemd_with_unitdir" "systemd_with_utildir")
+     "systemd_is_booted" "systemd_newtmpfilesd" "systemd_newunit"
+     "systemd_to_myeconfargs" "systemd_update_catalog" "systemd_with_unitdir"
+     "systemd_with_utildir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-texlive-common
@@ -1171,8 +1179,7 @@
      "do_gcc_rename_java_bins" "fix_libtool_libdir_paths" "gcc-abi-map"
      "gcc-compiler-configure" "gcc-lang-supported" "gcc-multilib-configure"
      "gcc_do_configure" "gcc_do_filter_flags" "gcc_do_make" "gcc_movelibs"
-     "gcc_pkg_setup" "gcc_quick_unpack" "gcc_slot_java" "gcc_src_compile"
-     "gcc_src_test" "gcc_src_unpack" "gcc_version_patch" "gentoo_urls"
+     "gcc_quick_unpack" "gcc_slot_java" "gcc_version_patch" "gentoo_urls"
      "get_gcc_src_uri" "get_make_var" "guess_patch_type_in_dir"
      "hardened_gcc_is_stable" "hardened_gcc_works" "is_ada" "is_crosscompile"
      "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_gcj" "is_go"
@@ -1211,6 +1218,12 @@
 (defvar ebuild-mode-keywords-twisted
   '(("twisted_pkg_postinst" "twisted_pkg_postrm" "twisted_src_install"
      "twisted_src_test")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-twisted-r1
+  '(("python_test" "twisted-r1_pkg_postinst" "twisted-r1_pkg_postrm"
+     "twisted-r1_python_test" "twisted-r1_src_install"
+     "twisted-r1_update_plugin_cache")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-udev

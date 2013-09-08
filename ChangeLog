@@ -1,5 +1,8 @@
 2013-09-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated
+	from eclasses.
+
 	* keyword-generation.sh (OBSOLETE): Cleanup list.
 	(ECLASSES): Strip filename suffix and sort the list of eclasses.
 
