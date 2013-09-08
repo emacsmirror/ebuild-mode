@@ -10,7 +10,7 @@
 
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 ECLASSDIR="$(portageq portdir)/eclass"
-ECLASSES=$(cd ${ECLASSDIR}; ls *.eclass)
+ECLASSES=$(cd ${ECLASSDIR}; ls *.eclass | sed 's/\.eclass$//' | LC_ALL=C sort)
 # Obsolete eclasses
 OBSOLETE="bash-completion gems leechcraft ruby x-modular"
 
@@ -26,11 +26,11 @@ has() {
 echo "Output in ${TMPFILE}"
 
 for eclass in ${ECLASSES}; do
-    has ${eclass%.eclass} ${OBSOLETE} && continue
-    grep -q "^# @DEAD$" "${ECLASSDIR}/${eclass}" && continue
+    has ${eclass} ${OBSOLETE} && continue
+    file="${ECLASSDIR}/${eclass}.eclass"
+    grep -q "^# @DEAD$" "${file}" && continue
 
-    functions=$(env -i bash -c \
-        ". ${ECLASSDIR}/${eclass}; declare -F" 2>/dev/null \
+    functions=$(env -i bash -c ". ${file}; declare -F" 2>/dev/null \
         | sed 's/.*[[:space:]]//;/^_/d;s/.*/"&"/')
     [[ -z ${functions} ]] && continue
 
