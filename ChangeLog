@@ -1,3 +1,7 @@
+2013-09-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh (OBSOLETE): Cleanup list.
+
 2013-07-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el: Add no-update-autoloads to file
