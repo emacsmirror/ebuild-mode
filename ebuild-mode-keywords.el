@@ -219,16 +219,10 @@
      "enable_cmake-utils_src_test" "ninja_src_make")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-common-lisp-common-2
-  '(("do-debian-credits" "impl-remove-timestamp-hack"
-     "impl-restore-timestamp-hack" "impl-save-timestamp-hack"
-     "standard-impl-postinst" "standard-impl-postrm")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-common-lisp-common-3
-  '(("do-debian-credits" "impl-remove-timestamp-hack"
-     "impl-restore-timestamp-hack" "impl-save-timestamp-hack"
-     "standard-impl-postinst" "standard-impl-postrm")
+(defvar ebuild-mode-keywords-common-lisp
+  '(("common-lisp-install" "common-lisp-system-symlink"
+     "common-lisp_pkg_postinst" "common-lisp_pkg_postrm"
+     "common-lisp_pkg_preinst")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common
@@ -239,10 +233,16 @@
      "standard-impl-postrm" "test-in" "unregister-common-lisp-implementation")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-common-lisp
-  '(("common-lisp-install" "common-lisp-system-symlink"
-     "common-lisp_pkg_postinst" "common-lisp_pkg_postrm"
-     "common-lisp_pkg_preinst")
+(defvar ebuild-mode-keywords-common-lisp-common-2
+  '(("do-debian-credits" "impl-remove-timestamp-hack"
+     "impl-restore-timestamp-hack" "impl-save-timestamp-hack"
+     "standard-impl-postinst" "standard-impl-postrm")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-common-lisp-common-3
+  '(("do-debian-credits" "impl-remove-timestamp-hack"
+     "impl-restore-timestamp-hack" "impl-save-timestamp-hack"
+     "standard-impl-postinst" "standard-impl-postrm")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-confutils
@@ -315,16 +315,16 @@
      "distutils-r1_src_test" "distutils_install_for_testing" "esetup.py")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-elisp-common
-  '(("elisp-compile" "elisp-emacs-version" "elisp-install"
-     "elisp-make-autoload-file" "elisp-need-emacs" "elisp-site-file-install"
-     "elisp-site-regen")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-elisp
   '(("elisp_pkg_postinst" "elisp_pkg_postrm" "elisp_pkg_setup"
      "elisp_src_compile" "elisp_src_configure" "elisp_src_install"
      "elisp_src_prepare" "elisp_src_unpack")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-elisp-common
+  '(("elisp-compile" "elisp-emacs-version" "elisp-install"
+     "elisp-make-autoload-file" "elisp-need-emacs" "elisp-site-file-install"
+     "elisp-site-regen")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-embassy
@@ -385,14 +385,14 @@
      "test-flags-PROG" "test_version_info")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-font-ebdftopcf
-  '(("ebdftopcf" "font-ebdftopcf_src_compile")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-font
   '(("font_cleanup_dirs" "font_fontconfig" "font_pkg_postinst"
      "font_pkg_postrm" "font_pkg_setup" "font_src_install"
      "font_xfont_config")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-font-ebdftopcf
+  '(("ebdftopcf" "font-ebdftopcf_src_compile")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fortran-2
@@ -464,14 +464,6 @@
      "gkrellm-plugin_server_dir" "gkrellm-plugin_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gnatbuild
-  '(("add_profile_eselect_conf" "create_eselect_conf" "create_specs_file"
-     "disgusting_gcc_multilib_HACK" "do_gnat_config" "gnatbuild_pkg_postinst"
-     "gnatbuild_pkg_postrm" "gnatbuild_pkg_setup" "gnatbuild_src_compile"
-     "gnatbuild_src_install" "gnatbuild_src_unpack" "is_crosscompile"
-     "is_multilib" "should_we_eselect_gnat")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-gnat
   '(("belongs_to_standard" "expand_BuildEnv" "filter_env_var"
      "get_active_profile" "get_ada_dep" "get_gnat_value" "gnat_filter_flags"
@@ -479,19 +471,12 @@
      "gnat_src_install" "lib_compile")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gnome2
-  '(("gnome2_pkg_postinst" "gnome2_pkg_postrm" "gnome2_pkg_preinst"
-     "gnome2_src_compile" "gnome2_src_configure" "gnome2_src_install"
-     "gnome2_src_prepare" "gnome2_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-gnome2-utils
-  '(("gnome2_disable_deprecation_warning" "gnome2_environment_reset"
-     "gnome2_gconf_install" "gnome2_gconf_savelist" "gnome2_gconf_uninstall"
-     "gnome2_icon_cache_update" "gnome2_icon_savelist" "gnome2_omf_fix"
-     "gnome2_query_immodules_gtk2" "gnome2_query_immodules_gtk3"
-     "gnome2_schemas_savelist" "gnome2_schemas_update"
-     "gnome2_scrollkeeper_savelist" "gnome2_scrollkeeper_update")
+(defvar ebuild-mode-keywords-gnatbuild
+  '(("add_profile_eselect_conf" "create_eselect_conf" "create_specs_file"
+     "disgusting_gcc_multilib_HACK" "do_gnat_config" "gnatbuild_pkg_postinst"
+     "gnatbuild_pkg_postrm" "gnatbuild_pkg_setup" "gnatbuild_src_compile"
+     "gnatbuild_src_install" "gnatbuild_src_unpack" "is_crosscompile"
+     "is_multilib" "should_we_eselect_gnat")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome-games
@@ -507,6 +492,21 @@
      "gnome-python-common_src_configure" "gnome-python-common_src_install"
      "gnome-python-common_src_prepare" "gnome-python-common_src_test"
      "gnome-python-common_src_unpack")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-gnome2
+  '(("gnome2_pkg_postinst" "gnome2_pkg_postrm" "gnome2_pkg_preinst"
+     "gnome2_src_compile" "gnome2_src_configure" "gnome2_src_install"
+     "gnome2_src_prepare" "gnome2_src_unpack")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-gnome2-utils
+  '(("gnome2_disable_deprecation_warning" "gnome2_environment_reset"
+     "gnome2_gconf_install" "gnome2_gconf_savelist" "gnome2_gconf_uninstall"
+     "gnome2_icon_cache_update" "gnome2_icon_savelist" "gnome2_omf_fix"
+     "gnome2_query_immodules_gtk2" "gnome2_query_immodules_gtk3"
+     "gnome2_schemas_savelist" "gnome2_schemas_update"
+     "gnome2_scrollkeeper_savelist" "gnome2_scrollkeeper_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnuconfig
@@ -771,19 +771,19 @@
      "multibuild_parallel_foreach_variant" "run_in_build_dir")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-multilib-build
-  '(("multilib_check_headers" "multilib_copy_sources" "multilib_for_best_abi"
-     "multilib_foreach_abi" "multilib_get_enabled_abis"
-     "multilib_install_wrappers" "multilib_parallel_foreach_abi"
-     "multilib_prepare_wrappers")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-multilib
   '(("get_abi_CFLAGS" "get_abi_CHOST" "get_abi_CTARGET" "get_abi_FAKE_TARGETS"
      "get_abi_LDFLAGS" "get_abi_LIBDIR" "get_abi_var" "get_all_abis"
      "get_all_libdirs" "get_install_abis" "get_libdir" "get_libname"
      "get_modname" "has_multilib_profile" "is_final_abi" "multilib_env"
      "multilib_toolchain_setup" "number_abis")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-multilib-build
+  '(("multilib_check_headers" "multilib_copy_sources" "multilib_for_best_abi"
+     "multilib_foreach_abi" "multilib_get_enabled_abis"
+     "multilib_install_wrappers" "multilib_parallel_foreach_abi"
+     "multilib_prepare_wrappers")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib-minimal
@@ -807,6 +807,17 @@
   '(("myspell-r2_src_install" "myspell-r2_src_unpack")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mysql
+  '(("configure_40_41_50" "configure_51" "configure_common"
+     "configure_minimal" "mysql_disable_test" "mysql_getopt" "mysql_getoptval"
+     "mysql_init_vars" "mysql_pkg_config" "mysql_pkg_postinst"
+     "mysql_pkg_postrm" "mysql_pkg_preinst" "mysql_pkg_setup"
+     "mysql_src_compile" "mysql_src_configure" "mysql_src_install"
+     "mysql_src_prepare" "mysql_src_unpack" "pbxt_available"
+     "pbxt_patch_available" "pbxt_src_compile" "pbxt_src_configure"
+     "pbxt_src_install" "xtradb_patch_available")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mysql-autotools
   '(("mysql-autotools_configure_51" "mysql-autotools_configure_common"
      "mysql-autotools_configure_minimal" "mysql-autotools_disable_test"
@@ -822,22 +833,6 @@
      "mysql-cmake_src_install" "mysql-cmake_src_prepare")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mysql
-  '(("configure_40_41_50" "configure_51" "configure_common"
-     "configure_minimal" "mysql_disable_test" "mysql_getopt" "mysql_getoptval"
-     "mysql_init_vars" "mysql_pkg_config" "mysql_pkg_postinst"
-     "mysql_pkg_postrm" "mysql_pkg_preinst" "mysql_pkg_setup"
-     "mysql_src_compile" "mysql_src_configure" "mysql_src_install"
-     "mysql_src_prepare" "mysql_src_unpack" "pbxt_available"
-     "pbxt_patch_available" "pbxt_src_compile" "pbxt_src_configure"
-     "pbxt_src_install" "xtradb_patch_available")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mysql_fx
-  '(("mysql_check_version_range" "mysql_init_vars" "mysql_lib_symlinks"
-     "mysql_mv_patches" "mysql_version_is_at_least" "stripdots")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mysql-v2
   '(("configure_common" "configure_minimal" "mysql-v2_disable_test"
      "mysql-v2_getopt" "mysql-v2_getoptval" "mysql-v2_pkg_config"
@@ -845,6 +840,11 @@
      "mysql-v2_pkg_setup" "mysql-v2_src_compile" "mysql-v2_src_configure"
      "mysql-v2_src_install" "mysql-v2_src_prepare" "mysql-v2_src_unpack"
      "pbxt_available" "pbxt_patch_available" "xtradb_patch_available")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mysql_fx
+  '(("mysql_check_version_range" "mysql_init_vars" "mysql_lib_symlinks"
+     "mysql_mv_patches" "mysql_version_is_at_least" "stripdots")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mythtv-plugins
@@ -920,16 +920,6 @@
      "php_get_mycnf_charset" "php_install_java" "php_install_java_inifile")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-phpconfutils
-  '(("phpconfutils_built_with_use" "phpconfutils_extension_disable"
-     "phpconfutils_extension_enable" "phpconfutils_extension_with"
-     "phpconfutils_extension_without" "phpconfutils_generate_usefile"
-     "phpconfutils_init" "phpconfutils_require_any" "phpconfutils_sort_flags"
-     "phpconfutils_use_conflict" "phpconfutils_use_depend_all"
-     "phpconfutils_use_depend_any" "phpconfutils_usecheck"
-     "phpconfutils_warn_about_external_deps")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-php-ext-base-r1
   '(("php-ext-base-r1_addextension" "php-ext-base-r1_addtoinifile"
      "php-ext-base-r1_addtoinifiles" "php-ext-base-r1_buildinilist"
@@ -966,6 +956,16 @@
   '(("fix_PEAR_PV" "php-pear-r1_src_install")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-phpconfutils
+  '(("phpconfutils_built_with_use" "phpconfutils_extension_disable"
+     "phpconfutils_extension_enable" "phpconfutils_extension_with"
+     "phpconfutils_extension_without" "phpconfutils_generate_usefile"
+     "phpconfutils_init" "phpconfutils_require_any" "phpconfutils_sort_flags"
+     "phpconfutils_use_conflict" "phpconfutils_use_depend_all"
+     "phpconfutils_use_depend_any" "phpconfutils_usecheck"
+     "phpconfutils_warn_about_external_deps")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-portability
   '(("dlopen_lib" "get_bmake" "get_mounts" "is-login-disabled" "seq"
      "treecopy")
@@ -973,18 +973,6 @@
 
 (defvar ebuild-mode-keywords-prefix
   '(("eprefixify")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-python-any-r1
-  '(("python-any-r1_pkg_setup")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-python-distutils-ng
-  '(("python-distutils-ng_doscript" "python-distutils-ng_newscript"
-     "python-distutils-ng_redoscript" "python-distutils-ng_rewrite_hashbang"
-     "python-distutils-ng_src_compile" "python-distutils-ng_src_configure"
-     "python-distutils-ng_src_install" "python-distutils-ng_src_prepare"
-     "python-distutils-ng_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python
@@ -1002,6 +990,18 @@
      "python_pkg_setup" "python_set_active_version" "python_src_compile"
      "python_src_configure" "python_src_install" "python_src_prepare"
      "python_src_test")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-python-any-r1
+  '(("python-any-r1_pkg_setup")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-python-distutils-ng
+  '(("python-distutils-ng_doscript" "python-distutils-ng_newscript"
+     "python-distutils-ng_redoscript" "python-distutils-ng_rewrite_hashbang"
+     "python-distutils-ng_src_compile" "python-distutils-ng_src_configure"
+     "python-distutils-ng_src_install" "python-distutils-ng_src_prepare"
+     "python-distutils-ng_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-r1
@@ -1057,14 +1057,14 @@
      "readme.gentoo_print_elog" "readme.gentoo_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-rox-0install
-  '(("0install_native_feed" "rox-0install_src_install")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-rox
   '(("expandmime" "rox_install_desktop" "rox_install_wrapper"
      "rox_pkg_postinst" "rox_pkg_postrm" "rox_pkg_setup" "rox_src_compile"
      "rox_src_install" "usemime")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-rox-0install
+  '(("0install_native_feed" "rox-0install_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-rpm
@@ -1165,13 +1165,6 @@
      "texlive-module_synonyms_to_language_lua_line")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-toolchain-binutils
-  '(("add_src_uri" "is_cross" "tc-binutils_apply_patches" "tc-binutils_unpack"
-     "toolchain-binutils_pkg_postinst" "toolchain-binutils_pkg_postrm"
-     "toolchain-binutils_src_compile" "toolchain-binutils_src_install"
-     "toolchain-binutils_src_test" "toolchain-binutils_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-toolchain
   '(("XGCC" "copy_minispecs_gcc_specs" "create_gcc_env_entry"
      "do_gcc_HTB_patches" "do_gcc_PIE_patches" "do_gcc_config"
@@ -1189,6 +1182,13 @@
      "toolchain_pkg_postinst" "toolchain_pkg_postrm" "toolchain_pkg_setup"
      "toolchain_src_compile" "toolchain_src_install" "toolchain_src_test"
      "toolchain_src_unpack" "want_minispecs" "want_pie")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-toolchain-binutils
+  '(("add_src_uri" "is_cross" "tc-binutils_apply_patches" "tc-binutils_unpack"
+     "toolchain-binutils_pkg_postinst" "toolchain-binutils_pkg_postrm"
+     "toolchain-binutils_src_compile" "toolchain-binutils_src_install"
+     "toolchain-binutils_src_test" "toolchain-binutils_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-funcs
@@ -1237,17 +1237,6 @@
   '(("vcs-snapshot_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-vdr-plugin-2
-  '(("create_header_checksum_file" "create_plugindb_file" "detect_po_dir"
-     "dev_check" "fix_vdr_libsi_include" "gettext_missing" "has_vdr"
-     "linguas_support" "remove_i18n_include" "vdr-plugin-2_pkg_config"
-     "vdr-plugin-2_pkg_postinst" "vdr-plugin-2_pkg_postrm"
-     "vdr-plugin-2_pkg_setup" "vdr-plugin-2_print_enable_command"
-     "vdr-plugin-2_src_compile" "vdr-plugin-2_src_install"
-     "vdr-plugin-2_src_prepare" "vdr-plugin-2_src_unpack"
-     "vdr-plugin-2_src_util" "vdr_i18n" "vdr_patchmakefile")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-vdr-plugin
   '(("create_header_checksum_file" "create_plugindb_file"
      "delete_orphan_plugindb_file" "fix_vdr_libsi_include" "has_vdr"
@@ -1261,6 +1250,17 @@
      "vdr_patchmakefile")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-vdr-plugin-2
+  '(("create_header_checksum_file" "create_plugindb_file" "detect_po_dir"
+     "dev_check" "fix_vdr_libsi_include" "gettext_missing" "has_vdr"
+     "linguas_support" "remove_i18n_include" "vdr-plugin-2_pkg_config"
+     "vdr-plugin-2_pkg_postinst" "vdr-plugin-2_pkg_postrm"
+     "vdr-plugin-2_pkg_setup" "vdr-plugin-2_print_enable_command"
+     "vdr-plugin-2_src_compile" "vdr-plugin-2_src_install"
+     "vdr-plugin-2_src_prepare" "vdr-plugin-2_src_unpack"
+     "vdr-plugin-2_src_util" "vdr_i18n" "vdr_patchmakefile")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-versionator
   '(("delete_all_version_separators" "delete_version_separator"
      "get_after_major_version" "get_all_version_components"
@@ -1271,14 +1271,14 @@
      "version_is_at_least" "version_sort")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-vim-doc
-  '(("update_vim_helptags")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-vim
   '(("apply_vim_patches" "update_vim_symlinks" "vim_pkg_postinst"
      "vim_pkg_postrm" "vim_pkg_setup" "vim_src_compile" "vim_src_configure"
      "vim_src_install" "vim_src_prepare" "vim_src_test")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-vim-doc
+  '(("update_vim_helptags")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vim-plugin
@@ -1325,15 +1325,15 @@
   '(("check_wxuse" "need-wxwidgets" "wxwidgets_pkg_setup")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-xemacs-elisp
+  '(("xemacs-elisp_src_compile" "xemacs-elisp_src_install"
+     "xemacs-elisp_src_unpack")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-xemacs-elisp-common
   '(("xemacs-elisp-comp" "xemacs-elisp-compile" "xemacs-elisp-install"
      "xemacs-elisp-make-autoload-file" "xemacs-elisp-site-file-install"
      "xemacs-elisp-site-regen")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-xemacs-elisp
-  '(("xemacs-elisp_src_compile" "xemacs-elisp_src_install"
-     "xemacs-elisp_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xemacs-packages
