@@ -1,5 +1,7 @@
 2013-09-17  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.24 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 	* gentoo-newsitem-mode.el (gentoo-newsitem-font-lock-keywords):
