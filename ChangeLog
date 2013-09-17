@@ -1,3 +1,8 @@
+2013-09-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-newsitem-mode.el (gentoo-newsitem-font-lock-keywords):
+	Add missing pair of parentheses.
+
 2013-09-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.23 released.

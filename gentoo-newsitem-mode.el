@@ -30,13 +30,13 @@
 
 (defvar gentoo-newsitem-font-lock-keywords
   (eval-when-compile
-    `(,(concat "^"
-	       (regexp-opt
-		'("Title" "Author" "Translator" "Content-Type" "Posted"
-		  "Revision" "News-Item-Format" "Display-If-Installed"
-		  "Display-If-Keyword" "Display-If-Profile") t)
-	       ":")
-      . font-lock-keyword-face))
+    `((,(concat "^"
+		(regexp-opt
+		 '("Title" "Author" "Translator" "Content-Type" "Posted"
+		   "Revision" "News-Item-Format" "Display-If-Installed"
+		   "Display-If-Keyword" "Display-If-Profile") t)
+		":")
+       . font-lock-keyword-face)))
   "Expressions to highlight in Gentoo newsitem mode.")
 
 ;;;###autoload
