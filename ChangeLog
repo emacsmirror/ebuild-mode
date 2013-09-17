@@ -1,5 +1,7 @@
 2013-09-17  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* gentoo-newsitem-mode.el (gentoo-newsitem-font-lock-keywords):
 	Add missing pair of parentheses.
 

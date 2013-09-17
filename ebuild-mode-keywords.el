@@ -347,10 +347,10 @@
 
 (defvar ebuild-mode-keywords-eutils
   '(("built_with_use" "check_license" "doicon" "domenu" "ebeep" "ecvs_clean"
-     "edos2unix" "emktemp" "epatch" "epatch_user" "epause" "epunt_cxx"
-     "eqawarn" "eshopts_pop" "eshopts_push" "estack_pop" "estack_push"
-     "esvn_clean" "eumask_pop" "eumask_push" "evar_pop" "evar_push"
-     "evar_push_set" "in_iuse" "isdigit" "make_desktop_entry"
+     "edos2unix" "einstalldocs" "emktemp" "epatch" "epatch_user" "epause"
+     "epunt_cxx" "eqawarn" "eshopts_pop" "eshopts_push" "estack_pop"
+     "estack_push" "esvn_clean" "eumask_pop" "eumask_push" "evar_pop"
+     "evar_push" "evar_push_set" "in_iuse" "isdigit" "make_desktop_entry"
      "make_session_desktop" "make_wrapper" "newicon" "newmenu" "path_exists"
      "preserve_old_lib" "preserve_old_lib_notify" "prune_libtool_files"
      "strip-linguas" "use_if_iuse" "validate_desktop_entries")
@@ -786,10 +786,11 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib-build
-  '(("multilib_check_headers" "multilib_copy_sources" "multilib_for_best_abi"
-     "multilib_foreach_abi" "multilib_get_enabled_abis"
-     "multilib_install_wrappers" "multilib_is_native_abi"
-     "multilib_parallel_foreach_abi" "multilib_prepare_wrappers")
+  '(("multilib_build_binaries" "multilib_check_headers"
+     "multilib_copy_sources" "multilib_for_best_abi" "multilib_foreach_abi"
+     "multilib_get_enabled_abis" "multilib_install_wrappers"
+     "multilib_is_native_abi" "multilib_parallel_foreach_abi"
+     "multilib_prepare_wrappers")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib-minimal
@@ -1024,9 +1025,9 @@
   '(("python_doheader" "python_domodule" "python_doscript" "python_export"
      "python_get_CFLAGS" "python_get_EPYTHON" "python_get_LIBS"
      "python_get_PYTHON" "python_get_includedir" "python_get_library_path"
-     "python_get_sitedir" "python_is_python3" "python_moduleinto"
-     "python_newscript" "python_optimize" "python_scriptinto"
-     "python_wrapper_setup")
+     "python_get_scriptdir" "python_get_sitedir" "python_is_python3"
+     "python_moduleinto" "python_newscript" "python_optimize"
+     "python_scriptinto" "python_wrapper_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmail
@@ -1153,9 +1154,9 @@
 (defvar ebuild-mode-keywords-systemd
   '(("systemd_dotmpfilesd" "systemd_dounit" "systemd_enable_service"
      "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
-     "systemd_is_booted" "systemd_newtmpfilesd" "systemd_newunit"
-     "systemd_to_myeconfargs" "systemd_update_catalog" "systemd_with_unitdir"
-     "systemd_with_utildir")
+     "systemd_install_serviced" "systemd_is_booted" "systemd_newtmpfilesd"
+     "systemd_newunit" "systemd_to_myeconfargs" "systemd_update_catalog"
+     "systemd_with_unitdir" "systemd_with_utildir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-texlive-common
