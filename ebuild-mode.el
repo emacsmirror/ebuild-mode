@@ -402,8 +402,7 @@ and `all-completions' for details."
    "\n"
    ;; EAPI
    "EAPI="
-   (let ((s (skeleton-read "EAPI: ")))
-     (if (string-equal "0" s) "" s))
+   (skeleton-read "EAPI: ")
    & "\n\n" | -5
    ;; inherited eclasses
    "inherit "

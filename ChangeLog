@@ -1,3 +1,8 @@
+2013-09-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Remove special
+	treatment for EAPI=0.
+
 2013-09-17  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.24 released.
