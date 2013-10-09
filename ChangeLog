@@ -1,3 +1,9 @@
+2013-10-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el
+	(ebuild-mode-keywords-eclass-documentation): Add new keywords
+	@BUGREPORTS and @VCSURL from eclass-to-manpage.awk.
+
 2013-09-18  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-skeleton): Remove special
