@@ -138,14 +138,15 @@
 (defvar ebuild-mode-keywords-autotools-multilib
   '(("autotools-multilib_src_compile" "autotools-multilib_src_configure"
      "autotools-multilib_src_install" "autotools-multilib_src_prepare"
-     "autotools-multilib_src_test")
+     "autotools-multilib_src_test" "multilib_src_compile"
+     "multilib_src_configure" "multilib_src_install"
+     "multilib_src_install_all" "multilib_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools-utils
-  '(("autotools-utils_autoreconf" "autotools-utils_src_compile"
-     "autotools-utils_src_configure" "autotools-utils_src_install"
-     "autotools-utils_src_prepare" "autotools-utils_src_test"
-     "remove_libtool_files")
+  '(("autotools-utils_src_compile" "autotools-utils_src_configure"
+     "autotools-utils_src_install" "autotools-utils_src_prepare"
+     "autotools-utils_src_test" "remove_libtool_files")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-base
@@ -214,10 +215,11 @@
      "cmake-utils_use_build" "cmake-utils_use_disable"
      "cmake-utils_use_enable" "cmake-utils_use_find_package"
      "cmake-utils_use_has" "cmake-utils_use_no" "cmake-utils_use_use"
-     "cmake-utils_use_want" "cmake-utils_use_with" "emake_src_make"
-     "enable_cmake-utils_src_compile" "enable_cmake-utils_src_configure"
-     "enable_cmake-utils_src_install" "enable_cmake-utils_src_prepare"
-     "enable_cmake-utils_src_test" "ninja_src_make")
+     "cmake-utils_use_want" "cmake-utils_use_with" "cmake-utils_useno"
+     "emake_src_make" "enable_cmake-utils_src_compile"
+     "enable_cmake-utils_src_configure" "enable_cmake-utils_src_install"
+     "enable_cmake-utils_src_prepare" "enable_cmake-utils_src_test"
+     "ninja_src_make")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp
@@ -310,10 +312,10 @@
   '(("distutils-r1_python_compile" "distutils-r1_python_configure"
      "distutils-r1_python_install" "distutils-r1_python_install_all"
      "distutils-r1_python_prepare" "distutils-r1_python_prepare_all"
-     "distutils-r1_python_test" "distutils-r1_run_phase"
-     "distutils-r1_src_compile" "distutils-r1_src_configure"
-     "distutils-r1_src_install" "distutils-r1_src_prepare"
-     "distutils-r1_src_test" "distutils_install_for_testing" "esetup.py")
+     "distutils-r1_run_phase" "distutils-r1_src_compile"
+     "distutils-r1_src_configure" "distutils-r1_src_install"
+     "distutils-r1_src_prepare" "distutils-r1_src_test"
+     "distutils_install_for_testing" "esetup.py")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
@@ -448,9 +450,9 @@
      "ghc-localpkgconf" "ghc-makeghcilib" "ghc-package-exists"
      "ghc-package_pkg_postinst" "ghc-package_pkg_prerm" "ghc-register-pkg"
      "ghc-reregister" "ghc-reverse" "ghc-sanecabal" "ghc-setup-pkg"
-     "ghc-supports-dynamic-by-default" "ghc-supports-shared-libraries"
-     "ghc-supports-smp" "ghc-supports-threaded-runtime" "ghc-unregister-pkg"
-     "ghc-version")
+     "ghc-supports-dynamic-by-default" "ghc-supports-interpreter"
+     "ghc-supports-shared-libraries" "ghc-supports-smp"
+     "ghc-supports-threaded-runtime" "ghc-unregister-pkg" "ghc-version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-git-2
@@ -564,7 +566,7 @@
      "cabal-version" "cabal_chdeps" "cabal_flag" "cabal_src_compile"
      "cabal_src_configure" "cabal_src_install" "haskell-cabal_pkg_setup"
      "haskell-cabal_src_compile" "haskell-cabal_src_configure"
-     "haskell-cabal_src_install" "haskell-cabal_src_test")
+     "haskell-cabal_src_install" "haskell-cabal_src_test" "replace-hcflags")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-horde
@@ -800,9 +802,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multiprocessing
-  '(("makeopts_jobs" "multijob_child_init" "multijob_finish"
-     "multijob_finish_one" "multijob_init" "multijob_post_fork"
-     "multijob_pre_fork" "redirect_alloc_fd")
+  '(("bashpid" "makeopts_jobs" "makeopts_loadavg" "multijob_child_init"
+     "multijob_finish" "multijob_finish_one" "multijob_init"
+     "multijob_post_fork" "multijob_pre_fork" "redirect_alloc_fd")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-myspell
@@ -961,7 +963,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-php-pear-r1
-  '(("fix_PEAR_PV" "php-pear-r1_src_install")
+  '(("fix_PEAR_PV" "php-pear-r1_pkg_setup" "php-pear-r1_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-phpconfutils
@@ -1001,34 +1003,25 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-any-r1
-  '(("python-any-r1_pkg_setup")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-python-distutils-ng
-  '(("python-distutils-ng_doscript" "python-distutils-ng_newscript"
-     "python-distutils-ng_redoscript" "python-distutils-ng_rewrite_hashbang"
-     "python-distutils-ng_src_compile" "python-distutils-ng_src_configure"
-     "python-distutils-ng_src_install" "python-distutils-ng_src_prepare"
-     "python-distutils-ng_src_test")
+  '(("python-any-r1_pkg_setup" "python_gen_any_dep" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-r1
   '(("python_copy_sources" "python_export_best" "python_foreach_impl"
      "python_gen_cond_dep" "python_gen_usedep" "python_gen_useflags"
-     "python_parallel_foreach_impl" "python_replicate_script")
+     "python_parallel_foreach_impl" "python_replicate_script" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-single-r1
-  '(("python-single-r1_pkg_setup" "python_fix_shebang")
+  '(("python-single-r1_pkg_setup" "python_fix_shebang" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-utils-r1
   '(("python_doheader" "python_domodule" "python_doscript" "python_export"
-     "python_get_CFLAGS" "python_get_EPYTHON" "python_get_LIBS"
-     "python_get_PYTHON" "python_get_includedir" "python_get_library_path"
-     "python_get_scriptdir" "python_get_sitedir" "python_is_python3"
-     "python_moduleinto" "python_newscript" "python_optimize"
-     "python_scriptinto" "python_wrapper_setup")
+     "python_get_CFLAGS" "python_get_LIBS" "python_get_includedir"
+     "python_get_library_path" "python_get_scriptdir" "python_get_sitedir"
+     "python_is_python3" "python_moduleinto" "python_newscript"
+     "python_optimize" "python_scriptinto" "python_wrapper_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmail
@@ -1045,6 +1038,10 @@
      "qmail_tcprules_install")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-qmake-utils
+  '(("eqmake4" "eqmake5" "qmake-utils_find_pro_file")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-qt4-build
   '(("build_directories" "fix_includes" "fix_library_files"
      "generate_qconfigs" "install_directories" "install_qconfigs"
@@ -1057,8 +1054,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qt4-r2
-  '(("eqmake4" "qt4-r2_src_compile" "qt4-r2_src_configure"
-     "qt4-r2_src_install" "qt4-r2_src_prepare" "qt4-r2_src_unpack")
+  '(("qt4-r2_src_compile" "qt4-r2_src_configure" "qt4-r2_src_install"
+     "qt4-r2_src_prepare" "qt4-r2_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-readme.gentoo
@@ -1153,11 +1150,11 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-systemd
-  '(("systemd_dotmpfilesd" "systemd_dounit" "systemd_enable_service"
-     "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
-     "systemd_install_serviced" "systemd_is_booted" "systemd_newtmpfilesd"
-     "systemd_newunit" "systemd_to_myeconfargs" "systemd_update_catalog"
-     "systemd_with_unitdir" "systemd_with_utildir")
+  '(("systemd_dotmpfilesd" "systemd_dounit" "systemd_enable_ntpunit"
+     "systemd_enable_service" "systemd_get_unitdir" "systemd_get_userunitdir"
+     "systemd_get_utildir" "systemd_install_serviced" "systemd_is_booted"
+     "systemd_newtmpfilesd" "systemd_newunit" "systemd_to_myeconfargs"
+     "systemd_update_catalog" "systemd_with_unitdir" "systemd_with_utildir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-texlive-common
@@ -1179,24 +1176,26 @@
   '(("XGCC" "copy_minispecs_gcc_specs" "create_gcc_env_entry"
      "do_gcc_HTB_patches" "do_gcc_PIE_patches" "do_gcc_config"
      "do_gcc_rename_java_bins" "fix_libtool_libdir_paths" "gcc-abi-map"
-     "gcc-compiler-configure" "gcc-lang-supported" "gcc-multilib-configure"
-     "gcc_do_configure" "gcc_do_filter_flags" "gcc_do_make" "gcc_movelibs"
-     "gcc_quick_unpack" "gcc_slot_java" "gcc_version_patch" "gentoo_urls"
-     "get_gcc_src_uri" "get_make_var" "guess_patch_type_in_dir"
-     "hardened_gcc_is_stable" "hardened_gcc_works" "is_ada" "is_crosscompile"
-     "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_gcj" "is_go"
-     "is_multilib" "is_objc" "is_objcxx" "is_treelang" "make_gcc_hard"
-     "setup_minispecs_gcc_build_specs" "setup_multilib_osdirnames"
-     "should_we_gcc_config" "tc_version_is_at_least" "toolchain_death_notice"
-     "toolchain_pkg_postinst" "toolchain_pkg_postrm" "toolchain_pkg_setup"
-     "toolchain_src_compile" "toolchain_src_install" "toolchain_src_test"
+     "gcc-lang-supported" "gcc-multilib-configure" "gcc_do_filter_flags"
+     "gcc_do_make" "gcc_movelibs" "gcc_quick_unpack" "gcc_slot_java"
+     "gcc_version_patch" "gentoo_urls" "get_gcc_src_uri" "get_make_var"
+     "guess_patch_type_in_dir" "hardened_gcc_is_stable" "hardened_gcc_works"
+     "is_ada" "is_crosscompile" "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran"
+     "is_gcj" "is_go" "is_multilib" "is_objc" "is_objcxx" "is_treelang"
+     "make_gcc_hard" "setup_minispecs_gcc_build_specs"
+     "setup_multilib_osdirnames" "should_we_gcc_config"
+     "tc_version_is_at_least" "tc_version_is_between" "toolchain_death_notice"
+     "toolchain_pkg_postinst" "toolchain_pkg_postrm" "toolchain_pkg_pretend"
+     "toolchain_pkg_setup" "toolchain_src_compile" "toolchain_src_configure"
+     "toolchain_src_install" "toolchain_src_prepare" "toolchain_src_test"
      "toolchain_src_unpack" "want_minispecs" "want_pie")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-binutils
   '(("add_src_uri" "is_cross" "tc-binutils_apply_patches" "tc-binutils_unpack"
      "toolchain-binutils_pkg_postinst" "toolchain-binutils_pkg_postrm"
-     "toolchain-binutils_src_compile" "toolchain-binutils_src_install"
+     "toolchain-binutils_src_compile" "toolchain-binutils_src_configure"
+     "toolchain-binutils_src_install" "toolchain-binutils_src_prepare"
      "toolchain-binutils_src_test" "toolchain-binutils_src_unpack")
     font-lock-type-face))
 
@@ -1250,19 +1249,6 @@
 
 (defvar ebuild-mode-keywords-vcs-snapshot
   '(("vcs-snapshot_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-vdr-plugin
-  '(("create_header_checksum_file" "create_plugindb_file"
-     "delete_orphan_plugindb_file" "fix_vdr_libsi_include" "has_vdr"
-     "plugin_has_gettext" "vdr-plugin_copy_source_tree"
-     "vdr-plugin_install_source_tree" "vdr-plugin_pkg_config"
-     "vdr-plugin_pkg_postinst" "vdr-plugin_pkg_postrm" "vdr-plugin_pkg_setup"
-     "vdr-plugin_print_enable_command" "vdr-plugin_src_compile"
-     "vdr-plugin_src_install" "vdr-plugin_src_prepare" "vdr-plugin_src_unpack"
-     "vdr-plugin_src_util" "vdr_has_gettext" "vdr_i18n"
-     "vdr_i18n_convert_to_gettext" "vdr_i18n_disable_gettext"
-     "vdr_patchmakefile")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vdr-plugin-2
@@ -1337,7 +1323,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-wxwidgets
-  '(("check_wxuse" "need-wxwidgets" "wxwidgets_pkg_setup")
+  '(("need-wxwidgets")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xemacs-elisp

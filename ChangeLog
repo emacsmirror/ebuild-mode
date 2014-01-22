@@ -1,5 +1,7 @@
 2014-01-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* keyword-generation.sh (ECLASSES, ECLASSFILES): Avoid deprecated
 	"portageq portdir" call.
 
