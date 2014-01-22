@@ -1,3 +1,8 @@
+2014-01-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh (ECLASSES, ECLASSFILES): Avoid deprecated
+	"portageq portdir" call.
+
 2013-10-10  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el

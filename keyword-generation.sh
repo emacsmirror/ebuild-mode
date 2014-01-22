@@ -8,11 +8,15 @@
 #
 # Generate a raw list for app-emacs/ebuild-mode
 
+REPO=gentoo
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
-ECLASSDIR="$(portageq portdir)/eclass"
-ECLASSES=$(cd ${ECLASSDIR}; ls *.eclass | sed 's/\.eclass$//' | LC_ALL=C sort)
+ECLASSES=( $(portageq available_eclasses / ${REPO} | LC_ALL=C sort) )
+ECLASSFILES=( $(portageq eclass_path / ${REPO} "${ECLASSES[@]}") )
 # Obsolete eclasses
 OBSOLETE="bash-completion gems leechcraft ruby x-modular"
+
+# Arrays should have equal size
+[[ ${#ECLASSES[@]} -eq ${#ECLASSFILES[@]} ]] || exit 1
 
 has() {
     local needle=$1 item
@@ -25,9 +29,10 @@ has() {
 
 echo "Output in ${TMPFILE}"
 
-for eclass in ${ECLASSES}; do
+for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
+    eclass=${ECLASSES[i]}
     has ${eclass} ${OBSOLETE} && continue
-    file="${ECLASSDIR}/${eclass}.eclass"
+    file=${ECLASSFILES[i]}
     grep -q "^# @DEAD$" "${file}" && continue
 
     functions=$(env -i bash -c ". ${file}; declare -F" 2>/dev/null \
