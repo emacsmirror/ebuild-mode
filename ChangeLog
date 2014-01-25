@@ -1,3 +1,8 @@
+2014-01-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: Exclude functions that are marked as
+	internal in eclass documentation.
+
 2014-01-23  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.25 released.

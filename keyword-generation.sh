@@ -35,13 +35,20 @@ for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     file=${ECLASSFILES[i]}
     grep -q "^# @DEAD$" "${file}" && continue
 
-    functions=$(env -i bash -c ". ${file}; declare -F" 2>/dev/null \
-        | sed 's/.*[[:space:]]//;/^_/d;s/.*/"&"/')
+    # Get list of functions defined in eclass
+    fn_all=$(env -i bash -c ". ${file}; declare -F" 2>/dev/null \
+        | sed 's/.*[[:space:]]//')
+
+    # Parse eclass documentation for internal functions
+    fn_internal=$(sed -n '/^# @FUNCTION:/{h;:x;n;/^# @INTERNAL/{g;
+        s/^# @[^:]*:[[:space:]]*//;p};/^# @/bx}' "${file}")
+
+    functions=$(echo "${fn_all}" | grep -v '^_' | grep -Fvx "${fn_internal}")
     [[ -z ${functions} ]] && continue
 
     {
         echo "(defvar ebuild-mode-keywords-${eclass%.eclass}"
-        echo "  '(("${functions}")"
+        echo "  '(("$(echo "${functions}" | sed 's/.*/"&"/')")"
         echo "    font-lock-type-face))"
         echo
     } >>"${TMPFILE}"
