@@ -129,10 +129,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools
-  '(("autotools_check_macro" "autotools_check_macro_val" "autotools_env_setup"
-     "autotools_m4dir_include" "autotools_m4sysdir_include"
-     "autotools_run_tool" "config_rpath_update" "eaclocal" "eaclocal_amflags"
-     "eautoconf" "eautoheader" "eautomake" "eautopoint" "eautoreconf")
+  '(("autotools_check_macro" "autotools_m4dir_include"
+     "autotools_m4sysdir_include" "config_rpath_update" "eaclocal"
+     "eaclocal_amflags" "eautoconf" "eautoheader" "eautomake" "eautopoint"
+     "eautoreconf")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools-multilib
@@ -156,7 +156,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bash-completion-r1
-  '(("dobashcomp" "get_bashcompdir" "get_bashhelpersdir" "newbashcomp")
+  '(("dobashcomp" "get_bashcompdir" "newbashcomp")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-boost-utils
@@ -216,10 +216,9 @@
      "cmake-utils_use_enable" "cmake-utils_use_find_package"
      "cmake-utils_use_has" "cmake-utils_use_no" "cmake-utils_use_use"
      "cmake-utils_use_want" "cmake-utils_use_with" "cmake-utils_useno"
-     "emake_src_make" "enable_cmake-utils_src_compile"
-     "enable_cmake-utils_src_configure" "enable_cmake-utils_src_install"
-     "enable_cmake-utils_src_prepare" "enable_cmake-utils_src_test"
-     "ninja_src_make")
+     "enable_cmake-utils_src_compile" "enable_cmake-utils_src_configure"
+     "enable_cmake-utils_src_install" "enable_cmake-utils_src_prepare"
+     "enable_cmake-utils_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp
@@ -312,10 +311,9 @@
   '(("distutils-r1_python_compile" "distutils-r1_python_configure"
      "distutils-r1_python_install" "distutils-r1_python_install_all"
      "distutils-r1_python_prepare" "distutils-r1_python_prepare_all"
-     "distutils-r1_run_phase" "distutils-r1_src_compile"
-     "distutils-r1_src_configure" "distutils-r1_src_install"
-     "distutils-r1_src_prepare" "distutils-r1_src_test"
-     "distutils_install_for_testing" "esetup.py")
+     "distutils-r1_src_compile" "distutils-r1_src_configure"
+     "distutils-r1_src_install" "distutils-r1_src_prepare"
+     "distutils-r1_src_test" "distutils_install_for_testing" "esetup.py")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
@@ -456,10 +454,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-git-2
-  '(("git-2_bootstrap" "git-2_branch" "git-2_cleanup" "git-2_fetch" "git-2_gc"
-     "git-2_init_variables" "git-2_initial_clone" "git-2_migrate_repository"
-     "git-2_move_source" "git-2_prepare_storedir" "git-2_r3_wrapper"
-     "git-2_src_unpack" "git-2_submodules" "git-2_update_repo")
+  '(("git-2_bootstrap" "git-2_r3_wrapper" "git-2_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-git-r3
@@ -541,10 +536,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gst-plugins10
-  '(("gst-plugins10_find_plugin_dir" "gst-plugins10_get_plugins"
-     "gst-plugins10_remove_unversioned_binaries" "gst-plugins10_src_compile"
-     "gst-plugins10_src_configure" "gst-plugins10_src_install"
-     "gst-plugins10_system_link")
+  '(("gst-plugins10_src_compile" "gst-plugins10_src_configure"
+     "gst-plugins10_src_install" "gst-plugins10_system_link")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gtk-sharp-module
@@ -580,10 +573,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-ant-2
-  '(("java-ant-2_src_configure" "java-ant_bsfix" "java-ant_bsfix_files"
-     "java-ant_bsfix_one" "java-ant_ignore-system-classes"
-     "java-ant_remove-taskdefs" "java-ant_rewrite-bootclasspath"
-     "java-ant_rewrite-classpath" "java-ant_xml-rewrite")
+  '(("java-ant-2_src_configure" "java-ant_bsfix_files" "java-ant_bsfix_one"
+     "java-ant_ignore-system-classes" "java-ant_remove-taskdefs"
+     "java-ant_rewrite-bootclasspath" "java-ant_rewrite-classpath"
+     "java-ant_xml-rewrite")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-osgi
@@ -593,8 +586,7 @@
 
 (defvar ebuild-mode-keywords-java-pkg-2
   '(("java-pkg-2_pkg_preinst" "java-pkg-2_pkg_setup" "java-pkg-2_src_compile"
-     "java-pkg-2_src_prepare" "java-pkg-2_src_test"
-     "java-pkg-2_supports-test")
+     "java-pkg-2_src_prepare" "java-pkg-2_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-pkg-opt-2
@@ -608,35 +600,24 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-utils-2
-  '(("depend-java-query" "eant" "ejavac" "ejunit" "ejunit4" "ejunit_"
-     "increment-qa-violations" "is-java-strict" "java-pkg_addcp"
-     "java-pkg_announce-qa-violation" "java-pkg_ant-tasks-depend"
-     "java-pkg_append_" "java-pkg_build-vm-from-handle" "java-pkg_check-jikes"
-     "java-pkg_check-phase" "java-pkg_check-versioned-jar"
-     "java-pkg_current-vm-matches" "java-pkg_die" "java-pkg_do_write_"
+  '(("eant" "ejavac" "ejunit" "ejunit4" "increment-qa-violations"
+     "is-java-strict" "java-pkg_addcp" "java-pkg_announce-qa-violation"
+     "java-pkg_check-jikes" "java-pkg_check-phase"
+     "java-pkg_check-versioned-jar" "java-pkg_current-vm-matches"
      "java-pkg_doexamples" "java-pkg_dohtml" "java-pkg_dojar"
      "java-pkg_dojavadoc" "java-pkg_dolauncher" "java-pkg_doso"
-     "java-pkg_dosrc" "java-pkg_dowar" "java-pkg_ensure-dep"
-     "java-pkg_ensure-gcj" "java-pkg_ensure-no-bundled-jars"
-     "java-pkg_ensure-test" "java-pkg_ensure-vm-version-eq"
-     "java-pkg_ensure-vm-version-ge" "java-pkg_ensure-vm-version-sufficient"
-     "java-pkg_expand_dir_" "java-pkg_filter-compiler"
-     "java-pkg_find-normal-jars" "java-pkg_force-compiler"
-     "java-pkg_func-exists" "java-pkg_get-bootclasspath"
-     "java-pkg_get-current-vm" "java-pkg_get-javac" "java-pkg_get-jni-cflags"
-     "java-pkg_get-source" "java-pkg_get-target" "java-pkg_get-vm-vendor"
-     "java-pkg_get-vm-version" "java-pkg_getjar" "java-pkg_getjars"
-     "java-pkg_init" "java-pkg_init-compiler_" "java-pkg_init_paths_"
-     "java-pkg_is-vm-version-eq" "java-pkg_is-vm-version-ge"
-     "java-pkg_is-vm-version-sufficient" "java-pkg_jar-from"
+     "java-pkg_dosrc" "java-pkg_dowar" "java-pkg_ensure-gcj"
+     "java-pkg_ensure-no-bundled-jars" "java-pkg_ensure-test"
+     "java-pkg_filter-compiler" "java-pkg_find-normal-jars"
+     "java-pkg_force-compiler" "java-pkg_get-bootclasspath"
+     "java-pkg_get-javac" "java-pkg_get-jni-cflags" "java-pkg_get-source"
+     "java-pkg_get-target" "java-pkg_getjar" "java-pkg_getjars"
+     "java-pkg_init-compiler_" "java-pkg_init_paths_" "java-pkg_jar-from"
      "java-pkg_jar-list" "java-pkg_jarfrom" "java-pkg_jarinto"
-     "java-pkg_javac-args" "java-pkg_needs-vm" "java-pkg_newjar"
-     "java-pkg_record-jar_" "java-pkg_recordjavadoc"
-     "java-pkg_register-ant-task" "java-pkg_register-dependency"
-     "java-pkg_register-environment-variable"
+     "java-pkg_javac-args" "java-pkg_newjar" "java-pkg_register-ant-task"
+     "java-pkg_register-dependency" "java-pkg_register-environment-variable"
      "java-pkg_register-optional-dependency" "java-pkg_regjar"
-     "java-pkg_regso" "java-pkg_set-current-vm" "java-pkg_setup-vm"
-     "java-pkg_sointo" "java-pkg_switch-vm" "java-pkg_verify-classes"
+     "java-pkg_regso" "java-pkg_set-current-vm" "java-pkg_sointo"
      "java-utils-2_pkg_preinst" "java-utils-2_src_prepare" "use_doc")
     font-lock-type-face))
 
@@ -647,9 +628,8 @@
 (defvar ebuild-mode-keywords-java-vm-2
   '(("get_system_arch" "install_mozilla_plugin" "java-vm-2_pkg_postinst"
      "java-vm-2_pkg_postrm" "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup"
-     "java-vm_check-nsplugin" "java-vm_revdep-mask" "java-vm_sandbox-predict"
-     "java-vm_set-nsplugin" "java-vm_set-pax-markings" "java_get_plugin_dir_"
-     "java_mozilla_clean_" "java_set_default_vm_" "set_java_env")
+     "java-vm_revdep-mask" "java-vm_sandbox-predict"
+     "java-vm_set-pax-markings" "set_java_env")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-base
@@ -734,7 +714,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mercurial
-  '(("mercurial_bootstrap" "mercurial_fetch" "mercurial_src_unpack")
+  '(("mercurial_fetch" "mercurial_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mono
@@ -771,7 +751,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozlinguas
-  '(("mozlinguas_export" "mozlinguas_src_install" "mozlinguas_src_unpack")
+  '(("mozlinguas_src_install" "mozlinguas_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multibuild
@@ -782,9 +762,9 @@
 
 (defvar ebuild-mode-keywords-multilib
   '(("get_abi_CFLAGS" "get_abi_CHOST" "get_abi_CTARGET" "get_abi_FAKE_TARGETS"
-     "get_abi_LDFLAGS" "get_abi_LIBDIR" "get_abi_var" "get_all_abis"
-     "get_all_libdirs" "get_install_abis" "get_libdir" "get_libname"
-     "get_modname" "has_multilib_profile" "is_final_abi" "multilib_env"
+     "get_abi_LDFLAGS" "get_abi_LIBDIR" "get_all_abis" "get_all_libdirs"
+     "get_install_abis" "get_libdir" "get_libname" "get_modname"
+     "has_multilib_profile" "is_final_abi" "multilib_env"
      "multilib_toolchain_setup" "number_abis")
     font-lock-type-face))
 
@@ -1039,18 +1019,14 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmake-utils
-  '(("eqmake4" "eqmake5" "qmake-utils_find_pro_file")
+  '(("eqmake4" "eqmake5")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qt4-build
-  '(("build_directories" "fix_includes" "fix_library_files"
-     "generate_qconfigs" "install_directories" "install_qconfigs"
-     "prepare_directories" "qt4-build_pkg_postinst" "qt4-build_pkg_postrm"
+  '(("fix_includes" "qt4-build_pkg_postinst" "qt4-build_pkg_postrm"
      "qt4-build_pkg_setup" "qt4-build_src_compile" "qt4-build_src_configure"
      "qt4-build_src_install" "qt4-build_src_prepare" "qt4-build_src_test"
-     "qt4-build_src_unpack" "qt_mkspecs_dir" "qt_nolibx11" "qt_use" "setqtenv"
-     "skip_project_generation" "skip_qmake_build"
-     "symlink_binaries_to_buildtree")
+     "qt4-build_src_unpack" "qt_mkspecs_dir" "qt_use")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qt4-r2
@@ -1204,16 +1180,16 @@
      "gcc-minor-version" "gcc-specs-directive" "gcc-specs-nostrict"
      "gcc-specs-now" "gcc-specs-pie" "gcc-specs-relro" "gcc-specs-ssp"
      "gcc-specs-ssp-to-all" "gcc-version" "gen_usr_ldscript" "tc-arch"
-     "tc-arch-kernel" "tc-endian" "tc-env_build" "tc-export"
-     "tc-export_build_env" "tc-getAR" "tc-getAS" "tc-getBUILD_AR"
-     "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP" "tc-getBUILD_CXX"
-     "tc-getBUILD_LD" "tc-getBUILD_NM" "tc-getBUILD_OBJCOPY"
-     "tc-getBUILD_PKG_CONFIG" "tc-getBUILD_PROG" "tc-getBUILD_RANLIB"
-     "tc-getBUILD_STRIP" "tc-getCC" "tc-getCPP" "tc-getCXX" "tc-getDLLWRAP"
-     "tc-getF77" "tc-getFC" "tc-getGCJ" "tc-getLD" "tc-getNM" "tc-getOBJCOPY"
-     "tc-getPKG_CONFIG" "tc-getPROG" "tc-getRANLIB" "tc-getRC" "tc-getSTRIP"
-     "tc-has-openmp" "tc-has-tls" "tc-is-cross-compiler" "tc-is-softfloat"
-     "tc-is-static-only" "tc-ninja_magic_to_arch")
+     "tc-arch-kernel" "tc-endian" "tc-export" "tc-export_build_env" "tc-getAR"
+     "tc-getAS" "tc-getBUILD_AR" "tc-getBUILD_AS" "tc-getBUILD_CC"
+     "tc-getBUILD_CPP" "tc-getBUILD_CXX" "tc-getBUILD_LD" "tc-getBUILD_NM"
+     "tc-getBUILD_OBJCOPY" "tc-getBUILD_PKG_CONFIG" "tc-getBUILD_PROG"
+     "tc-getBUILD_RANLIB" "tc-getBUILD_STRIP" "tc-getCC" "tc-getCPP"
+     "tc-getCXX" "tc-getDLLWRAP" "tc-getF77" "tc-getFC" "tc-getGCJ" "tc-getLD"
+     "tc-getNM" "tc-getOBJCOPY" "tc-getPKG_CONFIG" "tc-getPROG" "tc-getRANLIB"
+     "tc-getRC" "tc-getSTRIP" "tc-has-openmp" "tc-has-tls"
+     "tc-is-cross-compiler" "tc-is-softfloat" "tc-is-static-only"
+     "tc-ninja_magic_to_arch")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-twisted

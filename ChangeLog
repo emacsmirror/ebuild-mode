@@ -1,5 +1,7 @@
 2014-01-25  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* keyword-generation.sh: Exclude functions that are marked as
 	internal in eclass documentation.
 
