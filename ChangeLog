@@ -1,3 +1,8 @@
+2014-11-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh (OBSOLETE): Cleanup list, some eclasses
+	have been removed.
+
 2014-02-02  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.26 released.

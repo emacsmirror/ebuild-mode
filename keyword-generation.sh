@@ -13,7 +13,7 @@ TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 ECLASSES=( $(portageq available_eclasses / ${REPO} | LC_ALL=C sort) )
 ECLASSFILES=( $(portageq eclass_path / ${REPO} "${ECLASSES[@]}") )
 # Obsolete eclasses
-OBSOLETE="bash-completion gems leechcraft ruby x-modular"
+OBSOLETE="bash-completion leechcraft x-modular"
 
 # Arrays should have equal size
 [[ ${#ECLASSES[@]} -eq ${#ECLASSFILES[@]} ]] || exit 1
