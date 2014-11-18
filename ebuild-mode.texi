@@ -25,7 +25,7 @@ later version published by the Free Software Foundation.
 
 
 @titlepage
-@title ebuild-mode 1.26
+@title ebuild-mode 1.27
 @subtitle Major mode for ebuilds and eclasses in Gentoo
 @author Christian Faulhammer
 @page
