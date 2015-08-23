@@ -1,3 +1,7 @@
+2015-08-23  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 2015-08-09  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-skeleton): Insert $Id$
