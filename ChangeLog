@@ -1,5 +1,7 @@
 2015-12-20  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.29 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-0): Match list
