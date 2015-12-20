@@ -1,3 +1,15 @@
+2015-12-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-0): Match list
+	of commands against PMS.
+	(ebuild-mode-keywords-EAPI): New variable, contains only "EAPI".
+	(ebuild-mode-keywords-eapi6): New variable, EAPI 6 commands.
+	(ebuild-mode-keywords-eapi-deprecated)
+	(ebuild-mode-keywords-eclass-deprecated): New variables, splitting
+	ebuild-mode-keywords-deprecated.
+	(ebuild-mode-keywords-eclass): Variable removed, merged into
+	ebuild-mode-keywords-0.
+
 2015-08-23  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.28 released.

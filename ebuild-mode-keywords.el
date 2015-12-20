@@ -29,18 +29,24 @@
 
 ;;; Code:
 
+;; Package manager keywords
+
 (defvar ebuild-mode-keywords-0
-  '(("best_version" "check_KV" "die" "diropts" "dobin" "docinto" "doconfd"
-     "dodir" "dodoc" "doenvd" "doexe" "dohtml" "doinfo" "doinitd"
-     "doins" "dojar" "dolib" "dolib.a" "dolib.so" "doman" "domo" "dopython"
-     "dosbin" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
-     "einfon" "einstall" "elog" "emake" "ewarn" "exeinto" "exeopts" "fowners"
-     "fperms" "has" "has_version" "hasq" "hasv" "insinto" "insopts" "into"
-     "keepdir" "libopts" "newbin" "newconfd" "newdoc" "newenvd" "newexe"
-     "newinitd" "newins" "newlib.a" "newlib.so" "newman" "newsbin" "prepall"
-     "prepallinfo" "prepallman" "prepallstrip" "unpack" "use"
-     "use_enable" "use_with" "useq" "usev")
+  '(("assert" "best_version" "debug-print" "debug-print-function"
+     "debug-print-section" "die" "diropts" "dobin" "docinto" "doconfd" "dodir"
+     "dodoc" "doenvd" "doexe" "doinfo" "doinitd" "doins" "dolib" "dolib.a"
+     "dolib.so" "doman" "domo" "dosbin" "dosym" "ebegin" "econf" "eend"
+     "eerror" "einfo" "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts"
+     "fowners" "fperms" "has" "hasv" "has_version" "inherit" "insinto"
+     "insopts" "into" "keepdir" "libopts" "newbin" "newconfd" "newdoc"
+     "newenvd" "newexe" "newinitd" "newins" "newlib.a" "newlib.so" "newman"
+     "newsbin" "unpack" "use" "usev" "use_enable" "use_with")
     font-lock-type-face))
+
+(defvar ebuild-mode-keywords-EAPI
+  ;; highlight the EAPI variable itself
+  '(("EAPI")
+    font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-eapi4
   '(("docompress" "nonfatal")
@@ -48,6 +54,10 @@
 
 (defvar ebuild-mode-keywords-eapi5
   '(("doheader" "newheader" "usex")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-eapi6
+  '(("eapply" "eapply_user" "einstalldocs" "get_libdir" "in_iuse")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-functions
@@ -70,6 +80,18 @@
      "default_src_test" "default_src_install")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-sandbox
+  '(("adddeny" "addpredict" "addread" "addwrite")
+    font-lock-warning-face))
+
+(defvar ebuild-mode-keywords-eapi-deprecated
+  ;; deprecated or banned package manager commands
+  '(("dohard" "dohtml" "dosed" "einstall" "hasq" "prepalldocs" "prepall"
+     "prepallinfo" "prepallman" "prepallstrip" "useq")
+    font-lock-warning-face))
+
+;; Eclass keywords
+
 ;; comment-face will always override the eclass documentation strings
 (defvar ebuild-mode-keywords-eclass-documentation
   '(("@AUTHOR" "@BLURB" "@BUGREPORTS" "@CODE" "@DEFAULT_UNSET" "@DESCRIPTION"
@@ -81,23 +103,14 @@
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage
   ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
-  '(("which" "EAPI" "bindnow-flags" "has_m64" "has_m32")
+  '(("which" "bindnow-flags" "has_m64" "has_m32")
     font-lock-warning-face))
 
-(defvar ebuild-mode-keywords-deprecated
+(defvar ebuild-mode-keywords-eclass-deprecated
   ;; deprecated eclass functions
-  '(("elisp-comp" "prepalldocs" "dosed" "dohard" "python_mod_compile"
-     "dobashcompletion" "bash-completion_pkg_postinst" "qt4_min_version"
-     "qt4_min_version_list")
+  '(("bash-completion_pkg_postinst" "dobashcompletion" "elisp-comp"
+     "python_mod_compile" "qt4_min_version" "qt4_min_version_list")
     font-lock-warning-face))
-
-(defvar ebuild-mode-keywords-sandbox
-  '(("adddeny" "addpredict" "addread" "addwrite")
-    font-lock-warning-face))
-
-(defvar ebuild-mode-keywords-eclass
-  '(("inherit")
-    font-lock-type-face))
 
 ;; All keyword lists below this line are auto-generated
 ;; from keyword-generation.sh
