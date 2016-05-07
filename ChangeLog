@@ -1,5 +1,7 @@
 2016-05-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.30 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 	* keyword-generation.sh (OBSOLETE): Cleanup.
