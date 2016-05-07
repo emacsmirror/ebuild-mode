@@ -1,5 +1,7 @@
 2016-05-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* keyword-generation.sh (OBSOLETE): Cleanup.
 
 2015-12-20  Ulrich Müller  <ulm@gentoo.org>

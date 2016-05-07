@@ -175,10 +175,11 @@
 (defvar ebuild-mode-keywords-bitcoincore
   '(("LJR_PATCH" "LJR_PV" "bitcoincore_autoreconf"
      "bitcoincore_common_depend_use" "bitcoincore_conf"
-     "bitcoincore_pkg_pretend" "bitcoincore_policy_iuse"
-     "bitcoincore_policymsg" "bitcoincore_prepare" "bitcoincore_src_install"
-     "bitcoincore_src_prepare" "bitcoincore_src_test" "in_bcc_iuse"
-     "in_bcc_policy")
+     "bitcoincore_git_apply" "bitcoincore_pkg_pretend"
+     "bitcoincore_policy_iuse" "bitcoincore_policymsg"
+     "bitcoincore_predelete_patch" "bitcoincore_prepare"
+     "bitcoincore_src_install" "bitcoincore_src_prepare"
+     "bitcoincore_src_test" "in_bcc_iuse" "in_bcc_policy")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bsdmk
@@ -202,11 +203,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-check-reqs
-  '(("check-reqs_disk" "check-reqs_get_mebibytes" "check-reqs_get_number"
-     "check-reqs_get_unit" "check-reqs_memory" "check-reqs_output"
-     "check-reqs_pkg_pretend" "check-reqs_pkg_setup" "check-reqs_prepare"
-     "check-reqs_run" "check-reqs_start_phase" "check-reqs_unsatisfied"
-     "check_reqs")
+  '(("check-reqs_pkg_pretend" "check-reqs_pkg_setup" "check_reqs")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-chromium
@@ -214,10 +211,6 @@
      "chromium_pkg_die" "chromium_pkg_postinst" "chromium_pkg_postrm"
      "chromium_pkg_preinst" "chromium_remove_language_paks"
      "chromium_suid_sandbox_check_kernel_config" "egyp_chromium" "gyp_use")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-clutter
-  '(("clutter_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cmake-multilib
@@ -235,9 +228,10 @@
      "cmake-utils_use_enable" "cmake-utils_use_find_package"
      "cmake-utils_use_has" "cmake-utils_use_no" "cmake-utils_use_use"
      "cmake-utils_use_want" "cmake-utils_use_with" "cmake-utils_useno"
-     "comment_add_subdirectory" "enable_cmake-utils_src_compile"
-     "enable_cmake-utils_src_configure" "enable_cmake-utils_src_install"
-     "enable_cmake-utils_src_prepare" "enable_cmake-utils_src_test")
+     "cmake_comment_add_subdirectory" "comment_add_subdirectory"
+     "enable_cmake-utils_src_compile" "enable_cmake-utils_src_configure"
+     "enable_cmake-utils_src_install" "enable_cmake-utils_src_prepare"
+     "enable_cmake-utils_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp
@@ -354,10 +348,6 @@
      "elisp-site-regen")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-embassy
-  '(("embassy_src_compile" "embassy_src_install" "embassy_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-emboss-r1
   '(("emboss-r1_src_configure" "emboss-r1_src_prepare")
     font-lock-type-face))
@@ -370,8 +360,8 @@
 
 (defvar ebuild-mode-keywords-eutils
   '(("built_with_use" "check_license" "doicon" "domenu" "ebeep" "ecvs_clean"
-     "edos2unix" "einstalldocs" "emktemp" "epatch" "epatch_user" "epause"
-     "epunt_cxx" "eqawarn" "eshopts_pop" "eshopts_push" "estack_pop"
+     "edos2unix" "egit_clean" "einstalldocs" "emktemp" "epatch" "epatch_user"
+     "epause" "epunt_cxx" "eqawarn" "eshopts_pop" "eshopts_push" "estack_pop"
      "estack_push" "esvn_clean" "eumask_pop" "eumask_push"
      "eutils_elt_patch_dir" "evar_pop" "evar_push" "evar_push_set" "in_iuse"
      "isdigit" "make_desktop_entry" "make_session_desktop" "make_wrapper"
@@ -525,10 +515,11 @@
   '(("gnome2_disable_deprecation_warning" "gnome2_environment_reset"
      "gnome2_gconf_install" "gnome2_gconf_savelist" "gnome2_gconf_uninstall"
      "gnome2_gdk_pixbuf_savelist" "gnome2_gdk_pixbuf_update"
-     "gnome2_icon_cache_update" "gnome2_icon_savelist" "gnome2_omf_fix"
-     "gnome2_query_immodules_gtk2" "gnome2_query_immodules_gtk3"
-     "gnome2_schemas_savelist" "gnome2_schemas_update"
-     "gnome2_scrollkeeper_savelist" "gnome2_scrollkeeper_update")
+     "gnome2_giomodule_cache_update" "gnome2_icon_cache_update"
+     "gnome2_icon_savelist" "gnome2_omf_fix" "gnome2_query_immodules_gtk2"
+     "gnome2_query_immodules_gtk3" "gnome2_schemas_savelist"
+     "gnome2_schemas_update" "gnome2_scrollkeeper_savelist"
+     "gnome2_scrollkeeper_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnuconfig
@@ -708,8 +699,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde5-functions
-  '(("add_frameworks_dep" "add_kdeapps_dep" "add_plasma_dep" "get_kde_version"
-     "punt_bogus_dep")
+  '(("add_frameworks_dep" "add_kdeapps_dep" "add_plasma_dep" "add_qt_dep"
+     "get_kde_version" "punt_bogus_dep")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kernel-2
@@ -829,6 +820,18 @@
   '(("mozconfig_config")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mozconfig-v6.44
+  '(("mozconfig_config")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.45
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.46
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mozcoreconf-2
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with"
@@ -925,7 +928,8 @@
      "mysql-multilib-r1_pkg_preinst" "mysql-multilib-r1_pkg_pretend"
      "mysql-multilib-r1_pkg_setup" "mysql-multilib-r1_src_compile"
      "mysql-multilib-r1_src_configure" "mysql-multilib-r1_src_install"
-     "mysql-multilib-r1_src_prepare" "mysql-multilib-r1_src_unpack")
+     "mysql-multilib-r1_src_prepare" "mysql-multilib-r1_src_unpack"
+     "mysql_init_vars")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mysql-v2
@@ -994,9 +998,9 @@
 
 (defvar ebuild-mode-keywords-perl-functions
   '(("perl_check_env" "perl_delete_emptybsdir" "perl_delete_localpod"
-     "perl_delete_module_manpages" "perl_delete_packlist" "perl_fix_osx_extra"
-     "perl_fix_packlist" "perl_link_duallife_scripts" "perl_remove_temppath"
-     "perl_rm_files" "perl_set_version")
+     "perl_delete_module_manpages" "perl_delete_packlist" "perl_doexamples"
+     "perl_fix_osx_extra" "perl_fix_packlist" "perl_link_duallife_scripts"
+     "perl_remove_temppath" "perl_rm_files" "perl_set_version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-perl-module
@@ -1074,13 +1078,14 @@
 
 (defvar ebuild-mode-keywords-python-r1
   '(("python_copy_sources" "python_export_best" "python_foreach_impl"
-     "python_gen_cond_dep" "python_gen_usedep" "python_gen_useflags"
-     "python_parallel_foreach_impl" "python_replicate_script" "python_setup")
+     "python_gen_cond_dep" "python_gen_impl_dep" "python_gen_usedep"
+     "python_gen_useflags" "python_parallel_foreach_impl"
+     "python_replicate_script" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-single-r1
-  '(("python-single-r1_pkg_setup" "python_gen_cond_dep" "python_gen_usedep"
-     "python_gen_useflags" "python_setup")
+  '(("python-single-r1_pkg_setup" "python_gen_cond_dep" "python_gen_impl_dep"
+     "python_gen_usedep" "python_gen_useflags" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-utils-r1
@@ -1205,7 +1210,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-scons-utils
-  '(("escons" "scons_clean_makeopts" "use_scons")
+  '(("escons" "use_scons")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-scsh
@@ -1409,7 +1414,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-wxwidgets
-  '(("need-wxwidgets")
+  '(("need-wxwidgets" "setup-wxwidgets")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xdg
