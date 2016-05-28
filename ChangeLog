@@ -1,3 +1,7 @@
+2016-05-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (auto-mode-alist): Drop eblit support.
+
 2016-05-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.30 released.
