@@ -1,3 +1,7 @@
+2016-06-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (Commands): Update Bugzilla URL to https.
+
 2016-05-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (auto-mode-alist): Drop eblit support.
