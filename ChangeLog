@@ -1,3 +1,7 @@
+2016-06-19  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 2016-06-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.texi (Commands): Update Bugzilla URL to https.

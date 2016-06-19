@@ -451,8 +451,8 @@
 (defvar ebuild-mode-keywords-ghc-package
   '(("check-for-collisions" "ghc-cabal-version" "ghc-confdir"
      "ghc-extractportageversion" "ghc-getghc" "ghc-getghcpkg"
-     "ghc-getghcpkgbin" "ghc-install-pkg" "ghc-is-dynamic" "ghc-libdir"
-     "ghc-localpkgconfd" "ghc-package-db" "ghc-package-exists"
+     "ghc-getghcpkgbin" "ghc-host-root" "ghc-install-pkg" "ghc-is-dynamic"
+     "ghc-libdir" "ghc-localpkgconfd" "ghc-package-db" "ghc-package-exists"
      "ghc-package_pkg_postinst" "ghc-package_pkg_postrm"
      "ghc-package_pkg_prerm" "ghc-pkgdeps" "ghc-pm-version" "ghc-recache-db"
      "ghc-register-pkg" "ghc-reregister" "ghc-sanecabal"
@@ -489,6 +489,17 @@
      "gnatbuild_pkg_postrm" "gnatbuild_pkg_setup" "gnatbuild_src_compile"
      "gnatbuild_src_install" "gnatbuild_src_unpack" "is_crosscompile"
      "is_multilib" "should_we_eselect_gnat")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-gnatbuild-r1
+  '(("add_profile_eselect_conf" "create_eselect_conf"
+     "disgusting_gcc_multilib_HACK" "do_gnat_config" "gcc-abi-map"
+     "gcc-multilib-configure" "gnatbuild-r1_pkg_postinst"
+     "gnatbuild-r1_pkg_postrm" "gnatbuild-r1_pkg_setup"
+     "gnatbuild-r1_src_compile" "gnatbuild-r1_src_configure"
+     "gnatbuild-r1_src_install" "gnatbuild-r1_src_unpack"
+     "guess_patch_type_in_dir" "is_crosscompile" "is_multilib" "make_gcc_hard"
+     "should_we_eselect_gnat" "tc_version_is_at_least")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnome-games
@@ -662,10 +673,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-vm-2
-  '(("get_system_arch" "install_mozilla_plugin" "java-vm-2_pkg_postinst"
-     "java-vm-2_pkg_postrm" "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup"
-     "java-vm_revdep-mask" "java-vm_sandbox-predict"
-     "java-vm_set-pax-markings" "set_java_env")
+  '(("get_system_arch" "java-vm-2_pkg_postinst" "java-vm-2_pkg_postrm"
+     "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup" "java-vm_revdep-mask"
+     "java-vm_sandbox-predict" "java-vm_set-pax-markings" "set_java_env")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde4-base
@@ -788,27 +798,7 @@
   '(("mozconfig_config")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mozconfig-v5.34
-  '(("mozconfig_config")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v5.36
-  '(("mozconfig_config")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v5.38
-  '(("mozconfig_config")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozconfig-v6.38
-  '(("mozconfig_config")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.39
-  '(("mozconfig_config")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.40
   '(("mozconfig_config")
     font-lock-type-face))
 
@@ -820,15 +810,15 @@
   '(("mozconfig_config")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mozconfig-v6.44
-  '(("mozconfig_config")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozconfig-v6.45
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozconfig-v6.46
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.47
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
@@ -839,6 +829,11 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozcoreconf-v3
+  '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
+     "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozcoreconf-v4
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
     font-lock-type-face))
@@ -1163,6 +1158,12 @@
   '(("readme.gentoo_create_doc" "readme.gentoo_print_elog")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-rebar
+  '(("erebar" "get_erl_libs" "rebar_fix_include_path" "rebar_remove_deps"
+     "rebar_set_vsn" "rebar_src_compile" "rebar_src_configure"
+     "rebar_src_install" "rebar_src_prepare" "rebar_src_test")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-ros-catkin
   '(("ros-catkin_src_compile" "ros-catkin_src_configure"
      "ros-catkin_src_configure_internal" "ros-catkin_src_install"
@@ -1320,7 +1321,8 @@
      "tc-getOBJCOPY" "tc-getOBJDUMP" "tc-getPKG_CONFIG" "tc-getPROG"
      "tc-getRANLIB" "tc-getRC" "tc-getSTRIP" "tc-has-openmp" "tc-has-tls"
      "tc-is-cross-compiler" "tc-is-softfloat" "tc-is-static-only"
-     "tc-ld-disable-gold" "tc-ld-is-gold" "tc-ninja_magic_to_arch")
+     "tc-ld-disable-gold" "tc-ld-is-gold" "tc-ninja_magic_to_arch"
+     "tc-stack-grows-down")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-twisted-r1
@@ -1354,14 +1356,15 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vdr-plugin-2
-  '(("create_header_checksum_file" "create_plugindb_file" "detect_po_dir"
-     "dev_check" "fix_vdr_libsi_include" "gettext_missing" "has_vdr"
-     "linguas_support" "remove_i18n_include" "vdr-plugin-2_pkg_config"
+  '(("fix_vdr_libsi_include" "has_vdr" "vdr-plugin-2_pkg_config"
      "vdr-plugin-2_pkg_postinst" "vdr-plugin-2_pkg_postrm"
      "vdr-plugin-2_pkg_setup" "vdr-plugin-2_print_enable_command"
      "vdr-plugin-2_src_compile" "vdr-plugin-2_src_install"
      "vdr-plugin-2_src_prepare" "vdr-plugin-2_src_unpack"
-     "vdr-plugin-2_src_util" "vdr_i18n" "vdr_patchmakefile")
+     "vdr-plugin-2_src_util" "vdr_create_header_checksum_file"
+     "vdr_create_plugindb_file" "vdr_detect_po_dir" "vdr_dev_check"
+     "vdr_gettext_missing" "vdr_i18n" "vdr_linguas_support"
+     "vdr_patchmakefile" "vdr_remove_i18n_include")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-versionator
