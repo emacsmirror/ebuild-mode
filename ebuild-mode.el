@@ -269,29 +269,33 @@ Optional argument LIMIT restarts collection after that number of elements."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (and (re-search-forward ebuild-mode-arch-regexp nil noerror)
-	   (not (and (re-search-forward ebuild-mode-arch-regexp nil t)
-		     (or noerror
-			 (error "More than one KEYWORDS assignment found"))))
-	   (mapcar (lambda (s)
-		     (string-match "^\\([-~]?\\)\\(.*\\)" s)
-		     (cons (match-string 2 s) (match-string 1 s)))
-		   (split-string
-		    ;;(match-string-no-properties 1) ; not in XEmacs 21.4
-		    (buffer-substring-no-properties (match-beginning 1)
-						    (match-end 1))))))))
+      (cond
+       ((not (re-search-forward ebuild-mode-arch-regexp nil t))
+	(unless noerror (error "No KEYWORDS assignment found")))
+       ((re-search-forward ebuild-mode-arch-regexp nil t) ; second search
+	(unless noerror (error "More than one KEYWORDS assignment found")))
+       (t
+	(mapcar (lambda (s)
+		  (string-match "^\\([-~]?\\)\\(.*\\)" s)
+		  (cons (match-string 2 s) (match-string 1 s)))
+		(split-string
+		 ;;(match-string-no-properties 1) ; not in XEmacs 21.4
+		 (buffer-substring-no-properties (match-beginning 1)
+						 (match-end 1)))))))))
 
 (defun ebuild-mode-put-keywords (kw &optional noerror)
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
-      (and (re-search-forward ebuild-mode-arch-regexp nil noerror)
-	   (not (and (re-search-forward ebuild-mode-arch-regexp nil t)
-		     (or noerror
-			 (error "More than one KEYWORDS assignment found"))))
-	   (replace-match
-	    (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
-	    t t nil 1)))))
+      (cond
+       ((not (re-search-forward ebuild-mode-arch-regexp nil t))
+	(unless noerror (error "No KEYWORDS assignment found")))
+       ((re-search-forward ebuild-mode-arch-regexp nil t)
+	(unless noerror (error "More than one KEYWORDS assignment found")))
+       (t
+	(replace-match
+	 (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
+	 t t nil 1))))))
 
 (defun ebuild-mode-modify-keywords (kw)
   "Set keywords. KW is an alist of architectures and leaders."

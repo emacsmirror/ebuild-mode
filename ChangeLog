@@ -1,3 +1,8 @@
+2017-01-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-get-keywords)
+	(ebuild-mode-put-keywords): Improve error handling.
+
 2016-06-19  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.31 released.
