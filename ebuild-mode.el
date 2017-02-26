@@ -402,7 +402,6 @@ and `all-completions' for details."
    ;; standard header
    "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
    "# Distributed under the terms of the GNU General Public License v2\n"
-   "# $Id$\n"
    "\n"
    ;; EAPI
    "EAPI="

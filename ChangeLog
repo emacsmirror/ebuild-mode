@@ -1,5 +1,8 @@
 2017-02-26  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Remove $Id$ line
+	from ebuild header.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 2017-01-15  Ulrich Müller  <ulm@gentoo.org>
