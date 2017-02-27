@@ -59,6 +59,23 @@ A formfeed is not considered whitespace by this function."
 
 ;;; Variables.
 
+(defgroup ebuild-mode nil
+  "Ebuild mode."
+  :group 'languages)
+
+(defcustom ebuild-mode-portdir
+  "/usr/portage"
+  "Location of the ebuild repository."
+  :type 'string
+  :group 'ebuild-mode)
+
+(defcustom ebuild-mode-fix-whitespace t
+  "If non-nil, fix whitespace before writing a file.
+Namely, delete trailing whitespace and tabify whitespace at beginning
+of lines."
+  :type 'boolean
+  :group 'ebuild-mode)
+
 ;; Predicate function for comparison of architecture keywords
 ;; (needed for variable definitions below)
 (defun ebuild-mode-arch-lessp (a b)
@@ -70,10 +87,6 @@ A formfeed is not considered whitespace by this function."
     (if (string-equal (cadr as) (cadr bs))
 	(string-lessp (car as) (car bs))
       (string-lessp (cadr as) (cadr bs)))))
-
-(defvar ebuild-mode-portdir
-  "/usr/portage"
-  "Location of the ebuild repository.")
 
 (defvar ebuild-mode-arch-list
   (or
@@ -220,8 +233,9 @@ Optional argument LIMIT restarts collection after that number of elements."
 	    (indent-to end-col)))))))
 
 (defun ebuild-mode-before-save ()
-  (delete-trailing-whitespace)
-  (ebuild-mode-tabify)
+  (when ebuild-mode-fix-whitespace
+    (delete-trailing-whitespace)
+    (ebuild-mode-tabify))
   ;;(copyright-update)			; doesn't exist in XEmacs
   ;; return nil, otherwise the file is presumed to be written
   nil)

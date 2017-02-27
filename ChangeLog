@@ -1,5 +1,10 @@
 2017-02-27  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode): New customisation group.
+	(ebuild-mode-portdir): Change to custom variable.
+	(ebuild-mode-fix-whitespace): New custom variable, defaults to t.
+	(ebuild-mode-before-save): Make fixing of whitespace conditional.
+
 	* ebuild-mode.el:
 	* ebuild-mode.texi: Update documentation to use generic terms
 	where possible, instead of being Portage specific.
