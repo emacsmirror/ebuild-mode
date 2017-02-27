@@ -74,7 +74,7 @@ As the ebuild format is based on the Bash syntax, sh-mode is called as
 a base, where ebuild specific things are added/changed on top.
 
 If font-locking is enabled, keywords are highlighted, both the standard
-set available from vanilla Portage and special functions from all common
+set defined by the package manager and special functions from all common
 eclasses.  Missing highlighting should be reported on
 @code{https://bugs.gentoo.org/}.
 

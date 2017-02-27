@@ -73,7 +73,7 @@ A formfeed is not considered whitespace by this function."
 
 (defvar ebuild-mode-portdir
   "/usr/portage"
-  "Location of the Portage tree.")
+  "Location of the ebuild repository.")
 
 (defvar ebuild-mode-arch-list
   (or
@@ -85,7 +85,7 @@ A formfeed is not considered whitespace by this function."
 	   (replace-match ""))
 	 (sort (split-string (buffer-string)) 'ebuild-mode-arch-lessp))
      (file-error nil))
-   ;; could not read architectures from Portage tree, so fall back to default
+   ;; could not read architectures from repository, so fall back to default
    '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
      "s390" "sh" "sparc" "x86" "amd64-fbsd" "sparc-fbsd" "x86-fbsd"))
   "List of architectures.")
@@ -117,7 +117,7 @@ A formfeed is not considered whitespace by this function."
       (directory-files (concat ebuild-mode-portdir "/licenses")
 		       nil "\\`[^.]")
     (file-error nil))
-  "List of licenses, determined from the Portage tree.")
+  "List of licenses, determined from the ebuild repository.")
 
 (defvar ebuild-mode-eclasses
   (condition-case nil
@@ -126,7 +126,7 @@ A formfeed is not considered whitespace by this function."
        (directory-files (concat ebuild-mode-portdir "/eclass")
 			nil "\\.eclass\\'"))
      (file-error nil))
-  "List of eclasses, determined from the Portage tree.")
+  "List of eclasses, determined from the ebuild repository.")
 
 (defvar ebuild-mode-restrict-list
   '("binchecks" "bindist" "fetch" "installsources" "mirror"
@@ -228,7 +228,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 
 ;;;###autoload
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
-  "Major mode for Portage .ebuild and .eclass files."
+  "Major mode for Gentoo .ebuild and .eclass files."
   (if (featurep 'xemacs)
       ;; make-local-hook gives a byte-compiler warning in GNU Emacs
       (make-local-hook 'write-contents-hooks))
