@@ -76,6 +76,16 @@ of lines."
   :type 'boolean
   :group 'ebuild-mode)
 
+(defcustom ebuild-mode-update-copyright t
+  "If non-nil, update copyright years before writing a file."
+  :type 'boolean
+  :group 'ebuild-mode)
+
+(defcustom ebuild-mode-delete-cvs-line t
+  "If non-nil, delete any CVS $Id$ or $Header$ line before writing a file."
+  :type 'boolean
+  :group 'ebuild-mode)
+
 ;; Predicate function for comparison of architecture keywords
 ;; (needed for variable definitions below)
 (defun ebuild-mode-arch-lessp (a b)
@@ -124,6 +134,12 @@ of lines."
 
 (defvar ebuild-mode-arch-regexp
   "^[ \t]*KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
+
+(defvar ebuild-mode-copyright-regexp
+  "^#[ \t]*Copyright[ \t]+\\([1-9][0-9]+\\)-\\([1-9][0-9]+\\)[ \t]")
+
+(defvar ebuild-mode-cvs-header-regexp
+  "^#[ \t]*\\$\\(Id\\|Header\\)\\(: .*\\)?\\$[ \t]*$")
 
 (defvar ebuild-mode-licenses
   (condition-case nil
@@ -232,11 +248,39 @@ Optional argument LIMIT restarts collection after that number of elements."
 	    (delete-region (match-beginning 0) (point))
 	    (indent-to end-col)))))))
 
+(defun ebuild-mode-update-copyright ()
+  ;; Update copyright years
+  (save-excursion
+    (goto-char (point-min))
+    (let ((case-fold-search nil))
+      (if (re-search-forward ebuild-mode-copyright-regexp 400 t)
+	  (let ((first-year (string-to-number (match-string 1)))
+		(last-year (string-to-number (match-string 2)))
+		(this-year-string (format-time-string "%Y")))
+	    (if (and (<= 1999 first-year) ; only 2 args in GNU Emacs 23
+		     (<= first-year last-year)
+		     (<= last-year (string-to-number this-year-string)))
+		(replace-match this-year-string t t nil 2)
+	      (lwarn 'ebuild-mode :warning
+		     "Suspicious range of copyright years: %d-%d"
+		     first-year last-year)))))))
+
+(defun ebuild-mode-delete-cvs-line ()
+  ;; Remove a CVS $Id$ or $Header$ line
+  (save-excursion
+    (goto-char (point-min))
+    (let ((case-fold-search nil))
+      (if (re-search-forward ebuild-mode-cvs-header-regexp 400 t)
+	  (delete-region (match-beginning 0) (1+ (point)))))))
+
 (defun ebuild-mode-before-save ()
   (when ebuild-mode-fix-whitespace
     (delete-trailing-whitespace)
     (ebuild-mode-tabify))
-  ;;(copyright-update)			; doesn't exist in XEmacs
+  (when ebuild-mode-update-copyright
+    (ebuild-mode-update-copyright))
+  (when ebuild-mode-delete-cvs-line
+    (ebuild-mode-delete-cvs-line))
   ;; return nil, otherwise the file is presumed to be written
   nil)
 

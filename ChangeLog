@@ -1,3 +1,14 @@
+2017-02-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-update-copyright)
+	(ebuild-mode-delete-cvs-line): New custom variables, default to t.
+	(ebuild-mode-copyright-regexp, ebuild-mode-cvs-header-regexp):
+	New variables.
+	(ebuild-mode-update-copyright, ebuild-mode-delete-cvs-line):
+	New functions.
+	(ebuild-mode-before-save): Update copyright years and remove CVS
+	Id or Header line, when customised to do so, respectively.
+
 2017-02-27  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode): New customisation group.
