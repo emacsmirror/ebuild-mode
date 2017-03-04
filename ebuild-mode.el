@@ -254,16 +254,14 @@ Optional argument LIMIT restarts collection after that number of elements."
     (goto-char (point-min))
     (let ((case-fold-search nil))
       (if (re-search-forward ebuild-mode-copyright-regexp 400 t)
-	  (let ((first-year (string-to-number (match-string 1)))
-		(last-year (string-to-number (match-string 2)))
-		(this-year-string (format-time-string "%Y")))
-	    (if (and (<= 1999 first-year) ; only 2 args in GNU Emacs 23
-		     (<= first-year last-year)
-		     (<= last-year (string-to-number this-year-string)))
-		(replace-match this-year-string t t nil 2)
-	      (lwarn 'ebuild-mode :warning
-		     "Suspicious range of copyright years: %d-%d"
-		     first-year last-year)))))))
+	  (let* ((y1 (string-to-number (match-string 1)))
+		 (y2 (string-to-number (match-string 2)))
+		 (year (format-time-string "%Y"))
+		 (y (string-to-number year)))
+	    (if (or (> 1999 y1) (>= y1 y2) (> y2 y))
+		(lwarn 'ebuild-mode :warning
+		       "Suspicious range of copyright years: %d-%d" y1 y2)
+	      (if (/= y2 y) (replace-match year t t nil 2))))))))
 
 (defun ebuild-mode-delete-cvs-line ()
   ;; Remove a CVS $Id$ or $Header$ line
