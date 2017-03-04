@@ -471,9 +471,8 @@ and `all-completions' for details."
    & "\n\n" | -5
    ;; inherited eclasses
    "inherit "
-   ((completing-read
-     "Eclass (null string to terminate): "
-     (mapcar 'list ebuild-mode-eclasses))
+   ((completing-read "Eclass (null string to terminate): "
+		     (mapcar 'list ebuild-mode-eclasses))
     str & " ")
    & -1 & "\n\n" | -8
    ;; first variables block
@@ -489,9 +488,8 @@ and `all-completions' for details."
    "\n"
    ;; second variables block
    "LICENSE=\""
-   ((completing-read
-     "License (null string to terminate): "
-     (mapcar 'list ebuild-mode-licenses))
+   ((completing-read "License (null string to terminate): "
+		     (mapcar 'list ebuild-mode-licenses))
     str & " ")
    & -1 "\"\n"
    "SLOT=\"0\"\n"
@@ -504,15 +502,13 @@ and `all-completions' for details."
     str & " ")
    & -1 "\"\n"
    "IUSE=\""
-   ((completing-read
-     "USE flag (null string to terminate): "
-     (mapcar 'list ebuild-mode-use-flags))
+   ((completing-read "USE flag (null string to terminate): "
+		     (mapcar 'list ebuild-mode-use-flags))
     str & " ")
    & -1 & "\"\n" | -6
    "RESTRICT=\""
-   ((completing-read
-     "RESTRICT (null string to terminate): "
-     (mapcar 'list ebuild-mode-restrict-list))
+   ((completing-read "RESTRICT (null string to terminate): "
+		     (mapcar 'list ebuild-mode-restrict-list))
     str & " ")
    & -1 & "\"\n" | -10
    "\n"
