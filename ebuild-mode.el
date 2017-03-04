@@ -141,6 +141,12 @@ of lines."
 (defvar ebuild-mode-cvs-header-regexp
   "^#[ \t]*\\$\\(Id\\|Header\\)\\(: .*\\)?\\$[ \t]*$")
 
+(defvar ebuild-mode-protocols-homepage
+  '("http://" "https://" "ftp://"))
+
+(defvar ebuild-mode-protocols-src_uri
+  '("http://" "https://" "ftp://" "mirror://"))
+
 (defvar ebuild-mode-licenses
   (condition-case nil
       (directory-files (concat ebuild-mode-portdir "/licenses")
@@ -472,10 +478,13 @@ and `all-completions' for details."
    & -1 & "\n\n" | -8
    ;; first variables block
    "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
-   "HOMEPAGE=\"" (completing-read "Homepage: " '(("http://"))) "\"\n"
+   "HOMEPAGE=\""
+   (completing-read "Homepage: "
+		    (mapcar 'list ebuild-mode-protocols-homepage))
+   "\"\n"
    "SRC_URI=\""
-   (completing-read
-    "Source URI: " (mapcar 'list '("http://" "ftp://" "mirror://")))
+   (completing-read "Source URI: "
+		    (mapcar 'list ebuild-mode-protocols-src_uri))
    "\"\n"
    "\n"
    ;; second variables block

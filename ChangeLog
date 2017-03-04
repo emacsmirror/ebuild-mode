@@ -1,5 +1,10 @@
 2017-03-04  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-protocols-homepage)
+	(ebuild-mode-protocols-src_uri): New variables.
+	(ebuild-mode-insert-skeleton): Add https:// to completions
+	for HOMEPAGE and SRC_URI.
+
 	* ebuild-mode.el (ebuild-mode-update-copyright): Modify the buffer
 	only if necessary. Warn about equal first and last year.
 
