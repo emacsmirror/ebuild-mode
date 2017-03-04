@@ -69,6 +69,13 @@ A formfeed is not considered whitespace by this function."
   :type 'string
   :group 'ebuild-mode)
 
+(defcustom ebuild-mode-eapi-list
+  '("5" "6")
+  "List of supported EAPIs.
+The most recent EAPI must be listed last."
+  :type '(repeat string)
+  :group 'ebuild-mode)
+
 (defcustom ebuild-mode-fix-whitespace t
   "If non-nil, fix whitespace before writing a file.
 Namely, delete trailing whitespace and tabify whitespace at beginning
@@ -465,10 +472,12 @@ and `all-completions' for details."
    "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
    "# Distributed under the terms of the GNU General Public License v2\n"
    "\n"
-   ;; EAPI
    "EAPI="
-   (skeleton-read "EAPI: ")
-   & "\n\n" | -5
+   (completing-read
+    "EAPI: " (mapcar 'list ebuild-mode-eapi-list)
+    nil nil (car (last ebuild-mode-eapi-list))) ; default to most recent EAPI
+   "\n"
+   "\n"
    ;; inherited eclasses
    "inherit "
    ((completing-read "Eclass (null string to terminate): "

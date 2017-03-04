@@ -1,5 +1,8 @@
 2017-03-04  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-eapi-list): New custom variable.
+	(ebuild-mode-insert-skeleton): Use it in a completing-read.
+
 	* ebuild-mode.el (ebuild-mode-protocols-homepage)
 	(ebuild-mode-protocols-src_uri): New variables.
 	(ebuild-mode-insert-skeleton): Add https:// to completions
