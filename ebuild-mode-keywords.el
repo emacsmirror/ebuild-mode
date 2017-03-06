@@ -997,6 +997,11 @@
   '(("fix_PEAR_PV" "php-pear-r1_pkg_setup" "php-pear-r1_src_install")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-php-pear-r2
+  '(("php-pear-r2_install_packagexml" "php-pear-r2_pkg_postinst"
+     "php-pear-r2_pkg_postrm" "php-pear-r2_src_install")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-portability
   '(("dlopen_lib" "get_bmake" "get_mounts" "is-login-disabled" "seq"
      "treecopy")
