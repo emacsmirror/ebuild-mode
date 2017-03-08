@@ -39,6 +39,10 @@
        . font-lock-keyword-face)))
   "Expressions to highlight in Gentoo newsitem mode.")
 
+(defvar gentoo-newsitem-format-list
+  '("1.0" "2.0")
+  "List of news item formats defined by GLEP 42.")
+
 ;;;###autoload
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
   "Major mode for Gentoo GLEP 42 news items."
@@ -58,12 +62,26 @@
    "Author: " str "\n")
   ((skeleton-read "Translator (null string to terminate): ")
    "Translator: " str "\n")
-  "Content-Type: text/plain\n"
+  ;;@					; not supported in XEmacs 21.5
+  (progn
+    (setq v2 (point-marker))
+    nil)
   "Posted: " (skeleton-read "Date of posting: "
 			    (format-time-string "%Y-%m-%d"))
   "\n"
   "Revision: 1\n"
-  "News-Item-Format: 1.0\n"
+  "News-Item-Format: "
+  (setq v1 (completing-read
+	    "News-Item-Format: "
+	    (mapcar 'list gentoo-newsitem-format-list) nil 'confirm
+	    nil nil (car (last gentoo-newsitem-format-list))))
+  "\n"
+  (if (string-equal v1 "1.0")
+      (save-excursion
+	;;(goto-char (car skeleton-positions))
+	(goto-char v2)
+	(insert "Content-Type: text/plain\n")
+	nil))
   ((skeleton-read "Display-If-Installed: (null string to terminate): ")
    "Display-If-Installed: " str "\n")
   ((skeleton-read "Display-If-Keyword: (null string to terminate): ")

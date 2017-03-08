@@ -1,3 +1,9 @@
+2017-03-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
+	Account for news item format 2.0.
+	(gentoo-newsitem-format-list): New variable.
+
 2017-03-06  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.34 released.
