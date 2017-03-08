@@ -167,7 +167,7 @@ of lines."
        (lambda (x) (substring x 0 (string-match "\\.eclass\\'" x)))
        (directory-files (concat ebuild-mode-portdir "/eclass")
 			nil "\\.eclass\\'"))
-     (file-error nil))
+    (file-error nil))
   "List of eclasses, determined from the ebuild repository.")
 
 (defvar ebuild-mode-restrict-list
@@ -226,7 +226,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 		 (not (and limit (> (length (car e)) limit))))
 	    (setcar e (append (car e) (car c)))
 	  (setq dst (cons (copy-sequence c) dst))))))
-)
+  )
 
 (eval-when-compile
   (load "ebuild-mode-keywords" nil t))
@@ -467,63 +467,63 @@ and `all-completions' for details."
 
 (define-skeleton ebuild-mode-insert-skeleton
   "Insert a statement skeleton for a new ebuild."
-   nil
-   ;; standard header
-   "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
-   "# Distributed under the terms of the GNU General Public License v2\n"
-   "\n"
-   "EAPI="
-   (completing-read
-    "EAPI: " (mapcar 'list ebuild-mode-eapi-list)
-    nil nil (car (last ebuild-mode-eapi-list))) ; default to most recent EAPI
-   "\n"
-   "\n"
-   ;; inherited eclasses
-   "inherit "
-   ((completing-read "Eclass (null string to terminate): "
-		     (mapcar 'list ebuild-mode-eclasses))
-    str & " ")
-   & -1 & "\n\n" | -8
-   ;; first variables block
-   "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
-   "HOMEPAGE=\""
-   (completing-read "Homepage: "
-		    (mapcar 'list ebuild-mode-protocols-homepage))
-   "\"\n"
-   "SRC_URI=\""
-   (completing-read "Source URI: "
-		    (mapcar 'list ebuild-mode-protocols-src_uri))
-   "\"\n"
-   "\n"
-   ;; second variables block
-   "LICENSE=\""
-   ((completing-read "License (null string to terminate): "
-		     (mapcar 'list ebuild-mode-licenses))
-    str & " ")
-   & -1 "\"\n"
-   "SLOT=\"0\"\n"
-   "KEYWORDS=\""
-   ((completing-read
-     "Keyword (null string to terminate): "
-     (nconc
-      (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list)
-      (mapcar 'list ebuild-mode-arch-stable-list)))
-    str & " ")
-   & -1 "\"\n"
-   "IUSE=\""
-   ((completing-read "USE flag (null string to terminate): "
-		     (mapcar 'list ebuild-mode-use-flags))
-    str & " ")
-   & -1 & "\"\n" | -6
-   "RESTRICT=\""
-   ((completing-read "RESTRICT (null string to terminate): "
-		     (mapcar 'list ebuild-mode-restrict-list))
-    str & " ")
-   & -1 & "\"\n" | -10
-   "\n"
-   ;; dependencies
-   "DEPEND=\"\"\n"
-   "RDEPEND=\"\$\{DEPEND\}\"\n")
+  nil
+  ;; standard header
+  "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
+  "# Distributed under the terms of the GNU General Public License v2\n"
+  "\n"
+  "EAPI="
+  (completing-read
+   "EAPI: " (mapcar 'list ebuild-mode-eapi-list)
+   nil nil (car (last ebuild-mode-eapi-list))) ; default to most recent EAPI
+  "\n"
+  "\n"
+  ;; inherited eclasses
+  "inherit "
+  ((completing-read "Eclass (null string to terminate): "
+		    (mapcar 'list ebuild-mode-eclasses))
+   str & " ")
+  & -1 & "\n\n" | -8
+  ;; first variables block
+  "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
+  "HOMEPAGE=\""
+  (completing-read "Homepage: "
+		   (mapcar 'list ebuild-mode-protocols-homepage))
+  "\"\n"
+  "SRC_URI=\""
+  (completing-read "Source URI: "
+		   (mapcar 'list ebuild-mode-protocols-src_uri))
+  "\"\n"
+  "\n"
+  ;; second variables block
+  "LICENSE=\""
+  ((completing-read "License (null string to terminate): "
+		    (mapcar 'list ebuild-mode-licenses))
+   str & " ")
+  & -1 "\"\n"
+  "SLOT=\"0\"\n"
+  "KEYWORDS=\""
+  ((completing-read
+    "Keyword (null string to terminate): "
+    (nconc
+     (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list)
+     (mapcar 'list ebuild-mode-arch-stable-list)))
+   str & " ")
+  & -1 "\"\n"
+  "IUSE=\""
+  ((completing-read "USE flag (null string to terminate): "
+		    (mapcar 'list ebuild-mode-use-flags))
+   str & " ")
+  & -1 & "\"\n" | -6
+  "RESTRICT=\""
+  ((completing-read "RESTRICT (null string to terminate): "
+		    (mapcar 'list ebuild-mode-restrict-list))
+   str & " ")
+  & -1 & "\"\n" | -10
+  "\n"
+  ;; dependencies
+  "DEPEND=\"\"\n"
+  "RDEPEND=\"\$\{DEPEND\}\"\n")
 
 ;;; echangelog support.
 
@@ -560,7 +560,7 @@ and `all-completions' for details."
 (and (< emacs-major-version 22)
      ;; make TAB key work
      (defadvice sh-must-be-shell-mode
-       (around ebuild-mode-sh-must-be-shell-mode activate)
+	 (around ebuild-mode-sh-must-be-shell-mode activate)
        (or (eq major-mode 'ebuild-mode)
 	   ad-do-it)))
 

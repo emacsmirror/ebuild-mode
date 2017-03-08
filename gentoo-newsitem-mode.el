@@ -48,29 +48,29 @@
 
 (define-skeleton gentoo-newsitem-insert-skeleton
   "Insert a skeleton for a Gentoo GLEP 42 news item."
-   nil
-   "Title: " (skeleton-read "Title: ") "\n"
-   "Author: " (skeleton-read
-	       "Author's real name and e-mail address: "
-	       (concat user-full-name " <" user-mail-address ">"))
-   "\n"
-   ((skeleton-read "Further author (null string to terminate): ")
-    "Author: " str "\n")
-   ((skeleton-read "Translator (null string to terminate): ")
-    "Translator: " str "\n")
-   "Content-Type: text/plain\n"
-   "Posted: " (skeleton-read "Date of posting: "
-			     (format-time-string "%Y-%m-%d"))
-   "\n"
-   "Revision: 1\n"
-   "News-Item-Format: 1.0\n"
-   ((skeleton-read "Display-If-Installed: (null string to terminate): ")
-    "Display-If-Installed: " str "\n")
-   ((skeleton-read "Display-If-Keyword: (null string to terminate): ")
-    "Display-If-Keyword: " str "\n")
-   ((skeleton-read "Display-If-Profile: (null string to terminate): ")
-    "Display-If-Profile: " str "\n")
-   "\n")
+  nil
+  "Title: " (skeleton-read "Title: ") "\n"
+  "Author: " (skeleton-read
+	      "Author's real name and e-mail address: "
+	      (concat user-full-name " <" user-mail-address ">"))
+  "\n"
+  ((skeleton-read "Further author (null string to terminate): ")
+   "Author: " str "\n")
+  ((skeleton-read "Translator (null string to terminate): ")
+   "Translator: " str "\n")
+  "Content-Type: text/plain\n"
+  "Posted: " (skeleton-read "Date of posting: "
+			    (format-time-string "%Y-%m-%d"))
+  "\n"
+  "Revision: 1\n"
+  "News-Item-Format: 1.0\n"
+  ((skeleton-read "Display-If-Installed: (null string to terminate): ")
+   "Display-If-Installed: " str "\n")
+  ((skeleton-read "Display-If-Keyword: (null string to terminate): ")
+   "Display-If-Keyword: " str "\n")
+  ((skeleton-read "Display-If-Profile: (null string to terminate): ")
+   "Display-If-Profile: " str "\n")
+  "\n")
 
 
 (define-key gentoo-newsitem-mode-map
