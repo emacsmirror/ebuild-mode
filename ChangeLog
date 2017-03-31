@@ -1,3 +1,8 @@
+2017-03-31  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-before-save):
+	Call ebuild-mode-update-copyright only once per buffer.
+
 2017-03-17  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.35 released.

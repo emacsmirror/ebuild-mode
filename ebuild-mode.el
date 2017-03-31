@@ -289,7 +289,9 @@ Optional argument LIMIT restarts collection after that number of elements."
     (delete-trailing-whitespace)
     (ebuild-mode-tabify))
   (when ebuild-mode-update-copyright
-    (ebuild-mode-update-copyright))
+    (ebuild-mode-update-copyright)
+    ;; call it only once per buffer
+    (set (make-local-variable 'ebuild-mode-update-copyright) nil))
   (when ebuild-mode-delete-cvs-line
     (ebuild-mode-delete-cvs-line))
   ;; return nil, otherwise the file is presumed to be written
