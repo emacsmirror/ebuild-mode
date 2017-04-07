@@ -213,7 +213,7 @@ of lines."
       (error "Keywords argument must be a list of strings"))
     (cons (concat prefix "\\<"
 		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
-		    (regexp-opt keywords-list t))
+		    (regexp-opt (delete-dups keywords-list) t))
 		  "\\>" suffix)
 	  face))
 

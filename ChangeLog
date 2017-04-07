@@ -1,3 +1,8 @@
+2017-04-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-make-keywords-list): Call regexp-opt
+	without duplicates in its argument list.
+
 2017-03-31  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-before-save):
