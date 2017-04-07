@@ -1,5 +1,7 @@
 2017-04-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.37 released.
+
 	* ebuild-mode.el (ebuild-mode-make-keywords-list): XEmacs 21.4
 	doesn't have delete-dups, use delete-duplicates instead.
 
