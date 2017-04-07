@@ -1,5 +1,7 @@
 2017-04-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* ebuild-mode.el (ebuild-mode-make-keywords-list): Call regexp-opt
 	without duplicates in its argument list.
 

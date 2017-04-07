@@ -137,9 +137,8 @@
      "apache_mod_file")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-aspell-dict
-  '(("aspell-dict_src_compile" "aspell-dict_src_configure"
-     "aspell-dict_src_install")
+(defvar ebuild-mode-keywords-aspell-dict-r1
+  '(("aspell-dict-r1_src_configure" "aspell-dict-r1_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-autotools
@@ -345,15 +344,25 @@
      "enlightenment_src_unpack")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-epatch
+  '(("epatch" "epatch_user")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-epunt-cxx
+  '(("epunt_cxx" "eqawarn" "eutils_elt_patch_dir")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-estack
+  '(("eshopts_pop" "eshopts_push" "estack_pop" "estack_push" "eumask_pop"
+     "eumask_push" "evar_pop" "evar_push" "evar_push_set" "isdigit")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-eutils
   '(("built_with_use" "check_license" "doicon" "domenu" "ebeep" "ecvs_clean"
-     "edos2unix" "egit_clean" "einstalldocs" "emktemp" "epatch" "epatch_user"
-     "epause" "epunt_cxx" "eqawarn" "eshopts_pop" "eshopts_push" "estack_pop"
-     "estack_push" "esvn_clean" "eumask_pop" "eumask_push"
-     "eutils_elt_patch_dir" "evar_pop" "evar_push" "evar_push_set" "in_iuse"
-     "isdigit" "make_desktop_entry" "make_session_desktop" "make_wrapper"
-     "newicon" "newmenu" "optfeature" "path_exists" "preserve_old_lib"
-     "preserve_old_lib_notify" "prune_libtool_files" "strip-linguas"
+     "edos2unix" "egit_clean" "einstalldocs" "emktemp" "epause" "eqawarn"
+     "esvn_clean" "in_iuse" "make_desktop_entry" "make_session_desktop"
+     "make_wrapper" "newicon" "newmenu" "optfeature" "path_exists"
+     "preserve_old_lib" "preserve_old_lib_notify" "strip-linguas"
      "use_if_iuse" "usex" "validate_desktop_entries")
     font-lock-type-face))
 
@@ -747,6 +756,10 @@
   '(("get_llvm_prefix" "llvm_pkg_setup")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-ltprune
+  '(("prune_libtool_files")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-makeedit
   '(("edit_makefiles")
     font-lock-type-face))
@@ -785,6 +798,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozconfig-v6.51
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.52
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
@@ -1103,9 +1120,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-rebar
-  '(("erebar" "get_erl_libs" "rebar_fix_include_path" "rebar_remove_deps"
-     "rebar_set_vsn" "rebar_src_compile" "rebar_src_configure"
-     "rebar_src_install" "rebar_src_prepare" "rebar_src_test")
+  '(("erebar" "get_erl_libs" "rebar_disable_coverage" "rebar_fix_include_path"
+     "rebar_remove_deps" "rebar_set_vsn" "rebar_src_compile"
+     "rebar_src_configure" "rebar_src_install" "rebar_src_prepare"
+     "rebar_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ros-catkin
@@ -1245,6 +1263,11 @@
      "toolchain_src_test" "toolchain_src_unpack" "want_minispecs" "want_pie")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-toolchain-autoconf
+  '(("slot_info_pages" "toolchain-autoconf_src_configure"
+     "toolchain-autoconf_src_install" "toolchain-autoconf_src_prepare")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-toolchain-binutils
   '(("add_src_uri" "is_cross" "tc-binutils_apply_patches" "tc-binutils_unpack"
      "toolchain-binutils_bugurl" "toolchain-binutils_pkg_postinst"
@@ -1273,6 +1296,25 @@
      "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc" "tc-is-softfloat"
      "tc-is-static-only" "tc-ld-disable-gold" "tc-ld-is-gold"
      "tc-ninja_magic_to_arch" "tc-stack-grows-down")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-toolchain-glibc
+  '(("alt_build_headers" "alt_headers" "alt_libdir" "alt_prefix"
+     "alt_usrlibdir" "builddir" "check_devpts" "check_nptl_support"
+     "dump_toolchain_settings" "eend_KV" "foreach_abi" "get_kheader_version"
+     "glibc_banner" "glibc_compile_test" "glibc_do_configure" "glibc_run_test"
+     "glibc_sanity_check" "glibc_src_test" "int_to_KV" "just_headers"
+     "nonfatal" "setup_env" "setup_flags" "setup_target_flags" "src_strip"
+     "toolchain-glibc_do_src_compile" "toolchain-glibc_do_src_configure"
+     "toolchain-glibc_do_src_install" "toolchain-glibc_do_src_test"
+     "toolchain-glibc_do_src_unpack" "toolchain-glibc_headers_configure"
+     "toolchain-glibc_headers_install" "toolchain-glibc_pkg_postinst"
+     "toolchain-glibc_pkg_preinst" "toolchain-glibc_pkg_pretend"
+     "toolchain-glibc_pkg_setup" "toolchain-glibc_src_compile"
+     "toolchain-glibc_src_configure" "toolchain-glibc_src_install"
+     "toolchain-glibc_src_prepare" "toolchain-glibc_src_test"
+     "toolchain-glibc_src_unpack" "unpack_pkg" "use_multiarch" "want__thread"
+     "want_linuxthreads" "want_nptl" "want_tls")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-twisted-r1
@@ -1391,8 +1433,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xemacs-packages
-  '(("xemacs-packages_src_compile" "xemacs-packages_src_install"
-     "xemacs-packages_src_unpack")
+  '(("xemacs-packages_src_install" "xemacs-packages_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xfconf
