@@ -213,7 +213,10 @@ of lines."
       (error "Keywords argument must be a list of strings"))
     (cons (concat prefix "\\<"
 		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
-		    (regexp-opt (delete-dups keywords-list) t))
+		    (regexp-opt (if (fboundp 'delete-dups) ; not in XEmacs 21.4
+				    (delete-dups keywords-list)
+				  (delete-duplicates keywords-list))
+				t))
 		  "\\>" suffix)
 	  face))
 
