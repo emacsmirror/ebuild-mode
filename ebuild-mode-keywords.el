@@ -230,10 +230,7 @@
      "cmake-utils_use_enable" "cmake-utils_use_find_package"
      "cmake-utils_use_has" "cmake-utils_use_no" "cmake-utils_use_use"
      "cmake-utils_use_want" "cmake-utils_use_with" "cmake-utils_useno"
-     "cmake_comment_add_subdirectory" "comment_add_subdirectory"
-     "enable_cmake-utils_src_compile" "enable_cmake-utils_src_configure"
-     "enable_cmake-utils_src_install" "enable_cmake-utils_src_prepare"
-     "enable_cmake-utils_src_test")
+     "cmake_comment_add_subdirectory" "comment_add_subdirectory")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp
@@ -256,19 +253,6 @@
      "register-common-lisp-implementation"
      "reregister-all-common-lisp-implementations" "standard-impl-postinst"
      "standard-impl-postrm" "test-in" "unregister-common-lisp-implementation")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-confutils
-  '(("confutils_init" "confutils_require_any"
-     "confutils_require_built_with_all" "confutils_require_built_with_any"
-     "confutils_require_one" "confutils_use_conflict"
-     "confutils_use_depend_all" "confutils_use_depend_any"
-     "confutils_use_depend_built_with_all"
-     "confutils_use_depend_built_with_any" "enable_extension_disable"
-     "enable_extension_enable" "enable_extension_enable_built_with"
-     "enable_extension_enableonly" "enable_extension_with"
-     "enable_extension_with_built_with" "enable_extension_withonly"
-     "enable_extension_without")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cron
@@ -349,7 +333,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-epunt-cxx
-  '(("epunt_cxx" "eqawarn" "eutils_elt_patch_dir")
+  '(("epunt_cxx")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-estack
@@ -553,16 +537,6 @@
   '(("golang-vcs-snapshot_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gpe
-  '(("gpe_src_compile" "gpe_src_configure" "gpe_src_install" "gpe_src_prepare"
-     "gpe_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-gst-plugins10
-  '(("gst-plugins10_src_compile" "gst-plugins10_src_configure"
-     "gst-plugins10_src_install" "gst-plugins10_system_link")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-gstreamer
   '(("gstreamer_multilib_src_compile" "gstreamer_multilib_src_configure"
      "gstreamer_multilib_src_install" "gstreamer_multilib_src_install_all"
@@ -725,9 +699,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-libtool
-  '(("ELT_libtool_version" "ELT_try_and_apply_patch" "ELT_walk_patches"
-     "VER_major" "VER_micro" "VER_minor" "VER_to_int" "darwintoolize"
-     "elibtoolize" "libtool_elt_patch_dir" "uclibctoolize")
+  '(("darwintoolize" "elibtoolize" "uclibctoolize")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-linux-info
@@ -774,6 +746,11 @@
   '(("mercurial_fetch" "mercurial_src_unpack")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-meson
+  '(("meson_src_compile" "meson_src_configure" "meson_src_install"
+     "meson_src_test")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mono
   '(("egacinstall" "mono_multilib_comply")
     font-lock-type-face))
@@ -805,7 +782,20 @@
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mozconfig-v6.53
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.55
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mozcoreconf-v4
+  '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
+     "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozcoreconf-v5
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
     font-lock-type-face))
@@ -919,6 +909,10 @@
      "netsurf_src_test")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-ninja-utils
+  '(("eninja")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-nsplugins
   '(("inst_plugin" "pkg_mv_plugins" "share_plugins_dir" "src_mv_plugins")
     font-lock-type-face))
@@ -944,6 +938,10 @@
      "office-ext-r1_src_install" "office-ext-r1_src_unpack")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-opam
+  '(("opam-install" "opam_src_install")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-openib
   '(("block_other_ofed_versions" "openib_src_unpack")
     font-lock-type-face))
@@ -965,7 +963,9 @@
 (defvar ebuild-mode-keywords-perl-functions
   '(("perl_check_env" "perl_delete_emptybsdir" "perl_delete_localpod"
      "perl_delete_module_manpages" "perl_delete_packlist" "perl_doexamples"
-     "perl_fix_osx_extra" "perl_fix_packlist" "perl_link_duallife_scripts"
+     "perl_domodule" "perl_fix_osx_extra" "perl_fix_packlist"
+     "perl_get_module_version" "perl_get_raw_vendorlib" "perl_get_vendorlib"
+     "perl_has_module" "perl_has_module_version" "perl_link_duallife_scripts"
      "perl_remove_temppath" "perl_rm_files" "perl_set_version")
     font-lock-type-face))
 
@@ -1006,10 +1006,6 @@
   '(("php-lib-r1_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-php-pear-lib-r1
-  '(("php-pear-lib-r1_pkg_setup" "php-pear-lib-r1_src_install")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-php-pear-r1
   '(("fix_PEAR_PV" "php-pear-r1_pkg_setup" "php-pear-r1_src_install")
     font-lock-type-face))
@@ -1024,6 +1020,17 @@
      "treecopy")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-postgres
+  '(("postgres_check_slot" "postgres_new_user" "postgres_pkg_setup")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-postgres-multi
+  '(("postgres-multi_forbest" "postgres-multi_foreach"
+     "postgres-multi_pkg_setup" "postgres-multi_src_compile"
+     "postgres-multi_src_install" "postgres-multi_src_prepare"
+     "postgres-multi_src_test")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-prefix
   '(("eprefixify" "hprefixify" "prefixify_ro")
     font-lock-type-face))
@@ -1034,9 +1041,9 @@
 
 (defvar ebuild-mode-keywords-python-r1
   '(("python_copy_sources" "python_export_best" "python_foreach_impl"
-     "python_gen_cond_dep" "python_gen_impl_dep" "python_gen_usedep"
-     "python_gen_useflags" "python_parallel_foreach_impl"
-     "python_replicate_script" "python_setup")
+     "python_gen_any_dep" "python_gen_cond_dep" "python_gen_impl_dep"
+     "python_gen_usedep" "python_gen_useflags" "python_replicate_script"
+     "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-single-r1
@@ -1127,10 +1134,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ros-catkin
-  '(("ros-catkin_src_compile" "ros-catkin_src_configure"
-     "ros-catkin_src_configure_internal" "ros-catkin_src_install"
-     "ros-catkin_src_install_with_python" "ros-catkin_src_prepare"
-     "ros-catkin_src_test" "ros-catkin_src_test_internal")
+  '(("ros-catkin_python_setup" "ros-catkin_src_compile"
+     "ros-catkin_src_configure" "ros-catkin_src_install"
+     "ros-catkin_src_prepare" "ros-catkin_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-rpm
@@ -1220,8 +1226,9 @@
      "systemd_get_systemunitdir" "systemd_get_unitdir"
      "systemd_get_userunitdir" "systemd_get_utildir"
      "systemd_install_serviced" "systemd_is_booted" "systemd_newtmpfilesd"
-     "systemd_newunit" "systemd_newuserunit" "systemd_tmpfiles_create"
-     "systemd_update_catalog" "systemd_with_unitdir" "systemd_with_utildir")
+     "systemd_newunit" "systemd_newuserunit" "systemd_reenable"
+     "systemd_tmpfiles_create" "systemd_update_catalog" "systemd_with_unitdir"
+     "systemd_with_utildir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-texlive-common
@@ -1284,7 +1291,8 @@
      "gcc-specs-directive" "gcc-specs-nostrict" "gcc-specs-now"
      "gcc-specs-pie" "gcc-specs-relro" "gcc-specs-ssp" "gcc-specs-ssp-to-all"
      "gcc-specs-stack-check" "gcc-version" "gen_usr_ldscript" "tc-arch"
-     "tc-arch-kernel" "tc-check-openmp" "tc-endian" "tc-export"
+     "tc-arch-kernel" "tc-check-openmp" "tc-enables-pie" "tc-enables-ssp"
+     "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-export"
      "tc-export_build_env" "tc-get-compiler-type" "tc-getAR" "tc-getAS"
      "tc-getBUILD_AR" "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP"
      "tc-getBUILD_CXX" "tc-getBUILD_LD" "tc-getBUILD_NM" "tc-getBUILD_OBJCOPY"
