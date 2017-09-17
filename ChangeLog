@@ -1,3 +1,9 @@
+2017-09-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el: New file. Mode for editing Gentoo Linux
+	Enhancement Proposals that are written in reStructuredText.
+	* Makefile (DISTFILES): Add glep-mode.el.
+
 2017-09-15  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.38 released.
