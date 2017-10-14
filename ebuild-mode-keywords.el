@@ -241,10 +241,10 @@
 
 (defvar ebuild-mode-keywords-common-lisp-3
   '(("absolute-path-p" "common-lisp-3_src_compile" "common-lisp-3_src_install"
-     "common-lisp-export-impl-args" "common-lisp-get-fpredicate"
-     "common-lisp-install-asdf" "common-lisp-install-one-asdf"
-     "common-lisp-install-one-source" "common-lisp-install-sources"
-     "lisp-file-p")
+     "common-lisp-export-impl-args" "common-lisp-find-lisp-impl"
+     "common-lisp-get-fpredicate" "common-lisp-install-asdf"
+     "common-lisp-install-one-asdf" "common-lisp-install-one-source"
+     "common-lisp-install-sources" "lisp-file-p")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-common-lisp-common
@@ -303,6 +303,10 @@
 
 (defvar ebuild-mode-keywords-dotnet
   '(("dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-eapi7-ver
+  '(("ver_cut" "ver_rs" "ver_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp
@@ -790,6 +794,10 @@
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mozconfig-v6.56
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mozcoreconf-v4
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
@@ -1114,7 +1122,7 @@
   '(("qt5-build_pkg_postinst" "qt5-build_pkg_postrm" "qt5-build_src_compile"
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
      "qt5-build_src_test" "qt5-build_src_unpack" "qt_use"
-     "qt_use_compile_test" "qt_use_disable_mod")
+     "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-readme.gentoo
