@@ -1,3 +1,7 @@
+2017-10-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (glep-mode): Document the new mode.
+
 2017-09-17  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el: New file. Mode for editing Gentoo Linux

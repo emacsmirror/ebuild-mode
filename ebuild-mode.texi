@@ -1,5 +1,6 @@
 \input texinfo.tex    @c -*-texinfo-*-
 @c %**start of header
+@documentencoding UTF-8
 @setfilename ebuild-mode.info
 @settitle Major mode for ebuilds and eclasses in Gentoo
 @c %**end of header
@@ -28,6 +29,7 @@ later version published by the Free Software Foundation.
 @title ebuild-mode 1.38
 @subtitle Major mode for ebuilds and eclasses in Gentoo
 @author Christian Faulhammer
+@author Ulrich Müller
 @page
 @insertcopying
 @end titlepage
@@ -60,6 +62,7 @@ by skeleton support.
 * ebuild-mode:: Editing ebuilds.
 * eclass-mode:: Editing eclasses.
 * gentoo-newsitem-mode:: Editing GLEP 42 news items.
+* glep-mode:: Editing Gentoo Linux Enhancement Proposals.
 @end menu
 
 @node Commands, ebuild-mode, Top, Top
@@ -181,7 +184,7 @@ Create a ChangeLog entry.
 There is no special eclass-mode but ebuild-mode is used without the
 commands that make no sense in eclasses.
 
-@node gentoo-newsitem-mode, , eclass-mode, Top
+@node gentoo-newsitem-mode, glep-mode, eclass-mode, Top
 @chapter gentoo-newsitem-mode for GLEP 42 news items
 This mode supports the highlighting of relevant keywords for GLEP 42
 news items.  These news items get displayed if special criteria for
@@ -197,5 +200,16 @@ GLEP 42 (see there for details), but can also be invoked through the
 @kbd{C-c C-n} which starts a skeleton assistant similar to the one
 available in @code{ebuild-mode}.  All mandatory information are asked
 from the user so no item is forgotten.
+
+@node glep-mode, , gentoo-newsitem-mode, Top
+@chapter glep-mode for Gentoo Linux Enhancement Proposals
+This major mode supports editing of Gentoo Linux Enhancement Proposals.
+Because GLEPs are written in reStructuredText, this mode is derived
+from @code{rst-mode} and inherits its syntax highlighting and editing
+functions.  Furthermore, highlighting of known keywords in the GLEP's
+preamble is supported.  A skeleton for a new GLEP can be inserted via
+the @code{glep-mode-insert-skeleton} function bound to @kbd{C-c C-n}.
+It will automatically fill some metadata, like creation date and
+author's name, and query the user for other fields.
 
 @bye
