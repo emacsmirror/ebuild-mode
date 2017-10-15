@@ -160,7 +160,7 @@ to `font-lock-end'."
 ;;   Post-History: <dates of postings to mailing lists>
 ;;   Content-Type: <text/x-rst>
 ;; * Requires: <glep numbers>
-;; * Replaces: <glep number>
+;; * Replaces: <glep numbers>
 ;; * Replaced-By: <glep number>
 ;;   ---
 
@@ -319,10 +319,10 @@ References
 ==========
 
 .. [#GLEP1] GLEP 1, GLEP Purpose and Guidelines, Goodyear,
-   (http://glep.gentoo.org/glep-0001.html)
+   (https://www.gentoo.org/glep/glep-0001.html)
 
 .. [#GLEP2] GLEP 2, Sample ReStructuredText GLEP Template, Goodyear,
-   (http://glep.gentoo.org/glep-0002.html)
+   (https://www.gentoo.org/glep/glep-0002.html)
 
 
 Copyright
