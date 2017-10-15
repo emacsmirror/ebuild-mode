@@ -1,5 +1,12 @@
 2017-10-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-run-echangelog): Drop echangelog support,
+	gentoolkit-dev is deprecated and gentoolkit does now provide the
+	command any more.
+	(ebuild-mode-map, ebuild-mode-menu): Drop keybinding and menu
+	entry for ebuild-run-echangelog.
+	* ebuild-mode.texi (ebuild-mode): Update documentation.
+
 	* glep-mode.el (glep-mode-insert-skeleton): Update URLs of GLEP 1
 	and GLEP 2. Update info on header format from GLEP 1.
 

@@ -530,20 +530,11 @@ and `all-completions' for details."
   "DEPEND=\"\"\n"
   "RDEPEND=\"\$\{DEPEND\}\"\n")
 
-;;; echangelog support.
-
-(defun ebuild-run-echangelog (text)
-  (interactive "sLog entry: ")
-  (let ((bufname "*echangelog*"))
-    (with-output-to-temp-buffer bufname
-      (call-process "echangelog" nil (get-buffer bufname) nil text))))
-
 
 ;;; Keybindings.
 
 ;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-(define-key ebuild-mode-map "\C-c\C-a" 'ebuild-run-echangelog)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
 (define-key ebuild-mode-map "\C-c\C-b" 'ebuild-mode-all-keywords-unstable)
@@ -557,7 +548,6 @@ and `all-completions' for details."
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
-    ["Run echangelog" ebuild-run-echangelog]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
     ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]))
