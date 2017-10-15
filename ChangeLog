@@ -7,7 +7,7 @@
 	Relicense glep-mode to GPL version 2, or any later version.
 
 	* ebuild-mode.el (ebuild-run-echangelog): Drop echangelog support,
-	gentoolkit-dev is deprecated and gentoolkit does now provide the
+	gentoolkit-dev is deprecated and gentoolkit does not provide the
 	command any more.
 	(ebuild-mode-map, ebuild-mode-menu): Drop keybinding and menu
 	entry for ebuild-run-echangelog.
