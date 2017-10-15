@@ -7,8 +7,9 @@
 ;; Keywords: languages
 
 ;; This file is free software: you can redistribute it and/or modify
-;; it under the terms of the GNU General Public License as published
-;; by the Free Software Foundation, version 3 of the License.
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 2 of the License, or
+;; (at your option) any later version.
 
 ;; This file is distributed in the hope that it will be useful,
 ;; but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -17,20 +18,6 @@
 
 ;; You should have received a copy of the GNU General Public License
 ;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
-
-;; This file contains in "glep-mode-insert-skeleton" some adapted
-;; material taken from GLEP 2, Sample ReStructuredText GLEP Template,
-;; Grant Goodyear, Chris Reffett, Ulrich Müller, originally licensed
-;; under the Creative Commons Attribution-ShareAlike 3.0 License.
-;; By section 4(b) of that license, the adaptation can be distributed
-;; under CC BY-SA version 4.0.  It is in turn included here under
-;; the terms of the GPLv3, via the one-way compatibility approved in
-;; https://creativecommons.org/compatiblelicenses.
-
-;; By section 14 of the GPLv3, Creative Commons is hereby specified
-;; as a proxy (via http://creativecommons.org/compatiblelicenses)
-;; to decide whether future versions of the GPL can be used for this
-;; work.
 
 ;;; Commentary:
 
@@ -195,7 +182,9 @@ to `font-lock-end'."
   ((skeleton-read "Replaces: (null string if none): ") "Replaces: " str "\n")
   "---\n"
   "\n\n"
-  ;; Most of the following text is taken from GLEP 2.
+  ;; Most of the following text is taken from GLEP 2, based on the last
+  ;; CVS version by Grant Goodyear, which is in the public domain:
+  ;; https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo/xml/htdocs/proj/en/glep/glep-0002.txt
   "\
 How to Use This Template
 ========================
@@ -254,8 +243,8 @@ directions below.
   to the format guidelines of GLEP 2 [#GLEP2]_, specifically on the
   indentation requirements.
 
-- Update your References section.  You should leave the Copyright section
-  as-is, since all new GLEPs are to be licensed under the Creative Commons
+- Update your References section.  Just leave the Copyright section alone,
+  because all new GLEPs must be released under the Creative Commons
   Attribution-ShareAlike License, Version 3.0.
 
 - Send your GLEP submission to the GLEP editors at glep@gentoo.org.

@@ -1,5 +1,11 @@
 2017-10-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* glep-mode.el: The template text in glep-mode-insert-skeleton has
+	not much changed from the last CVS version of GLEP 2, which is in
+	the public domain. We can therefore base it on that version and
+	avoid the complications of including CC-BY-SA licensed material.
+	Relicense glep-mode to GPL version 2, or any later version.
+
 	* ebuild-mode.el (ebuild-run-echangelog): Drop echangelog support,
 	gentoolkit-dev is deprecated and gentoolkit does now provide the
 	command any more.
