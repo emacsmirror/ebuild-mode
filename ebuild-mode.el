@@ -59,39 +59,39 @@ A formfeed is not considered whitespace by this function."
 
 ;;; Variables.
 
-(defgroup ebuild-mode nil
-  "Ebuild mode."
+(defgroup ebuild nil
+  "Major mode for Gentoo .ebuild and .eclass files."
   :group 'languages)
 
 (defcustom ebuild-mode-portdir
   "/usr/portage"
   "Location of the ebuild repository."
   :type 'string
-  :group 'ebuild-mode)
+  :group 'ebuild)
 
 (defcustom ebuild-mode-eapi-list
   '("5" "6")
   "List of supported EAPIs.
 The most recent EAPI must be listed last."
   :type '(repeat string)
-  :group 'ebuild-mode)
+  :group 'ebuild)
 
 (defcustom ebuild-mode-fix-whitespace t
   "If non-nil, fix whitespace before writing a file.
 Namely, delete trailing whitespace and tabify whitespace at beginning
 of lines."
   :type 'boolean
-  :group 'ebuild-mode)
+  :group 'ebuild)
 
 (defcustom ebuild-mode-update-copyright t
   "If non-nil, update copyright years before writing a file."
   :type 'boolean
-  :group 'ebuild-mode)
+  :group 'ebuild)
 
 (defcustom ebuild-mode-delete-cvs-line t
   "If non-nil, delete any CVS $Id$ or $Header$ line before writing a file."
   :type 'boolean
-  :group 'ebuild-mode)
+  :group 'ebuild)
 
 ;; Predicate function for comparison of architecture keywords
 ;; (needed for variable definitions below)
@@ -275,7 +275,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 		 (year (format-time-string "%Y"))
 		 (y (string-to-number year)))
 	    (if (or (> 1999 y1) (>= y1 y2) (> y2 y))
-		(lwarn 'ebuild-mode :warning
+		(lwarn 'ebuild :warning
 		       "Suspicious range of copyright years: %d-%d" y1 y2)
 	      (if (/= y2 y) (replace-match year t t nil 2))))))))
 
