@@ -232,11 +232,12 @@ directions below.
   yours depends on.  Don't add this header if your dependent feature is
   described in a Final GLEP.
 
-- Add a Replaces header if your GLEP obsoletes an earlier GLEP.  The value
-  of this header is the number of the GLEP that your new GLEP is replacing.
-  Only add this header if the older GLEP is in \"final\" form, i.e. is either
-  Accepted, Final, or Rejected.  You aren't replacing an older open GLEP
-  if you're submitting a competing idea.
+- Add a Replaces header if your GLEP obsoletes one or more earlier GLEPs.
+  The value of this header is the numbers of the GLEPs that your new GLEP
+  is replacing, separated by commas.  Only add this header if the older
+  GLEP is in \"final\" form, i.e. is either Accepted, Final, or Rejected.
+  You aren't replacing an older open GLEP if you're submitting a competing
+  idea.
 
 - Now write your Abstract, Rationale, and other content for your GLEP,
   replacing all of this gobbledygook with your own text.  Be sure to adhere

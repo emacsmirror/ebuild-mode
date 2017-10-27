@@ -1,3 +1,8 @@
+2017-10-27  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-insert-skeleton): Update from GLEP 2.
+	Inclusion of that modification under GPL-2+ acked by mgorny.
+
 2017-10-15  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el: The template text in glep-mode-insert-skeleton has
