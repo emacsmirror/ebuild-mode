@@ -28,6 +28,15 @@
 (require 'easymenu)
 (require 'skeleton)
 
+(defgroup glep nil
+  "Major mode for Gentoo Linux Enhancement Proposals."
+  :group 'wp)
+
+(defcustom glep-mode-update-last-modified t
+  "If non-nil, update Last-Modified date before writing a file."
+  :type 'boolean
+  :group 'glep)
+
 (defvar glep-mode-font-lock-keywords
   (eval-when-compile
     (concat "^"
@@ -42,9 +51,33 @@
 (defvar glep-mode-delim-re "^---$"
   "Regexp matching delimiters of the GLEP header.")
 
+(defvar glep-mode-last-modified-re
+  "^Last-Modified:[ \t]+\\([0-9]\\{4\\}-[0-9][0-9]-[0-9][0-9]\\)[ \t]*$"
+  "Regexp matching the Last-Modified header line.")
+
 (defvar glep-mode-preamble-limit 2000
   "Maximum length of GLEP preamble.
 For efficiency only. Unlimited if nil.")
+
+(defun glep-mode-update-last-modified ()
+  ;; Update Last-Modified date
+  (save-excursion
+    (goto-char (point-min))
+    (let ((date (format-time-string "%Y-%m-%d" nil t))
+	  (case-fold-search nil))
+      (and (re-search-forward glep-mode-last-modified-re
+			      glep-mode-preamble-limit t)
+	   (glep-mode-in-preamble-p (point))
+	   (not (string-equal date (match-string 1)))
+	   (replace-match date t t nil 1)))))
+
+(defun glep-mode-before-save ()
+  (when glep-mode-update-last-modified
+    (glep-mode-update-last-modified)
+    ;; call it only once per buffer
+    (set (make-local-variable 'glep-mode-update-last-modified) nil))
+  ;; return nil, otherwise the file is presumed to be written
+  nil)
 
 ;;;###autoload
 (define-derived-mode glep-mode rst-mode "GLEP"
@@ -59,7 +92,8 @@ For efficiency only. Unlimited if nil.")
   (setq sentence-end-double-space t)
   (setq fill-column 70)
   (add-hook 'font-lock-extend-region-functions
-	    'glep-mode-font-lock-extend-region t))
+	    'glep-mode-font-lock-extend-region t)
+  (add-hook 'write-contents-hooks 'glep-mode-before-save t t))
 
 (add-hook
  'glep-mode-hook

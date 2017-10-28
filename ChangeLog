@@ -1,3 +1,13 @@
+2017-10-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-update-last-modified): New function,
+	updates the Last-Modified header when saving the file.
+	(glep): New customisation group.
+	(glep-mode-update-last-modified): New custom variable.
+	(glep-mode-last-modified-re): New variable.
+	(glep-mode-before-save): New function.
+	(glep-mode): Add glep-mode-before-save to write-contents-hook.
+
 2017-10-27  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild): Rename customisation group.
