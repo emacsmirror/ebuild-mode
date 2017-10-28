@@ -137,6 +137,9 @@ For efficiency only. Unlimited if nil.")
 	 (glep-mode-in-preamble-p pos)
 	 (goto-char pos))))
 
+(defvar font-lock-beg)
+(defvar font-lock-end)
+
 (defun glep-mode-font-lock-extend-region ()
   "Extend the font-lock region if it might be in a multi-line construct.
 Return non-nil if so.  Font-lock region is from `font-lock-beg'

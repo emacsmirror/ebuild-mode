@@ -1,5 +1,8 @@
 2017-10-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* glep-mode.el (font-lock-beg, font-lock-end): Define to suppress
+	byte-compiler warnings.
+
 	* glep-mode.el (glep-mode-update-last-modified): New function,
 	updates the Last-Modified header when saving the file.
 	(glep): New customisation group.
