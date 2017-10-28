@@ -984,11 +984,6 @@
      "perl-module_src_test" "perl-module_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-php-ext-pecl-r2
-  '(("php-ext-pecl-r2_src_compile" "php-ext-pecl-r2_src_install"
-     "php-ext-pecl-r2_src_test")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-php-ext-pecl-r3
   '(("php-ext-pecl-r3_src_install" "php-ext-pecl-r3_src_test")
     font-lock-type-face))

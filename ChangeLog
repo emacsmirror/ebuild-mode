@@ -1,5 +1,7 @@
 2017-10-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* glep-mode.el (font-lock-beg, font-lock-end): Define to suppress
 	byte-compiler warnings.
 
