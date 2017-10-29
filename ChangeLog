@@ -1,3 +1,8 @@
+2017-10-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (glep-mode): Document that glep-mode does not
+	work with XEmacs.
+
 2017-10-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.40 released.

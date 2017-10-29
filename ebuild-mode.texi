@@ -207,4 +207,7 @@ the @code{glep-mode-insert-skeleton} function bound to @kbd{C-c C-n}.
 It will automatically fill some metadata, like creation date and
 author's name, and query the user for other fields.
 
+Currently @code{glep-mode} works with GNU Emacs only, because the
+underlying @code{rst-mode} does not support XEmacs.
+
 @bye
