@@ -89,8 +89,8 @@ For efficiency only. Unlimited if nil.")
   (setq tab-width 4)
   ;; GLEP 2 specifies double space after a full stop, and filling
   ;; of paragraphs to column 70.
-  (setq sentence-end-double-space t)
   (setq fill-column 70)
+  (set (make-local-variable 'sentence-end-double-space) t)
   (add-hook 'font-lock-extend-region-functions
 	    'glep-mode-font-lock-extend-region t)
   (add-hook 'write-contents-hooks 'glep-mode-before-save t t))

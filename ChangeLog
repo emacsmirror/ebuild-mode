@@ -1,3 +1,8 @@
+2017-11-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode): Make sentence-end-double-space local
+	in this buffer.
+
 2017-10-29  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.texi (glep-mode): Document that glep-mode does not
