@@ -1,3 +1,7 @@
+2017-12-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 2017-11-05  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el (glep-mode): Make sentence-end-double-space local

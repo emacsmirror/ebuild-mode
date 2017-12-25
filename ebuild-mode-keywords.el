@@ -288,6 +288,11 @@
      "want_apache2_4")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-desktop
+  '(("doicon" "domenu" "make_desktop_entry" "make_session_desktop" "newicon"
+     "newmenu")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-distutils-r1
   '(("distutils-r1_python_compile" "distutils-r1_python_configure"
      "distutils-r1_python_install" "distutils-r1_python_install_all"
@@ -346,12 +351,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-eutils
-  '(("built_with_use" "check_license" "doicon" "domenu" "ebeep" "ecvs_clean"
-     "edos2unix" "egit_clean" "einstalldocs" "emktemp" "epause" "eqawarn"
-     "esvn_clean" "in_iuse" "make_desktop_entry" "make_session_desktop"
-     "make_wrapper" "newicon" "newmenu" "optfeature" "path_exists"
-     "preserve_old_lib" "preserve_old_lib_notify" "strip-linguas"
-     "use_if_iuse" "usex" "validate_desktop_entries")
+  '(("built_with_use" "ebeep" "ecvs_clean" "edos2unix" "egit_clean"
+     "einstalldocs" "emktemp" "epause" "eqawarn" "esvn_clean" "in_iuse"
+     "make_wrapper" "optfeature" "path_exists" "preserve_old_lib"
+     "preserve_old_lib_notify" "strip-linguas" "use_if_iuse" "usex")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fcaps
@@ -752,7 +755,7 @@
 
 (defvar ebuild-mode-keywords-meson
   '(("meson_src_compile" "meson_src_configure" "meson_src_install"
-     "meson_src_test")
+     "meson_src_test" "meson_use")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mono
@@ -795,6 +798,10 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozconfig-v6.56
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.57
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
@@ -873,17 +880,6 @@
      "mysql-cmake_use_plugin")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mysql-multilib
-  '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
-     "mysql-multilib_disable_test" "mysql-multilib_getopt"
-     "mysql-multilib_getoptval" "mysql-multilib_pkg_config"
-     "mysql-multilib_pkg_postinst" "mysql-multilib_pkg_preinst"
-     "mysql-multilib_pkg_pretend" "mysql-multilib_pkg_setup"
-     "mysql-multilib_src_compile" "mysql-multilib_src_configure"
-     "mysql-multilib_src_install" "mysql-multilib_src_prepare"
-     "mysql-multilib_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mysql-multilib-r1
   '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
      "mysql-cmake_use_plugin" "mysql-multilib-r1_disable_test"
@@ -954,6 +950,11 @@
   '(("block_other_ofed_versions" "openib_src_unpack")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-out-of-source
+  '(("out-of-source_src_compile" "out-of-source_src_configure"
+     "out-of-source_src_install" "out-of-source_src_test")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-pam
   '(("cleanpamd" "dopamd" "dopammod" "dopamsecurity" "getpam_mod_dir"
      "newpamd" "newpammod" "newpamsecurity" "pam_epam_expand" "pamd_mimic"
@@ -1003,10 +1004,6 @@
      "php-ext-source-r3_src_configure" "php-ext-source-r3_src_install"
      "php-ext-source-r3_src_prepare" "php-ext-source-r3_src_test"
      "php-ext-source-r3_src_unpack" "php_get_slots" "php_init_slot_env")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-php-lib-r1
-  '(("php-lib-r1_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-php-pear-r1
@@ -1226,8 +1223,8 @@
 (defvar ebuild-mode-keywords-systemd
   '(("systemd_dotmpfilesd" "systemd_dounit" "systemd_douserunit"
      "systemd_enable_ntpunit" "systemd_enable_service"
-     "systemd_get_systemunitdir" "systemd_get_unitdir"
-     "systemd_get_userunitdir" "systemd_get_utildir"
+     "systemd_get_systemgeneratordir" "systemd_get_systemunitdir"
+     "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
      "systemd_install_serviced" "systemd_is_booted" "systemd_newtmpfilesd"
      "systemd_newunit" "systemd_newuserunit" "systemd_reenable"
      "systemd_tmpfiles_create" "systemd_update_catalog" "systemd_with_unitdir"
