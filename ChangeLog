@@ -1,3 +1,8 @@
+2018-01-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-skeleton): Flip order of
+	DEPEND and RDEPEND. Suggested by Aaron Swenson.
+
 2018-01-12  Ulrich Müller  <ulm@gentoo.org>
 
 	* keyword-generation.sh (OBSOLETE): Cleanup.

@@ -527,8 +527,8 @@ and `all-completions' for details."
   & -1 & "\"\n" | -10
   "\n"
   ;; dependencies
-  "DEPEND=\"\"\n"
-  "RDEPEND=\"\$\{DEPEND\}\"\n")
+  "RDEPEND=\"\"\n"
+  "DEPEND=\"\$\{RDEPEND\}\"\n")
 
 
 ;;; Keybindings.
