@@ -215,6 +215,7 @@ to `font-lock-end'."
   "Created: " (format-time-string "%Y-%m-%d") "\n"
   "Last-Modified: " (format-time-string "%Y-%m-%d") "\n"
   "Post-History: \n"
+  "Content-Type: text/x-rst\n"
   ((skeleton-read "Requires: (null string if none): ") "Requires: " str "\n")
   ((skeleton-read "Replaces: (null string if none): ") "Replaces: " str "\n")
   "---\n"

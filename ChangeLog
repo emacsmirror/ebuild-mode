@@ -1,3 +1,8 @@
+2018-01-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-insert-skeleton): Add missing
+	Content-Type header line.
+
 2018-01-25  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-skeleton): Flip order of
