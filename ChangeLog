@@ -1,5 +1,9 @@
 2018-01-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* glep-mode.el (glep-mode-format-html): New command.
+	(glep-mode-map): Bind to "C-c C-f".
+	(glep-mode-menu): Add to menu.
+
 	* glep-mode.el (glep-mode-insert-skeleton): Add missing
 	Content-Type header line.
 

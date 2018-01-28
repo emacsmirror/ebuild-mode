@@ -168,6 +168,17 @@ to `font-lock-end'."
 
 (ad-activate 'rst-classify-adornment)
 
+;;; Generate HTML from GLEP.
+
+;;;###autoload
+(defun glep-mode-format-html ()
+  (interactive)
+  "Generate HTML from reStructuredText GLEP file.
+Calls the external \"glep\" command."
+  (let* ((rst-file (file-relative-name buffer-file-name))
+	 (html-file (concat (file-name-sans-extension rst-file) ".html")))
+    (compile (format "glep %s %s" rst-file html-file))))
+
 ;;; Skeleton support.
 
 ;; Header format, as specified by GLEP 1.
@@ -361,13 +372,15 @@ Attribution-ShareAlike 3.0 Unported License.  To view a copy of this
 license, visit http://creativecommons.org/licenses/by-sa/3.0/.
 ")
 
-(define-key glep-mode-map
-  "\C-c\C-n" 'glep-mode-insert-skeleton)
+;; rst-mode already uses the following C-c C-<letter> keys: aclrt
+(define-key glep-mode-map "\C-c\C-n" 'glep-mode-insert-skeleton)
+(define-key glep-mode-map "\C-c\C-f" 'glep-mode-format-html)
 
 (easy-menu-define glep-mode-menu glep-mode-map
   "Menu for glep-mode."
   `("GLEP"
-    ["Insert skeleton" glep-mode-insert-skeleton]))
+    ["Insert skeleton" glep-mode-insert-skeleton]
+    ["Format as HTML" glep-mode-format-html]))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("/glep.*\\.rst\\'" . glep-mode))
