@@ -115,6 +115,7 @@
 ;; All keyword lists below this line are auto-generated
 ;; from keyword-generation.sh
 
+;; @@KEYWORDS-BEGIN@@
 (defvar ebuild-mode-keywords-alternatives
   '(("alternatives_auto_makesym" "alternatives_makesym"
      "alternatives_pkg_postinst" "alternatives_pkg_postrm")
@@ -1457,6 +1458,8 @@
      "xorg-2_reconf_source" "xorg-2_src_compile" "xorg-2_src_configure"
      "xorg-2_src_install" "xorg-2_src_prepare" "xorg-2_src_unpack")
     font-lock-type-face))
+
+;; @@KEYWORDS-END@@
 
 ;; Local Variables:
 ;; coding: utf-8

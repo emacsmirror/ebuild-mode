@@ -1,3 +1,10 @@
+2018-01-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: Automatically update keywords in
+	ebuild-mode-keywords.el.
+	* ebuild-mode-keywords.el: Insert tokens to mark begin and end
+	of automatically generated keywords.
+
 2018-01-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el (glep-mode-format-html): New command.

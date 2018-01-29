@@ -27,8 +27,6 @@ has() {
     return 1
 }
 
-echo "Output in ${TMPFILE}"
-
 for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     eclass=${ECLASSES[i]}
     has ${eclass} ${OBSOLETE} && continue
@@ -63,3 +61,8 @@ emacs -q --batch \
                   (paragraph-start \"^.\"))
               (fill-region (point-min) (point-max)))" \
     --eval "(save-buffer)" --kill
+
+sed -i -e "/@@KEYWORDS-BEGIN@@/,/@@KEYWORDS-END@@/{//!d}
+/@@KEYWORDS-BEGIN@@/r${TMPFILE}" ebuild-mode-keywords.el
+
+rm "${TMPFILE}"
