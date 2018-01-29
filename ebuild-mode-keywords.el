@@ -352,10 +352,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-eutils
-  '(("built_with_use" "ebeep" "ecvs_clean" "edos2unix" "egit_clean"
-     "einstalldocs" "emktemp" "epause" "eqawarn" "esvn_clean" "in_iuse"
-     "make_wrapper" "optfeature" "path_exists" "preserve_old_lib"
-     "preserve_old_lib_notify" "strip-linguas" "use_if_iuse" "usex")
+  '(("ebeep" "ecvs_clean" "edos2unix" "egit_clean" "einstalldocs" "emktemp"
+     "epause" "eqawarn" "esvn_clean" "in_iuse" "make_wrapper" "optfeature"
+     "path_exists" "strip-linguas" "use_if_iuse" "usex")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fcaps
@@ -456,8 +455,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gkrellm-plugin
-  '(("gkrellm-plugin_dir" "gkrellm-plugin_pkg_setup"
-     "gkrellm-plugin_server_dir" "gkrellm-plugin_src_install")
+  '(("gkrellm-plugin_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnatbuild
@@ -806,6 +804,10 @@
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-mozconfig-v6.58
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-mozcoreconf-v4
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
@@ -857,10 +859,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multiprocessing
-  '(("bashpid" "get_nproc" "makeopts_jobs" "makeopts_loadavg"
-     "multijob_child_init" "multijob_finish" "multijob_finish_one"
-     "multijob_init" "multijob_post_fork" "multijob_pre_fork"
-     "redirect_alloc_fd")
+  '(("get_nproc" "makeopts_jobs" "makeopts_loadavg")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-myspell
@@ -1034,6 +1033,10 @@
 
 (defvar ebuild-mode-keywords-prefix
   '(("eprefixify" "hprefixify" "prefixify_ro")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-preserve-libs
+  '(("preserve_old_lib" "preserve_old_lib_notify")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-any-r1
@@ -1394,11 +1397,6 @@
 
 (defvar ebuild-mode-keywords-virtualx
   '(("Xeconf" "Xemake" "Xmake" "virtualmake" "virtx")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-vmware-bundle
-  '(("vmware-bundle_extract-bundle-component"
-     "vmware-bundle_extract-component")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-waf-utils

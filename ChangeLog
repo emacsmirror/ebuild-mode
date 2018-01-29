@@ -1,5 +1,7 @@
 2018-01-29  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* keyword-generation.sh: Automatically update keywords in
 	ebuild-mode-keywords.el.
 	* ebuild-mode-keywords.el: Insert tokens to mark begin and end
