@@ -319,7 +319,6 @@ Optional argument LIMIT restarts collection after that number of elements."
 
 ;;; Run ebuild command.
 
-;;;###autoload
 (defun ebuild-run-command (command)
   "Run ebuild COMMAND, with output to a compilation buffer."
   (interactive

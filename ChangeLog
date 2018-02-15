@@ -1,3 +1,8 @@
+2018-02-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-run-command):
+	* glep-mode.el (glep-mode-format-html): Don't autoload.
+
 2018-01-29  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.42 released.

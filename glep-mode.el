@@ -170,7 +170,6 @@ to `font-lock-end'."
 
 ;;; Generate HTML from GLEP.
 
-;;;###autoload
 (defun glep-mode-format-html ()
   (interactive)
   "Generate HTML from reStructuredText GLEP file.
