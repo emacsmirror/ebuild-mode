@@ -1,3 +1,8 @@
+2018-04-14  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-insert-skeleton): Use 9999 as dummy GLEP
+	number, because XXX causes a warning in docutils-glep. Bug 653126.
+
 2018-02-15  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-run-command):

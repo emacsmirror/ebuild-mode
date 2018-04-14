@@ -202,7 +202,7 @@ Calls the external \"glep\" command."
   "Insert a skeleton for a Gentoo Linux Enhancement Proposal."
   nil
   "---\n"
-  "GLEP: " (skeleton-read "GLEP: " "XXX") "\n"
+  "GLEP: " (skeleton-read "GLEP: " "9999") "\n"
   "Title: " (skeleton-read "Title: ") "\n"
   "Author: " (skeleton-read
 	      "Author's real name and e-mail address: "
