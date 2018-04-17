@@ -173,23 +173,13 @@
   '(("bashcomp_alias" "dobashcomp" "get_bashcompdir" "newbashcomp")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-bitcoincore
-  '(("LJR_PATCH" "LJR_PV" "bitcoincore_autoreconf"
-     "bitcoincore_common_depend_use" "bitcoincore_conf"
-     "bitcoincore_pkg_pretend" "bitcoincore_policy_iuse"
-     "bitcoincore_policymsg" "bitcoincore_predelete_patch"
-     "bitcoincore_prepare" "bitcoincore_src_install" "bitcoincore_src_prepare"
-     "bitcoincore_src_test" "in_bcc_iuse" "in_bcc_policy")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-bsdmk
   '(("append-opt" "bsdmk_src_compile" "bsdmk_src_install" "dummy_mk"
      "mkinstall" "mkmake")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bzr
-  '(("bzr_bootstrap" "bzr_fetch" "bzr_initial_fetch" "bzr_src_prepare"
-     "bzr_src_unpack" "bzr_update")
+  '(("bzr_fetch" "bzr_initial_fetch" "bzr_src_unpack" "bzr_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cannadic
@@ -234,26 +224,12 @@
      "cmake_comment_add_subdirectory" "comment_add_subdirectory")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-common-lisp
-  '(("common-lisp-install" "common-lisp-system-symlink"
-     "common-lisp_pkg_postinst" "common-lisp_pkg_postrm"
-     "common-lisp_pkg_preinst")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-common-lisp-3
   '(("absolute-path-p" "common-lisp-3_src_compile" "common-lisp-3_src_install"
      "common-lisp-export-impl-args" "common-lisp-find-lisp-impl"
      "common-lisp-get-fpredicate" "common-lisp-install-asdf"
      "common-lisp-install-one-asdf" "common-lisp-install-one-source"
      "common-lisp-install-sources" "lisp-file-p")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-common-lisp-common
-  '(("do-debian-credits" "impl-remove-timestamp-hack"
-     "impl-restore-timestamp-hack" "impl-save-timestamp-hack"
-     "register-common-lisp-implementation"
-     "reregister-all-common-lisp-implementations" "standard-impl-postinst"
-     "standard-impl-postrm" "test-in" "unregister-common-lisp-implementation")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cron
@@ -352,9 +328,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-eutils
-  '(("ebeep" "ecvs_clean" "edos2unix" "egit_clean" "einstalldocs" "emktemp"
-     "epause" "eqawarn" "esvn_clean" "in_iuse" "make_wrapper" "optfeature"
-     "path_exists" "strip-linguas" "use_if_iuse" "usex")
+  '(("ebeep" "edos2unix" "einstalldocs" "emktemp" "epause" "eqawarn" "in_iuse"
+     "make_wrapper" "optfeature" "path_exists" "strip-linguas" "use_if_iuse"
+     "usex")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fcaps
@@ -581,9 +557,8 @@
 
 (defvar ebuild-mode-keywords-java-ant-2
   '(("java-ant-2_src_configure" "java-ant_bsfix_files" "java-ant_bsfix_one"
-     "java-ant_ignore-system-classes" "java-ant_remove-taskdefs"
-     "java-ant_rewrite-bootclasspath" "java-ant_rewrite-classpath"
-     "java-ant_xml-rewrite")
+     "java-ant_ignore-system-classes" "java-ant_rewrite-bootclasspath"
+     "java-ant_rewrite-classpath" "java-ant_xml-rewrite")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-osgi
@@ -637,29 +612,6 @@
      "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup" "java-vm_install-env"
      "java-vm_revdep-mask" "java-vm_sandbox-predict"
      "java-vm_set-pax-markings" "set_java_env")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-kde4-base
-  '(("kde4-base_pkg_postinst" "kde4-base_pkg_postrm" "kde4-base_pkg_preinst"
-     "kde4-base_pkg_setup" "kde4-base_src_compile" "kde4-base_src_configure"
-     "kde4-base_src_install" "kde4-base_src_prepare" "kde4-base_src_test"
-     "kde4-base_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-kde4-functions
-  '(("add_kdeapps_dep" "add_kdebase_dep" "buildsycoca"
-     "comment_all_add_subdirectory" "enable_selected_doc_linguas"
-     "enable_selected_linguas" "get_kde_version"
-     "install_library_dependencies" "load_library_dependencies"
-     "save_library_dependencies")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-kde4-meta
-  '(("kde4-meta_change_cmakelists" "kde4-meta_create_extractlists"
-     "kde4-meta_pkg_postinst" "kde4-meta_pkg_postrm" "kde4-meta_pkg_preinst"
-     "kde4-meta_pkg_setup" "kde4-meta_src_compile" "kde4-meta_src_configure"
-     "kde4-meta_src_extract" "kde4-meta_src_install" "kde4-meta_src_prepare"
-     "kde4-meta_src_test" "kde4-meta_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde5
@@ -736,10 +688,6 @@
 
 (defvar ebuild-mode-keywords-ltprune
   '(("prune_libtool_files")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-makeedit
-  '(("edit_makefiles")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mate
@@ -1003,7 +951,7 @@
      "php-ext-source-r3_phpize" "php-ext-source-r3_src_compile"
      "php-ext-source-r3_src_configure" "php-ext-source-r3_src_install"
      "php-ext-source-r3_src_prepare" "php-ext-source-r3_src_test"
-     "php-ext-source-r3_src_unpack" "php_get_slots" "php_init_slot_env")
+     "php_get_slots" "php_init_slot_env")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-php-pear-r1
@@ -1353,6 +1301,10 @@
 (defvar ebuild-mode-keywords-vala
   '(("vala_api_versions" "vala_best_api_version" "vala_depend"
      "vala_src_prepare")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-vcs-clean
+  '(("ecvs_clean" "egit_clean" "esvn_clean")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vcs-snapshot

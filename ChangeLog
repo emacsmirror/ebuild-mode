@@ -1,3 +1,7 @@
+2018-04-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 2018-04-14  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el (glep-mode-insert-skeleton): Use 9999 as dummy GLEP
