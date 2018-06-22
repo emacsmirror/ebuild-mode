@@ -1,5 +1,7 @@
 2018-06-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-eapi-list): Add 7.
+
 	* ebuild-mode-keywords.el
 	(ebuild-mode-keywords-eclass-documentation): Update keywords
 	from eclass-to-manpage.awk.
