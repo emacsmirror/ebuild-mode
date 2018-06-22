@@ -34,13 +34,13 @@
 (defvar ebuild-mode-keywords-0
   '(("assert" "best_version" "debug-print" "debug-print-function"
      "debug-print-section" "die" "diropts" "dobin" "docinto" "doconfd" "dodir"
-     "dodoc" "doenvd" "doexe" "doinfo" "doinitd" "doins" "dolib" "dolib.a"
-     "dolib.so" "doman" "domo" "dosbin" "dosym" "ebegin" "econf" "eend"
-     "eerror" "einfo" "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts"
-     "fowners" "fperms" "has" "hasv" "has_version" "inherit" "insinto"
-     "insopts" "into" "keepdir" "libopts" "newbin" "newconfd" "newdoc"
-     "newenvd" "newexe" "newinitd" "newins" "newlib.a" "newlib.so" "newman"
-     "newsbin" "unpack" "use" "usev" "use_enable" "use_with")
+     "dodoc" "doenvd" "doexe" "doinfo" "doinitd" "doins" "dolib.a" "dolib.so"
+     "doman" "domo" "dosbin" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
+     "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts" "fowners" "fperms"
+     "has" "hasv" "has_version" "inherit" "insinto" "insopts" "into" "keepdir"
+     "newbin" "newconfd" "newdoc" "newenvd" "newexe" "newinitd" "newins"
+     "newlib.a" "newlib.so" "newman" "newsbin" "unpack" "use" "usev"
+     "use_enable" "use_with")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-EAPI
@@ -58,6 +58,10 @@
 
 (defvar ebuild-mode-keywords-eapi6
   '(("eapply" "eapply_user" "einstalldocs" "get_libdir" "in_iuse")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-eapi7
+  '(("dostrip" "eqawarn" "ver_cut" "ver_rs" "ver_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-functions
@@ -86,8 +90,8 @@
 
 (defvar ebuild-mode-keywords-eapi-deprecated
   ;; deprecated or banned package manager commands
-  '(("dohard" "dohtml" "dosed" "einstall" "hasq" "prepalldocs" "prepall"
-     "prepallinfo" "prepallman" "prepallstrip" "useq")
+  '(("dohard" "dohtml" "dolib" "dosed" "einstall" "hasq" "libopts"
+     "prepalldocs" "prepall" "prepallinfo" "prepallman" "prepallstrip" "useq")
     font-lock-warning-face))
 
 ;; Eclass keywords

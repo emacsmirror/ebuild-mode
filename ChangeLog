@@ -1,3 +1,9 @@
+2018-06-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi-deprecated)
+	(ebuild-mode-keywords-0): dolib and libopts are deprecated.
+	(ebuild-mode-keywords-eapi7): New variable for EAPI 7 commands.
+
 2018-06-05  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el (glep-mode-insert-skeleton): Fold lines as in the
