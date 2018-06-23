@@ -133,8 +133,7 @@
 (defvar ebuild-mode-keywords-apache-2
   '(("apache-2_pkg_postinst" "apache-2_pkg_setup" "apache-2_src_configure"
      "apache-2_src_install" "apache-2_src_prepare" "check_module_critical"
-     "check_module_depends" "check_upgrade" "generate_load_module"
-     "setup_modules" "setup_mpm")
+     "check_upgrade" "generate_load_module" "setup_modules" "setup_mpm")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-apache-module
@@ -439,32 +438,6 @@
   '(("gkrellm-plugin_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gnatbuild
-  '(("add_profile_eselect_conf" "create_eselect_conf" "create_specs_file"
-     "disgusting_gcc_multilib_HACK" "do_gnat_config" "gnatbuild_pkg_postinst"
-     "gnatbuild_pkg_postrm" "gnatbuild_pkg_setup" "gnatbuild_src_compile"
-     "gnatbuild_src_configure" "gnatbuild_src_install" "gnatbuild_src_unpack"
-     "is_crosscompile" "is_multilib" "should_we_eselect_gnat")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-gnatbuild-r1
-  '(("add_profile_eselect_conf" "create_eselect_conf"
-     "disgusting_gcc_multilib_HACK" "do_gnat_config" "gcc-abi-map"
-     "gcc-multilib-configure" "gnatbuild-r1_pkg_postinst"
-     "gnatbuild-r1_pkg_postrm" "gnatbuild-r1_pkg_setup"
-     "gnatbuild-r1_src_compile" "gnatbuild-r1_src_configure"
-     "gnatbuild-r1_src_install" "gnatbuild-r1_src_unpack"
-     "guess_patch_type_in_dir" "is_crosscompile" "is_multilib" "make_gcc_hard"
-     "should_we_eselect_gnat" "tc_version_is_at_least")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-gnome-games
-  '(("gnome-games_pkg_postinst" "gnome-games_pkg_postrm"
-     "gnome-games_pkg_preinst" "gnome-games_pkg_setup"
-     "gnome-games_src_compile" "gnome-games_src_configure"
-     "gnome-games_src_install" "gnome-games_src_prepare")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-gnome-python-common-r1
   '(("gnome-python-common-r1_src_compile"
      "gnome-python-common-r1_src_configure"
@@ -501,11 +474,6 @@
      "gnustep-base_src_prepare" "gnustep-base_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-go-mono
-  '(("go-mono_src_compile" "go-mono_src_configure" "go-mono_src_install"
-     "go-mono_src_prepare" "go-mono_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-golang-base
   '(("ego_pn_check" "get_golibdir" "get_golibdir_gopath"
      "golang_install_pkgs")
@@ -530,17 +498,6 @@
      "gstreamer_system_link" "multilib_src_configure")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gtk-sharp-module
-  '(("ac_path_prog_override" "add_bdepend" "add_depend" "add_rdepend"
-     "get_sharp_apis" "get_sharp_assemblies"
-     "gnome-sharp-tarball-post_src_prepare"
-     "gnome-sharp-tarball_src_configure" "gtk-sharp-module_src_compile"
-     "gtk-sharp-module_src_configure" "gtk-sharp-module_src_install"
-     "gtk-sharp-module_src_prepare" "gtk-sharp-tarball-post_src_prepare"
-     "gtk-sharp-tarball_src_configure" "phase_hook"
-     "pkg_check_modules_override")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-haskell-cabal
   '(("cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-constraint"
      "cabal-copy" "cabal-die-if-nonempty" "cabal-haddock" "cabal-hoogle"
@@ -553,11 +510,6 @@
      "haskell-cabal_pkg_postrm" "haskell-cabal_pkg_setup"
      "haskell-cabal_src_compile" "haskell-cabal_src_configure"
      "haskell-cabal_src_install" "haskell-cabal_src_test" "replace-hcflags")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-intel-sdp
-  '(("intel-sdp_pkg_postinst" "intel-sdp_pkg_postrm" "intel-sdp_pkg_pretend"
-     "intel-sdp_pkg_setup" "intel-sdp_src_install" "intel-sdp_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-java-ant-2
@@ -729,35 +681,15 @@
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mozconfig-v6.49
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.51
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozconfig-v6.52
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mozconfig-v6.53
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.55
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.56
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.57
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozconfig-v6.58
+  '(("mozconfig_config" "mozconfig_install_prefs")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozconfig-v6.60
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
@@ -767,6 +699,11 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozcoreconf-v5
+  '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
+     "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-mozcoreconf-v6
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
     font-lock-type-face))
@@ -957,10 +894,6 @@
      "php-ext-source-r3_src_configure" "php-ext-source-r3_src_install"
      "php-ext-source-r3_src_prepare" "php-ext-source-r3_src_test"
      "php_get_slots" "php_init_slot_env")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-php-pear-r1
-  '(("fix_PEAR_PV" "php-pear-r1_pkg_setup" "php-pear-r1_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-php-pear-r2
