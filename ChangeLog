@@ -1,3 +1,8 @@
+2018-08-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-portdir): Default to
+	/var/db/repos/gentoo with fallback to /usr/portage, bug 662998.
+
 2018-06-23  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.44 released.

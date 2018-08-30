@@ -64,7 +64,9 @@ A formfeed is not considered whitespace by this function."
   :group 'languages)
 
 (defcustom ebuild-mode-portdir
-  "/usr/portage"
+  (cond ((file-directory-p "/var/db/repos/gentoo") "/var/db/repos/gentoo")
+	((file-directory-p "/usr/portage") "/usr/portage")
+	(t "/var/db/repos/gentoo"))
   "Location of the ebuild repository."
   :type 'string
   :group 'ebuild)
