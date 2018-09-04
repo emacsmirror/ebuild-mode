@@ -1,6 +1,9 @@
 ;;; ebuild-mode-keywords.el
 
-;; Copyright 2006-2018 Gentoo Foundation
+;; Copyright 2006 Matthew Kennedy
+;; Copyright 2006 Diego Pettenò
+;; Copyright 2007-2012 Christian Faulhammer
+;; Copyright 2007-2018 Ulrich Müller
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>

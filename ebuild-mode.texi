@@ -9,7 +9,8 @@
 This manual is for ebuild-mode, which is a major mode for ebuild
 and eclass files.
 
-Copyright @copyright{} 2009-2018 Gentoo Foundation
+Copyright @copyright{} 2009-2012 Christian Faulhammer @*
+Copyright @copyright{} 2009-2018 Ulrich Müller
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document

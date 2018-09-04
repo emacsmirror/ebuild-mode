@@ -1,9 +1,8 @@
 ;;; gentoo-newsitem-mode.el --- edit Gentoo GLEP 42 news items
 
-;; Copyright 2009-2018 Gentoo Foundation
+;; Copyright 2009-2018 Ulrich Müller
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
-;;	Christian Faulhammer <fauli@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
 ;; Keywords: languages
 
