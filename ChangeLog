@@ -1,5 +1,7 @@
 2018-09-04  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-arch-list): Add arm64 to default.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 2018-08-30  Ulrich Müller  <ulm@gentoo.org>

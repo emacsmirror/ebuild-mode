@@ -118,7 +118,7 @@ of lines."
 	 (sort (split-string (buffer-string)) 'ebuild-mode-arch-lessp))
      (file-error nil))
    ;; could not read architectures from repository, so fall back to default
-   '("alpha" "amd64" "arm" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
+   '("alpha" "amd64" "arm" "arm64" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
      "s390" "sh" "sparc" "x86" "amd64-fbsd" "sparc-fbsd" "x86-fbsd"))
   "List of architectures.")
 
