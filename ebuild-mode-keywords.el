@@ -613,6 +613,11 @@
      "latex-package_src_install")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-libretro-core
+  '(("libretro-core_src_compile" "libretro-core_src_install"
+     "libretro-core_src_prepare" "libretro-core_src_unpack")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-libtool
   '(("darwintoolize" "elibtoolize" "uclibctoolize")
     font-lock-type-face))
@@ -984,22 +989,6 @@
      "qt5_get_plugindir")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-qt4-build-multilib
-  '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
-     "multilib_src_install_all" "multilib_src_test"
-     "qt4-build-multilib_pkg_postinst" "qt4-build-multilib_pkg_postrm"
-     "qt4-build-multilib_src_prepare" "qt4-build-multilib_src_unpack"
-     "qt4_multilib_src_compile" "qt4_multilib_src_configure"
-     "qt4_multilib_src_install" "qt4_multilib_src_install_all"
-     "qt4_multilib_src_test" "qt4_symlink_framework_headers" "qt_native_use"
-     "qt_use")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-qt4-r2
-  '(("qt4-r2_src_compile" "qt4-r2_src_configure" "qt4-r2_src_install"
-     "qt4-r2_src_prepare" "qt4-r2_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-qt5-build
   '(("qt5-build_pkg_postinst" "qt5-build_pkg_postrm" "qt5-build_src_compile"
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
@@ -1072,11 +1061,6 @@
   '(("escons" "use_scons")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-scsh
-  '(("scsh_get_layout_conf" "scsh_scsh_path" "scsh_src_compile"
-     "scsh_src_install" "scsh_src_unpack" "set_layout" "set_path_variables")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-selinux-policy-2
   '(("selinux-policy-2_pkg_postinst" "selinux-policy-2_pkg_postrm"
      "selinux-policy-2_src_compile" "selinux-policy-2_src_install"
@@ -1143,8 +1127,8 @@
 
 (defvar ebuild-mode-keywords-toolchain
   '(("XGCC" "copy_minispecs_gcc_specs" "create_gcc_env_entry"
-     "do_gcc_HTB_patches" "do_gcc_PIE_patches" "do_gcc_config"
-     "do_gcc_rename_java_bins" "downgrade_arch_flags"
+     "do_gcc_CYGWINPORTS_patches" "do_gcc_HTB_patches" "do_gcc_PIE_patches"
+     "do_gcc_config" "do_gcc_rename_java_bins" "downgrade_arch_flags"
      "fix_libtool_libdir_paths" "gcc-abi-map" "gcc-lang-supported"
      "gcc-multilib-configure" "gcc_do_filter_flags" "gcc_do_make"
      "gcc_movelibs" "gcc_quick_unpack" "gcc_slot_java" "gcc_version_patch"
@@ -1181,7 +1165,8 @@
      "gcc-specs-directive" "gcc-specs-nostrict" "gcc-specs-now"
      "gcc-specs-pie" "gcc-specs-relro" "gcc-specs-ssp" "gcc-specs-ssp-to-all"
      "gcc-specs-stack-check" "gcc-version" "gen_usr_ldscript" "tc-arch"
-     "tc-arch-kernel" "tc-check-openmp" "tc-enables-pie" "tc-enables-ssp"
+     "tc-arch-kernel" "tc-check-openmp" "tc-cpp-is-true"
+     "tc-detect-is-softfloat" "tc-enables-pie" "tc-enables-ssp"
      "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-export"
      "tc-export_build_env" "tc-get-compiler-type" "tc-getAR" "tc-getAS"
      "tc-getBUILD_AR" "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP"
@@ -1190,10 +1175,11 @@
      "tc-getBUILD_STRIP" "tc-getCC" "tc-getCPP" "tc-getCXX" "tc-getDLLWRAP"
      "tc-getF77" "tc-getFC" "tc-getGCJ" "tc-getGO" "tc-getLD" "tc-getNM"
      "tc-getOBJCOPY" "tc-getOBJDUMP" "tc-getPKG_CONFIG" "tc-getPROG"
-     "tc-getRANLIB" "tc-getRC" "tc-getSTRIP" "tc-has-openmp" "tc-has-tls"
-     "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc" "tc-is-softfloat"
-     "tc-is-static-only" "tc-ld-disable-gold" "tc-ld-is-gold"
-     "tc-ninja_magic_to_arch" "tc-stack-grows-down")
+     "tc-getRANLIB" "tc-getRC" "tc-getSTRIP" "tc-getTARGET_CPP"
+     "tc-has-openmp" "tc-has-tls" "tc-is-clang" "tc-is-cross-compiler"
+     "tc-is-gcc" "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
+     "tc-ld-is-gold" "tc-ninja_magic_to_arch" "tc-stack-grows-down"
+     "tc-tuple-is-softfloat")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-glibc
@@ -1256,9 +1242,9 @@
      "vdr-plugin-2_src_compile" "vdr-plugin-2_src_install"
      "vdr-plugin-2_src_prepare" "vdr-plugin-2_src_unpack"
      "vdr-plugin-2_src_util" "vdr_create_header_checksum_file"
-     "vdr_create_plugindb_file" "vdr_detect_po_dir" "vdr_dev_check"
-     "vdr_gettext_missing" "vdr_i18n" "vdr_linguas_support"
-     "vdr_patchmakefile" "vdr_remove_i18n_include")
+     "vdr_create_plugindb_file" "vdr_detect_po_dir" "vdr_gettext_missing"
+     "vdr_i18n" "vdr_linguas_support" "vdr_patchmakefile"
+     "vdr_remove_i18n_include")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-versionator
