@@ -1,3 +1,12 @@
+2018-09-16  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-update-copyright): Extend function
+	and custom variable to control whether copyright year or author
+	are updated.
+	(ebuild-mode-copyright-regexp): Allow for a single year	rather
+	than a range of years. Match authors in an additional group.
+	(ebuild-mode-insert-skeleton): New default year and authors.
+
 2018-09-04  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.45 released.

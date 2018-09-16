@@ -89,8 +89,15 @@ of lines."
   :group 'ebuild)
 
 (defcustom ebuild-mode-update-copyright t
-  "If non-nil, update copyright years before writing a file."
-  :type 'boolean
+  "Whether to update the copyright notice before writing a file.
+
+If the value is a list of booleans, then its first and second element
+control updating of the year and the author, respectively.
+If any other non-nil value, update both.
+If nil, don't update."
+  :type '(choice boolean
+		 (list (boolean :tag "Year")
+		       (boolean :tag "Author")))
   :group 'ebuild)
 
 (defcustom ebuild-mode-delete-cvs-line t
@@ -148,7 +155,8 @@ of lines."
   "^[ \t]*KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
 
 (defvar ebuild-mode-copyright-regexp
-  "^#[ \t]*Copyright[ \t]+\\([1-9][0-9]+\\)-\\([1-9][0-9]+\\)[ \t]")
+  "^#[ \t]*Copyright[ \t]+\\([1-9][0-9]+\\)\\(?:-\\([1-9][0-9]+\\)\\)?\
+[ \t]+\\(.*\\)")
 
 (defvar ebuild-mode-cvs-header-regexp
   "^#[ \t]*\\$\\(Id\\|Header\\)\\(: .*\\)?\\$[ \t]*$")
@@ -270,19 +278,37 @@ Optional argument LIMIT restarts collection after that number of elements."
 	    (indent-to end-col)))))))
 
 (defun ebuild-mode-update-copyright ()
-  ;; Update copyright years
+  ;; Update copyright notice
   (save-excursion
     (goto-char (point-min))
-    (let ((case-fold-search nil))
-      (if (re-search-forward ebuild-mode-copyright-regexp 400 t)
-	  (let* ((y1 (string-to-number (match-string 1)))
-		 (y2 (string-to-number (match-string 2)))
-		 (year (format-time-string "%Y"))
-		 (y (string-to-number year)))
-	    (if (or (> 1999 y1) (>= y1 y2) (> y2 y))
-		(lwarn 'ebuild :warning
-		       "Suspicious range of copyright years: %d-%d" y1 y2)
-	      (if (/= y2 y) (replace-match year t t nil 2))))))))
+    (let ((case-fold-search nil)
+	  (update-year (or (nlistp ebuild-mode-update-copyright)
+			   (nth 0 ebuild-mode-update-copyright)))
+	  (update-author (or (nlistp ebuild-mode-update-copyright)
+			     (nth 1 ebuild-mode-update-copyright))))
+      (when (re-search-forward ebuild-mode-copyright-regexp 400 t)
+	(if update-year
+	    (let* ((y1 (string-to-number (match-string 1)))
+		   (y2 (and (match-string 2)
+			    (string-to-number (match-string 2))))
+		   (year (format-time-string "%Y"))
+		   (y (string-to-number year)))
+	      (if y2
+		  ;; Update range of years
+		  (if (or (> 1999 y1) (>= y1 y2) (> y2 y))
+		      (lwarn 'ebuild :warning
+			     "Suspicious range of copyright years: %d-%d" y1 y2)
+		    (if (/= y2 y)
+			(replace-match year t t nil 2)))
+		;; Update single year and convert to range if necessary
+		(if (or (> 1999 y1) (> y1 y))
+		    (lwarn 'ebuild :warning "Suspicious copyright year: %d" y1)
+		  (if (/= y1 y)
+		      (replace-match (concat "\\1-" year) t nil nil 1))))))
+	(if update-author
+	    ;; Update default author in copyright notice
+	    (if (string-equal (match-string 3) "Gentoo Foundation")
+		(replace-match "Gentoo Authors" t t nil 3)))))))
 
 (defun ebuild-mode-delete-cvs-line ()
   ;; Remove a CVS $Id$ or $Header$ line
@@ -478,7 +504,7 @@ and `all-completions' for details."
   "Insert a statement skeleton for a new ebuild."
   nil
   ;; standard header
-  "# Copyright 1999-" (format-time-string "%Y") " Gentoo Foundation\n"
+  "# Copyright " (format-time-string "%Y") " Gentoo Authors\n"
   "# Distributed under the terms of the GNU General Public License v2\n"
   "\n"
   "EAPI="
