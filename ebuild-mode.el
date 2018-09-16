@@ -156,7 +156,7 @@ If nil, don't update."
 
 (defvar ebuild-mode-copyright-regexp
   "^#[ \t]*Copyright[ \t]+\\([1-9][0-9]+\\)\\(?:-\\([1-9][0-9]+\\)\\)?\
-[ \t]+\\(.*\\)")
+[ \t]+\\(.*\\<\\(?:Gentoo Authors\\|Gentoo Foundation\\)\\>.*\\)")
 
 (defvar ebuild-mode-cvs-header-regexp
   "^#[ \t]*\\$\\(Id\\|Header\\)\\(: .*\\)?\\$[ \t]*$")
