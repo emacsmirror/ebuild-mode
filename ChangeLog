@@ -1,5 +1,8 @@
 2018-09-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-update-copyright)
+	(ebuild-mode-insert-skeleton): Use UTC to avoid flapping.
+
 	* ebuild-mode.el (ebuild-mode-update-copyright): Extend function
 	and custom variable to control whether copyright year or author
 	are updated.

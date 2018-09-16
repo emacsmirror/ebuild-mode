@@ -291,7 +291,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 	    (let* ((y1 (string-to-number (match-string 1)))
 		   (y2 (and (match-string 2)
 			    (string-to-number (match-string 2))))
-		   (year (format-time-string "%Y"))
+		   (year (format-time-string "%Y" nil t))
 		   (y (string-to-number year)))
 	      (if y2
 		  ;; Update range of years
@@ -504,7 +504,7 @@ and `all-completions' for details."
   "Insert a statement skeleton for a new ebuild."
   nil
   ;; standard header
-  "# Copyright " (format-time-string "%Y") " Gentoo Authors\n"
+  "# Copyright " (format-time-string "%Y" nil t) " Gentoo Authors\n"
   "# Distributed under the terms of the GNU General Public License v2\n"
   "\n"
   "EAPI="
