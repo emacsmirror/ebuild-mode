@@ -10,7 +10,7 @@
 ;;	Christian Faulhammer <fauli@gentoo.org>
 ;;	Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Version: 1.45
+;; Version: 1.46
 ;; Keywords: languages, processes
 
 ;; This file is free software: you can redistribute it and/or modify

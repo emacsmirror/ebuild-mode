@@ -1,3 +1,7 @@
+2018-09-17  Ulrich Mueller  <ulm@gentoo.org>
+
+	* Version 1.46 released.
+
 2018-09-16  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-update-copyright)
