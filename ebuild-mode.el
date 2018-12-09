@@ -1,9 +1,6 @@
 ;;; ebuild-mode.el --- edit Gentoo ebuild and eclass files
 
-;; Copyright 2006 Matthew Kennedy
-;; Copyright 2006 Diego Pettenò
-;; Copyright 2007-2012 Christian Faulhammer
-;; Copyright 2007-2018 Ulrich Müller
+;; Copyright 2006-2018 Gentoo Authors
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>

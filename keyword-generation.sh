@@ -1,6 +1,5 @@
 #!/bin/bash
-# Copyright 2011-2012 Christian Faulhammer
-# Copyright 2011-2018 Ulrich Müller
+# Copyright 2011-2018 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2 or later
 
 # Authors:
