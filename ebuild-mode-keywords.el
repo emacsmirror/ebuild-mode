@@ -121,6 +121,15 @@
 ;; from keyword-generation.sh
 
 ;; @@KEYWORDS-BEGIN@@
+(defvar ebuild-mode-keywords-acct-group
+  '(("acct-group_pkg_preinst" "acct-group_pkg_pretend")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-acct-user
+  '(("acct-user_add_deps" "acct-user_pkg_postinst" "acct-user_pkg_preinst"
+     "acct-user_pkg_prerm" "acct-user_pkg_pretend" "acct-user_src_install")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-alternatives
   '(("alternatives_auto_makesym" "alternatives_makesym"
      "alternatives_pkg_postinst" "alternatives_pkg_postrm")
@@ -177,6 +186,10 @@
   '(("bashcomp_alias" "dobashcomp" "get_bashcompdir" "newbashcomp")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-bazel
+  '(("bazel_get_flags" "bazel_load_distfiles" "bazel_setup_bazelrc" "ebazel")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-bsdmk
   '(("append-opt" "bsdmk_src_compile" "bsdmk_src_install" "dummy_mk"
      "mkinstall" "mkmake")
@@ -194,7 +207,7 @@
 
 (defvar ebuild-mode-keywords-cargo
   '(("cargo_crate_uris" "cargo_gen_config" "cargo_src_compile"
-     "cargo_src_install" "cargo_src_unpack")
+     "cargo_src_install" "cargo_src_test" "cargo_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cdrom
@@ -241,7 +254,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cuda
-  '(("cuda_gccdir" "cuda_pkg_setup" "cuda_sanitize" "cuda_src_prepare")
+  '(("cuda_add_sandbox" "cuda_cudnn_version" "cuda_gccdir" "cuda_sanitize"
+     "cuda_src_prepare" "cuda_toolkit_version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cvs
@@ -310,12 +324,6 @@
 (defvar ebuild-mode-keywords-emboss-r2
   '(("emboss-r2_src_configure" "emboss-r2_src_install"
      "emboss-r2_src_prepare")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-enlightenment
-  '(("enlightenment_src_compile" "enlightenment_src_configure"
-     "enlightenment_src_install" "enlightenment_src_prepare"
-     "enlightenment_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-epatch
@@ -663,8 +671,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-meson
-  '(("meson_src_compile" "meson_src_configure" "meson_src_install"
-     "meson_src_test" "meson_use")
+  '(("meson_feature" "meson_src_compile" "meson_src_configure"
+     "meson_src_install" "meson_src_test" "meson_use")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mono
@@ -682,15 +690,7 @@
      "mount-boot_umount_boot_partition")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-mozconfig-v6.45
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-mozconfig-v6.52
-  '(("mozconfig_config" "mozconfig_install_prefs")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mozconfig-v6.58
   '(("mozconfig_config" "mozconfig_install_prefs")
     font-lock-type-face))
 
@@ -714,7 +714,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozextension
-  '(("mozversion_extension_location" "xpi_install" "xpi_unpack")
+  '(("mozversion_extension_location" "xpi_copy" "xpi_install" "xpi_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozlinguas-v2
@@ -765,40 +765,6 @@
 
 (defvar ebuild-mode-keywords-myspell-r2
   '(("myspell-r2_src_install" "myspell-r2_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mysql-cmake
-  '(("configure_cmake_locale" "configure_cmake_minimal"
-     "configure_cmake_standard" "mysql-cmake_disable_test"
-     "mysql-cmake_src_compile" "mysql-cmake_src_configure"
-     "mysql-cmake_src_install" "mysql-cmake_src_prepare"
-     "mysql-cmake_use_plugin")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mysql-multilib-r1
-  '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
-     "mysql-cmake_use_plugin" "mysql-multilib-r1_disable_test"
-     "mysql-multilib-r1_getopt" "mysql-multilib-r1_getoptval"
-     "mysql-multilib-r1_pkg_config" "mysql-multilib-r1_pkg_postinst"
-     "mysql-multilib-r1_pkg_preinst" "mysql-multilib-r1_pkg_pretend"
-     "mysql-multilib-r1_pkg_setup" "mysql-multilib-r1_src_compile"
-     "mysql-multilib-r1_src_configure" "mysql-multilib-r1_src_install"
-     "mysql-multilib-r1_src_prepare" "mysql-multilib-r1_src_unpack"
-     "mysql_init_vars")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mysql-v2
-  '(("configure_common" "configure_minimal" "mysql-v2_disable_test"
-     "mysql-v2_getopt" "mysql-v2_getoptval" "mysql-v2_pkg_config"
-     "mysql-v2_pkg_postinst" "mysql-v2_pkg_postrm" "mysql-v2_pkg_preinst"
-     "mysql-v2_pkg_setup" "mysql-v2_src_compile" "mysql-v2_src_configure"
-     "mysql-v2_src_install" "mysql-v2_src_prepare" "mysql-v2_src_unpack"
-     "pbxt_available" "pbxt_patch_available" "xtradb_patch_available")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-mysql_fx
-  '(("mysql_check_version_range" "mysql_init_vars" "mysql_lib_symlinks"
-     "mysql_mv_patches" "mysql_version_is_at_least" "stripdots")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-netsurf
@@ -1036,16 +1002,21 @@
   '(("doruby" "ruby-ng_cucumber" "ruby-ng_pkg_setup" "ruby-ng_rspec"
      "ruby-ng_src_compile" "ruby-ng_src_configure" "ruby-ng_src_install"
      "ruby-ng_src_prepare" "ruby-ng_src_test" "ruby-ng_src_unpack"
-     "ruby-ng_testrb-2" "ruby_add_bdepend" "ruby_add_rdepend"
-     "ruby_get_hdrdir" "ruby_get_implementation" "ruby_get_libruby"
-     "ruby_get_use_implementations" "ruby_get_use_targets" "ruby_get_version"
-     "ruby_implementation_command" "ruby_implementation_depend"
-     "ruby_implementations_depend" "ruby_rbconfig_value" "ruby_samelib")
+     "ruby-ng_testrb-2" "ruby_add_bdepend" "ruby_add_depend"
+     "ruby_add_rdepend" "ruby_get_hdrdir" "ruby_get_implementation"
+     "ruby_get_libruby" "ruby_get_use_implementations" "ruby_get_use_targets"
+     "ruby_get_version" "ruby_implementation_command"
+     "ruby_implementation_depend" "ruby_implementations_depend"
+     "ruby_rbconfig_value" "ruby_samelib")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ruby-ng-gnome2
   '(("all_ruby_install" "each_ruby_compile" "each_ruby_configure"
      "each_ruby_install")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-rust-toolchain
+  '(("rust_abi" "rust_all_abis" "rust_all_arch_uris" "rust_arch_uri")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-s6
@@ -1137,11 +1108,12 @@
      "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_gcj" "is_go" "is_jit"
      "is_multilib" "is_objc" "is_objcxx" "make_gcc_hard"
      "setup_minispecs_gcc_build_specs" "setup_multilib_osdirnames"
-     "should_we_gcc_config" "tc_version_is_at_least" "tc_version_is_between"
-     "toolchain_death_notice" "toolchain_pkg_postinst" "toolchain_pkg_postrm"
-     "toolchain_pkg_pretend" "toolchain_pkg_setup" "toolchain_src_compile"
-     "toolchain_src_configure" "toolchain_src_install" "toolchain_src_prepare"
-     "toolchain_src_test" "toolchain_src_unpack" "want_minispecs" "want_pie")
+     "should_we_gcc_config" "tc_has_feature" "tc_version_is_at_least"
+     "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
+     "toolchain_pkg_postrm" "toolchain_pkg_pretend" "toolchain_pkg_setup"
+     "toolchain_src_compile" "toolchain_src_configure" "toolchain_src_install"
+     "toolchain_src_prepare" "toolchain_src_test" "toolchain_src_unpack"
+     "want_minispecs" "want_pie")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-autoconf
@@ -1187,8 +1159,10 @@
      "alt_usrlibdir" "builddir" "check_devpts" "check_nptl_support"
      "dump_toolchain_settings" "eend_KV" "foreach_abi" "get_kheader_version"
      "glibc_banner" "glibc_compile_test" "glibc_do_configure" "glibc_run_test"
-     "glibc_sanity_check" "glibc_src_test" "int_to_KV" "just_headers"
-     "nonfatal" "setup_env" "setup_flags" "setup_target_flags" "src_strip"
+     "glibc_sanity_check" "glibc_src_test" "just_headers" "nonfatal"
+     "setup_env" "setup_flags" "setup_target_flags" "src_strip"
+     "tc_glibc_KV_major" "tc_glibc_KV_micro" "tc_glibc_KV_minor"
+     "tc_glibc_KV_to_int" "tc_glibc_get_KV" "tc_glibc_int_to_KV"
      "toolchain-glibc_do_src_compile" "toolchain-glibc_do_src_configure"
      "toolchain-glibc_do_src_install" "toolchain-glibc_do_src_test"
      "toolchain-glibc_do_src_unpack" "toolchain-glibc_headers_configure"
@@ -1219,7 +1193,13 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-user
-  '(("egetent" "egethome" "egetshell" "enewgroup" "enewuser" "esethome")
+  '(("egetcomment" "egetent" "egetgroupname" "egetgroups" "egethome"
+     "egetshell" "egetusername" "enewgroup" "enewuser" "esetcomment"
+     "esetgroups" "esethome" "esetshell")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-usr-ldscript
+  '(("gen_usr_ldscript")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vala
@@ -1301,7 +1281,7 @@
 
 (defvar ebuild-mode-keywords-xdg-utils
   '(("xdg_desktop_database_update" "xdg_environment_reset"
-     "xdg_mimeinfo_database_update")
+     "xdg_icon_cache_update" "xdg_mimeinfo_database_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xemacs-elisp
@@ -1319,18 +1299,19 @@
   '(("xemacs-packages_src_install" "xemacs-packages_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-xfconf
-  '(("xfconf_pkg_postinst" "xfconf_pkg_postrm" "xfconf_pkg_preinst"
-     "xfconf_src_configure" "xfconf_src_install" "xfconf_src_prepare"
-     "xfconf_src_unpack" "xfconf_use_debug")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-xorg-2
   '(("create_fonts_dir" "create_fonts_scale" "remove_font_metadata"
      "xorg-2_flags_setup" "xorg-2_font_configure" "xorg-2_patch_source"
      "xorg-2_pkg_postinst" "xorg-2_pkg_postrm" "xorg-2_pkg_setup"
      "xorg-2_reconf_source" "xorg-2_src_compile" "xorg-2_src_configure"
      "xorg-2_src_install" "xorg-2_src_prepare" "xorg-2_src_unpack")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-xorg-3
+  '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
+     "xorg-3_flags_setup" "xorg-3_reconf_source" "xorg-3_src_compile"
+     "xorg-3_src_configure" "xorg-3_src_install" "xorg-3_src_prepare"
+     "xorg-3_src_unpack")
     font-lock-type-face))
 
 ;; @@KEYWORDS-END@@
