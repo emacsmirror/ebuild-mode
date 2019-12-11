@@ -1,6 +1,6 @@
 ;;; glep-mode.el --- edit Gentoo Linux Enhancement Proposals
 
-;; Copyright 2017-2018 Gentoo Authors
+;; Copyright 2017-2019 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
