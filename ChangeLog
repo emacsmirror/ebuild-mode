@@ -1,5 +1,7 @@
 2019-12-11  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.48 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 	* glep-mode.el (glep-mode-insert-skeleton): Update template to use
