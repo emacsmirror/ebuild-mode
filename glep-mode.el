@@ -294,7 +294,7 @@ directions below.
 
 - Update your References section.  Just leave the Copyright section alone,
   because all new GLEPs must be released under the Creative Commons
-  Attribution-ShareAlike License, Version 3.0.
+  Attribution-ShareAlike 4.0 International License (CC-BY-SA-4.0).
 
 - Send your GLEP submission to the GLEP editors at glep@gentoo.org.
 
@@ -366,9 +366,9 @@ References
 Copyright
 =========
 
-This work is licensed under the Creative Commons Attribution-ShareAlike 3.0
-Unported License.  To view a copy of this license, visit
-http://creativecommons.org/licenses/by-sa/3.0/.
+This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+International License.  To view a copy of this license, visit
+https://creativecommons.org/licenses/by-sa/4.0/.
 ")
 
 ;; rst-mode already uses the following C-c C-<letter> keys: aclrt
