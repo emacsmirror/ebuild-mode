@@ -1,5 +1,7 @@
 2019-12-21  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.49 released.
+
 	* ebuild-mode-keywords.el
 	(ebuild-mode-keywords-eclass-deprecated): Add elisp-need-emacs.
 	(ebuild-mode-keywords-*): Regenerated.
