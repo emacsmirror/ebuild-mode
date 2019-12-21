@@ -195,11 +195,6 @@
   '(("bazel_get_flags" "bazel_load_distfiles" "bazel_setup_bazelrc" "ebazel")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-bsdmk
-  '(("append-opt" "bsdmk_src_compile" "bsdmk_src_install" "dummy_mk"
-     "mkinstall" "mkmake")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-bzr
   '(("bzr_fetch" "bzr_initial_fetch" "bzr_src_unpack" "bzr_update")
     font-lock-type-face))
@@ -330,9 +325,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-elisp-common
-  '(("elisp-compile" "elisp-emacs-version" "elisp-install"
-     "elisp-make-autoload-file" "elisp-need-emacs" "elisp-site-file-install"
-     "elisp-site-regen")
+  '(("elisp-check-emacs-version" "elisp-compile" "elisp-emacs-version"
+     "elisp-install" "elisp-make-autoload-file" "elisp-need-emacs"
+     "elisp-site-file-install" "elisp-site-regen")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-emboss-r2
@@ -401,11 +396,6 @@
   '(("fortran-2_pkg_setup" "fortran_int64_abi_fflags")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-fox
-  '(("fox_pkg_postinst" "fox_src_compile" "fox_src_configure"
-     "fox_src_install" "fox_src_prepare" "fox_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-freedict
   '(("freedict_src_install")
     font-lock-type-face))
@@ -429,10 +419,6 @@
      "ghc-supports-parallel-make" "ghc-supports-shared-libraries"
      "ghc-supports-smp" "ghc-supports-threaded-runtime" "ghc-unregister-pkg"
      "ghc-version")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-git-2
-  '(("git-2_bootstrap" "git-2_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-git-r3
@@ -791,11 +777,6 @@
 (defvar ebuild-mode-keywords-oasis
   '(("oasis_src_compile" "oasis_src_configure" "oasis_src_install"
      "oasis_src_test" "oasis_use_enable")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-obs-service
-  '(("obs-service_src_install" "obs-service_src_prepare"
-     "obs-service_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-office-ext-r1
@@ -1276,17 +1257,6 @@
 (defvar ebuild-mode-keywords-xdg-utils
   '(("xdg_desktop_database_update" "xdg_environment_reset"
      "xdg_icon_cache_update" "xdg_mimeinfo_database_update")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-xemacs-elisp
-  '(("xemacs-elisp_src_compile" "xemacs-elisp_src_install"
-     "xemacs-elisp_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-xemacs-elisp-common
-  '(("xemacs-elisp-comp" "xemacs-elisp-compile" "xemacs-elisp-install"
-     "xemacs-elisp-make-autoload-file" "xemacs-elisp-site-file-install"
-     "xemacs-elisp-site-regen")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xemacs-packages
