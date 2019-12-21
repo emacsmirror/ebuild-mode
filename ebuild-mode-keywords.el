@@ -114,7 +114,8 @@
 (defvar ebuild-mode-keywords-eclass-deprecated
   ;; deprecated eclass functions
   '(("bash-completion_pkg_postinst" "dobashcompletion" "elisp-comp"
-     "python_mod_compile" "qt4_min_version" "qt4_min_version_list")
+     "elisp-need-emacs" "python_mod_compile" "qt4_min_version"
+     "qt4_min_version_list")
     font-lock-warning-face))
 
 ;; All keyword lists below this line are auto-generated
