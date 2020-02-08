@@ -1,3 +1,10 @@
+2020-02-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el: New file. Major mode for editing the
+	Gentoo Devmanual, derived mode of nxml-mode.
+	* ebuild-mode.texi (devbook-mode): Document it.
+	* Makefile (DISTFILES): Add devbook-mode.el.
+
 2019-12-21  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.49 released.

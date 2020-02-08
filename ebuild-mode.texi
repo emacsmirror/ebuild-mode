@@ -61,6 +61,7 @@ by skeleton support.
 * Commands:: What ebuild-mode provides.
 * ebuild-mode:: Editing ebuilds.
 * eclass-mode:: Editing eclasses.
+* devbook-mode:: Editing the Gentoo Devmanual.
 * gentoo-newsitem-mode:: Editing GLEP 42 news items.
 * glep-mode:: Editing Gentoo Linux Enhancement Proposals.
 @end menu
@@ -174,12 +175,26 @@ Run Portage's ebuild command, you are prompted for the phase you want.
 Create a ChangeLog entry.
 @end table
 
-@node eclass-mode, gentoo-newsitem-mode, ebuild-mode, Top
+@node eclass-mode, devbook-mode, ebuild-mode, Top
 @chapter eclass-mode
 There is no special eclass-mode but ebuild-mode is used without the
 commands that make no sense in eclasses.
 
-@node gentoo-newsitem-mode, glep-mode, eclass-mode, Top
+@node devbook-mode, gentoo-newsitem-mode, eclass-mode, Top
+@chapter devbook-mode for the Gentoo Devmanual
+This is a very simple derived major mode for editing the Devmanual.
+Because the Devmanual is written in DevBook XML, this mode is derived
+from @code{nxml-mode} and inherits its syntax highlighting and editing
+functions.  A skeleton for a new Devmanual file can be inserted via
+the @code{devbook-insert-skeleton} function bound to @kbd{C-c C-n}.
+
+It is recommended to install the @code{app-emacs/nxml-gentoo-schemas}
+package in addition, which will enable on-the-fly syntax validation.
+
+Currently @code{devbook-mode} works with GNU Emacs only, because the
+underlying @code{nxml-mode} does not support XEmacs.
+
+@node gentoo-newsitem-mode, glep-mode, devbook-mode, Top
 @chapter gentoo-newsitem-mode for GLEP 42 news items
 This mode supports the highlighting of relevant keywords for GLEP 42
 news items.  These news items get displayed if special criteria for
