@@ -34,6 +34,8 @@
   ;; within the limit (and arguably, 80 includes the newline).
   (setq fill-column 79)
   (setq indent-tabs-mode nil)
+  ;; Tabs are allowed in ebuild codesamples, so this isn't redundant.
+  (setq tab-width 4)
   ;; *** FIXME *** The style guide says no indentation, except inside
   ;; <tr>, <ul>, <ol> and <dl>, where it must be 2 spaces. There is no
   ;; easy way to achieve this, so set to 0 which is right more often.
