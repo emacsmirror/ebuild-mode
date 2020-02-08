@@ -1,6 +1,6 @@
 ;;; gentoo-newsitem-mode.el --- edit Gentoo GLEP 42 news items
 
-;; Copyright 2009-2019 Gentoo Authors
+;; Copyright 2009-2020 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
