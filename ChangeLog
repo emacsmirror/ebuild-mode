@@ -45,7 +45,7 @@
 	* ebuild-mode.el (ebuild-mode-update-copyright): Extend function
 	and custom variable to control whether copyright year or author
 	are updated.
-	(ebuild-mode-copyright-regexp): Allow for a single year	rather
+	(ebuild-mode-copyright-regexp): Allow for a single year rather
 	than a range of years. Match authors in an additional group.
 	(ebuild-mode-insert-skeleton): New default year and authors.
 
@@ -798,7 +798,7 @@
 2010-03-10  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-syntax.el (ebuild-mode-arch-stable-list):
-	Initialise from	profiles.desc, bug 304133.
+	Initialise from profiles.desc, bug 304133.
 
 2010-03-02  Christian Faulhammer  <fauli@gentoo.org>
 
