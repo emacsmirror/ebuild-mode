@@ -39,7 +39,7 @@
   ;; *** FIXME *** The style guide says no indentation, except inside
   ;; <tr>, <ul>, <ol> and <dl>, where it must be 2 spaces. There is no
   ;; easy way to achieve this, so set to 0 which is right more often.
-  (setq nxml-child-indent 0))
+  (set (make-local-variable 'nxml-child-indent) 0))
 
 (define-skeleton devbook-insert-skeleton
   "Insert a skeleton for a DevBook XML document."
