@@ -1,3 +1,7 @@
+2020-03-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 2020-02-10  Ulrich Müller  <ulm@gentoo.org>
 
 	* devbook-mode.el (devbook-mode): Make nxml-child-indent local

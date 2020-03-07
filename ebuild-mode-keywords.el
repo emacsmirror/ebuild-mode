@@ -224,6 +224,12 @@
      "chromium_suid_sandbox_check_kernel_config" "egyp_chromium" "gyp_use")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-cmake
+  '(("cmake_build" "cmake_comment_add_subdirectory" "cmake_src_compile"
+     "cmake_src_configure" "cmake_src_install" "cmake_src_prepare"
+     "cmake_src_test" "cmake_use_find_package")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-cmake-multilib
   '(("cmake-multilib_src_compile" "cmake-multilib_src_configure"
      "cmake-multilib_src_install" "cmake-multilib_src_test"
@@ -339,10 +345,6 @@
   '(("epatch" "epatch_user")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-epunt-cxx
-  '(("epunt_cxx")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-estack
   '(("eshopts_pop" "eshopts_push" "estack_pop" "estack_push" "eumask_pop"
      "eumask_push" "evar_pop" "evar_push" "evar_push_set")
@@ -376,10 +378,10 @@
      "filter-mfpmath" "get-flag" "has_m32" "has_m64" "is-flag" "is-flagq"
      "is-ldflag" "is-ldflagq" "no-as-needed" "raw-ldflags" "replace-cpu-flags"
      "replace-flags" "replace-sparc64-flags" "setup-allowed-flags"
-     "strip-flags" "strip-unsupported-flags" "test-flag-CC" "test-flag-CXX"
-     "test-flag-F77" "test-flag-FC" "test-flag-PROG" "test-flags"
-     "test-flags-CC" "test-flags-CXX" "test-flags-F77" "test-flags-FC"
-     "test-flags-PROG" "test_version_info")
+     "strip-flags" "strip-unsupported-flags" "test-flag-CC" "test-flag-CCLD"
+     "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flag-PROG"
+     "test-flags" "test-flags-CC" "test-flags-CCLD" "test-flags-CXX"
+     "test-flags-F77" "test-flags-FC" "test-flags-PROG" "test_version_info")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-font
@@ -468,8 +470,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-go-module
-  '(("go-module_live_vendor" "go-module_pkg_postinst" "go-module_src_unpack"
-     "go-module_vendor_uris")
+  '(("go-module_live_vendor" "go-module_pkg_postinst" "go-module_set_globals"
+     "go-module_src_unpack" "go-module_vendor_uris")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-golang-base
@@ -574,8 +576,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kde5
-  '(("kde5_pkg_postinst" "kde5_pkg_postrm" "kde5_pkg_preinst"
-     "kde5_pkg_pretend" "kde5_pkg_setup" "kde5_src_compile"
+  '(("cmake-utils_use_find_package" "kde5_pkg_postinst" "kde5_pkg_postrm"
+     "kde5_pkg_preinst" "kde5_pkg_pretend" "kde5_pkg_setup" "kde5_src_compile"
      "kde5_src_configure" "kde5_src_install" "kde5_src_prepare"
      "kde5_src_test" "kde5_src_unpack")
     font-lock-type-face))
@@ -599,6 +601,21 @@
      "unpack_set_extraversion")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-kernel-build
+  '(("kernel-build_pkg_postinst" "kernel-build_src_compile"
+     "kernel-build_src_configure" "kernel-build_src_install"
+     "kernel-build_src_test")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-kernel-install
+  '(("kernel-install_build_initramfs" "kernel-install_get_image_path"
+     "kernel-install_get_qemu_arch" "kernel-install_install_kernel"
+     "kernel-install_pkg_postinst" "kernel-install_pkg_postrm"
+     "kernel-install_pkg_preinst" "kernel-install_pkg_prerm"
+     "kernel-install_src_test" "kernel-install_test"
+     "kernel-install_update_symlink")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-kodi-addon
   '(("kodi-addon_src_configure")
     font-lock-type-face))
@@ -609,10 +626,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-latex-package
-  '(("latex-package_has_tetex_3" "latex-package_pkg_postinst"
-     "latex-package_pkg_postrm" "latex-package_rehash"
-     "latex-package_src_compile" "latex-package_src_doinstall"
-     "latex-package_src_install")
+  '(("latex-package_pkg_postinst" "latex-package_pkg_postrm"
+     "latex-package_rehash" "latex-package_src_compile"
+     "latex-package_src_doinstall" "latex-package_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-libretro-core
@@ -886,7 +902,7 @@
 
 (defvar ebuild-mode-keywords-python-single-r1
   '(("python-single-r1_pkg_setup" "python_gen_cond_dep" "python_gen_impl_dep"
-     "python_gen_usedep" "python_gen_useflags" "python_setup")
+     "python_gen_useflags" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-utils-r1
@@ -1077,14 +1093,15 @@
      "do_gcc_gentoo_patches" "do_gcc_rename_java_bins" "downgrade_arch_flags"
      "fix_libtool_libdir_paths" "gcc-abi-map" "gcc-lang-supported"
      "gcc-multilib-configure" "gcc_do_filter_flags" "gcc_do_make"
-     "gcc_movelibs" "gcc_quick_unpack" "gcc_slot_java" "gcc_version_patch"
-     "gentoo_urls" "get_gcc_src_uri" "get_make_var" "hardened_gcc_is_stable"
+     "gcc_movelibs" "gcc_slot_java" "gcc_version_patch" "gentoo_urls"
+     "get_gcc_src_uri" "get_make_var" "hardened_gcc_is_stable"
      "hardened_gcc_works" "is_ada" "is_crosscompile" "is_cxx" "is_d" "is_f77"
      "is_f95" "is_fortran" "is_gcj" "is_go" "is_jit" "is_multilib" "is_objc"
      "is_objcxx" "make_gcc_hard" "setup_minispecs_gcc_build_specs"
      "setup_multilib_osdirnames" "should_we_gcc_config" "tc_apply_patches"
-     "tc_has_feature" "tc_supports_dostrip" "tc_version_is_at_least"
-     "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
+     "tc_has_feature" "tc_is_live" "tc_supports_dostrip"
+     "tc_version_is_at_least" "tc_version_is_between" "toolchain_death_notice"
+     "toolchain_is_unsupported" "toolchain_pkg_postinst"
      "toolchain_pkg_postrm" "toolchain_pkg_pretend" "toolchain_pkg_setup"
      "toolchain_src_compile" "toolchain_src_configure" "toolchain_src_install"
      "toolchain_src_prepare" "toolchain_src_test" "toolchain_src_unpack"
@@ -1094,15 +1111,6 @@
 (defvar ebuild-mode-keywords-toolchain-autoconf
   '(("slot_info_pages" "toolchain-autoconf_src_configure"
      "toolchain-autoconf_src_install" "toolchain-autoconf_src_prepare")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-toolchain-binutils
-  '(("add_src_uri" "is_cross" "tc-binutils_apply_patches" "tc-binutils_unpack"
-     "toolchain-binutils_bugurl" "toolchain-binutils_pkg_postinst"
-     "toolchain-binutils_pkg_postrm" "toolchain-binutils_pkgversion"
-     "toolchain-binutils_src_compile" "toolchain-binutils_src_configure"
-     "toolchain-binutils_src_install" "toolchain-binutils_src_prepare"
-     "toolchain-binutils_src_test" "toolchain-binutils_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-funcs
@@ -1168,9 +1176,12 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-user
+  '(("enewgroup" "enewuser" "esetcomment" "esetgroups" "esethome" "esetshell")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-user-info
   '(("egetcomment" "egetent" "egetgroupname" "egetgroups" "egethome"
-     "egetshell" "egetusername" "enewgroup" "enewuser" "esetcomment"
-     "esetgroups" "esethome" "esetshell")
+     "egetshell" "egetusername")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-usr-ldscript
