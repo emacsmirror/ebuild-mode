@@ -126,7 +126,7 @@ If nil, don't update."
      (file-error nil))
    ;; could not read architectures from repository, so fall back to default
    '("alpha" "amd64" "arm" "arm64" "hppa" "ia64" "m68k" "mips" "ppc" "ppc64"
-     "s390" "sh" "sparc" "x86" "amd64-fbsd" "sparc-fbsd" "x86-fbsd"))
+     "riscv" "s390" "sparc" "x86"))
   "List of architectures.")
 
 (defvar ebuild-mode-arch-stable-list
