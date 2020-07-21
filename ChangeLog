@@ -2,6 +2,7 @@
 
 	* ebuild-mode.el (ebuild-mode-arch-list): Update default list of
 	architectures.
+	(ebuild-mode-arch-stable-list): Try to read arches.desc first.
 
 2020-03-07  Ulrich Müller  <ulm@gentoo.org>
 

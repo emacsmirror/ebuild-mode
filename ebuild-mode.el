@@ -131,6 +131,21 @@ If nil, don't update."
 
 (defvar ebuild-mode-arch-stable-list
   (or
+   ;; try to read arches.desc (GLEP 72) first, then profiles.desc
+   (condition-case nil
+       (with-temp-buffer
+	 (insert-file-contents-literally
+	  (concat ebuild-mode-portdir "/profiles/arches.desc"))
+	 (let (arch archs)
+	   (while (re-search-forward
+		   "^[ \t]*\\([^ \t\n#]+\\)[ \t]+\\(stable\\|transitional\\)\\>"
+		   nil t)
+	     (setq arch (match-string 1))
+	     (and (not (member arch archs))
+		  (member arch ebuild-mode-arch-list)
+		  (setq archs (cons arch archs))))
+	   (sort archs 'ebuild-mode-arch-lessp)))
+     (file-error nil))
    (condition-case nil
        (with-temp-buffer
 	 (insert-file-contents-literally
