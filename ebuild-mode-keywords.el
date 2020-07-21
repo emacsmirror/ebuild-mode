@@ -195,10 +195,6 @@
   '(("bazel_get_flags" "bazel_load_distfiles" "bazel_setup_bazelrc" "ebazel")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-bzr
-  '(("bzr_fetch" "bzr_initial_fetch" "bzr_src_unpack" "bzr_update")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-cannadic
   '(("cannadic-install" "cannadic_pkg_postinst" "cannadic_pkg_postrm"
      "cannadic_pkg_setup" "cannadic_src_install" "dicsdir-install"
@@ -314,6 +310,10 @@
   '(("dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-dune
+  '(("dune-install" "dune_src_compile" "dune_src_install" "dune_src_test")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-eapi7-ver
   '(("ver_cut" "ver_rs" "ver_test")
     font-lock-type-face))
@@ -375,13 +375,13 @@
   '(("all-flag-vars" "append-cflags" "append-cppflags" "append-cxxflags"
      "append-fflags" "append-flags" "append-ldflags" "append-lfs-flags"
      "append-libs" "filter-flags" "filter-ldflags" "filter-lfs-flags"
-     "filter-mfpmath" "get-flag" "has_m32" "has_m64" "is-flag" "is-flagq"
-     "is-ldflag" "is-ldflagq" "no-as-needed" "raw-ldflags" "replace-cpu-flags"
-     "replace-flags" "replace-sparc64-flags" "setup-allowed-flags"
-     "strip-flags" "strip-unsupported-flags" "test-flag-CC" "test-flag-CCLD"
-     "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flag-PROG"
-     "test-flags" "test-flags-CC" "test-flags-CCLD" "test-flags-CXX"
-     "test-flags-F77" "test-flags-FC" "test-flags-PROG" "test_version_info")
+     "filter-mfpmath" "get-flag" "is-flag" "is-flagq" "is-ldflag" "is-ldflagq"
+     "no-as-needed" "raw-ldflags" "replace-cpu-flags" "replace-flags"
+     "replace-sparc64-flags" "setup-allowed-flags" "strip-flags"
+     "strip-unsupported-flags" "test-flag-CC" "test-flag-CCLD" "test-flag-CXX"
+     "test-flag-F77" "test-flag-FC" "test-flag-PROG" "test-flags"
+     "test-flags-CC" "test-flags-CCLD" "test-flags-CXX" "test-flags-F77"
+     "test-flags-FC" "test-flags-PROG" "test_version_info")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-font
@@ -433,13 +433,6 @@
   '(("gkrellm-plugin_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-gnome-python-common-r1
-  '(("gnome-python-common-r1_src_compile"
-     "gnome-python-common-r1_src_configure"
-     "gnome-python-common-r1_src_install" "gnome-python-common-r1_src_prepare"
-     "gnome-python-common-r1_src_test")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-gnome2
   '(("gnome2_pkg_postinst" "gnome2_pkg_postrm" "gnome2_pkg_preinst"
      "gnome2_src_compile" "gnome2_src_configure" "gnome2_src_install"
@@ -471,7 +464,7 @@
 
 (defvar ebuild-mode-keywords-go-module
   '(("go-module_live_vendor" "go-module_pkg_postinst" "go-module_set_globals"
-     "go-module_src_unpack" "go-module_vendor_uris")
+     "go-module_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-golang-base
@@ -575,18 +568,6 @@
   '(("kde.org_pkg_nofetch" "kde.org_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-kde5
-  '(("cmake-utils_use_find_package" "kde5_pkg_postinst" "kde5_pkg_postrm"
-     "kde5_pkg_preinst" "kde5_pkg_pretend" "kde5_pkg_setup" "kde5_src_compile"
-     "kde5_src_configure" "kde5_src_install" "kde5_src_prepare"
-     "kde5_src_test" "kde5_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-kde5-functions
-  '(("add_frameworks_dep" "add_kdeapps_dep" "add_plasma_dep" "add_qt_dep"
-     "punt_bogus_dep")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-kernel-2
   '(("compile_headers" "compile_headers_tweak_config" "cross_pre_c_headers"
      "debug-print-kernel2-variables" "detect_arch" "detect_version"
@@ -610,8 +591,9 @@
 (defvar ebuild-mode-keywords-kernel-install
   '(("kernel-install_build_initramfs" "kernel-install_get_image_path"
      "kernel-install_get_qemu_arch" "kernel-install_install_kernel"
-     "kernel-install_pkg_postinst" "kernel-install_pkg_postrm"
-     "kernel-install_pkg_preinst" "kernel-install_pkg_prerm"
+     "kernel-install_pkg_config" "kernel-install_pkg_postinst"
+     "kernel-install_pkg_postrm" "kernel-install_pkg_preinst"
+     "kernel-install_pkg_prerm" "kernel-install_pkg_pretend"
      "kernel-install_src_test" "kernel-install_test"
      "kernel-install_update_symlink")
     font-lock-type-face))
@@ -667,7 +649,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-llvm.org
-  '(("llvm.org_set_globals" "llvm.org_src_unpack")
+  '(("get_lit_flags" "llvm.org_set_globals" "llvm.org_src_prepare"
+     "llvm.org_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ltprune
@@ -769,13 +752,6 @@
   '(("myspell-r2_src_install" "myspell-r2_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-netsurf
-  '(("multilib_src_compile" "multilib_src_configure" "multilib_src_install"
-     "multilib_src_test" "netsurf_make" "netsurf_src_compile"
-     "netsurf_src_configure" "netsurf_src_install" "netsurf_src_prepare"
-     "netsurf_src_test")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-ninja-utils
   '(("eninja")
     font-lock-type-face))
@@ -844,15 +820,6 @@
   '(("php-ext-pecl-r3_src_install" "php-ext-pecl-r3_src_test")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-php-ext-source-r2
-  '(("php-ext-source-r2_addextension" "php-ext-source-r2_addtoinifile"
-     "php-ext-source-r2_addtoinifiles" "php-ext-source-r2_buildinilist"
-     "php-ext-source-r2_createinifiles" "php-ext-source-r2_phpize"
-     "php-ext-source-r2_src_compile" "php-ext-source-r2_src_configure"
-     "php-ext-source-r2_src_install" "php-ext-source-r2_src_prepare"
-     "php-ext-source-r2_src_unpack" "php_get_slots" "php_init_slot_env")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-php-ext-source-r3
   '(("php-ext-source-r3_addtoinifiles" "php-ext-source-r3_createinifiles"
      "php-ext-source-r3_phpize" "php-ext-source-r3_src_compile"
@@ -912,11 +879,11 @@
      "python_disable_pyc" "python_doexe" "python_doheader" "python_domodule"
      "python_doscript" "python_enable_pyc" "python_execute_function"
      "python_execute_nosetests" "python_execute_py.test"
-     "python_execute_trial" "python_export" "python_export_utf8_locale"
-     "python_fix_shebang" "python_generate_cffi_modules"
-     "python_generate_wrapper_scripts" "python_get_CFLAGS" "python_get_LIBS"
-     "python_get_PYTHON_CONFIG" "python_get_extension_module_suffix"
-     "python_get_implementation" "python_get_implementation_and_version"
+     "python_execute_trial" "python_export_utf8_locale" "python_fix_shebang"
+     "python_generate_cffi_modules" "python_generate_wrapper_scripts"
+     "python_get_CFLAGS" "python_get_LIBS" "python_get_PYTHON_CONFIG"
+     "python_get_extension_module_suffix" "python_get_implementation"
+     "python_get_implementation_and_version"
      "python_get_implementational_package" "python_get_includedir"
      "python_get_libdir" "python_get_library" "python_get_library_path"
      "python_get_scriptdir" "python_get_sitedir" "python_get_version"
@@ -930,15 +897,14 @@
 (defvar ebuild-mode-keywords-qmail
   '(("dospp" "dosupervise" "genqmail_src_unpack" "is_prime" "primes"
      "qmail_base_install" "qmail_config_fast" "qmail_config_install"
-     "qmail_config_notice" "qmail_full_install" "qmail_maildir_install"
-     "qmail_man_install" "qmail_queue_setup" "qmail_rootmail_fixup"
-     "qmail_sendmail_install" "qmail_set_cc" "qmail_spp_install"
-     "qmail_spp_src_compile" "qmail_spp_src_unpack" "qmail_src_compile"
-     "qmail_src_install" "qmail_src_postunpack" "qmail_ssl_generate"
-     "qmail_ssl_install" "qmail_supervise_config_notice"
-     "qmail_supervise_install" "qmail_supervise_install_one"
-     "qmail_tcprules_build" "qmail_tcprules_config" "qmail_tcprules_fixup"
-     "qmail_tcprules_install")
+     "qmail_config_notice" "qmail_maildir_install" "qmail_man_install"
+     "qmail_queue_setup" "qmail_rootmail_fixup" "qmail_sendmail_install"
+     "qmail_set_cc" "qmail_spp_install" "qmail_spp_src_compile"
+     "qmail_spp_src_unpack" "qmail_src_compile" "qmail_src_install"
+     "qmail_src_postunpack" "qmail_ssl_generate" "qmail_ssl_install"
+     "qmail_supervise_config_notice" "qmail_supervise_install"
+     "qmail_supervise_install_one" "qmail_tcprules_build"
+     "qmail_tcprules_config" "qmail_tcprules_fixup" "qmail_tcprules_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmake-utils
@@ -1101,11 +1067,10 @@
      "setup_multilib_osdirnames" "should_we_gcc_config" "tc_apply_patches"
      "tc_has_feature" "tc_is_live" "tc_supports_dostrip"
      "tc_version_is_at_least" "tc_version_is_between" "toolchain_death_notice"
-     "toolchain_is_unsupported" "toolchain_pkg_postinst"
-     "toolchain_pkg_postrm" "toolchain_pkg_pretend" "toolchain_pkg_setup"
-     "toolchain_src_compile" "toolchain_src_configure" "toolchain_src_install"
-     "toolchain_src_prepare" "toolchain_src_test" "toolchain_src_unpack"
-     "want_minispecs" "want_pie")
+     "toolchain_pkg_postinst" "toolchain_pkg_postrm" "toolchain_pkg_pretend"
+     "toolchain_pkg_setup" "toolchain_src_compile" "toolchain_src_configure"
+     "toolchain_src_install" "toolchain_src_prepare" "toolchain_src_test"
+     "toolchain_src_unpack" "want_minispecs" "want_pie")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-autoconf
@@ -1127,10 +1092,11 @@
      "tc-getBUILD_AR" "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP"
      "tc-getBUILD_CXX" "tc-getBUILD_LD" "tc-getBUILD_NM" "tc-getBUILD_OBJCOPY"
      "tc-getBUILD_PKG_CONFIG" "tc-getBUILD_PROG" "tc-getBUILD_RANLIB"
-     "tc-getBUILD_STRIP" "tc-getCC" "tc-getCPP" "tc-getCXX" "tc-getDLLWRAP"
-     "tc-getF77" "tc-getFC" "tc-getGCJ" "tc-getGO" "tc-getLD" "tc-getNM"
-     "tc-getOBJCOPY" "tc-getOBJDUMP" "tc-getPKG_CONFIG" "tc-getPROG"
-     "tc-getRANLIB" "tc-getRC" "tc-getSTRIP" "tc-getTARGET_CPP"
+     "tc-getBUILD_READELF" "tc-getBUILD_STRINGS" "tc-getBUILD_STRIP"
+     "tc-getCC" "tc-getCPP" "tc-getCXX" "tc-getDLLWRAP" "tc-getF77" "tc-getFC"
+     "tc-getGCJ" "tc-getGO" "tc-getLD" "tc-getNM" "tc-getOBJCOPY"
+     "tc-getOBJDUMP" "tc-getPKG_CONFIG" "tc-getPROG" "tc-getRANLIB" "tc-getRC"
+     "tc-getREADELF" "tc-getSTRINGS" "tc-getSTRIP" "tc-getTARGET_CPP"
      "tc-has-openmp" "tc-has-tls" "tc-is-clang" "tc-is-cross-compiler"
      "tc-is-gcc" "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
      "tc-ld-is-gold" "tc-ld-is-lld" "tc-ninja_magic_to_arch"
@@ -1156,12 +1122,6 @@
      "toolchain-glibc_src_test" "toolchain-glibc_src_unpack" "unpack_pkg"
      "use_multiarch" "want__thread" "want_linuxthreads" "want_nptl"
      "want_tls")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-twisted-r1
-  '(("python_test" "twisted-r1_pkg_postinst" "twisted-r1_pkg_postrm"
-     "twisted-r1_python_test" "twisted-r1_src_install"
-     "twisted-r1_update_plugin_cache")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-udev
