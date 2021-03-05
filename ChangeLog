@@ -1,5 +1,9 @@
 2021-03-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* keyword-generation.sh: The eclass directory can now be specified
+	with the ECLASSDIR variable. Better error checking and reporting.
+	* Makefile (keywords): New target.
+
 	* devbook-mode.el: Add "wp" and "XML" to package keywords.
 	* gentoo-newsitem-mode.el: Change package keywords to "wp".
 	* glep-mode.el: Ditto.

@@ -1,4 +1,4 @@
-# Copyright 2007-2020 Gentoo Authors
+# Copyright 2007-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2 or later
 
 PN = ebuild-mode
@@ -17,6 +17,9 @@ all:
 
 ebuild-mode.info: ebuild-mode.texi
 	makeinfo $<
+
+keywords:
+	./keyword-generation.sh
 
 dist: $(DISTFILES)
 	tar -cJf $(P).tar.xz --transform='s%^%$(P)/%' $^
