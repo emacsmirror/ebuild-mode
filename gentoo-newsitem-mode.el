@@ -1,10 +1,10 @@
 ;;; gentoo-newsitem-mode.el --- edit Gentoo GLEP 42 news items
 
-;; Copyright 2009-2020 Gentoo Authors
+;; Copyright 2009-2021 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Keywords: languages
+;; Keywords: wp
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

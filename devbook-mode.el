@@ -1,10 +1,10 @@
 ;;; devbook-mode.el --- edit the Gentoo Devmanual
 
-;; Copyright 2020 Gentoo Authors
+;; Copyright 2020-2021 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Keywords: languages
+;; Keywords: wp, languages, XML
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by

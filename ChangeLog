@@ -1,3 +1,9 @@
+2021-03-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el: Add "wp" and "XML" to package keywords.
+	* gentoo-newsitem-mode.el: Change package keywords to "wp".
+	* glep-mode.el: Ditto.
+
 2020-07-21  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.51 released.
