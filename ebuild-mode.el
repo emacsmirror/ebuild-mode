@@ -1,6 +1,6 @@
 ;;; ebuild-mode.el --- edit Gentoo ebuild and eclass files
 
-;; Copyright 2006-2020 Gentoo Authors
+;; Copyright 2006-2021 Gentoo Authors
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
@@ -330,26 +330,12 @@ Optional argument LIMIT restarts collection after that number of elements."
       (if (re-search-forward ebuild-mode-cvs-header-regexp 400 t)
 	  (delete-region (match-beginning 0) (1+ (point)))))))
 
-(defun ebuild-mode-before-save ()
-  (when ebuild-mode-fix-whitespace
-    (delete-trailing-whitespace)
-    (ebuild-mode-tabify))
-  (when ebuild-mode-update-copyright
-    (ebuild-mode-update-copyright)
-    ;; call it only once per buffer
-    (set (make-local-variable 'ebuild-mode-update-copyright) nil))
-  (when ebuild-mode-delete-cvs-line
-    (ebuild-mode-delete-cvs-line))
-  ;; return nil, otherwise the file is presumed to be written
-  nil)
-
 ;;;###autoload
 (define-derived-mode ebuild-mode shell-script-mode "Ebuild"
   "Major mode for Gentoo .ebuild and .eclass files."
-  (if (featurep 'xemacs)
-      ;; make-local-hook gives a byte-compiler warning in GNU Emacs
-      (make-local-hook 'write-contents-hooks))
-  (add-hook 'write-contents-hooks 'ebuild-mode-before-save t t)
+  ;; Always enable ebuild-repo-mode, even if the ebuild is edited
+  ;; outside an ebuild repository
+  (ebuild-repo-mode 1)
   (sh-set-shell "bash")
   (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
   (setq fill-column 72)
@@ -573,6 +559,46 @@ and `all-completions' for details."
   "DEPEND=\"\$\{RDEPEND\}\"\n")
 
 
+;;; Minor mode for editing files in an ebuild repository.
+
+(defun ebuild-repo-mode-before-save ()
+  (when ebuild-mode-fix-whitespace
+    ;; trim trailing whitespace, except for patches
+    (delete-trailing-whitespace)
+    ;; tabify whitespace for ebuilds
+    (if (derived-mode-p 'ebuild-mode)
+	(ebuild-mode-tabify)))
+  (when ebuild-mode-update-copyright
+    (ebuild-mode-update-copyright)
+    ;; call it only once per buffer
+    (set (make-local-variable 'ebuild-mode-update-copyright) nil))
+  (when ebuild-mode-delete-cvs-line
+    (ebuild-mode-delete-cvs-line))
+  ;; return nil, otherwise the file is presumed to be written
+  nil)
+
+;;;###autoload
+(define-minor-mode ebuild-repo-mode
+  "Minor mode for files in an ebuild repository."
+  :lighter " Repo"
+  (setq buffer-file-coding-system 'utf-8-unix)
+  (if (featurep 'xemacs)
+      ;; make-local-hook gives a byte-compiler warning in GNU Emacs
+      (make-local-hook 'write-contents-hooks))
+  (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
+
+;;;###autoload
+(defun ebuild-repo-mode-maybe-enable ()
+  "Enable ebuild-repo-mode when the file is in an ebuild repository."
+  ;; We assume that we are in an ebuild repository we find a file
+  ;; "profiles/repo_name" in any (nth level) parent dir
+  (and (locate-dominating-file buffer-file-name "profiles/repo_name")
+       ;; Don't enable the mode for patches
+       (not (string-match "\\.\\(diff\\|patch\\)\\'" buffer-file-name))
+       (not (derived-mode-p 'diff-mode))
+       (ebuild-repo-mode 1)))
+
+
 ;;; Keybindings.
 
 ;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
@@ -603,6 +629,12 @@ and `all-completions' for details."
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.\\(ebuild\\|eclass\\)\\'" . ebuild-mode))
+
+;;;###autoload
+(add-hook
+ ;; XEmacs 21.5 doesn't have find-file-hook
+ (if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
+ #'ebuild-repo-mode-maybe-enable)
 
 (provide 'ebuild-mode)
 

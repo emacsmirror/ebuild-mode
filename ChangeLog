@@ -1,3 +1,14 @@
+2021-03-16  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): New minor mode for editing
+	files in an ebuild repository.
+	(ebuild-repo-mode-before-save): New function.
+	(ebuild-repo-mode-maybe-enable, find-file-hook):
+	Enable ebuild-repo-mode when the file is in an ebuild repository.
+	(ebuild-mode): Enable ebuild-repo-mode instead of setting up
+	write-contents-hooks ourselves.
+	(ebuild-mode-before-save): Function removed.
+
 2021-03-05  Ulrich Müller  <ulm@gentoo.org>
 
 	* keyword-generation.sh: The eclass directory can now be specified
