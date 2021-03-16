@@ -1,5 +1,13 @@
 2021-03-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el: Fix byte-compile warnings.
+	(ebuild-mode-make-keywords-list): Test if delete-duplicates
+	is bound.
+	(ebuild-repo-mode): Use write-contents-functions for GNU Emacs.
+	* glep-mode.el (glep-mode): Fix byte-compile warning. We don't
+	support XEmacs anyway for its missing rst-mode, so we can use
+	write-contents-functions as well.
+
 	* ebuild-mode.el (ebuild-repo-mode): New minor mode for editing
 	files in an ebuild repository.
 	(ebuild-repo-mode-before-save): New function.

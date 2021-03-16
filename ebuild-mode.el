@@ -238,10 +238,14 @@ If nil, don't update."
       (error "Keywords argument must be a list of strings"))
     (cons (concat prefix "\\<"
 		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
-		    (regexp-opt (if (fboundp 'delete-dups) ; not in XEmacs 21.4
-				    (delete-dups keywords-list)
-				  (delete-duplicates keywords-list))
-				t))
+		    (regexp-opt
+		     ;; XEmacs 21.4 doesn't have delete-dups
+		     (cond ((fboundp 'delete-dups)
+			    (delete-dups keywords-list))
+			   ((fboundp 'delete-duplicates)
+			    (delete-duplicates keywords-list))
+			   (t keywords-list))
+		     t))
 		  "\\>" suffix)
 	  face))
 
@@ -582,10 +586,11 @@ and `all-completions' for details."
   "Minor mode for files in an ebuild repository."
   :lighter " Repo"
   (setq buffer-file-coding-system 'utf-8-unix)
-  (if (featurep 'xemacs)
-      ;; make-local-hook gives a byte-compiler warning in GNU Emacs
-      (make-local-hook 'write-contents-hooks))
-  (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
+  (if (not (featurep 'xemacs))
+      (add-hook 'write-contents-functions #'ebuild-repo-mode-before-save t t)
+    ;; make-local-hook gives a byte-compiler warning in GNU Emacs
+    (make-local-hook 'write-contents-hooks)
+    (add-hook 'write-contents-hooks #'ebuild-repo-mode-before-save t t)))
 
 ;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()

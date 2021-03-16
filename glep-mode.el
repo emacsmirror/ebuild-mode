@@ -92,8 +92,8 @@ For efficiency only. Unlimited if nil.")
   (setq fill-column 70)
   (set (make-local-variable 'sentence-end-double-space) t)
   (add-hook 'font-lock-extend-region-functions
-	    'glep-mode-font-lock-extend-region t)
-  (add-hook 'write-contents-hooks 'glep-mode-before-save t t))
+	    #'glep-mode-font-lock-extend-region t)
+  (add-hook 'write-contents-functions #'glep-mode-before-save t t))
 
 (add-hook
  'glep-mode-hook
