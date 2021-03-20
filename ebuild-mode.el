@@ -97,7 +97,7 @@ If nil, don't update."
 		       (boolean :tag "Author")))
   :group 'ebuild)
 
-(defcustom ebuild-mode-delete-cvs-line t
+(defcustom ebuild-mode-delete-cvs-line nil
   "If non-nil, delete any CVS $Id$ or $Header$ line before writing a file."
   :type 'boolean
   :group 'ebuild)

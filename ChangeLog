@@ -1,3 +1,8 @@
+2021-03-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-delete-cvs-line): Change default
+	to nil.
+
 2021-03-16  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el: Fix byte-compile warnings.
