@@ -566,6 +566,11 @@ and `all-completions' for details."
 
 ;;; Minor mode for editing files in an ebuild repository.
 
+;; suppress byte-compiler warning in XEmacs
+(defvar ebuild-repo-mode-hook)
+(defvar ebuild-repo-mode-on-hook)
+(defvar ebuild-repo-mode-off-hook)
+
 (defun ebuild-repo-mode-before-save ()
   (when ebuild-mode-fix-whitespace
     ;; trim trailing whitespace, except for patches

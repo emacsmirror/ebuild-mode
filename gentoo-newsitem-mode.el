@@ -43,6 +43,9 @@
   '("1.0" "2.0")
   "List of news item formats defined by GLEP 42.")
 
+;; suppress byte-compiler warning in XEmacs
+(defvar gentoo-newsitem-mode-menu)
+
 ;;;###autoload
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
   "Major mode for Gentoo GLEP 42 news items."
