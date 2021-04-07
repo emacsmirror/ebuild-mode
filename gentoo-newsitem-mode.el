@@ -47,6 +47,8 @@
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
   "Major mode for Gentoo GLEP 42 news items."
   (make-local-variable 'font-lock-defaults)
+  (if (featurep 'xemacs)
+      (easy-menu-add gentoo-newsitem-mode-menu))
   (setq font-lock-defaults '(gentoo-newsitem-font-lock-keywords t))
   (setq fill-column 72))
 

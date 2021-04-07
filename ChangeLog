@@ -1,5 +1,8 @@
 2021-04-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* gentoo-newsitem-mode.el (gentoo-newsitem-mode): Make easymenu
+	work with XEmacs.
+
 	* ebuild-mode.el (ebuild-mode): Fix byte-compile warning in
 	Emacs 28.
 
