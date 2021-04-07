@@ -341,7 +341,8 @@ Optional argument LIMIT restarts collection after that number of elements."
   ;; outside an ebuild repository
   (ebuild-repo-mode 1)
   (sh-set-shell "bash")
-  (easy-menu-add ebuild-mode-menu)	; needed for XEmacs
+  (if (featurep 'xemacs)
+      (easy-menu-add ebuild-mode-menu))
   (setq fill-column 72)
   (setq tab-width 4)
   (setq indent-tabs-mode t))

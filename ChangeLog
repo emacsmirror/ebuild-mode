@@ -1,3 +1,8 @@
+2021-04-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode): Fix byte-compile warning in
+	Emacs 28.
+
 2021-03-20  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.52 released.
