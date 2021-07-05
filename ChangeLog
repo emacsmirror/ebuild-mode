@@ -1,5 +1,9 @@
 2021-07-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-eapi-list): Add EAPI 8.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi-deprecated)
+	(ebuild-mode-keywords-0): hasv is banned.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
 	New keywords @DEPRECATED and @SUBSECTION.
 

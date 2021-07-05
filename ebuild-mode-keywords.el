@@ -37,7 +37,7 @@
      "dodoc" "doenvd" "doexe" "doinfo" "doinitd" "doins" "dolib.a" "dolib.so"
      "doman" "domo" "dosbin" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
      "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts" "fowners" "fperms"
-     "has" "hasv" "has_version" "inherit" "insinto" "insopts" "into" "keepdir"
+     "has" "has_version" "inherit" "insinto" "insopts" "into" "keepdir"
      "newbin" "newconfd" "newdoc" "newenvd" "newexe" "newinitd" "newins"
      "newlib.a" "newlib.so" "newman" "newsbin" "unpack" "use" "usev"
      "use_enable" "use_with")
@@ -90,7 +90,7 @@
 
 (defvar ebuild-mode-keywords-eapi-deprecated
   ;; deprecated or banned package manager commands
-  '(("dohard" "dohtml" "dolib" "dosed" "einstall" "hasq" "libopts"
+  '(("dohard" "dohtml" "dolib" "dosed" "einstall" "hasq" "hasv" "libopts"
      "prepalldocs" "prepall" "prepallinfo" "prepallman" "prepallstrip" "useq")
     font-lock-warning-face))
 
