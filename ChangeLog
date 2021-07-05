@@ -1,3 +1,8 @@
+2021-07-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
+	New keywords @DEPRECATED and @SUBSECTION.
+
 2021-04-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-newsitem-mode.el (gentoo-newsitem-mode-menu): Declare.
