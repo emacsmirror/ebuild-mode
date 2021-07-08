@@ -353,6 +353,10 @@ Optional argument LIMIT restarts collection after that number of elements."
 
 ;;; Run ebuild command.
 
+(defvar ebuild-log-buffer-mode nil
+  "Major mode for the log buffer of `ebuild-run-command'.
+If nil, `compilation-mode' will be used.")
+
 (defun ebuild-run-command (command)
   "Run ebuild COMMAND, with output to a compilation buffer."
   (interactive
@@ -361,12 +365,15 @@ Optional argument LIMIT restarts collection after that number of elements."
 			  nil t)))
   (or (member command ebuild-commands-list)
       (error "Ebuild command \"%s\" not known" command))
-  (let ((file (file-relative-name buffer-file-name))
-	(process-environment (cons "NOCOLOR=true" process-environment))
-	;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
-	(compilation-buffer-name-function
-	 (list 'lambda '(mode) (concat "*ebuild " command "*"))))
-    (compile (format "ebuild %s %s" file command))))
+  (let* ((file (file-relative-name buffer-file-name))
+	 (shell-command (format "ebuild %s %s" file command))
+	 (process-environment (cons "NOCOLOR=true" process-environment))
+	 ;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
+	 (compilation-buffer-name-function
+	  (list 'lambda '(mode) (concat "*ebuild " command "*"))))
+    (if (featurep 'xemacs)
+	(compile shell-command)
+      (compile shell-command ebuild-log-buffer-mode))))
 
 
 ;;; Modify package keywords.
