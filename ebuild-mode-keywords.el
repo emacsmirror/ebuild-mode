@@ -168,30 +168,12 @@
      "eautoreconf")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-autotools-utils
-  '(("autotools-utils_src_compile" "autotools-utils_src_configure"
-     "autotools-utils_src_install" "autotools-utils_src_prepare"
-     "autotools-utils_src_test")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-base
-  '(("base_src_compile" "base_src_configure" "base_src_install"
-     "base_src_install_docs" "base_src_make" "base_src_prepare"
-     "base_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-bash-completion-r1
   '(("bashcomp_alias" "dobashcomp" "get_bashcompdir" "newbashcomp")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-bazel
   '(("bazel_get_flags" "bazel_load_distfiles" "bazel_setup_bazelrc" "ebazel")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-cannadic
-  '(("cannadic-install" "cannadic_pkg_postinst" "cannadic_pkg_postrm"
-     "cannadic_pkg_setup" "cannadic_src_install" "dicsdir-install"
-     "update-cannadic-dir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cargo
@@ -259,10 +241,6 @@
   '(("cvs_fetch" "cvs_src_unpack")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-darcs
-  '(("darcs_fetch" "darcs_patchcount" "darcs_src_unpack")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-db
   '(("db_fix_so" "db_src_install_doc" "db_src_install_examples"
      "db_src_install_headerslot" "db_src_install_usrbinslot"
@@ -291,9 +269,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-distutils-r1
-  '(("distutils-r1_python_compile" "distutils-r1_python_configure"
-     "distutils-r1_python_install" "distutils-r1_python_install_all"
-     "distutils-r1_python_prepare" "distutils-r1_python_prepare_all"
+  '(("distutils-r1_python_compile" "distutils-r1_python_install"
+     "distutils-r1_python_install_all" "distutils-r1_python_prepare_all"
      "distutils-r1_python_test" "distutils-r1_src_compile"
      "distutils-r1_src_configure" "distutils-r1_src_install"
      "distutils-r1_src_prepare" "distutils-r1_src_test"
@@ -340,7 +317,7 @@
 (defvar ebuild-mode-keywords-elisp-common
   '(("elisp-check-emacs-version" "elisp-compile" "elisp-emacs-version"
      "elisp-install" "elisp-make-autoload-file" "elisp-modules-install"
-     "elisp-need-emacs" "elisp-site-file-install" "elisp-site-regen")
+     "elisp-site-file-install" "elisp-site-regen")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-emboss-r2
@@ -358,8 +335,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-eutils
-  '(("einstalldocs" "emktemp" "eqawarn" "in_iuse" "path_exists" "use_if_iuse"
-     "usex")
+  '(("emktemp" "path_exists" "use_if_iuse")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-fcaps
@@ -380,11 +356,10 @@
      "append-libs" "filter-flags" "filter-ldflags" "filter-lfs-flags"
      "filter-mfpmath" "get-flag" "is-flag" "is-flagq" "is-ldflag" "is-ldflagq"
      "no-as-needed" "raw-ldflags" "replace-cpu-flags" "replace-flags"
-     "replace-sparc64-flags" "setup-allowed-flags" "strip-flags"
-     "strip-unsupported-flags" "test-flag-CC" "test-flag-CCLD" "test-flag-CXX"
-     "test-flag-F77" "test-flag-FC" "test-flag-PROG" "test-flags"
-     "test-flags-CC" "test-flags-CCLD" "test-flags-CXX" "test-flags-F77"
-     "test-flags-FC" "test-flags-PROG" "test_version_info")
+     "replace-sparc64-flags" "strip-flags" "strip-unsupported-flags"
+     "test-flag-CC" "test-flag-CCLD" "test-flag-CXX" "test-flag-F77"
+     "test-flag-FC" "test-flags" "test-flags-CC" "test-flags-CCLD"
+     "test-flags-CXX" "test-flags-F77" "test-flags-FC" "test_version_info")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-font
@@ -405,19 +380,11 @@
   '(("freedict_src_install")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-games
-  '(("dogamesbin" "dogameslib" "dogameslib.a" "dogameslib.so" "dogamessbin"
-     "egamesconf" "games_get_libdir" "games_make_wrapper" "games_pkg_postinst"
-     "games_pkg_preinst" "games_pkg_setup" "games_src_compile"
-     "games_src_configure" "games_umod_unpack" "games_ut_unpack" "gamesowners"
-     "gamesperms" "newgamesbin" "newgamessbin" "prepgamesdirs")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-ghc-package
   '(("check-for-collisions" "ghc-cabal-version" "ghc-confdir"
-     "ghc-extractportageversion" "ghc-getghc" "ghc-getghcpkg"
-     "ghc-getghcpkgbin" "ghc-install-pkg" "ghc-is-dynamic" "ghc-libdir"
-     "ghc-localpkgconfd" "ghc-make-args" "ghc-package-db" "ghc-package-exists"
+     "ghc-extractportageversion" "ghc-getghc" "ghc-getghcpkgbin"
+     "ghc-install-pkg" "ghc-is-dynamic" "ghc-libdir" "ghc-localpkgconfd"
+     "ghc-make-args" "ghc-package-db" "ghc-package-exists"
      "ghc-package_pkg_postinst" "ghc-package_pkg_postrm"
      "ghc-package_pkg_prerm" "ghc-pkgdeps" "ghc-pm-version" "ghc-recache-db"
      "ghc-register-pkg" "ghc-reregister" "ghc-supports-interpreter"
@@ -453,7 +420,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnuconfig
-  '(("gnuconfig_do_update" "gnuconfig_findnewest" "gnuconfig_update")
+  '(("gnuconfig_update")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-gnustep-base
@@ -461,12 +428,12 @@
      "egnustep_install_config" "egnustep_make" "gnustep-base_pkg_postinst"
      "gnustep-base_pkg_setup" "gnustep-base_src_compile"
      "gnustep-base_src_configure" "gnustep-base_src_install"
-     "gnustep-base_src_prepare" "gnustep-base_src_unpack")
+     "gnustep-base_src_prepare")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-go-module
   '(("go-module_live_vendor" "go-module_pkg_postinst" "go-module_set_globals"
-     "go-module_src_unpack")
+     "go-module_setup_proxy" "go-module_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-golang-base
@@ -491,6 +458,14 @@
   '(("gstreamer_multilib_src_compile" "gstreamer_multilib_src_configure"
      "gstreamer_multilib_src_install" "gstreamer_multilib_src_install_all"
      "gstreamer_system_link" "multilib_src_configure")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-gstreamer-meson
+  '(("gstreamer_multilib_src_compile" "gstreamer_multilib_src_configure"
+     "gstreamer_multilib_src_install" "gstreamer_multilib_src_install_all"
+     "gstreamer_multilib_src_test" "gstreamer_system_library"
+     "gstreamer_system_package" "multilib_src_compile"
+     "multilib_src_configure" "multilib_src_install" "multilib_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-haskell-cabal
@@ -578,9 +553,8 @@
      "kernel-2_pkg_postinst" "kernel-2_pkg_postrm" "kernel-2_pkg_preinst"
      "kernel-2_pkg_setup" "kernel-2_src_compile" "kernel-2_src_install"
      "kernel-2_src_prepare" "kernel-2_src_test" "kernel-2_src_unpack"
-     "kernel_header_destdir" "kernel_is" "kernel_is_2_4" "kernel_is_2_6"
-     "postinst_sources" "preinst_headers" "setup_headers" "unipatch"
-     "universal_unpack" "unpack_2_4" "unpack_2_6" "unpack_fix_install_path"
+     "kernel_header_destdir" "kernel_is" "postinst_sources" "preinst_headers"
+     "setup_headers" "unipatch" "universal_unpack" "unpack_fix_install_path"
      "unpack_set_extraversion")
     font-lock-type-face))
 
@@ -604,11 +578,6 @@
   '(("kodi-addon_src_configure")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-l10n
-  '(("l10n_find_plocales_changes" "l10n_for_each_disabled_locale_do"
-     "l10n_for_each_locale_do" "l10n_get_locales" "strip-linguas")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-latex-package
   '(("latex-package_pkg_postinst" "latex-package_pkg_postrm"
      "latex-package_rehash" "latex-package_src_compile"
@@ -621,7 +590,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-libtool
-  '(("darwintoolize" "elibtoolize" "uclibctoolize")
+  '(("elibtoolize")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-linux-info
@@ -686,6 +655,14 @@
 (defvar ebuild-mode-keywords-meson
   '(("meson_feature" "meson_src_compile" "meson_src_configure"
      "meson_src_install" "meson_src_test" "meson_use")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-meson-multilib
+  '(("meson-multilib_src_compile" "meson-multilib_src_configure"
+     "meson-multilib_src_install" "meson-multilib_src_test"
+     "meson_native_enabled" "meson_native_true" "meson_native_use_bool"
+     "meson_native_use_feature" "multilib_src_compile"
+     "multilib_src_configure" "multilib_src_install" "multilib_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mono
@@ -767,21 +744,6 @@
   '(("eninja")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-nsplugins
-  '(("inst_plugin" "pkg_mv_plugins" "share_plugins_dir" "src_mv_plugins")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-nvidia-driver
-  '(("nvidia-driver_check" "nvidia-driver_check_gpu"
-     "nvidia-driver_check_kernel" "nvidia-driver_get_gpu"
-     "nvidia-driver_get_mask")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-oasis
-  '(("oasis_src_compile" "oasis_src_configure" "oasis_src_install"
-     "oasis_src_test" "oasis_use_enable")
-    font-lock-type-face))
-
 (defvar ebuild-mode-keywords-office-ext-r1
   '(("office-ext-r1_src_install" "office-ext-r1_src_unpack")
     font-lock-type-face))
@@ -795,7 +757,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-optfeature
-  '(("optfeature")
+  '(("optfeature" "optfeature_header")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-out-of-source
@@ -817,9 +779,11 @@
   '(("perl_check_env" "perl_delete_emptybsdir" "perl_delete_localpod"
      "perl_delete_module_manpages" "perl_delete_packlist" "perl_doexamples"
      "perl_domodule" "perl_fix_osx_extra" "perl_fix_packlist"
-     "perl_get_module_version" "perl_get_raw_vendorlib" "perl_get_vendorlib"
-     "perl_has_module" "perl_has_module_version" "perl_link_duallife_scripts"
-     "perl_remove_temppath" "perl_rm_files" "perl_set_version")
+     "perl_fix_permissions" "perl_get_module_version" "perl_get_raw_vendorlib"
+     "perl_get_vendorlib" "perl_get_wikiurl" "perl_get_wikiurl_features"
+     "perl_get_wikiurl_tests" "perl_has_module" "perl_has_module_version"
+     "perl_link_duallife_scripts" "perl_remove_temppath" "perl_rm_files"
+     "perl_set_version")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-perl-module
@@ -844,6 +808,11 @@
 (defvar ebuild-mode-keywords-php-pear-r2
   '(("php-pear-r2_install_packagexml" "php-pear-r2_pkg_postinst"
      "php-pear-r2_pkg_postrm" "php-pear-r2_src_install")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-plocale
+  '(("plocale_find_changes" "plocale_for_each_disabled_locale"
+     "plocale_for_each_locale" "plocale_get_locales")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-portability
@@ -886,7 +855,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-utils-r1
-  '(("build_sphinx" "epytest" "python_doexe" "python_doheader"
+  '(("build_sphinx" "epytest" "eunittest" "python_doexe" "python_doheader"
      "python_domodule" "python_doscript" "python_export_utf8_locale"
      "python_fix_shebang" "python_get_CFLAGS" "python_get_LIBS"
      "python_get_PYTHON_CONFIG" "python_get_includedir"
@@ -919,11 +888,6 @@
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
      "qt5-build_src_test" "qt5-build_src_unpack" "qt_use"
      "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-readme.gentoo
-  '(("readme.gentoo_create_doc" "readme.gentoo_pkg_postinst"
-     "readme.gentoo_print_elog" "readme.gentoo_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-readme.gentoo-r1
@@ -1004,12 +968,15 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-ssl-cert
-  '(("gen_cnf" "gen_crt" "gen_csr" "gen_key" "gen_pem" "get_base"
-     "install_cert")
+  '(("install_cert")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-stardict
   '(("stardict_src_compile" "stardict_src_install")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-strip-linguas
+  '(("strip-linguas")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-subversion
@@ -1024,14 +991,13 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-systemd
-  '(("systemd_dotmpfilesd" "systemd_dounit" "systemd_douserunit"
-     "systemd_enable_ntpunit" "systemd_enable_service"
-     "systemd_get_systemgeneratordir" "systemd_get_systemunitdir"
-     "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
-     "systemd_install_serviced" "systemd_is_booted" "systemd_newtmpfilesd"
-     "systemd_newunit" "systemd_newuserunit" "systemd_reenable"
-     "systemd_tmpfiles_create" "systemd_update_catalog" "systemd_with_unitdir"
-     "systemd_with_utildir")
+  '(("systemd_dounit" "systemd_douserunit" "systemd_enable_ntpunit"
+     "systemd_enable_service" "systemd_get_systemgeneratordir"
+     "systemd_get_systemunitdir" "systemd_get_unitdir"
+     "systemd_get_userunitdir" "systemd_get_utildir"
+     "systemd_install_serviced" "systemd_is_booted" "systemd_newunit"
+     "systemd_newuserunit" "systemd_reenable" "systemd_update_catalog"
+     "systemd_with_unitdir" "systemd_with_utildir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-texlive-common
@@ -1162,14 +1128,11 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vdr-plugin-2
-  '(("fix_vdr_libsi_include" "has_vdr" "vdr-plugin-2_pkg_config"
+  '(("fix_vdr_libsi_include" "vdr-plugin-2_pkg_config"
      "vdr-plugin-2_pkg_postinst" "vdr-plugin-2_pkg_postrm"
-     "vdr-plugin-2_pkg_setup" "vdr-plugin-2_print_enable_command"
-     "vdr-plugin-2_src_compile" "vdr-plugin-2_src_install"
-     "vdr-plugin-2_src_prepare" "vdr-plugin-2_src_unpack"
-     "vdr-plugin-2_src_util" "vdr_create_header_checksum_file"
-     "vdr_create_plugindb_file" "vdr_detect_po_dir" "vdr_gettext_missing"
-     "vdr_i18n" "vdr_linguas_support" "vdr_patchmakefile"
+     "vdr-plugin-2_pkg_setup" "vdr-plugin-2_src_compile"
+     "vdr-plugin-2_src_install" "vdr-plugin-2_src_prepare"
+     "vdr-plugin-2_src_unpack" "vdr-plugin-2_src_util"
      "vdr_remove_i18n_include")
     font-lock-type-face))
 
@@ -1203,7 +1166,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-virtualx
-  '(("Xeconf" "Xemake" "Xmake" "virtualmake" "virtx")
+  '(("virtx")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-waf-utils
@@ -1227,7 +1190,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-wxwidgets
-  '(("need-wxwidgets" "setup-wxwidgets")
+  '(("setup-wxwidgets")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xdg
@@ -1241,14 +1204,6 @@
 
 (defvar ebuild-mode-keywords-xemacs-packages
   '(("xemacs-packages_src_install" "xemacs-packages_src_unpack")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-xorg-2
-  '(("create_fonts_dir" "create_fonts_scale" "remove_font_metadata"
-     "xorg-2_flags_setup" "xorg-2_font_configure" "xorg-2_patch_source"
-     "xorg-2_pkg_postinst" "xorg-2_pkg_postrm" "xorg-2_pkg_setup"
-     "xorg-2_reconf_source" "xorg-2_src_compile" "xorg-2_src_configure"
-     "xorg-2_src_install" "xorg-2_src_prepare" "xorg-2_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xorg-3

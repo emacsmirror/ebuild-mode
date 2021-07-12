@@ -1,3 +1,7 @@
+2021-07-12  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 2021-07-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-log-buffer-mode): New variable.
