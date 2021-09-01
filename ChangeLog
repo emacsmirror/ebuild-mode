@@ -1,3 +1,8 @@
+2021-09-01  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
+	New keyword @PROVIDES.
+
 2021-07-12  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.53 released.
