@@ -1,3 +1,8 @@
+2021-12-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Use same fill-column and
+	tab-width as ebuild-mode.
+
 2021-09-01  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
