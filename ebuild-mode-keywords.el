@@ -176,6 +176,10 @@
   '(("bazel_get_flags" "bazel_load_distfiles" "bazel_setup_bazelrc" "ebazel")
     font-lock-type-face))
 
+(defvar ebuild-mode-keywords-bzr
+  '(("bzr_fetch" "bzr_src_unpack")
+    font-lock-type-face))
+
 (defvar ebuild-mode-keywords-cargo
   '(("cargo_crate_uris" "cargo_gen_config" "cargo_live_src_unpack"
      "cargo_src_compile" "cargo_src_configure" "cargo_src_install"
@@ -187,12 +191,12 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-check-reqs
-  '(("check-reqs_pkg_pretend" "check-reqs_pkg_setup" "check_reqs")
+  '(("check-reqs_pkg_pretend" "check-reqs_pkg_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-chromium-2
   '(("chromium_pkg_die" "chromium_remove_language_paks"
-     "chromium_suid_sandbox_check_kernel_config" "egyp_chromium" "gyp_use")
+     "chromium_suid_sandbox_check_kernel_config")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-cmake
@@ -432,8 +436,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-go-module
-  '(("go-module_live_vendor" "go-module_pkg_postinst" "go-module_set_globals"
-     "go-module_setup_proxy" "go-module_src_unpack")
+  '(("go-module_live_vendor" "go-module_set_globals" "go-module_setup_proxy"
+     "go-module_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-golang-base
@@ -546,10 +550,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-kernel-2
-  '(("compile_headers" "compile_headers_tweak_config" "cross_pre_c_headers"
-     "debug-print-kernel2-variables" "detect_arch" "detect_version"
-     "env_setup_xmakeopts" "getfilevar" "handle_genpatches" "headers___fix"
-     "install_headers" "install_sources" "install_universal"
+  '(("cross_pre_c_headers" "debug-print-kernel2-variables" "detect_arch"
+     "detect_version" "env_setup_xmakeopts" "getfilevar" "handle_genpatches"
+     "headers___fix" "install_headers" "install_sources" "install_universal"
      "kernel-2_pkg_postinst" "kernel-2_pkg_postrm" "kernel-2_pkg_preinst"
      "kernel-2_pkg_setup" "kernel-2_src_compile" "kernel-2_src_install"
      "kernel-2_src_prepare" "kernel-2_src_test" "kernel-2_src_unpack"
@@ -597,8 +600,8 @@
   '(("check_extra_config" "check_kernel_built" "check_modules_supported"
      "check_zlibinflate" "get_localversion" "get_makefile_extract_function"
      "get_running_version" "get_version" "getfilevar" "getfilevar_noexec"
-     "kernel_is" "linux-info_get_any_version" "linux-info_pkg_setup"
-     "linux_chkconfig_builtin" "linux_chkconfig_module"
+     "kernel_get_makefile" "kernel_is" "linux-info_get_any_version"
+     "linux-info_pkg_setup" "linux_chkconfig_builtin" "linux_chkconfig_module"
      "linux_chkconfig_present" "linux_chkconfig_string"
      "linux_config_bin_exists" "linux_config_exists" "linux_config_path"
      "linux_config_qa_check" "linux_config_src_exists" "qeerror" "qeinfo"
@@ -653,7 +656,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-meson
-  '(("meson_feature" "meson_src_compile" "meson_src_configure"
+  '(("meson_feature" "meson_install" "meson_src_compile" "meson_src_configure"
      "meson_src_install" "meson_src_test" "meson_use")
     font-lock-type-face))
 
@@ -866,7 +869,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmail
-  '(("dospp" "dosupervise" "genqmail_src_unpack" "is_prime" "primes"
+  '(("dospp" "dosupervise" "genqmail_src_unpack" "is_prime"
      "qmail_base_install" "qmail_config_fast" "qmail_config_install"
      "qmail_config_notice" "qmail_maildir_install" "qmail_man_install"
      "qmail_queue_setup" "qmail_rootmail_fixup" "qmail_sendmail_install"
@@ -875,7 +878,7 @@
      "qmail_src_postunpack" "qmail_ssl_generate" "qmail_ssl_install"
      "qmail_supervise_config_notice" "qmail_supervise_install"
      "qmail_supervise_install_one" "qmail_tcprules_build"
-     "qmail_tcprules_config" "qmail_tcprules_fixup" "qmail_tcprules_install")
+     "qmail_tcprules_config" "qmail_tcprules_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmake-utils
@@ -886,8 +889,8 @@
 (defvar ebuild-mode-keywords-qt5-build
   '(("qt5-build_pkg_postinst" "qt5-build_pkg_postrm" "qt5-build_src_compile"
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
-     "qt5-build_src_test" "qt5-build_src_unpack" "qt_use"
-     "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod")
+     "qt5-build_src_test" "qt_use" "qt_use_compile_test"
+     "qt_use_disable_config" "qt_use_disable_mod")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-readme.gentoo-r1
@@ -916,6 +919,7 @@
      "each_fakegem_configure" "each_fakegem_install" "each_fakegem_test"
      "each_ruby_compile" "each_ruby_configure" "each_ruby_install"
      "each_ruby_test" "ruby_fakegem_binwrapper" "ruby_fakegem_doins"
+     "ruby_fakegem_extensions_installed" "ruby_fakegem_extensionsdir"
      "ruby_fakegem_gemsdir" "ruby_fakegem_gemspec_gemspec"
      "ruby_fakegem_genspec" "ruby_fakegem_install_gemspec"
      "ruby_fakegem_metadata_gemspec" "ruby_fakegem_newins")
@@ -993,8 +997,8 @@
 (defvar ebuild-mode-keywords-systemd
   '(("systemd_dounit" "systemd_douserunit" "systemd_enable_ntpunit"
      "systemd_enable_service" "systemd_get_systemgeneratordir"
-     "systemd_get_systemunitdir" "systemd_get_unitdir"
-     "systemd_get_userunitdir" "systemd_get_utildir"
+     "systemd_get_systempresetdir" "systemd_get_systemunitdir"
+     "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
      "systemd_install_serviced" "systemd_is_booted" "systemd_newunit"
      "systemd_newuserunit" "systemd_reenable" "systemd_update_catalog"
      "systemd_with_unitdir" "systemd_with_utildir")
@@ -1069,25 +1073,8 @@
      "tc-stack-grows-down" "tc-tuple-is-softfloat")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-toolchain-glibc
-  '(("alt_build_headers" "alt_headers" "alt_libdir" "alt_prefix"
-     "alt_usrlibdir" "builddir" "check_devpts" "check_nptl_support"
-     "dump_toolchain_settings" "eend_KV" "foreach_abi" "get_kheader_version"
-     "glibc_banner" "glibc_compile_test" "glibc_do_configure" "glibc_run_test"
-     "glibc_sanity_check" "glibc_src_test" "just_headers" "nonfatal"
-     "setup_env" "setup_flags" "setup_target_flags" "tc_glibc_KV_major"
-     "tc_glibc_KV_micro" "tc_glibc_KV_minor" "tc_glibc_KV_to_int"
-     "tc_glibc_get_KV" "tc_glibc_int_to_KV" "toolchain-glibc_do_src_compile"
-     "toolchain-glibc_do_src_configure" "toolchain-glibc_do_src_install"
-     "toolchain-glibc_do_src_test" "toolchain-glibc_do_src_unpack"
-     "toolchain-glibc_headers_configure" "toolchain-glibc_headers_install"
-     "toolchain-glibc_pkg_postinst" "toolchain-glibc_pkg_preinst"
-     "toolchain-glibc_pkg_pretend" "toolchain-glibc_pkg_setup"
-     "toolchain-glibc_src_compile" "toolchain-glibc_src_configure"
-     "toolchain-glibc_src_install" "toolchain-glibc_src_prepare"
-     "toolchain-glibc_src_test" "toolchain-glibc_src_unpack" "unpack_pkg"
-     "use_multiarch" "want__thread" "want_linuxthreads" "want_nptl"
-     "want_tls")
+(defvar ebuild-mode-keywords-tree-sitter-grammar
+  '(("tree-sitter-grammar_src_compile" "tree-sitter-grammar_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-udev
@@ -1096,9 +1083,9 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-unpacker
-  '(("find_unpackable_file" "unpack_banner" "unpack_cpio" "unpack_deb"
-     "unpack_makeself" "unpack_pdv" "unpack_zip" "unpacker"
-     "unpacker_src_unpack" "unpacker_src_uri_depends")
+  '(("find_unpackable_file" "unpack_7z" "unpack_banner" "unpack_cpio"
+     "unpack_deb" "unpack_lha" "unpack_makeself" "unpack_pdv" "unpack_rar"
+     "unpack_zip" "unpacker" "unpacker_src_unpack" "unpacker_src_uri_depends")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-user
@@ -1194,7 +1181,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xdg
-  '(("xdg_pkg_postinst" "xdg_pkg_postrm" "xdg_pkg_preinst" "xdg_src_prepare")
+  '(("xdg_pkg_postinst" "xdg_pkg_postrm" "xdg_pkg_preinst")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-xdg-utils
