@@ -1,5 +1,7 @@
 2021-12-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.54 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 2021-12-20  Ulrich Müller  <ulm@gentoo.org>

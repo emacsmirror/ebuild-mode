@@ -26,7 +26,7 @@ later version published by the Free Software Foundation.
 
 
 @titlepage
-@title ebuild-mode 1.53
+@title ebuild-mode 1.54
 @subtitle Major mode for ebuilds and eclasses in Gentoo
 @author Christian Faulhammer
 @author Ulrich Müller
