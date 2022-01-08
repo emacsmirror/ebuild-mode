@@ -604,8 +604,8 @@ and `all-completions' for details."
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
     (make-local-hook 'write-contents-hooks)
     (add-hook 'write-contents-hooks #'ebuild-repo-mode-before-save t t))
-    (setq fill-column 72)
-    (setq tab-width 4))
+  (setq fill-column 72)
+  (setq tab-width 4))
 
 ;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()
