@@ -609,7 +609,7 @@ and `all-completions' for details."
 
 ;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()
-  "Enable ebuild-repo-mode when the file is in an ebuild repository."
+  "Enable `ebuild-repo-mode' when the file is in an ebuild repository."
   ;; We assume that we are in an ebuild repository we find a file
   ;; "profiles/repo_name" in any (nth level) parent dir
   (and (locate-dominating-file buffer-file-name "profiles/repo_name")
@@ -630,7 +630,7 @@ and `all-completions' for details."
 
 ;; Menu support for both Emacs and XEmacs.
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
-  "Menu for ebuild-mode."
+  "Menu for `ebuild-mode'."
   `("Ebuild"
     ("Run ebuild command"
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
