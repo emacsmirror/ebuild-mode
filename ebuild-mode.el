@@ -63,6 +63,18 @@ A formfeed is not considered whitespace by this function."
   "Major mode for Gentoo .ebuild and .eclass files."
   :group 'languages)
 
+(defcustom ebuild-mode-full-name
+  user-full-name
+  "Full name of user, to be used in ebuild repositories."
+  :type 'string
+  :group 'ebuild)
+
+(defcustom ebuild-mode-mail-address
+  user-mail-address
+  "E-mail address of user, to be used in ebuild repositories."
+  :type 'string
+  :group 'ebuild)
+
 (defcustom ebuild-mode-portdir
   (cond ((file-directory-p "/var/db/repos/gentoo") "/var/db/repos/gentoo")
 	((file-directory-p "/usr/portage") "/usr/portage")
@@ -594,10 +606,15 @@ and `all-completions' for details."
   ;; return nil, otherwise the file is presumed to be written
   nil)
 
+(defvar ebuild-repo-mode-map
+  (make-sparse-keymap)
+  "Keymap for `ebuild-repo-mode'.")
+
 ;;;###autoload
 (define-minor-mode ebuild-repo-mode
   "Minor mode for files in an ebuild repository."
   :lighter " Repo"
+  :keymap ebuild-repo-mode-map
   (setq buffer-file-coding-system 'utf-8-unix)
   (if (not (featurep 'xemacs))
       (add-hook 'write-contents-functions #'ebuild-repo-mode-before-save t t)
@@ -618,6 +635,17 @@ and `all-completions' for details."
        (not (derived-mode-p 'diff-mode))
        (ebuild-repo-mode 1)))
 
+(defun ebuild-mode-insert-tag-line ()
+  "Insert a tag line with the user's name, e-mail address and date.
+Format is \"# Larry The Cow <larry@gentoo.org> (2019-07-01)\".
+This is intended for package.mask and similar configuration files
+in a Gentoo profile."
+  (interactive)
+  (beginning-of-line)
+  (insert (format "%s %s <%s> (%s)\n"
+		  comment-start
+		  ebuild-mode-full-name ebuild-mode-mail-address
+		  (format-time-string "%F" nil t))))
 
 ;;; Keybindings.
 
@@ -627,6 +655,7 @@ and `all-completions' for details."
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
 (define-key ebuild-mode-map "\C-c\C-b" 'ebuild-mode-all-keywords-unstable)
 (define-key ebuild-mode-map "\C-c\C-n" 'ebuild-mode-insert-skeleton)
+(define-key ebuild-repo-mode-map "\C-c-" 'ebuild-mode-insert-tag-line)
 
 ;; Menu support for both Emacs and XEmacs.
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
@@ -639,6 +668,13 @@ and `all-completions' for details."
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
     ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]))
+
+(easy-menu-define ebuild-repo-mode-menu ebuild-repo-mode-map
+  "Menu for `ebuild-repo-mode'."
+  `("Ebuild"
+    ;; show the menu only for conf files
+    :visible (derived-mode-p 'conf-unix-mode)
+    ["Insert package.mask tag line" ebuild-mode-insert-tag-line]))
 
 (and (< emacs-major-version 22)
      ;; make TAB key work

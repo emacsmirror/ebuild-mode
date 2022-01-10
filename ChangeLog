@@ -1,5 +1,14 @@
 2022-01-09  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-insert-tag-line): New function,
+	inserts a tag line with user's name and date stamp, for use in
+	package.mask and similar configuration files. Bug 830796.
+	(ebuild-mode-full-name, ebuild-mode-mail-address): New custom
+	variables.
+	(ebuild-repo-mode): Add :keymap argument.
+	(ebuild-repo-mode-map): New keymap.
+	(ebuild-repo-mode-menu): New menu.
+
 	* ebuild-mode.el (ebuild-repo-mode-maybe-enable)
 	(ebuild-mode-menu): Quote lisp symbols in docstrings.
 
