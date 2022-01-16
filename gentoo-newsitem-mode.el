@@ -61,7 +61,10 @@
   "Title: " (skeleton-read "Title: ") "\n"
   "Author: " (skeleton-read
 	      "Author's real name and e-mail address: "
-	      (concat user-full-name " <" user-mail-address ">"))
+	      (progn
+		(require 'ebuild-mode)
+		(concat ebuild-mode-full-name
+			" <" ebuild-mode-mail-address ">")))
   "\n"
   ((skeleton-read "Further author (null string to terminate): ")
    "Author: " str "\n")

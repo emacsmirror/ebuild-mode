@@ -1,5 +1,10 @@
 2022-01-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
+	Use ebuild-mode-full-name and ebuild-mode-mail-address as default
+	author information.
+	* glep-mode.el (glep-mode-insert-skeleton): Ditto.
+
 	* ebuild-mode.texi (ebuild-repo-mode): Document it.
 
 	* ebuild-mode.texi (ebuild-mode): No longer mention the C-c C-a
