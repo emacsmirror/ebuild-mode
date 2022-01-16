@@ -9,7 +9,7 @@
 This manual is for ebuild-mode, which is a major mode for ebuild
 and eclass files.
 
-Copyright @copyright{} 2009-2020 Gentoo Authors
+Copyright @copyright{} 2009-2021 Gentoo Authors
 
 @quotation
 Permission is granted to copy, distribute and/or modify this document
@@ -61,6 +61,7 @@ by skeleton support.
 * Commands:: What ebuild-mode provides.
 * ebuild-mode:: Editing ebuilds.
 * eclass-mode:: Editing eclasses.
+* ebuild-repo-mode:: Minor mode for ebuild repositories.
 * devbook-mode:: Editing the Gentoo Devmanual.
 * gentoo-newsitem-mode:: Editing GLEP 42 news items.
 * glep-mode:: Editing Gentoo Linux Enhancement Proposals.
@@ -173,10 +174,34 @@ Mark all architectures as testing.  Handy for version/revision bumps.
 Run Portage's ebuild command, you are prompted for the phase you want.
 @end table
 
-@node eclass-mode, devbook-mode, ebuild-mode, Top
+@node eclass-mode, ebuild-repo-mode, ebuild-mode, Top
 @chapter eclass-mode
 There is no special eclass-mode but ebuild-mode is used without the
 commands that make no sense in eclasses.
+
+@node ebuild-repo-mode, devbook-mode, eclass-mode, Top
+@chapter ebuild-repo-mode
+This is a minor mode intended for editing ebuilds and other files in
+an ebuild repository (except patches).
+
+The mode sets the @code{tab-width} to 4, which is the standard value
+for ebuilds, and the @code{fill-column} to 72.
+
+Furthermore, it will automatically fix whitespace and update copyright
+years when writing the buffer to a file.  This can be customized with
+variables @code{ebuild-mode-fix-whitespace} and
+@code{ebuild-mode-update-copyright}, respectively.
+
+There is only one keybinding, namely @kbd{C-c -} which inserts a tag
+line with the user's name, e-mail address and date, in the format that
+is commonly used in @file{package.mask} and other files:
+
+@example
+# Larry The Cow <larry@@gentoo.org> (2019-07-01)
+@end example
+
+The user's name and e-mail address can be customized with variables
+@code{ebuild-mode-full-name} and @code{ebuild-mode-mail-address}.
 
 @node devbook-mode, gentoo-newsitem-mode, eclass-mode, Top
 @chapter devbook-mode for the Gentoo Devmanual

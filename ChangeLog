@@ -1,5 +1,7 @@
 2022-01-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.texi (ebuild-repo-mode): Document it.
+
 	* ebuild-mode.texi (ebuild-mode): No longer mention the C-c C-a
 	keybinding which was used for echangelog.
 
