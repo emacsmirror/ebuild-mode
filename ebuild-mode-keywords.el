@@ -304,8 +304,9 @@
 
 (defvar ebuild-mode-keywords-ecm
   '(("ecm_pkg_postinst" "ecm_pkg_postrm" "ecm_pkg_preinst" "ecm_pkg_pretend"
-     "ecm_pkg_setup" "ecm_punt_bogus_dep" "ecm_src_compile"
-     "ecm_src_configure" "ecm_src_install" "ecm_src_prepare" "ecm_src_test")
+     "ecm_pkg_setup" "ecm_punt_bogus_dep" "ecm_punt_kf_module"
+     "ecm_punt_qt_module" "ecm_src_compile" "ecm_src_configure"
+     "ecm_src_install" "ecm_src_prepare" "ecm_src_test")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-edos2unix

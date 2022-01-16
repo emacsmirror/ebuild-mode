@@ -1,5 +1,7 @@
 2022-01-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* ebuild-mode.el (ebuild-mode-eapi-list): Drop EAPI 5.
 
 	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
