@@ -171,8 +171,6 @@ Generate architecture keywords with the syntax from the ekeyword tool.
 Mark all architectures as testing.  Handy for version/revision bumps.
 @item C-c C-e
 Run Portage's ebuild command, you are prompted for the phase you want.
-@item C-c C-a
-Create a ChangeLog entry.
 @end table
 
 @node eclass-mode, devbook-mode, ebuild-mode, Top
