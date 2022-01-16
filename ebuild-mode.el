@@ -84,7 +84,7 @@ A formfeed is not considered whitespace by this function."
   :group 'ebuild)
 
 (defcustom ebuild-mode-eapi-list
-  '("5" "6" "7" "8")
+  '("6" "7" "8")
   "List of supported EAPIs.
 The most recent EAPI must be listed last."
   :type '(repeat string)
