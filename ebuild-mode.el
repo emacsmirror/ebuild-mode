@@ -667,14 +667,16 @@ in a Gentoo profile."
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
-    ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]))
+    ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]
+    ["Customize ebuild-mode" (customize-group 'ebuild)]))
 
 (easy-menu-define ebuild-repo-mode-menu ebuild-repo-mode-map
   "Menu for `ebuild-repo-mode'."
   `("Ebuild"
     ;; show the menu only for conf files
     :visible (derived-mode-p 'conf-unix-mode)
-    ["Insert package.mask tag line" ebuild-mode-insert-tag-line]))
+    ["Insert package.mask tag line" ebuild-mode-insert-tag-line]
+    ["Customize ebuild-mode" (customize-group 'ebuild)]))
 
 (and (< emacs-major-version 22)
      ;; make TAB key work
