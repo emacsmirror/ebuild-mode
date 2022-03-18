@@ -279,7 +279,7 @@
      "distutils-r1_src_configure" "distutils-r1_src_install"
      "distutils-r1_src_prepare" "distutils-r1_src_test"
      "distutils_enable_sphinx" "distutils_enable_tests"
-     "distutils_install_for_testing" "esetup.py")
+     "distutils_install_for_testing" "distutils_pep517_install" "esetup.py")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-docs
@@ -325,9 +325,8 @@
      "elisp-site-file-install" "elisp-site-regen")
     font-lock-type-face))
 
-(defvar ebuild-mode-keywords-emboss-r2
-  '(("emboss-r2_src_configure" "emboss-r2_src_install"
-     "emboss-r2_src_prepare")
+(defvar ebuild-mode-keywords-emboss-r3
+  '(("emboss-r3_src_configure" "emboss-r3_src_install")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-epatch
@@ -437,8 +436,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-go-module
-  '(("go-module_live_vendor" "go-module_set_globals" "go-module_setup_proxy"
-     "go-module_src_unpack")
+  '(("ego" "go-module_live_vendor" "go-module_set_globals"
+     "go-module_setup_proxy" "go-module_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-golang-base
@@ -689,7 +688,7 @@
 
 (defvar ebuild-mode-keywords-mozcoreconf-v6
   '(("moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
-     "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with")
+     "mozconfig_use_enable" "mozconfig_use_with")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-mozextension
@@ -819,7 +818,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-postgres
-  '(("postgres_check_slot" "postgres_new_user" "postgres_pkg_setup")
+  '(("postgres_check_slot" "postgres_pkg_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-postgres-multi
@@ -843,8 +842,8 @@
 
 (defvar ebuild-mode-keywords-python-r1
   '(("python_copy_sources" "python_foreach_impl" "python_gen_any_dep"
-     "python_gen_cond_dep" "python_gen_impl_dep" "python_gen_usedep"
-     "python_gen_useflags" "python_replicate_script" "python_setup")
+     "python_gen_cond_dep" "python_gen_impl_dep" "python_gen_useflags"
+     "python_replicate_script" "python_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-python-single-r1
@@ -858,9 +857,8 @@
      "python_fix_shebang" "python_get_CFLAGS" "python_get_LIBS"
      "python_get_PYTHON_CONFIG" "python_get_includedir"
      "python_get_library_path" "python_get_scriptdir" "python_get_sitedir"
-     "python_is_installed" "python_is_python3" "python_moduleinto"
-     "python_newexe" "python_newscript" "python_optimize" "python_scriptinto"
-     "python_wrapper_setup")
+     "python_has_version" "python_moduleinto" "python_newexe"
+     "python_newscript" "python_optimize" "python_scriptinto")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-qmail
@@ -980,9 +978,8 @@
 
 (defvar ebuild-mode-keywords-subversion
   '(("subversion__get_peg_revision" "subversion__get_repository_uri"
-     "subversion__get_wc_path" "subversion__svn_info" "subversion_bootstrap"
-     "subversion_fetch" "subversion_pkg_preinst" "subversion_src_prepare"
-     "subversion_src_unpack" "subversion_wc_info")
+     "subversion__get_wc_path" "subversion__svn_info" "subversion_fetch"
+     "subversion_pkg_preinst" "subversion_src_unpack" "subversion_wc_info")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-sword-module
@@ -1096,8 +1093,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vala
-  '(("vala_api_versions" "vala_best_api_version" "vala_depend"
-     "vala_src_prepare")
+  '(("vala_api_versions" "vala_best_api_version" "vala_depend" "vala_setup")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-vcs-clean
@@ -1119,7 +1115,8 @@
 
 (defvar ebuild-mode-keywords-verify-sig
   '(("verify-sig_src_unpack" "verify-sig_verify_detached"
-     "verify-sig_verify_message" "verify-sig_verify_signed_checksums")
+     "verify-sig_verify_message" "verify-sig_verify_signed_checksums"
+     "verify-sig_verify_unsigned_checksums")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-versionator
