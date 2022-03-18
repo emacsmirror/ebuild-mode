@@ -1,3 +1,8 @@
+2022-03-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
+	Keyword @ECLASS-VARIABLE renamed to @ECLASS_VARIABLE.
+
 2022-01-26  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-menu, ebuild-repo-mode-menu):

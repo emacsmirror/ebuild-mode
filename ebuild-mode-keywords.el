@@ -99,7 +99,7 @@
 ;; comment-face will always override the eclass documentation strings
 (defvar ebuild-mode-keywords-eclass-documentation
   '(("@AUTHOR" "@BLURB" "@BUGREPORTS" "@CODE" "@DEAD" "@DEFAULT_UNSET"
-     "@DEPRECATED" "@DESCRIPTION" "@ECLASS" "@ECLASS-VARIABLE" "@EXAMPLE"
+     "@DEPRECATED" "@DESCRIPTION" "@ECLASS" "@ECLASS_VARIABLE" "@EXAMPLE"
      "@FUNCTION" "@INTERNAL" "@MAINTAINER" "@OUTPUT_VARIABLE" "@PRE_INHERIT"
      "@PROVIDES" "@REQUIRED" "@RETURN" "@ROFF" "@SUBSECTION"
      "@SUPPORTED_EAPIS" "@USAGE" "@USER_VARIABLE" "@VARIABLE" "@VCSURL")
@@ -705,8 +705,7 @@
 
 (defvar ebuild-mode-keywords-multibuild
   '(("multibuild_copy_sources" "multibuild_for_best_variant"
-     "multibuild_foreach_variant" "multibuild_merge_root"
-     "multibuild_parallel_foreach_variant" "run_in_build_dir")
+     "multibuild_foreach_variant" "multibuild_merge_root" "run_in_build_dir")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib
@@ -718,8 +717,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-multilib-build
-  '(("multilib_build_binaries" "multilib_check_headers"
-     "multilib_copy_sources" "multilib_for_best_abi" "multilib_foreach_abi"
+  '(("multilib_check_headers" "multilib_copy_sources" "multilib_foreach_abi"
      "multilib_get_enabled_abi_pairs" "multilib_get_enabled_abis"
      "multilib_install_wrappers" "multilib_is_native_abi"
      "multilib_native_enable" "multilib_native_use_enable"
@@ -754,10 +752,6 @@
 
 (defvar ebuild-mode-keywords-opam
   '(("opam-install" "opam_src_install")
-    font-lock-type-face))
-
-(defvar ebuild-mode-keywords-openib
-  '(("block_other_ofed_versions" "openib_src_unpack")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-optfeature
@@ -1035,13 +1029,12 @@
      "hardened_gcc_works" "is_ada" "is_crosscompile" "is_cxx" "is_d" "is_f77"
      "is_f95" "is_fortran" "is_gcj" "is_go" "is_jit" "is_multilib" "is_objc"
      "is_objcxx" "make_gcc_hard" "setup_minispecs_gcc_build_specs"
-     "setup_multilib_osdirnames" "should_we_gcc_config" "tc_apply_patches"
-     "tc_has_feature" "tc_is_live" "tc_supports_dostrip"
-     "tc_version_is_at_least" "tc_version_is_between" "toolchain_death_notice"
-     "toolchain_pkg_postinst" "toolchain_pkg_postrm" "toolchain_pkg_pretend"
-     "toolchain_pkg_setup" "toolchain_src_compile" "toolchain_src_configure"
-     "toolchain_src_install" "toolchain_src_prepare" "toolchain_src_test"
-     "toolchain_src_unpack" "want_minispecs" "want_pie")
+     "setup_multilib_osdirnames" "should_we_gcc_config" "tc_has_feature"
+     "tc_is_live" "tc_version_is_at_least" "tc_version_is_between"
+     "toolchain_death_notice" "toolchain_pkg_postinst" "toolchain_pkg_postrm"
+     "toolchain_pkg_pretend" "toolchain_pkg_setup" "toolchain_src_compile"
+     "toolchain_src_configure" "toolchain_src_install" "toolchain_src_prepare"
+     "toolchain_src_test" "toolchain_src_unpack" "want_minispecs" "want_pie")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-toolchain-autoconf
