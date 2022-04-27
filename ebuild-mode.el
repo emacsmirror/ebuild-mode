@@ -357,7 +357,12 @@ Optional argument LIMIT restarts collection after that number of elements."
       (easy-menu-add ebuild-mode-menu))
   (setq fill-column 72)
   (setq tab-width 4)
-  (setq indent-tabs-mode t))
+  (setq indent-tabs-mode t)
+  (if (let ((case-fold-search t))
+	(string-match "\\.eclass\\'"
+		      (file-name-sans-versions buffer-file-name)))
+      ;; Eclass documentation uses two spaces after sentence ends
+      (set (make-local-variable 'sentence-end-double-space) t)))
 
 (add-hook 'ebuild-mode-hook
 	  (lambda () (font-lock-add-keywords
