@@ -1,3 +1,8 @@
+2022-04-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-make-keywords-list)
+	(ebuild-mode-get-keywords): Remove XEmacs 21.4 compatibility code.
+
 2022-04-27  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode): Set sentence-end-double-space to t

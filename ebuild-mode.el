@@ -250,14 +250,7 @@ If nil, don't update."
       (error "Keywords argument must be a list of strings"))
     (cons (concat prefix "\\<"
 		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
-		    (regexp-opt
-		     ;; XEmacs 21.4 doesn't have delete-dups
-		     (cond ((fboundp 'delete-dups)
-			    (delete-dups keywords-list))
-			   ((fboundp 'delete-duplicates)
-			    (delete-duplicates keywords-list))
-			   (t keywords-list))
-		     t))
+		    (regexp-opt (delete-dups keywords-list) t))
 		  "\\>" suffix)
 	  face))
 
@@ -409,10 +402,7 @@ If nil, `compilation-mode' will be used.")
 	(mapcar (lambda (s)
 		  (string-match "^\\([-~]?\\)\\(.*\\)" s)
 		  (cons (match-string 2 s) (match-string 1 s)))
-		(split-string
-		 ;;(match-string-no-properties 1) ; not in XEmacs 21.4
-		 (buffer-substring-no-properties (match-beginning 1)
-						 (match-end 1)))))))))
+		(split-string (match-string-no-properties 1))))))))
 
 (defun ebuild-mode-put-keywords (kw &optional noerror)
   (save-excursion
