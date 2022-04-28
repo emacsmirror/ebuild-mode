@@ -1,5 +1,11 @@
 2022-04-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-make-keywords-list): Use prefix and
+	suffix to override the defaults, instead of concatenating to them.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass-documentation):
+	Override comment highlighting. Match only at the beginning of a
+	comment line.
+
 	* ebuild-mode.el (ebuild-mode-make-keywords-list)
 	(ebuild-mode-get-keywords): Remove XEmacs 21.4 compatibility code.
 

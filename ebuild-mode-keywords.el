@@ -96,14 +96,14 @@
 
 ;; Eclass keywords
 
-;; comment-face will always override the eclass documentation strings
 (defvar ebuild-mode-keywords-eclass-documentation
   '(("@AUTHOR" "@BLURB" "@BUGREPORTS" "@CODE" "@DEAD" "@DEFAULT_UNSET"
      "@DEPRECATED" "@DESCRIPTION" "@ECLASS" "@ECLASS_VARIABLE" "@EXAMPLE"
      "@FUNCTION" "@INTERNAL" "@MAINTAINER" "@OUTPUT_VARIABLE" "@PRE_INHERIT"
      "@PROVIDES" "@REQUIRED" "@RETURN" "@ROFF" "@SUBSECTION"
      "@SUPPORTED_EAPIS" "@USAGE" "@USER_VARIABLE" "@VARIABLE" "@VCSURL")
-    font-lock-type-face))
+    (1 font-lock-type-face t)
+    "^# "))
 
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage

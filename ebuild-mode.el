@@ -244,14 +244,11 @@ If nil, don't update."
 (eval-and-compile
   (defun ebuild-mode-make-keywords-list (keywords-list face
 						       &optional prefix suffix)
-    ;; based on `generic-make-keywords-list' from generic.el
-    ;; Note: XEmacs doesn't have generic.el
-    (unless (listp keywords-list)
-      (error "Keywords argument must be a list of strings"))
-    (cons (concat prefix "\\<"
+    ;; originally based on `generic-make-keywords-list' from generic.el
+    (cons (concat (or prefix "\\<")
 		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
 		    (regexp-opt (delete-dups keywords-list) t))
-		  "\\>" suffix)
+		  (or suffix "\\>"))
 	  face))
 
   (defun ebuild-mode-collect-equal-cdrs (src &optional limit)
