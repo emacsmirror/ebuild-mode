@@ -1,5 +1,7 @@
 2022-04-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.57 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
 
 	* ebuild-mode.el (ebuild-mode-make-keywords-list): Drop more
