@@ -1,5 +1,7 @@
 2022-04-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-*): Regenerated.
+
 	* ebuild-mode.el (ebuild-mode-make-keywords-list): Drop more
 	compatibility code. regexp-opt of recent Emacs versions deletes
 	duplicates and increases the max-specpdl-size limit by itself.

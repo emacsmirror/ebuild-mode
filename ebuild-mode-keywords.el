@@ -279,7 +279,8 @@
      "distutils-r1_src_configure" "distutils-r1_src_install"
      "distutils-r1_src_prepare" "distutils-r1_src_test"
      "distutils_enable_sphinx" "distutils_enable_tests"
-     "distutils_install_for_testing" "distutils_pep517_install" "esetup.py")
+     "distutils_install_for_testing" "distutils_pep517_install"
+     "distutils_write_namespace" "esetup.py")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-docs
@@ -307,6 +308,10 @@
      "ecm_pkg_setup" "ecm_punt_bogus_dep" "ecm_punt_kf_module"
      "ecm_punt_qt_module" "ecm_src_compile" "ecm_src_configure"
      "ecm_src_install" "ecm_src_prepare" "ecm_src_test")
+    font-lock-type-face))
+
+(defvar ebuild-mode-keywords-edo
+  '(("edo" "edob")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-edos2unix
@@ -813,8 +818,7 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-portability
-  '(("dlopen_lib" "get_bmake" "get_mounts" "is-login-disabled" "seq"
-     "treecopy")
+  '(("dlopen_lib" "get_bmake" "get_mounts" "seq" "treecopy")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-postgres
@@ -882,8 +886,8 @@
 (defvar ebuild-mode-keywords-qt5-build
   '(("qt5-build_pkg_postinst" "qt5-build_pkg_postrm" "qt5-build_src_compile"
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
-     "qt5-build_src_test" "qt_use" "qt_use_compile_test"
-     "qt_use_disable_config" "qt_use_disable_mod")
+     "qt5-build_src_test" "qt5_symlink_binary_to_path" "qt_use"
+     "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-readme.gentoo-r1
@@ -977,9 +981,8 @@
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-subversion
-  '(("subversion__get_peg_revision" "subversion__get_repository_uri"
-     "subversion__get_wc_path" "subversion__svn_info" "subversion_fetch"
-     "subversion_pkg_preinst" "subversion_src_unpack" "subversion_wc_info")
+  '(("subversion_fetch" "subversion_pkg_preinst" "subversion_src_unpack"
+     "subversion_wc_info")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-sword-module
