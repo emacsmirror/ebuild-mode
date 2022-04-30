@@ -246,8 +246,7 @@ If nil, don't update."
 						       &optional prefix suffix)
     ;; originally based on `generic-make-keywords-list' from generic.el
     (cons (concat (or prefix "\\<")
-		  (let ((max-specpdl-size (max max-specpdl-size 2000)))
-		    (regexp-opt (delete-dups keywords-list) t))
+		  (regexp-opt keywords-list t)
 		  (or suffix "\\>"))
 	  face))
 
