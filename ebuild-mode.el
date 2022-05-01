@@ -242,14 +242,6 @@ If nil, don't update."
 ;;; Font-lock.
 
 (eval-and-compile
-  (defun ebuild-mode-make-keywords-list (keywords-list face
-						       &optional prefix suffix)
-    ;; originally based on `generic-make-keywords-list' from generic.el
-    (cons (concat (or prefix "\\<")
-		  (regexp-opt keywords-list t)
-		  (or suffix "\\>"))
-	  face))
-
   (defun ebuild-mode-collect-equal-cdrs (src &optional limit)
     "For alist SRC, collect elements with equal cdr and concat their cars.
 Optional argument LIMIT restarts collection after that number of elements."
@@ -267,7 +259,11 @@ Optional argument LIMIT restarts collection after that number of elements."
 (defvar ebuild-mode-font-lock-keywords
   (eval-when-compile
     (mapcar
-     (lambda (x) (apply 'ebuild-mode-make-keywords-list x))
+     (lambda (x)
+       (cons (concat (or (nth 2 x) "\\<")
+		     (regexp-opt (car x) t)
+		     (or (nth 3 x) "\\>"))
+	     (cadr x)))
      (ebuild-mode-collect-equal-cdrs
       (mapcar (lambda (x) (symbol-value (intern x)))
 	      (all-completions "ebuild-mode-keywords-" obarray 'boundp))

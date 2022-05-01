@@ -1,5 +1,8 @@
 2022-05-01  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-make-keywords-list): Remove.
+	(ebuild-mode-font-lock-keywords): Inline its code.
+
 	* ebuild-mode.el (ebuild-repo-mode, find-file-hook): Use ' rather
 	than #' for quoting of function names.
 	* glep-mode.el (glep-mode): Ditto.
