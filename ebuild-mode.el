@@ -608,10 +608,10 @@ and `all-completions' for details."
   :keymap ebuild-repo-mode-map
   (setq buffer-file-coding-system 'utf-8-unix)
   (if (not (featurep 'xemacs))
-      (add-hook 'write-contents-functions #'ebuild-repo-mode-before-save t t)
+      (add-hook 'write-contents-functions 'ebuild-repo-mode-before-save t t)
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
     (make-local-hook 'write-contents-hooks)
-    (add-hook 'write-contents-hooks #'ebuild-repo-mode-before-save t t))
+    (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
   (setq fill-column 72)
   (setq tab-width 4))
 
@@ -683,7 +683,7 @@ in a Gentoo profile."
 (add-hook
  ;; XEmacs 21.5 doesn't have find-file-hook
  (if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
- #'ebuild-repo-mode-maybe-enable)
+ 'ebuild-repo-mode-maybe-enable)
 
 (provide 'ebuild-mode)
 
