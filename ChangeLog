@@ -1,3 +1,10 @@
+2022-05-03  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Drop some
+	obsolete keywords. Update URL in comment.
+	(ebuild-mode-keywords-eclass-deprecated): Remove variable.
+	All these functions are long gone.
+
 2022-05-01  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-make-keywords-list): Remove.

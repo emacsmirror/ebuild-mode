@@ -94,6 +94,12 @@
      "prepalldocs" "prepall" "prepallinfo" "prepallman" "prepallstrip" "useq")
     font-lock-warning-face))
 
+(defvar ebuild-mode-keywords-warn
+  ;; warn about "which" usage, see <200703121910.26067.vapier@gentoo.org>
+  ;; https://archives.gentoo.org/gentoo-dev/message/e04d4db72572dd5fec48e87c6b18c525
+  '(("which")
+    font-lock-warning-face))
+
 ;; Eclass keywords
 
 (defvar ebuild-mode-keywords-eclass-documentation
@@ -104,19 +110,6 @@
      "@SUPPORTED_EAPIS" "@USAGE" "@USER_VARIABLE" "@VARIABLE" "@VCSURL")
     (1 font-lock-type-face t)
     "^# "))
-
-(defvar ebuild-mode-keywords-warn
-  ;; warn about "which" usage
-  ;; see http://permalink.gmane.org/gmane.linux.gentoo.devel/46770
-  '(("which" "bindnow-flags" "has_m64" "has_m32")
-    font-lock-warning-face))
-
-(defvar ebuild-mode-keywords-eclass-deprecated
-  ;; deprecated eclass functions
-  '(("bash-completion_pkg_postinst" "dobashcompletion" "elisp-comp"
-     "elisp-need-emacs" "python_mod_compile" "qt4_min_version"
-     "qt4_min_version_list")
-    font-lock-warning-face))
 
 ;; All keyword lists below this line are auto-generated
 ;; from keyword-generation.sh
