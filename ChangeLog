@@ -1,5 +1,19 @@
 2022-05-03  Ulrich Müller  <ulm@gentoo.org>
 
+	* keyword-generation.sh: Use ebuild-mode-keywords-eclass as a
+	single variable for all eclass keywords.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+	(ebuild-mode-keywords-eapi4, ebuild-mode-keywords-eapi5)
+	(ebuild-mode-keywords-eapi6, ebuild-mode-keywords-eapi7)
+	(ebuild-mode-keywords-functions-default): Remove variables.
+	(ebuild-mode-keywords-0): Include their keywords here.
+	(ebuild-mode-keywords-functions-eapi2)
+	(ebuild-mode-keywords-functions-eapi4): Remove variables.
+	(ebuild-mode-keywords-functions): Include their keywords here.
+	* ebuild-mode.el (ebuild-mode-font-lock-keywords): List variables
+	explicitly, instead of collecting their names from the obarray.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-0):
 	Add EXPORT_FUNCTIONS which was missing.
 

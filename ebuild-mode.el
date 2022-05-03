@@ -264,10 +264,16 @@ Optional argument LIMIT restarts collection after that number of elements."
 		     (regexp-opt (car x) t)
 		     (or (nth 3 x) "\\>"))
 	     (cadr x)))
-     (ebuild-mode-collect-equal-cdrs
-      (mapcar (lambda (x) (symbol-value (intern x)))
-	      (all-completions "ebuild-mode-keywords-" obarray 'boundp))
-      1000))))
+     (nconc
+      (ebuild-mode-collect-equal-cdrs
+       (list ebuild-mode-keywords-EAPI
+	     ebuild-mode-keywords-0
+	     ebuild-mode-keywords-functions
+	     ebuild-mode-keywords-sandbox
+	     ebuild-mode-keywords-eapi-deprecated
+	     ebuild-mode-keywords-warn
+	     ebuild-mode-keywords-eclass-documentation))
+      ebuild-mode-keywords-eclass))))
 
 ;;; Mode definitions.
 
