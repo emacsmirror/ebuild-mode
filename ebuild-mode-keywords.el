@@ -36,11 +36,11 @@
      "debug-print-section" "die" "diropts" "dobin" "docinto" "doconfd" "dodir"
      "dodoc" "doenvd" "doexe" "doinfo" "doinitd" "doins" "dolib.a" "dolib.so"
      "doman" "domo" "dosbin" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
-     "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts" "fowners" "fperms"
-     "has" "has_version" "inherit" "insinto" "insopts" "into" "keepdir"
-     "newbin" "newconfd" "newdoc" "newenvd" "newexe" "newinitd" "newins"
-     "newlib.a" "newlib.so" "newman" "newsbin" "unpack" "use" "usev"
-     "use_enable" "use_with")
+     "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts" "EXPORT_FUNCTIONS"
+     "fowners" "fperms" "has" "has_version" "inherit" "insinto" "insopts"
+     "into" "keepdir" "newbin" "newconfd" "newdoc" "newenvd" "newexe"
+     "newinitd" "newins" "newlib.a" "newlib.so" "newman" "newsbin" "unpack"
+     "use" "usev" "use_enable" "use_with")
     font-lock-type-face))
 
 (defvar ebuild-mode-keywords-EAPI

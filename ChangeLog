@@ -1,5 +1,8 @@
 2022-05-03  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-0):
+	Add EXPORT_FUNCTIONS which was missing.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-warn): Drop some
 	obsolete keywords. Update URL in comment.
 	(ebuild-mode-keywords-eclass-deprecated): Remove variable.
