@@ -827,6 +827,8 @@
      font-lock-type-face)))
 ;; @@KEYWORDS-END@@
 
+(provide 'ebuild-mode-keywords)
+
 ;; Local Variables:
 ;; coding: utf-8
 ;; fill-column: 78

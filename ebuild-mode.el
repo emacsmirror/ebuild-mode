@@ -252,7 +252,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 	    (setcar e (append (car e) (car c)))
 	  (setq dst (cons (copy-sequence c) dst))))))
 
-  (load "ebuild-mode-keywords" nil t))
+  (require 'ebuild-mode-keywords))
 
 (defvar ebuild-mode-font-lock-keywords
   (eval-when-compile
