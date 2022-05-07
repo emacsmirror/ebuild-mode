@@ -1,5 +1,7 @@
 2022-05-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.58 released.
+
 	* glep-mode.el (glep-mode-insert-skeleton): Update URL in comment.
 
 	* ebuild-mode.el (ebuild-mode-get-keywords): Restore trivial
