@@ -398,7 +398,10 @@ If nil, `compilation-mode' will be used.")
 	(mapcar (lambda (s)
 		  (string-match "^\\([-~]?\\)\\(.*\\)" s)
 		  (cons (match-string 2 s) (match-string 1 s)))
-		(split-string (match-string-no-properties 1))))))))
+		(split-string
+		 ;;(match-string-no-properties 1) ; not in XEmacs 21.4
+		 (buffer-substring-no-properties (match-beginning 1)
+						 (match-end 1)))))))))
 
 (defun ebuild-mode-put-keywords (kw &optional noerror)
   (save-excursion
