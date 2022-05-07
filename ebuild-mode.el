@@ -241,7 +241,7 @@ If nil, don't update."
 
 ;;; Font-lock.
 
-(eval-and-compile
+(eval-when-compile
   (defun ebuild-mode-collect-equal-cdrs (src &optional limit)
     "For alist SRC, collect elements with equal cdr and concat their cars.
 Optional argument LIMIT restarts collection after that number of elements."
@@ -251,9 +251,7 @@ Optional argument LIMIT restarts collection after that number of elements."
 		 (not (and limit (> (length (car e)) limit))))
 	    (setcar e (append (car e) (car c)))
 	  (setq dst (cons (copy-sequence c) dst))))))
-  )
 
-(eval-when-compile
   (load "ebuild-mode-keywords" nil t))
 
 (defvar ebuild-mode-font-lock-keywords
