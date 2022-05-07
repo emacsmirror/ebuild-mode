@@ -36,8 +36,8 @@
 ;;; Compatibility code.
 
 (eval-and-compile
-  (or (fboundp 'delete-trailing-whitespace) ; exists in GNU Emacs only
-      ;; from simple.el of Emacs 22.1
+  (or (fboundp 'delete-trailing-whitespace) ; doesn't exist in XEmacs 21.4
+      ;; from simple.el of GNU Emacs 22.1
 (defun delete-trailing-whitespace ()
   "Delete all the trailing whitespace across the current buffer.
 All whitespace after the last non-whitespace character in a line is deleted.
@@ -235,7 +235,7 @@ If nil, don't update."
     "package" "postinst" "postrm" "preinst" "prepare" "prerm"
     "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack"))
 
-;; suppress byte-compiler warning
+;; suppress byte-compiler warning in XEmacs
 (defvar ebuild-mode-menu)
 
 
@@ -477,7 +477,7 @@ and `all-completions' for details."
 		      ((eq mode 'lambda)
 		       (if (fboundp 'test-completion)
 			   'test-completion
-			 ;; Emacs 21 and XEmacs don't have test-completion
+			 ;; XEmacs 21.4 doesn't have test-completion
 			 (lambda (&rest args)
 			   (eq (apply 'try-completion args) t))))
 		      (t 'ignore))
