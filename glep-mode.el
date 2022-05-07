@@ -235,7 +235,7 @@ Calls the external \"glep\" command."
   "\n\n"
   ;; Most of the following text is taken from GLEP 2, based on the last
   ;; CVS version by Grant Goodyear, which is in the public domain:
-  ;; https://sources.gentoo.org/cgi-bin/viewvc.cgi/gentoo/xml/htdocs/proj/en/glep/glep-0002.txt
+  ;; https://gitweb.gentoo.org/archive/proj/gentoo.git/tree/xml/htdocs/proj/en/glep/glep-0002.txt
   "\
 How to Use This Template
 ========================

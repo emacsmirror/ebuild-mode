@@ -1,5 +1,7 @@
 2022-05-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* glep-mode.el (glep-mode-insert-skeleton): Update URL in comment.
+
 	* ebuild-mode.el (ebuild-mode-get-keywords): Restore trivial
 	compatibility code, allowing continued support for XEmacs 21.4.
 	This reverts the change of 2022-04-28.
