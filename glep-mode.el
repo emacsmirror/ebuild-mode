@@ -161,7 +161,7 @@ to `font-lock-end'."
 ;; We cannot use advice-add because it did not exist in Emacs 23.
 ;; *** FIXME *** This is incomplete and probably too brittle.
 (defadvice rst-classify-adornment (around glep-ignore-preamble)
-  "Ignore GLEP preamble in rst-classify-adornment."
+  "Ignore GLEP preamble in `rst-classify-adornment'."
   (if (not (and (eq major-mode 'glep-mode)
 		(glep-mode-in-preamble-p (ad-get-arg 1))))
       ad-do-it))
@@ -379,7 +379,7 @@ https://creativecommons.org/licenses/by-sa/4.0/.
 (define-key glep-mode-map "\C-c\C-f" 'glep-mode-format-html)
 
 (easy-menu-define glep-mode-menu glep-mode-map
-  "Menu for glep-mode."
+  "Menu for `glep-mode'."
   `("GLEP"
     ["Insert skeleton" glep-mode-insert-skeleton]
     ["Format as HTML" glep-mode-format-html]))

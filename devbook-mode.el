@@ -1,10 +1,10 @@
 ;;; devbook-mode.el --- edit the Gentoo Devmanual
 
-;; Copyright 2020-2021 Gentoo Authors
+;; Copyright 2020-2022 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Keywords: wp, languages, XML
+;; Keywords: wp, languages
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -64,7 +64,7 @@
   "\C-c\C-n" 'devbook-insert-skeleton)
 
 (easy-menu-define devbook-mode-menu devbook-mode-map
-  "Menu for devbook-mode."
+  "Menu for `devbook-mode'."
   `("DevBook"
     ["Insert skeleton" devbook-insert-skeleton]))
 

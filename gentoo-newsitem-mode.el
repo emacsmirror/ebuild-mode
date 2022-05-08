@@ -103,7 +103,7 @@
   "\C-c\C-n" 'gentoo-newsitem-insert-skeleton)
 
 (easy-menu-define gentoo-newsitem-mode-menu gentoo-newsitem-mode-map
-  "Menu for gentoo-newsitem-mode."
+  "Menu for `gentoo-newsitem-mode'."
   `("Newsitem"
     ["Insert skeleton" gentoo-newsitem-insert-skeleton]))
 

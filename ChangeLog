@@ -1,3 +1,10 @@
+2022-05-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el: Drop unknown package keyword "XML".
+	(devbook-mode-menu): Quote lisp symbol in docstring.
+	* gentoo-newsitem-mode.el (gentoo-newsitem-mode-menu): Ditto.
+	* glep-mode.el (rst-classify-adornment, glep-mode-menu): Ditto.
+
 2022-05-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.58 released.
