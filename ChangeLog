@@ -1,3 +1,11 @@
+2022-05-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclassdoc-warn):
+	New variable.
+	(ebuild-mode-keywords-eclass-documentation): Move @DEAD and
+	@DEPRECATED keywords to it.
+	* ebuild-mode.el (ebuild-mode-font-lock-keywords): Use it.
+
 2022-05-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* devbook-mode.el: Drop unknown package keyword "XML".

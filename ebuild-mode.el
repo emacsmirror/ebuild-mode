@@ -270,7 +270,8 @@ Optional argument LIMIT restarts collection after that number of elements."
 	     ebuild-mode-keywords-sandbox
 	     ebuild-mode-keywords-eapi-deprecated
 	     ebuild-mode-keywords-warn
-	     ebuild-mode-keywords-eclass-documentation))
+	     ebuild-mode-keywords-eclass-documentation
+	     ebuild-mode-keywords-eclassdoc-warn))
       ebuild-mode-keywords-eclass))))
 
 ;;; Mode definitions.

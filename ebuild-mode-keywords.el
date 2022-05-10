@@ -89,12 +89,19 @@
 ;; Eclass keywords
 
 (defvar ebuild-mode-keywords-eclass-documentation
-  '(("@AUTHOR" "@BLURB" "@BUGREPORTS" "@CODE" "@DEAD" "@DEFAULT_UNSET"
-     "@DEPRECATED" "@DESCRIPTION" "@ECLASS" "@ECLASS_VARIABLE" "@EXAMPLE"
-     "@FUNCTION" "@INTERNAL" "@MAINTAINER" "@OUTPUT_VARIABLE" "@PRE_INHERIT"
-     "@PROVIDES" "@REQUIRED" "@RETURN" "@ROFF" "@SUBSECTION"
-     "@SUPPORTED_EAPIS" "@USAGE" "@USER_VARIABLE" "@VARIABLE" "@VCSURL")
+  '(("@AUTHOR" "@BLURB" "@BUGREPORTS" "@CODE" "@DEFAULT_UNSET" "@DESCRIPTION"
+     "@ECLASS" "@ECLASS_VARIABLE" "@EXAMPLE" "@FUNCTION" "@INTERNAL"
+     "@MAINTAINER" "@OUTPUT_VARIABLE" "@PRE_INHERIT" "@PROVIDES" "@REQUIRED"
+     "@RETURN" "@ROFF" "@SUBSECTION" "@SUPPORTED_EAPIS" "@USAGE"
+     "@USER_VARIABLE" "@VARIABLE" "@VCSURL")
     (1 font-lock-type-face t)
+    "^# "))
+
+(defvar ebuild-mode-keywords-eclassdoc-warn
+  ;; @ECLASS-VARIABLE (with a hyphen) is deprecated:
+  ;; https://bugs.gentoo.org/835396
+  '(("@DEAD" "@DEPRECATED" "@ECLASS-VARIABLE")
+    (1 font-lock-warning-face t)
     "^# "))
 
 ;; The list of eclass function keywords below is auto-generated
