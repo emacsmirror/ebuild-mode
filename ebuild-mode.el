@@ -348,11 +348,12 @@ Optional argument LIMIT restarts collection after that number of elements."
   (setq fill-column 72)
   (setq tab-width 4)
   (setq indent-tabs-mode t)
-  (if (let ((case-fold-search t))
-	(string-match "\\.eclass\\'"
-		      (file-name-sans-versions buffer-file-name)))
-      ;; Eclass documentation uses two spaces after sentence ends
-      (set (make-local-variable 'sentence-end-double-space) t)))
+  (and buffer-file-name
+       (let ((case-fold-search t))
+	 (string-match "\\.eclass\\'"
+		       (file-name-sans-versions buffer-file-name)))
+       ;; Eclass documentation uses two spaces after sentence ends
+       (set (make-local-variable 'sentence-end-double-space) t)))
 
 (add-hook 'ebuild-mode-hook
 	  (lambda () (font-lock-add-keywords
@@ -624,7 +625,8 @@ and `all-completions' for details."
   "Enable `ebuild-repo-mode' when the file is in an ebuild repository."
   ;; We assume that we are in an ebuild repository we find a file
   ;; "profiles/repo_name" in any (nth level) parent dir
-  (and (locate-dominating-file buffer-file-name "profiles/repo_name")
+  (and buffer-file-name
+       (locate-dominating-file buffer-file-name "profiles/repo_name")
        ;; Don't enable the mode for patches
        (not (string-match "\\.\\(diff\\|patch\\)\\'" buffer-file-name))
        (not (derived-mode-p 'diff-mode))
