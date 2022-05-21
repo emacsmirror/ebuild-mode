@@ -373,6 +373,8 @@ If nil, `compilation-mode' will be used.")
 			  nil t)))
   (or (member command ebuild-commands-list)
       (error "Ebuild command \"%s\" not known" command))
+  (or buffer-file-name
+      (error "No file for this buffer"))
   (let* ((file (file-relative-name buffer-file-name))
 	 (shell-command (format "ebuild %s %s" file command))
 	 (process-environment (cons "NOCOLOR=true" process-environment))

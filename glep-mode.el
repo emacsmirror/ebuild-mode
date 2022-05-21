@@ -174,6 +174,8 @@ to `font-lock-end'."
   (interactive)
   "Generate HTML from reStructuredText GLEP file.
 Calls the external \"glep\" command."
+  (or buffer-file-name
+      (error "No file for this buffer"))
   (let* ((rst-file (file-relative-name buffer-file-name))
 	 (html-file (concat (file-name-sans-extension rst-file) ".html")))
     (compile (format "glep %s %s" rst-file html-file))))
