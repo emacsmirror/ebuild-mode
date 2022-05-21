@@ -1,5 +1,8 @@
 2022-05-21  Ulrich Müller  <ulm@gentoo.org>
 
+	* devbook-mode.el (devbook-insert-skeleton): Rework logic for
+	guide element.
+
 	* ebuild-mode.el (ebuild-run-command): Signal an error when not
 	visiting a file.
 	* glep-mode.el (glep-mode-format-html): Ditto.

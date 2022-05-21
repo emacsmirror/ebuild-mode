@@ -46,11 +46,12 @@
   nil
   "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
   "<guide "
-  (let* ((dirname (file-name-directory buffer-file-name))
-	 (path (if (string-match ".*/devmanual[^/]*/\\(.*\\)" dirname)
-		   (match-string 1 dirname)
-		 (skeleton-read "Path: "))))
-    (if (string= path "")
+  (let ((path (if (and buffer-file-name
+		       (string-match "/devmanual[^/]*/\\(.*/\\)"
+				     buffer-file-name))
+		  (match-string 1 buffer-file-name)
+		(skeleton-read "Path: "))))
+    (if (string-match "\\`/*\\'" path)
 	"root=\"true\""
       (concat "self=\"" (file-name-as-directory path) "\"")))
   ">\n"
