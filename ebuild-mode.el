@@ -446,7 +446,7 @@ If nil, `compilation-mode' will be used.")
 	 ;; modify keyword
 	 (old-k (setcdr old-k leader))
 	 ;; add keyword
-	 (t (setq keywords (append keywords (list k)))))))
+	 (t (setq keywords (cons k keywords))))))
     (ebuild-mode-put-keywords
      (sort keywords 'ebuild-mode-arch-lessp))))
 
