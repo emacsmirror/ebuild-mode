@@ -1,5 +1,7 @@
 2022-06-03  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-arch-list): Add loong to default.
+
 	* ebuild-mode.el (ebuild-mode-modify-keywords): Use cons rather
 	than append when adding a new keyword.
 
