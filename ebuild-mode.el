@@ -114,6 +114,12 @@ If nil, don't update."
   :type 'boolean
   :group 'ebuild)
 
+(defcustom ebuild-mode-xml-indent-tabs nil
+  "If non-nil, use tab characters for indenting of XML.
+If nil, use two spaces."
+  :type 'boolean
+  :group 'ebuild)
+
 ;; Predicate function for comparison of architecture keywords
 ;; (needed for variable definitions below)
 (defun ebuild-mode-arch-lessp (a b)
@@ -620,7 +626,11 @@ and `all-completions' for details."
     (make-local-hook 'write-contents-hooks)
     (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
   (setq fill-column 72)
-  (setq tab-width 4))
+  (setq tab-width 4)
+  (when (derived-mode-p 'nxml-mode)
+    (set (make-local-variable 'nxml-child-indent)
+	 (if ebuild-mode-xml-indent-tabs 4 2))
+    (setq indent-tabs-mode ebuild-mode-xml-indent-tabs)))
 
 ;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()

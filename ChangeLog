@@ -1,3 +1,9 @@
+2022-06-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Indent XML with tabs or two
+	spaces. Set indent-tabs-mode accordingly.
+	(ebuild-mode-xml-indent-tabs): New custom variable.
+
 2022-06-03  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-arch-list): Add loong to default.
