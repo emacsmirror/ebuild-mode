@@ -635,7 +635,7 @@ and `all-completions' for details."
 ;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()
   "Enable `ebuild-repo-mode' when the file is in an ebuild repository."
-  ;; We assume that we are in an ebuild repository we find a file
+  ;; We assume that we are in an ebuild repository if we find a file
   ;; "profiles/repo_name" in any (nth level) parent dir
   (and buffer-file-name
        (locate-dominating-file buffer-file-name "profiles/repo_name")
