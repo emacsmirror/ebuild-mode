@@ -630,6 +630,8 @@ and `all-completions' for details."
   (when (derived-mode-p 'nxml-mode)
     (set (make-local-variable 'nxml-child-indent)
 	 (if ebuild-mode-xml-indent-tabs 4 2))
+    (set (make-local-variable 'nxml-attribute-indent)
+	 (* 2 nxml-child-indent))
     (setq indent-tabs-mode ebuild-mode-xml-indent-tabs)))
 
 ;;;###autoload
