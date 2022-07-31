@@ -584,7 +584,7 @@ and `all-completions' for details."
   "\n"
   ;; dependencies
   "RDEPEND=\"\"\n"
-  "DEPEND=\"\$\{RDEPEND\}\"\n")
+  "DEPEND=\"${RDEPEND}\"\n")
 
 
 ;;; Minor mode for editing files in an ebuild repository.
