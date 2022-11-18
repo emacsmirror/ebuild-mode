@@ -1,3 +1,12 @@
+2022-11-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-collect-equal-cdrs): Split the car
+	of an element if its length is above the limit.
+	(ebuild-mode-font-lock-keywords): Split the list of eclass
+	keywords here, rather than in keyword-generation.sh.
+	* keyword-generation.sh: Don't split the list into parts.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass): Updated.
+
 2022-07-31  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-skeleton): Drop unnecessary

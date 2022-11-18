@@ -250,13 +250,27 @@ If nil, use two spaces."
 (eval-when-compile
   (defun ebuild-mode-collect-equal-cdrs (src &optional limit)
     "For alist SRC, collect elements with equal cdr and concat their cars.
-Optional argument LIMIT restarts collection after that number of elements."
+Optional argument LIMIT specifies the maximum length for the car
+of the elements."
     (let (dst e)
       (dolist (c src dst)
-	(if (and (setq e (rassoc (cdr c) dst))
-		 (not (and limit (> (length (car e)) limit))))
-	    (setcar e (append (car e) (car c)))
-	  (setq dst (cons (copy-sequence c) dst))))))
+	(setq e (rassoc (cdr c) dst))
+	(cond
+	 ((and e (or (not limit)
+		     (<= (+ (length (car e)) (length (car c))) limit)))
+	  ;; cdrs of new element C and previous element E are equal,
+	  ;; and their combined length is below LIMIT => append to E
+	  (setcar e (append (car e) (car c))))
+	 ((or (not limit)
+	      (<= (length (car c)) limit))
+	  ;; new element C is small enough => push to DST
+	  (setq dst (cons (copy-sequence c) dst)))
+	 (t
+	  ;; otherwise, split the new element into chunks of length LIMIT
+	  (let ((cc (car c)))
+	    (while cc
+	      (setq dst (cons (cons (last cc limit) (cdr c)) dst))
+	      (setq cc (butlast cc limit)))))))))
 
   (require 'ebuild-mode-keywords))
 
@@ -268,17 +282,23 @@ Optional argument LIMIT restarts collection after that number of elements."
 		     (regexp-opt (car x) t)
 		     (or (nth 3 x) "\\>"))
 	     (cadr x)))
-     (nconc
-      (ebuild-mode-collect-equal-cdrs
-       (list ebuild-mode-keywords-EAPI
-	     ebuild-mode-keywords-0
-	     ebuild-mode-keywords-functions
-	     ebuild-mode-keywords-sandbox
-	     ebuild-mode-keywords-eapi-deprecated
-	     ebuild-mode-keywords-warn
-	     ebuild-mode-keywords-eclass-documentation
-	     ebuild-mode-keywords-eclassdoc-warn))
-      ebuild-mode-keywords-eclass))))
+     ;; Emacs has a limit of 32 kbyte for the size of regular
+     ;; expressions. Unfortunately, this is a hard limit in Emacs'
+     ;; C code, MAX_BUF_SIZE in regex.c, which cannot be increased.
+     ;; Therefore, split the list into several parts with at most
+     ;; 1000 keywords; this appears to keep the regexp size below
+     ;; the limit.
+     (ebuild-mode-collect-equal-cdrs
+      (list ebuild-mode-keywords-EAPI
+	    ebuild-mode-keywords-0
+	    ebuild-mode-keywords-functions
+	    ebuild-mode-keywords-sandbox
+	    ebuild-mode-keywords-eapi-deprecated
+	    ebuild-mode-keywords-warn
+	    ebuild-mode-keywords-eclass-documentation
+	    ebuild-mode-keywords-eclassdoc-warn
+	    ebuild-mode-keywords-eclass)
+      1000))))
 
 ;;; Mode definitions.
 

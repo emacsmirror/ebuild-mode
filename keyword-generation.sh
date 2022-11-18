@@ -12,13 +12,6 @@ REPO=gentoo
 # Obsolete eclasses
 OBSOLETE=""
 
-# Emacs has a limit of 32 kbyte for the size of regular expressions.
-# Unfortunately, this is a hard limit in Emacs' C code, MAX_BUF_SIZE
-# in regex.c, which cannot be increased. Therefore, split the list
-# into several parts with at most MAX_KEYWORDS keywords; a value of
-# 1000 appears to keep the regexp size below the limit.
-MAX_KEYWORDS=1000
-
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 
 if [[ -n ${ECLASSDIR} ]]; then
@@ -47,14 +40,9 @@ has() {
     return 1
 }
 
-prefix="(("
-suffix=")
-font-lock-type-face)"
-
 echo "(defvar ebuild-mode-keywords-eclass" >"${TMPFILE}"
-echo "'(${prefix}" >>"${TMPFILE}"
+echo "'((" >>"${TMPFILE}"
 
-count=0
 for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     eclass=${ECLASSES[i]}
     file=${ECLASSFILES[i]}
@@ -73,19 +61,12 @@ for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     functions=(
         $(echo "${fn_all}" | grep -v '^_' | grep -Fvx "${fn_internal}")
     )
-    len=${#functions[@]}
-    if (( len == 0 )); then
+    if [[ ${#functions[@]} -eq 0 ]]; then
         echo "warning (no functions)" >&2
         continue
     fi
 
     {
-        (( count += len ))
-        if (( count > MAX_KEYWORDS )); then
-            count=${len}
-            echo "${suffix}"
-            echo "${prefix}"
-        fi
         echo ";; ${eclass}"
         printf ' "%s"' "${functions[@]}"
         echo
@@ -93,7 +74,8 @@ for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     echo "ok" >&2
 done
 
-echo "${suffix}))" >>"${TMPFILE}"
+echo ")" >>"${TMPFILE}"
+echo "font-lock-type-face))" >>"${TMPFILE}"
 
 emacs -q --no-site-file --batch \
     --visit "${TMPFILE}" \
