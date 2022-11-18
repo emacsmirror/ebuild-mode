@@ -248,7 +248,7 @@ If nil, use two spaces."
 ;;; Font-lock.
 
 (eval-when-compile
-  (defun ebuild-mode-collect-equal-cdrs (src &optional limit)
+  (defun ebuild-mode-collect-and-split (src &optional limit)
     "For alist SRC, collect elements with equal cdr and concat their cars.
 Optional argument LIMIT specifies the maximum length for the car
 of the elements."
@@ -288,7 +288,7 @@ of the elements."
      ;; Therefore, split the list into several parts with at most
      ;; 1000 keywords; this appears to keep the regexp size below
      ;; the limit.
-     (ebuild-mode-collect-equal-cdrs
+     (ebuild-mode-collect-and-split
       (list ebuild-mode-keywords-EAPI
 	    ebuild-mode-keywords-0
 	    ebuild-mode-keywords-functions
