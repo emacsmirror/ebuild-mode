@@ -241,6 +241,14 @@ If nil, use two spaces."
     "package" "postinst" "postrm" "preinst" "prepare" "prerm"
     "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack"))
 
+(defvar ebuild-mode-pkgdev-commands
+  '("commit" "manifest" "mask" "push" "showkw")
+  "List of pkgdev sub-commands.")
+
+(defvar ebuild-mode-pkgcheck-commands
+  '("cache" "ci" "replay" "scan" "show")
+  "List of pkgcheck sub-commands.")
+
 ;; suppress byte-compiler warning in XEmacs
 (defvar ebuild-mode-menu)
 
@@ -411,6 +419,64 @@ If nil, `compilation-mode' will be used.")
 	(compile shell-command)
       (compile shell-command ebuild-log-buffer-mode))))
 
+(defun ebuild-mode-get-completion-function (mode)
+  "Get completion function for completion mode MODE."
+  (cond ((null mode) 'try-completion)
+	((eq mode t) 'all-completions)
+	((eq mode 'lambda)
+	 (if (fboundp 'test-completion)
+	     'test-completion
+	   ;; XEmacs 21.4 doesn't have test-completion
+	   (lambda (&rest args)
+	     (eq (apply 'try-completion args) t))))
+	(t 'ignore)))
+
+(defun ebuild-mode-command-complete (s predicate mode)
+  "Completion function for pkgdev and pkgcheck commands.
+To be used as second argument of `completing-read'."
+  (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
+  (if (eq (car-safe mode) 'boundaries)
+      (cons 'boundaries
+	    (cons (match-beginning 2)
+		  (string-match "\\s-" (cdr mode))))
+    (let* ((s1 (match-string 1 s))
+	   (s2 (match-string 2 s))
+	   (c2 (funcall
+		(ebuild-mode-get-completion-function mode)
+		s2
+		(mapcar (lambda (x) (concat x " "))
+			(cond ((not (stringp s1))
+			       '("pkgdev" "pkgcheck"))
+			      ((string-match "\\<pkgdev\\s-+$" s1)
+			       ebuild-mode-pkgdev-commands)
+			      ((string-match "\\<pkgcheck\\s-+$" s1)
+			       ebuild-mode-pkgcheck-commands)
+			      (t (list s2))))
+		predicate)))
+      (if (stringp c2) (concat s1 c2) c2))))
+
+(defun ebuild-mode-run-pkgdev (command)
+  "Run pkgdev COMMAND with output to a compilation buffer.
+Like `compile', but with autocompletion for pkgdev."
+  (interactive
+   (list (completing-read "Run pkgdev command: "
+			  'ebuild-mode-command-complete
+			  nil nil "pkgdev ")))
+  (let ((process-environment (cons "NOCOLOR=true" process-environment))
+	(compilation-buffer-name-function (lambda (mode) "*pkgdev*")))
+    (compile command)))
+
+(defun ebuild-mode-run-pkgcheck (command)
+  "Run pkgcheck COMMAND with output to a compilation buffer.
+Like `compile', but with autocompletion for pkgcheck."
+  (interactive
+   (list (completing-read "Run pkgcheck command: "
+			  'ebuild-mode-command-complete
+			  nil nil "pkgcheck ")))
+  (let ((process-environment (cons "NOCOLOR=true" process-environment))
+	(compilation-buffer-name-function (lambda (mode) "*pkgcheck*")))
+    (compile command)))
+
 
 ;;; Modify package keywords.
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
@@ -502,15 +568,7 @@ and `all-completions' for details."
     (let* ((s1 (match-string 1 s))
 	   (s2 (match-string 2 s))
 	   (c2 (funcall
-		(cond ((null mode) 'try-completion)
-		      ((eq mode t) 'all-completions)
-		      ((eq mode 'lambda)
-		       (if (fboundp 'test-completion)
-			   'test-completion
-			 ;; XEmacs 21.4 doesn't have test-completion
-			 (lambda (&rest args)
-			   (eq (apply 'try-completion args) t))))
-		      (t 'ignore))
+		(ebuild-mode-get-completion-function mode)
 		s2
 		(mapcar 'list
 			(if (string-equal s2 "")
@@ -682,6 +740,8 @@ in a Gentoo profile."
 
 ;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
+(define-key ebuild-mode-map "\C-c\C-p" 'ebuild-mode-run-pkgdev)
+(define-key ebuild-mode-map "\C-c\C-q" 'ebuild-mode-run-pkgcheck)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
 (define-key ebuild-mode-map "\C-c\C-b" 'ebuild-mode-all-keywords-unstable)
@@ -695,6 +755,8 @@ in a Gentoo profile."
     ("Run ebuild command"
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
+    ["Run pkgdev command" ebuild-mode-run-pkgdev]
+    ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]

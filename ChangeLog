@@ -1,3 +1,16 @@
+2022-11-19  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-run-pkgdev)
+	(ebuild-mode-run-pkgcheck): New commands. Bug 881449.
+	(ebuild-mode-map, ebuild-mode-menu): Keybindings and menu entries
+	for them.
+	(ebuild-mode-pkgdev-commands, ebuild-mode-pkgcheck-commands):
+	New variables.
+	(ebuild-mode-get-completion-function): New function, split off
+	from ebuild-mode-ekeyword-complete.
+	(ebuild-mode-ekeyword-complete): Call it.
+	(ebuild-mode-command-complete): New function.
+
 2022-11-18  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-repo-mode): Fix byte-compile warning
