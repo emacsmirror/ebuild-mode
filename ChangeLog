@@ -1,5 +1,11 @@
 2022-11-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-ebuild-history)
+	(ebuild-mode-pkgdev-history, ebuild-mode-pkgcheck-history):
+	New variables.
+	(ebuild-run-command, ebuild-mode-run-pkgdev)
+	(ebuild-mode-run-pkgcheck): Use them.
+
 	* ebuild-mode.el (ebuild-mode-process-environment): New custom
 	variable. Bug 882055.
 	(ebuild-run-command, ebuild-mode-run-pkgdev)

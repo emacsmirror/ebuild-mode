@@ -403,6 +403,10 @@ of the elements."
 
 ;;; Run ebuild command.
 
+(defvar ebuild-mode-ebuild-history nil)
+(defvar ebuild-mode-pkgdev-history nil)
+(defvar ebuild-mode-pkgcheck-history nil)
+
 (defvar ebuild-log-buffer-mode nil
   "Major mode for the log buffer of `ebuild-run-command'.
 If nil, `compilation-mode' will be used.")
@@ -412,7 +416,8 @@ If nil, `compilation-mode' will be used.")
   (interactive
    (list
     (completing-read "Run ebuild command(s): "
-		     'ebuild-mode-ebuild-cmd-complete)))
+		     'ebuild-mode-ebuild-cmd-complete
+		     nil nil nil 'ebuild-mode-ebuild-history)))
   (or buffer-file-name
       (error "No file for this buffer"))
   (let* ((file (file-relative-name buffer-file-name))
@@ -484,7 +489,8 @@ Like `compile', but with autocompletion for pkgdev."
   (interactive
    (list (completing-read "Run pkgdev command: "
 			  'ebuild-mode-command-complete
-			  nil nil "pkgdev ")))
+			  nil nil "pkgdev "
+			  'ebuild-mode-pkgdev-history)))
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
 	(compilation-buffer-name-function (lambda (mode) "*pkgdev*")))
@@ -496,7 +502,8 @@ Like `compile', but with autocompletion for pkgcheck."
   (interactive
    (list (completing-read "Run pkgcheck command: "
 			  'ebuild-mode-command-complete
-			  nil nil "pkgcheck ")))
+			  nil nil "pkgcheck "
+			  'ebuild-mode-pkgcheck-history)))
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
 	(compilation-buffer-name-function (lambda (mode) "*pkgcheck*")))
