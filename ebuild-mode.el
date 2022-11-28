@@ -647,12 +647,11 @@ and `all-completions' for details."
     (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
   (setq fill-column 72)
   (setq tab-width 4)
-  (when (and (not (featurep 'xemacs))
-	     (derived-mode-p 'nxml-mode))
-    (set (make-local-variable 'nxml-child-indent)
-	 (if ebuild-mode-xml-indent-tabs 4 2))
-    (set (make-local-variable 'nxml-attribute-indent)
-	 (* 2 nxml-child-indent))
+  (when (derived-mode-p 'nxml-mode)
+    (eval-when-compile (ignore-errors (require 'nxml-mode)))
+    (let ((indent (if ebuild-mode-xml-indent-tabs 4 2)))
+      (set (make-local-variable 'nxml-child-indent) indent)
+      (set (make-local-variable 'nxml-attribute-indent) (* 2 indent)))
     (setq indent-tabs-mode ebuild-mode-xml-indent-tabs)))
 
 ;;;###autoload
