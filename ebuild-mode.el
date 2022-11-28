@@ -402,19 +402,16 @@ If nil, `compilation-mode' will be used.")
 (defun ebuild-run-command (command)
   "Run ebuild COMMAND, with output to a compilation buffer."
   (interactive
-   (list (completing-read "Run ebuild command: "
-			  (mapcar 'list ebuild-commands-list)
-			  nil t)))
-  (or (member command ebuild-commands-list)
-      (error "Ebuild command \"%s\" not known" command))
+   (list
+    (completing-read "Run ebuild command(s): "
+		     'ebuild-mode-ebuild-cmd-complete)))
   (or buffer-file-name
       (error "No file for this buffer"))
   (let* ((file (file-relative-name buffer-file-name))
 	 (shell-command (format "ebuild %s %s" file command))
 	 (process-environment (cons "NOCOLOR=true" process-environment))
 	 ;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
-	 (compilation-buffer-name-function
-	  (list 'lambda '(mode) (concat "*ebuild " command "*"))))
+	 (compilation-buffer-name-function (lambda (mode) "*ebuild*")))
     (if (featurep 'xemacs)
 	(compile shell-command)
       (compile shell-command ebuild-log-buffer-mode))))
@@ -430,6 +427,23 @@ If nil, `compilation-mode' will be used.")
 	   (lambda (&rest args)
 	     (eq (apply 'try-completion args) t))))
 	(t 'ignore)))
+
+(defun ebuild-mode-ebuild-cmd-complete (s predicate mode)
+  "Completion function for ebuild command.
+To be used as second argument of `completing-read'."
+  (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
+  (if (eq (car-safe mode) 'boundaries)
+      (cons 'boundaries
+	    (cons (match-beginning 2)
+		  (string-match "\\s-" (cdr mode))))
+    (let* ((s1 (match-string 1 s))
+	   (s2 (match-string 2 s))
+	   (c2 (funcall	(ebuild-mode-get-completion-function mode)
+			s2
+			(mapcar (lambda (x) (concat x " "))
+				ebuild-commands-list)
+			predicate)))
+      (if (stringp c2) (concat s1 c2) c2))))
 
 (defun ebuild-mode-command-complete (s predicate mode)
   "Completion function for pkgdev and pkgcheck commands.
@@ -752,7 +766,8 @@ in a Gentoo profile."
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
   "Menu for `ebuild-mode'."
   `("Ebuild"
-    ("Run ebuild command"
+    ("ebuild commands"
+     ["Run ebuild command" ebuild-run-command]
      ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
