@@ -1,5 +1,10 @@
 2022-11-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-process-environment): New custom
+	variable. Bug 882055.
+	(ebuild-run-command, ebuild-mode-run-pkgdev)
+	(ebuild-mode-run-pkgcheck): Use it.
+
 	* ebuild-mode.el (ebuild-mode-ebuild-cmd-complete): New function,
 	completes multiple ebuild commands. Bug 882053.
 	(ebuild-run-command): Call it.

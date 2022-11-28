@@ -120,6 +120,14 @@ If nil, use two spaces."
   :type 'boolean
   :group 'ebuild)
 
+(defcustom ebuild-mode-process-environment
+  '("NOCOLOR=true")
+  "List of additional environment variables for subprocesses.
+Each element should be a string of the form NAME=VALUE. This will
+be prepended to `process-environment' when calling a subprocess."
+  :type '(repeat string)
+  :group 'ebuild)
+
 ;; Predicate function for comparison of architecture keywords
 ;; (needed for variable definitions below)
 (defun ebuild-mode-arch-lessp (a b)
@@ -409,7 +417,8 @@ If nil, `compilation-mode' will be used.")
       (error "No file for this buffer"))
   (let* ((file (file-relative-name buffer-file-name))
 	 (shell-command (format "ebuild %s %s" file command))
-	 (process-environment (cons "NOCOLOR=true" process-environment))
+	 (process-environment (append ebuild-mode-process-environment
+				      process-environment))
 	 ;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
 	 (compilation-buffer-name-function (lambda (mode) "*ebuild*")))
     (if (featurep 'xemacs)
@@ -476,7 +485,8 @@ Like `compile', but with autocompletion for pkgdev."
    (list (completing-read "Run pkgdev command: "
 			  'ebuild-mode-command-complete
 			  nil nil "pkgdev ")))
-  (let ((process-environment (cons "NOCOLOR=true" process-environment))
+  (let ((process-environment (append ebuild-mode-process-environment
+				     process-environment))
 	(compilation-buffer-name-function (lambda (mode) "*pkgdev*")))
     (compile command)))
 
@@ -487,7 +497,8 @@ Like `compile', but with autocompletion for pkgcheck."
    (list (completing-read "Run pkgcheck command: "
 			  'ebuild-mode-command-complete
 			  nil nil "pkgcheck ")))
-  (let ((process-environment (cons "NOCOLOR=true" process-environment))
+  (let ((process-environment (append ebuild-mode-process-environment
+				     process-environment))
 	(compilation-buffer-name-function (lambda (mode) "*pkgcheck*")))
     (compile command)))
 
