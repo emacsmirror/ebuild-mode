@@ -1,3 +1,13 @@
+2022-11-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-compilation-mode): New mode for
+	compilation buffers, filters SGR control sequences.
+	(ebuild-log-buffer-mode): Default to it.
+	(ebuild-mode-run-pkgdev, ebuild-mode-run-pkgcheck): Call compile
+	with ebuild-log-buffer-mode.
+	(ebuild-mode-process-environment): Don't set NOCOLOR if ansi-color
+	is available.
+
 2022-11-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-ebuild-history)

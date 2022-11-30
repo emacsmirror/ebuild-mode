@@ -121,7 +121,9 @@ If nil, use two spaces."
   :group 'ebuild)
 
 (defcustom ebuild-mode-process-environment
-  '("NOCOLOR=true")
+  (if (or (featurep 'xemacs)
+	  (not (fboundp 'ansi-color-compilation-filter)))
+      '("NOCOLOR=true"))
   "List of additional environment variables for subprocesses.
 Each element should be a string of the form NAME=VALUE. This will
 be prepended to `process-environment' when calling a subprocess."
@@ -407,7 +409,7 @@ of the elements."
 (defvar ebuild-mode-pkgdev-history nil)
 (defvar ebuild-mode-pkgcheck-history nil)
 
-(defvar ebuild-log-buffer-mode nil
+(defvar ebuild-log-buffer-mode 'ebuild-compilation-mode
   "Major mode for the log buffer of `ebuild-run-command'.
 If nil, `compilation-mode' will be used.")
 
@@ -429,6 +431,16 @@ If nil, `compilation-mode' will be used.")
     (if (featurep 'xemacs)
 	(compile shell-command)
       (compile shell-command ebuild-log-buffer-mode))))
+
+(define-derived-mode ebuild-compilation-mode compilation-mode "Compilation"
+  "Like `compilation-mode' but with color support.
+Translates ANSI graphical control sequences into text properties
+(if the Emacs version supports it).
+Variable `ansi-color-for-compilation-mode' must be non-nil for
+this to have any effect."
+  (if (fboundp 'ansi-color-compilation-filter)
+      (add-hook 'compilation-filter-hook
+		'ansi-color-compilation-filter nil t)))
 
 (defun ebuild-mode-get-completion-function (mode)
   "Get completion function for completion mode MODE."
@@ -494,7 +506,9 @@ Like `compile', but with autocompletion for pkgdev."
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
 	(compilation-buffer-name-function (lambda (mode) "*pkgdev*")))
-    (compile command)))
+    (if (featurep 'xemacs)
+	(compile command)
+      (compile command ebuild-log-buffer-mode))))
 
 (defun ebuild-mode-run-pkgcheck (command)
   "Run pkgcheck COMMAND with output to a compilation buffer.
@@ -507,7 +521,9 @@ Like `compile', but with autocompletion for pkgcheck."
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
 	(compilation-buffer-name-function (lambda (mode) "*pkgcheck*")))
-    (compile command)))
+    (if (featurep 'xemacs)
+	(compile command)
+      (compile command ebuild-log-buffer-mode))))
 
 
 ;;; Modify package keywords.
