@@ -158,6 +158,15 @@ program suite.  @kbd{C-c C-e} calls @code{ebuild-run-command} which asks
 for one of the possible actions as argument.  See the man page of ebuild
 what actions are provided.
 
+@section Running @command{pkgdev} and @command{pkgcheck}
+
+@kbd{C-c C-p} calls the command @code{ebuild-mode-run-pkgdev} command,
+which can be used to run @command{pkgdev} tools. Minibuffer completion
+for subcommands is supported.
+
+Similarly, @kbd{C-c C-q} (mnemonic: ``q'' for quality assurance) calls
+@code{ebuild-mode-run-pkgcheck} which runs @command{pkgcheck}.
+
 @section Keybindings
 @table @kbd
 @item C-c C-n
@@ -172,6 +181,10 @@ Generate architecture keywords with the syntax from the ekeyword tool.
 Mark all architectures as testing.  Handy for version/revision bumps.
 @item C-c C-e
 Run Portage's ebuild command, you are prompted for the phase you want.
+@item C-c C-p
+Run a @command{pkgdev} command.
+@item C-c C-q
+Run a @command{pkgcheck} command.
 @end table
 
 @node eclass-mode, ebuild-repo-mode, ebuild-mode, Top
