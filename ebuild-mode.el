@@ -225,7 +225,8 @@ be prepended to `process-environment' when calling a subprocess."
 
 (defvar ebuild-mode-restrict-list
   '("binchecks" "bindist" "fetch" "installsources" "mirror"
-    "primaryuri" "strip" "test" "userpriv")
+    "network-sandbox" "preserve-libs" "primaryuri" "splitdebug"
+    "strip" "test" "userpriv")
   "List of RESTRICT features.")
 
 (defvar ebuild-mode-use-flags
