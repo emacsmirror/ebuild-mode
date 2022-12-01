@@ -99,7 +99,6 @@ of lines."
 
 (defcustom ebuild-mode-update-copyright t
   "Whether to update the copyright notice before writing a file.
-
 If the value is a list of booleans, then its first and second element
 control updating of the year and the author, respectively.
 If any other non-nil value, update both.
@@ -130,9 +129,9 @@ be prepended to `process-environment' when calling a subprocess."
   :type '(repeat string)
   :group 'ebuild)
 
-;; Predicate function for comparison of architecture keywords
-;; (needed for variable definitions below)
 (defun ebuild-mode-arch-lessp (a b)
+  "Predicate function for comparison of architecture keywords.
+Returns non-nil if A is less than B by Gentoo keyword ordering."
   (let* ((tail (make-list 2 ""))
 	 (as (nconc (split-string (or (car-safe a) a) "-") tail))
 	 (bs (nconc (split-string (or (car-safe b) b) "-") tail)))
@@ -189,7 +188,8 @@ be prepended to `process-environment' when calling a subprocess."
 	   (sort archs 'ebuild-mode-arch-lessp)))
      (file-error nil))
    ;; fall back to list of all architectures
-   ebuild-mode-arch-list))
+   ebuild-mode-arch-list)
+  "List of stable architectures.")
 
 (defvar ebuild-mode-arch-regexp
   "^[ \t]*KEYWORDS=[\"']\\([^\"]*\\)[\"'][ \t]*$")
@@ -250,7 +250,8 @@ be prepended to `process-environment' when calling a subprocess."
   '("clean" "cleanrm" "compile" "config" "configure" "depend" "digest"
     "fetch" "fetchall" "help" "info" "install" "manifest" "merge"
     "package" "postinst" "postrm" "preinst" "prepare" "prerm"
-    "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack"))
+    "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack")
+  "List of ebuild sub-commands.")
 
 (defvar ebuild-mode-pkgdev-commands
   '("commit" "manifest" "mask" "push" "showkw")
@@ -322,7 +323,7 @@ of the elements."
 ;;; Mode definitions.
 
 (defun ebuild-mode-tabify ()
-  ;; Tabify whitespace at beginning of lines.
+  "Tabify whitespace at beginning of lines."
   ;; We cannot use the following since XEmacs doesn't support tabify-regexp.
   ;;(let ((tabify-regexp "^\t* [ \t]+"))
   ;;  (tabify (point-min) (point-max)))
@@ -341,7 +342,7 @@ of the elements."
 	    (indent-to end-col)))))))
 
 (defun ebuild-mode-update-copyright ()
-  ;; Update copyright notice
+  "Update the copyright notice in the ebuild's header."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil)
@@ -374,7 +375,7 @@ of the elements."
 		(replace-match "Gentoo Authors" t t nil 3)))))))
 
 (defun ebuild-mode-delete-cvs-line ()
-  ;; Remove a CVS $Id$ or $Header$ line
+  "Remove a CVS $Id$ or $Header$ line from the ebuild's header."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
@@ -435,10 +436,9 @@ If nil, `compilation-mode' will be used.")
 
 (define-derived-mode ebuild-compilation-mode compilation-mode "Compilation"
   "Like `compilation-mode' but with color support.
-Translates ANSI graphical control sequences into text properties
-(if the Emacs version supports it).
-Variable `ansi-color-for-compilation-mode' must be non-nil for
-this to have any effect."
+Translates ANSI SGR control sequences into text properties (if the
+Emacs version supports it). Variable `ansi-color-for-compilation-mode'
+must be non-nil for this to have any effect."
   (if (fboundp 'ansi-color-compilation-filter)
       (add-hook 'compilation-filter-hook
 		'ansi-color-compilation-filter nil t)))
@@ -457,7 +457,8 @@ this to have any effect."
 
 (defun ebuild-mode-ebuild-cmd-complete (s predicate mode)
   "Completion function for ebuild command.
-To be used as second argument of `completing-read'."
+To be used as second argument of `completing-read', which see for
+an explanation of arguments S, PREDICATE and MODE."
   (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
   (if (eq (car-safe mode) 'boundaries)
       (cons 'boundaries
@@ -474,7 +475,8 @@ To be used as second argument of `completing-read'."
 
 (defun ebuild-mode-command-complete (s predicate mode)
   "Completion function for pkgdev and pkgcheck commands.
-To be used as second argument of `completing-read'."
+To be used as second argument of `completing-read', which see for
+an explanation of arguments S, PREDICATE and MODE."
   (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
   (if (eq (car-safe mode) 'boundaries)
       (cons 'boundaries
@@ -531,6 +533,9 @@ Like `compile', but with autocompletion for pkgcheck."
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
 
 (defun ebuild-mode-get-keywords (&optional noerror)
+  "Get architecture keywords from an ebuild's KEYWORDS line.
+Signal an error if this is not possible, or return nil if the
+optional argument NOERROR is non-nil."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
@@ -549,6 +554,9 @@ Like `compile', but with autocompletion for pkgcheck."
 						 (match-end 1)))))))))
 
 (defun ebuild-mode-put-keywords (kw &optional noerror)
+  "Replace the ebuild's KEYWORDS by those given in the string KW.
+Signal an error if this is not possible, or return nil if the
+optional second argument NOERROR is non-nil."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil))
@@ -592,7 +600,9 @@ Like `compile', but with autocompletion for pkgcheck."
      (sort keywords 'ebuild-mode-arch-lessp))))
 
 (defun ebuild-mode-keyword (action arch)
-  "Keyword manipulation."
+  "Keyword manipulation.
+ACTION must be an action from `ebuild-mode-action-alist', ARCH an
+architecture from `ebuild-mode-arch-list'."
   (interactive
    (list
     (cdr (assoc (completing-read "Action: " ebuild-mode-action-alist
@@ -635,7 +645,9 @@ and `all-completions' for details."
       (if (stringp c2) (concat s1 c2) c2))))
 
 (defun ebuild-mode-ekeyword (keywords)
-  "Keyword manipulation. Accepts the same input format as ekeyword."
+  "Keyword manipulation. Accepts the same input format as ekeyword.
+KEYWORDS is a whitespace separated string containing the keywords
+that shall be manipulated."
   (interactive
    (list (completing-read "Keywords: " 'ebuild-mode-ekeyword-complete)))
   (ebuild-mode-modify-keywords
@@ -722,6 +734,8 @@ and `all-completions' for details."
 (defvar ebuild-repo-mode-off-hook)
 
 (defun ebuild-repo-mode-before-save ()
+  "Function to be called before saving a buffer.
+This will be added to the `write-contents-functions' hook."
   (when ebuild-mode-fix-whitespace
     ;; trim trailing whitespace, except for patches
     (delete-trailing-whitespace)
