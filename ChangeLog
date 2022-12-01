@@ -1,5 +1,8 @@
 2022-12-01  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* ebuild-mode.el: Add documentation to some functions and
 	variables.
 	(ebuild-compilation-mode): Reword docstring to avoid an open paren

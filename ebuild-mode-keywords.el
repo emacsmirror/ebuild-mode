@@ -164,16 +164,6 @@
      "cmake-multilib_src_install" "cmake-multilib_src_test"
      "multilib_src_compile" "multilib_src_configure" "multilib_src_install"
      "multilib_src_test"
-     ;; cmake-utils
-     "cmake-utils_src_compile" "cmake-utils_src_configure"
-     "cmake-utils_src_install" "cmake-utils_src_make"
-     "cmake-utils_src_prepare" "cmake-utils_src_test" "cmake-utils_use"
-     "cmake-utils_use_build" "cmake-utils_use_disable"
-     "cmake-utils_use_enable" "cmake-utils_use_find_package"
-     "cmake-utils_use_has" "cmake-utils_use_no" "cmake-utils_use_use"
-     "cmake-utils_use_want" "cmake-utils_use_with" "cmake-utils_useno"
-     "cmake_comment_add_subdirectory" "cmake_use_find_package"
-     "comment_add_subdirectory"
      ;; common-lisp-3
      "absolute-path-p" "common-lisp-3_src_compile" "common-lisp-3_src_install"
      "common-lisp-export-impl-args" "common-lisp-find-lisp-impl"
@@ -202,8 +192,9 @@
      "doicon" "domenu" "make_desktop_entry" "make_session_desktop" "newicon"
      "newmenu"
      ;; dist-kernel-utils
-     "dist-kernel_build_initramfs" "dist-kernel_get_image_path"
-     "dist-kernel_install_kernel" "dist-kernel_reinstall_initramfs"
+     "dist-kernel_PV_to_KV" "dist-kernel_build_initramfs"
+     "dist-kernel_get_image_path" "dist-kernel_install_kernel"
+     "dist-kernel_reinstall_initramfs"
      ;; distutils-r1
      "distutils-r1_python_compile" "distutils-r1_python_install"
      "distutils-r1_python_install_all" "distutils-r1_python_prepare_all"
@@ -212,9 +203,10 @@
      "distutils-r1_src_prepare" "distutils-r1_src_test"
      "distutils_enable_sphinx" "distutils_enable_tests"
      "distutils_install_for_testing" "distutils_pep517_install"
-     "distutils_write_namespace" "esetup.py"
+     "distutils_wheel_install" "distutils_write_namespace" "esetup.py"
      ;; docs
-     "docs_compile"
+     "docs_compile" "doxygen_compile" "initialize_git_repo" "mkdocs_compile"
+     "sphinx_compile"
      ;; dotnet
      "dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild"
      ;; dune
@@ -243,7 +235,9 @@
      ;; emboss-r3
      "emboss-r3_src_configure" "emboss-r3_src_install"
      ;; epatch
-     "epatch" "epatch_user"
+     "epatch"
+     ;; eqawarn
+     "eqawarn"
      ;; estack
      "eshopts_pop" "eshopts_push" "estack_pop" "estack_push" "eumask_pop"
      "eumask_push" "evar_pop" "evar_push" "evar_push_set"
@@ -256,18 +250,20 @@
      ;; fixheadtails
      "ht_fix_all" "ht_fix_file"
      ;; flag-o-matic
-     "all-flag-vars" "append-cflags" "append-cppflags" "append-cxxflags"
-     "append-fflags" "append-flags" "append-ldflags" "append-lfs-flags"
-     "append-libs" "filter-flags" "filter-ldflags" "filter-lfs-flags"
-     "filter-mfpmath" "get-flag" "is-flag" "is-flagq" "is-ldflag" "is-ldflagq"
-     "no-as-needed" "raw-ldflags" "replace-cpu-flags" "replace-flags"
-     "replace-sparc64-flags" "strip-flags" "strip-unsupported-flags"
-     "test-flag-CC" "test-flag-CCLD" "test-flag-CXX" "test-flag-F77"
-     "test-flag-FC" "test-flags" "test-flags-CC" "test-flags-CCLD"
-     "test-flags-CXX" "test-flags-F77" "test-flags-FC" "test_version_info"
+     "all-flag-vars" "append-atomic-flags" "append-cflags" "append-cppflags"
+     "append-cxxflags" "append-fflags" "append-flags" "append-ldflags"
+     "append-lfs-flags" "append-libs" "filter-flags" "filter-ldflags"
+     "filter-lfs-flags" "filter-lto" "filter-mfpmath" "get-flag" "is-flag"
+     "is-flagq" "is-ldflag" "is-ldflagq" "no-as-needed" "raw-ldflags"
+     "replace-cpu-flags" "replace-flags" "replace-sparc64-flags" "strip-flags"
+     "strip-unsupported-flags" "test-flag-CC" "test-flag-CCLD" "test-flag-CXX"
+     "test-flag-F77" "test-flag-FC" "test-flags" "test-flags-CC"
+     "test-flags-CCLD" "test-flags-CXX" "test-flags-F77" "test-flags-FC"
+     "test_version_info"
      ;; font
      "font_cleanup_dirs" "font_fontconfig" "font_pkg_postinst"
-     "font_pkg_postrm" "font_pkg_setup" "font_src_install" "font_xfont_config"
+     "font_pkg_postrm" "font_pkg_setup" "font_src_install"
+     "font_wrap_opentype_compat" "font_xfont_config"
      ;; font-ebdftopcf
      "ebdftopcf" "font-ebdftopcf_src_compile"
      ;; fortran-2
@@ -343,7 +339,7 @@
      "haskell-cabal_pkg_postinst" "haskell-cabal_pkg_postrm"
      "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
      "haskell-cabal_src_configure" "haskell-cabal_src_install"
-     "haskell-cabal_src_test" "replace-hcflags"
+     "haskell-cabal_src_prepare" "haskell-cabal_src_test" "replace-hcflags"
      ;; java-ant-2
      "java-ant-2_src_configure" "java-ant_bsfix_files" "java-ant_bsfix_one"
      "java-ant_ignore-system-classes" "java-ant_rewrite-bootclasspath"
@@ -433,7 +429,6 @@
      "linux_config_bin_exists" "linux_config_exists" "linux_config_path"
      "linux_config_src_exists" "qeerror" "qeinfo" "qewarn" "qout"
      "require_configured_kernel" "set_arch_to_kernel" "set_arch_to_pkgmgr"
-     "set_arch_to_portage"
      ;; linux-mod
      "convert_to_m" "get-KERNEL_CC" "linux-mod_pkg_postinst"
      "linux-mod_pkg_postrm" "linux-mod_pkg_preinst" "linux-mod_pkg_setup"
@@ -441,10 +436,12 @@
      "linux-mod_src_install" "remove_moduledb" "set_kvobj" "strip_modulenames"
      "update_moduledb" "use_m"
      ;; llvm
-     "get_llvm_prefix" "llvm_pkg_setup"
+     "get_llvm_prefix" "llvm_fix_clang_version" "llvm_fix_tool_path"
+     "llvm_pkg_setup"
      ;; llvm.org
      "get_lit_flags" "llvm.org_set_globals" "llvm.org_src_prepare"
      "llvm.org_src_unpack" "llvm_are_manpages_built" "llvm_install_manpages"
+     "llvm_manpage_dist_available"
      ;; ltprune
      "prune_libtool_files"
      ;; lua
@@ -477,9 +474,6 @@
      ;; mount-boot
      "mount-boot_pkg_postinst" "mount-boot_pkg_postrm"
      "mount-boot_pkg_preinst" "mount-boot_pkg_prerm" "mount-boot_pkg_pretend"
-     ;; mozcoreconf-v5
-     "moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
-     "mozconfig_use_enable" "mozconfig_use_extension" "mozconfig_use_with"
      ;; mozcoreconf-v6
      "moz_pkgsetup" "mozconfig_annotate" "mozconfig_final" "mozconfig_init"
      "mozconfig_use_enable" "mozconfig_use_with"
@@ -503,8 +497,9 @@
      "multilib_check_headers" "multilib_copy_sources" "multilib_foreach_abi"
      "multilib_get_enabled_abi_pairs" "multilib_get_enabled_abis"
      "multilib_install_wrappers" "multilib_is_native_abi"
-     "multilib_native_enable" "multilib_native_use_enable"
-     "multilib_native_use_with" "multilib_native_usex" "multilib_native_with"
+     "multilib_native_enable" "multilib_native_use"
+     "multilib_native_use_enable" "multilib_native_use_with"
+     "multilib_native_usev" "multilib_native_usex" "multilib_native_with"
      "multilib_parallel_foreach_abi" "multilib_prepare_wrappers"
      ;; multilib-minimal
      "multilib-minimal_src_compile" "multilib-minimal_src_configure"
@@ -516,7 +511,7 @@
      ;; netsurf
      "netsurf_define_makeconf"
      ;; ninja-utils
-     "eninja"
+     "eninja" "get_NINJAOPTS"
      ;; office-ext-r1
      "office-ext-r1_src_install" "office-ext-r1_src_unpack"
      ;; opam
@@ -545,7 +540,7 @@
      "perl-module_pkg_postinst" "perl-module_pkg_postrm"
      "perl-module_src_compile" "perl-module_src_configure"
      "perl-module_src_install" "perl-module_src_prepare"
-     "perl-module_src_test" "perl-module_src_unpack"
+     "perl-module_src_test"
      ;; php-ext-pecl-r3
      "php-ext-pecl-r3_src_install" "php-ext-pecl-r3_src_test"
      ;; php-ext-source-r3
@@ -609,6 +604,9 @@
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
      "qt5-build_src_test" "qt5_symlink_binary_to_path" "qt_use"
      "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod"
+     ;; qt6-build
+     "qt6-build_src_configure" "qt6-build_src_install" "qt6-build_src_prepare"
+     "qt_feature"
      ;; readme.gentoo-r1
      "readme.gentoo_create_doc" "readme.gentoo_print_elog"
      ;; rebar
@@ -616,6 +614,8 @@
      "rebar_remove_deps" "rebar_set_vsn" "rebar_src_compile"
      "rebar_src_configure" "rebar_src_install" "rebar_src_prepare"
      "rebar_src_test"
+     ;; rocm
+     "check_amdgpu" "get_amdgpu_flags"
      ;; ros-catkin
      "ros-catkin_src_compile" "ros-catkin_src_configure"
      "ros-catkin_src_install" "ros-catkin_src_prepare" "ros-catkin_src_test"
@@ -653,7 +653,7 @@
      ;; savedconfig
      "restore_config" "save_config" "savedconfig_pkg_postinst"
      ;; scons-utils
-     "escons" "use_scons"
+     "escons"
      ;; selinux-policy-2
      "selinux-policy-2_pkg_postinst" "selinux-policy-2_pkg_postrm"
      "selinux-policy-2_src_compile" "selinux-policy-2_src_install"
@@ -674,9 +674,10 @@
      "sword-module_src_install"
      ;; systemd
      "systemd_dounit" "systemd_douserunit" "systemd_enable_ntpunit"
-     "systemd_enable_service" "systemd_get_systemgeneratordir"
-     "systemd_get_systempresetdir" "systemd_get_systemunitdir"
-     "systemd_get_unitdir" "systemd_get_userunitdir" "systemd_get_utildir"
+     "systemd_enable_service" "systemd_get_sleepdir"
+     "systemd_get_systemgeneratordir" "systemd_get_systempresetdir"
+     "systemd_get_systemunitdir" "systemd_get_unitdir"
+     "systemd_get_userunitdir" "systemd_get_utildir"
      "systemd_install_serviced" "systemd_is_booted" "systemd_newunit"
      "systemd_newuserunit" "systemd_reenable" "systemd_update_catalog"
      "systemd_with_unitdir" "systemd_with_utildir"
@@ -705,11 +706,12 @@
      "is_f95" "is_fortran" "is_gcj" "is_go" "is_jit" "is_multilib" "is_objc"
      "is_objcxx" "make_gcc_hard" "setup_minispecs_gcc_build_specs"
      "setup_multilib_osdirnames" "should_we_gcc_config" "tc_has_feature"
-     "tc_is_live" "tc_version_is_at_least" "tc_version_is_between"
-     "toolchain_death_notice" "toolchain_pkg_postinst" "toolchain_pkg_postrm"
-     "toolchain_pkg_pretend" "toolchain_pkg_setup" "toolchain_src_compile"
-     "toolchain_src_configure" "toolchain_src_install" "toolchain_src_prepare"
-     "toolchain_src_test" "toolchain_src_unpack" "want_minispecs" "want_pie"
+     "tc_is_live" "tc_use_major_version_only" "tc_version_is_at_least"
+     "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
+     "toolchain_pkg_postrm" "toolchain_pkg_pretend" "toolchain_pkg_setup"
+     "toolchain_src_compile" "toolchain_src_configure" "toolchain_src_install"
+     "toolchain_src_prepare" "toolchain_src_test" "toolchain_src_unpack"
+     "want_minispecs" "want_pie"
      ;; toolchain-autoconf
      "slot_info_pages" "toolchain-autoconf_src_configure"
      "toolchain-autoconf_src_install" "toolchain-autoconf_src_prepare"
@@ -723,9 +725,10 @@
      "tc-arch-kernel" "tc-check-openmp" "tc-cpp-is-true"
      "tc-detect-is-softfloat" "tc-enables-pie" "tc-enables-ssp"
      "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-export"
-     "tc-export_build_env" "tc-get-compiler-type" "tc-getAR" "tc-getAS"
-     "tc-getBUILD_AR" "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP"
-     "tc-getBUILD_CXX" "tc-getBUILD_LD" "tc-getBUILD_NM" "tc-getBUILD_OBJCOPY"
+     "tc-export_build_env" "tc-get-c-rtlib" "tc-get-compiler-type"
+     "tc-get-cxx-stdlib" "tc-getAR" "tc-getAS" "tc-getBUILD_AR"
+     "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP" "tc-getBUILD_CXX"
+     "tc-getBUILD_LD" "tc-getBUILD_NM" "tc-getBUILD_OBJCOPY"
      "tc-getBUILD_PKG_CONFIG" "tc-getBUILD_PROG" "tc-getBUILD_RANLIB"
      "tc-getBUILD_READELF" "tc-getBUILD_STRINGS" "tc-getBUILD_STRIP"
      "tc-getCC" "tc-getCPP" "tc-getCXX" "tc-getDLLWRAP" "tc-getF77" "tc-getFC"
@@ -743,10 +746,9 @@
      "udev_reload"
      ;; unpacker
      "find_unpackable_file" "unpack_7z" "unpack_banner" "unpack_cpio"
-     "unpack_deb" "unpack_lha" "unpack_makeself" "unpack_pdv" "unpack_rar"
-     "unpack_zip" "unpacker" "unpacker_src_unpack" "unpacker_src_uri_depends"
-     ;; user
-     "enewgroup" "enewuser" "esetcomment" "esetgroups" "esethome" "esetshell"
+     "unpack_deb" "unpack_gpkg" "unpack_lha" "unpack_makeself" "unpack_pdv"
+     "unpack_rar" "unpack_zip" "unpacker" "unpacker_src_unpack"
+     "unpacker_src_uri_depends"
      ;; user-info
      "egetcomment" "egetent" "egetgroupname" "egetgroups" "egethome"
      "egetshell" "egetusername"
