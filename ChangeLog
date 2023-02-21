@@ -1,5 +1,8 @@
 2023-02-21  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-repo-mode): Check if coding system
+	utf-8-unix exists; it doesn't in XEmacs 21.4.
+
 	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton): Call
 	ebuild-mode-time-string, so that the date is in the UTC time zone.
 	* glep-mode.el (glep-mode-update-last-modified)

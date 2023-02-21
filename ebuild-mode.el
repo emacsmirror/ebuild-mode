@@ -777,7 +777,9 @@ This will be added to the `write-contents-functions' hook."
   "Minor mode for files in an ebuild repository."
   :lighter " Repo"
   :keymap ebuild-repo-mode-map
-  (setq buffer-file-coding-system 'utf-8-unix)
+  (if (ignore-errors (check-coding-system 'utf-8-unix))
+      ;; utf-8-unix doesn't exist in XEmacs 21.4
+      (setq buffer-file-coding-system 'utf-8-unix))
   (if (not (featurep 'xemacs))
       (add-hook 'write-contents-functions 'ebuild-repo-mode-before-save t t)
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
