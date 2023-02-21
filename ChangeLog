@@ -1,3 +1,13 @@
+2023-02-21  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-time-string): New compatibility
+	function for format-time-string, where XEmacs doesn't support the
+	time zone argument. Bug 890933.
+	(ebuild-mode-update-copyright, ebuild-mode-insert-skeleton)
+	(ebuild-mode-insert-tag-line): Call it.
+	(ebuild-mode-update-copyright): Save match data, because setenv
+	clobbers it.
+
 2022-12-01  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.61 released.

@@ -322,6 +322,23 @@ of the elements."
 
 ;;; Mode definitions.
 
+(defun ebuild-mode-time-string (format-string &optional time)
+  "Use FORMAT-STRING to format the time value TIME.
+Calls `format-time-string' (which see) for the UTC time zone.
+Compatibility function for XEmacs."
+  (if (featurep 'xemacs)
+      ;; format-time-string in XEmacs 21.5 can take only two arguments,
+      ;; i.e. it doesn't support ZONE
+      (let ((process-environment (copy-sequence process-environment))
+	    (tz (getenv "TZ")))
+	(setenv "TZ" "UTC")
+	(unwind-protect
+	    (format-time-string format-string time)
+	  ;; This is needed because setenv handles TZ specially.
+	  ;; So, restoring the environment is not enough.
+	  (setenv "TZ" tz)))
+    (format-time-string format-string time t)))
+
 (defun ebuild-mode-tabify ()
   "Tabify whitespace at beginning of lines."
   ;; We cannot use the following since XEmacs doesn't support tabify-regexp.
@@ -355,7 +372,7 @@ of the elements."
 	    (let* ((y1 (string-to-number (match-string 1)))
 		   (y2 (and (match-string 2)
 			    (string-to-number (match-string 2))))
-		   (year (format-time-string "%Y" nil t))
+		   (year (save-match-data (ebuild-mode-time-string "%Y")))
 		   (y (string-to-number year)))
 	      (if y2
 		  ;; Update range of years
@@ -669,7 +686,7 @@ that shall be manipulated."
   "Insert a statement skeleton for a new ebuild."
   nil
   ;; standard header
-  "# Copyright " (format-time-string "%Y" nil t) " Gentoo Authors\n"
+  "# Copyright " (ebuild-mode-time-string "%Y") " Gentoo Authors\n"
   "# Distributed under the terms of the GNU General Public License v2\n"
   "\n"
   "EAPI="
@@ -797,7 +814,7 @@ in a Gentoo profile."
   (insert (format "%s %s <%s> (%s)\n"
 		  comment-start
 		  ebuild-mode-full-name ebuild-mode-mail-address
-		  (format-time-string "%F" nil t))))
+		  (ebuild-mode-time-string "%Y-%m-%d"))))
 
 ;;; Keybindings.
 
