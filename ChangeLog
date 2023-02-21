@@ -1,5 +1,8 @@
 2023-02-21  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-update-copyright): Call lwarn with
+	nil as second argument, which works for both GNU Emacs and XEmacs.
+
 	* ebuild-mode.el (ebuild-repo-mode): Check if coding system
 	utf-8-unix exists; it doesn't in XEmacs 21.4.
 
