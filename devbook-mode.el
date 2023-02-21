@@ -1,6 +1,6 @@
 ;;; devbook-mode.el --- edit the Gentoo Devmanual
 
-;; Copyright 2020-2022 Gentoo Authors
+;; Copyright 2020-2023 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
