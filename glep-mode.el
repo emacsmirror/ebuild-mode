@@ -27,6 +27,7 @@
 (require 'font-lock)
 (require 'easymenu)
 (require 'skeleton)
+(require 'ebuild-mode)
 
 (defgroup glep nil
   "Major mode for Gentoo Linux Enhancement Proposals."
@@ -63,7 +64,7 @@ For efficiency only. Unlimited if nil.")
   ;; Update Last-Modified date
   (save-excursion
     (goto-char (point-min))
-    (let ((date (format-time-string "%Y-%m-%d" nil t))
+    (let ((date (ebuild-mode-time-string "%Y-%m-%d"))
 	  (case-fold-search nil))
       (and (re-search-forward glep-mode-last-modified-re
 			      glep-mode-preamble-limit t)
@@ -227,8 +228,8 @@ Calls the external \"glep\" command."
    nil 'confirm "Draft")
   "\n"
   "Version: " (skeleton-read "Version: " "1") "\n"
-  "Created: " (format-time-string "%Y-%m-%d") "\n"
-  "Last-Modified: " (format-time-string "%Y-%m-%d") "\n"
+  "Created: " (ebuild-mode-time-string "%Y-%m-%d") "\n"
+  "Last-Modified: " (ebuild-mode-time-string "%Y-%m-%d") "\n"
   "Post-History: \n"
   "Content-Type: text/x-rst\n"
   ((skeleton-read "Requires: (null string if none): ") "Requires: " str "\n")

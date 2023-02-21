@@ -26,6 +26,7 @@
 (require 'font-lock)
 (require 'easymenu)
 (require 'skeleton)
+(require 'ebuild-mode)
 
 (defvar gentoo-newsitem-font-lock-keywords
   (eval-when-compile
@@ -75,7 +76,7 @@
     (setq v2 (point-marker))
     nil)
   "Posted: " (skeleton-read "Date of posting: "
-			    (format-time-string "%Y-%m-%d"))
+			    (ebuild-mode-time-string "%Y-%m-%d"))
   "\n"
   "Revision: 1\n"
   "News-Item-Format: "

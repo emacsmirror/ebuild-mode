@@ -1,5 +1,10 @@
 2023-02-21  Ulrich Müller  <ulm@gentoo.org>
 
+	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton): Call
+	ebuild-mode-time-string, so that the date is in the UTC time zone.
+	* glep-mode.el (glep-mode-update-last-modified)
+	(glep-mode-insert-skeleton): Ditto.
+
 	* ebuild-mode.el (ebuild-mode-time-string): New compatibility
 	function for format-time-string, where XEmacs doesn't support the
 	time zone argument. Bug 890933.
