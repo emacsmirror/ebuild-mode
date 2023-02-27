@@ -131,6 +131,8 @@
      "apache-module_pkg_postinst" "apache-module_src_compile"
      "apache-module_src_install" "apache_cd_dir" "apache_doc_magic"
      "apache_mod_file"
+     ;; app-alternatives
+     "get_alternative"
      ;; aspell-dict-r1
      "aspell-dict-r1_src_configure" "aspell-dict-r1_src_install"
      ;; autotools
@@ -210,7 +212,8 @@
      ;; dotnet
      "dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild"
      ;; dune
-     "dune-install" "dune_src_compile" "dune_src_install" "dune_src_test"
+     "dune-compile" "dune-install" "dune-release" "dune-test"
+     "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
      ;; eapi7-ver
      "ver_cut" "ver_rs" "ver_test"
      ;; eapi8-dosym
@@ -319,10 +322,6 @@
      "golang-vcs_src_fetch" "golang-vcs_src_unpack"
      ;; golang-vcs-snapshot
      "golang-vcs-snapshot_src_unpack"
-     ;; gstreamer
-     "gstreamer_multilib_src_compile" "gstreamer_multilib_src_configure"
-     "gstreamer_multilib_src_install" "gstreamer_multilib_src_install_all"
-     "gstreamer_system_link" "multilib_src_configure"
      ;; gstreamer-meson
      "gstreamer_multilib_src_compile" "gstreamer_multilib_src_configure"
      "gstreamer_multilib_src_install" "gstreamer_multilib_src_install_all"
@@ -388,14 +387,14 @@
      "kde.org_pkg_nofetch" "kde.org_src_unpack"
      ;; kernel-2
      "cross_pre_c_headers" "debug-print-kernel2-variables" "detect_arch"
-     "detect_version" "env_setup_xmakeopts" "getfilevar" "handle_genpatches"
-     "headers___fix" "install_headers" "install_sources" "install_universal"
-     "kernel-2_pkg_postinst" "kernel-2_pkg_postrm" "kernel-2_pkg_preinst"
-     "kernel-2_pkg_setup" "kernel-2_src_compile" "kernel-2_src_install"
-     "kernel-2_src_prepare" "kernel-2_src_test" "kernel-2_src_unpack"
-     "kernel_header_destdir" "kernel_is" "postinst_sources" "preinst_headers"
-     "setup_headers" "unipatch" "universal_unpack" "unpack_fix_install_path"
-     "unpack_set_extraversion"
+     "detect_version" "env_setup_kernel_makeopts" "getfilevar"
+     "handle_genpatches" "headers___fix" "install_headers" "install_sources"
+     "install_universal" "kernel-2_pkg_postinst" "kernel-2_pkg_postrm"
+     "kernel-2_pkg_preinst" "kernel-2_pkg_setup" "kernel-2_src_compile"
+     "kernel-2_src_install" "kernel-2_src_prepare" "kernel-2_src_test"
+     "kernel-2_src_unpack" "kernel_header_destdir" "kernel_is"
+     "postinst_sources" "preinst_headers" "setup_headers" "unipatch"
+     "universal_unpack" "unpack_fix_install_path" "unpack_set_extraversion"
      ;; kernel-build
      "kernel-build_merge_configs" "kernel-build_pkg_postinst"
      "kernel-build_src_compile" "kernel-build_src_configure"
@@ -436,8 +435,8 @@
      "linux-mod_src_install" "remove_moduledb" "set_kvobj" "strip_modulenames"
      "update_moduledb" "use_m"
      ;; llvm
-     "get_llvm_prefix" "llvm_fix_clang_version" "llvm_fix_tool_path"
-     "llvm_pkg_setup"
+     "get_llvm_prefix" "get_llvm_slot" "llvm_fix_clang_version"
+     "llvm_fix_tool_path" "llvm_pkg_setup"
      ;; llvm.org
      "get_lit_flags" "llvm.org_set_globals" "llvm.org_src_prepare"
      "llvm.org_src_unpack" "llvm_are_manpages_built" "llvm_install_manpages"
@@ -486,7 +485,7 @@
      "mozlinguas_xpistage_langpacks"
      ;; multibuild
      "multibuild_copy_sources" "multibuild_for_best_variant"
-     "multibuild_foreach_variant" "multibuild_merge_root" "run_in_build_dir"
+     "multibuild_foreach_variant" "multibuild_merge_root"
      ;; multilib
      "get_abi_CFLAGS" "get_abi_CHOST" "get_abi_CTARGET" "get_abi_FAKE_TARGETS"
      "get_abi_LDFLAGS" "get_abi_LIBDIR" "get_all_abis" "get_all_libdirs"
@@ -521,6 +520,8 @@
      ;; out-of-source
      "out-of-source_src_compile" "out-of-source_src_configure"
      "out-of-source_src_install" "out-of-source_src_test"
+     ;; out-of-source-utils
+     "run_in_build_dir"
      ;; pam
      "cleanpamd" "dopamd" "dopammod" "dopamsecurity" "getpam_mod_dir"
      "newpamd" "newpammod" "newpamsecurity" "pamd_mimic" "pamd_mimic_system"
@@ -568,6 +569,9 @@
      "eprefixify" "hprefixify" "prefixify_ro"
      ;; preserve-libs
      "preserve_old_lib" "preserve_old_lib_notify"
+     ;; pypi
+     "pypi_normalize_name" "pypi_sdist_url" "pypi_translate_version"
+     "pypi_wheel_name" "pypi_wheel_url"
      ;; python-any-r1
      "python-any-r1_pkg_setup" "python_gen_any_dep" "python_setup"
      ;; python-r1
@@ -616,9 +620,6 @@
      "rebar_src_test"
      ;; rocm
      "check_amdgpu" "get_amdgpu_flags"
-     ;; ros-catkin
-     "ros-catkin_src_compile" "ros-catkin_src_configure"
-     "ros-catkin_src_install" "ros-catkin_src_prepare" "ros-catkin_src_test"
      ;; rpm
      "rpm_spec_epatch" "rpm_src_unpack" "rpm_unpack" "srcrpm_unpack"
      ;; ruby-fakegem
@@ -704,7 +705,7 @@
      "gentoo_urls" "get_gcc_src_uri" "get_make_var" "hardened_gcc_is_stable"
      "hardened_gcc_works" "is_ada" "is_crosscompile" "is_cxx" "is_d" "is_f77"
      "is_f95" "is_fortran" "is_gcj" "is_go" "is_jit" "is_multilib" "is_objc"
-     "is_objcxx" "make_gcc_hard" "setup_minispecs_gcc_build_specs"
+     "is_objcxx" "is_rust" "make_gcc_hard" "setup_minispecs_gcc_build_specs"
      "setup_multilib_osdirnames" "should_we_gcc_config" "tc_has_feature"
      "tc_is_live" "tc_use_major_version_only" "tc_version_is_at_least"
      "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
@@ -723,9 +724,10 @@
      "gcc-specs-pie" "gcc-specs-relro" "gcc-specs-ssp" "gcc-specs-ssp-to-all"
      "gcc-specs-stack-check" "gcc-version" "gen_usr_ldscript" "tc-arch"
      "tc-arch-kernel" "tc-check-openmp" "tc-cpp-is-true"
-     "tc-detect-is-softfloat" "tc-enables-pie" "tc-enables-ssp"
-     "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-export"
-     "tc-export_build_env" "tc-get-c-rtlib" "tc-get-compiler-type"
+     "tc-detect-is-softfloat" "tc-enables-cxx-assertions"
+     "tc-enables-fortify-source" "tc-enables-pie" "tc-enables-ssp"
+     "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-env_build"
+     "tc-export" "tc-export_build_env" "tc-get-c-rtlib" "tc-get-compiler-type"
      "tc-get-cxx-stdlib" "tc-getAR" "tc-getAS" "tc-getBUILD_AR"
      "tc-getBUILD_AS" "tc-getBUILD_CC" "tc-getBUILD_CPP" "tc-getBUILD_CXX"
      "tc-getBUILD_LD" "tc-getBUILD_NM" "tc-getBUILD_OBJCOPY"
@@ -735,12 +737,13 @@
      "tc-getGCJ" "tc-getGO" "tc-getLD" "tc-getNM" "tc-getOBJCOPY"
      "tc-getOBJDUMP" "tc-getPKG_CONFIG" "tc-getPROG" "tc-getRANLIB" "tc-getRC"
      "tc-getREADELF" "tc-getSTRINGS" "tc-getSTRIP" "tc-getTARGET_CPP"
-     "tc-has-openmp" "tc-has-tls" "tc-is-clang" "tc-is-cross-compiler"
-     "tc-is-gcc" "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
+     "tc-has-tls" "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc"
+     "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
      "tc-ld-force-bfd" "tc-ld-is-gold" "tc-ld-is-lld" "tc-ninja_magic_to_arch"
      "tc-stack-grows-down" "tc-tuple-is-softfloat"
      ;; tree-sitter-grammar
      "tree-sitter-grammar_src_compile" "tree-sitter-grammar_src_install"
+     "tree-sitter-grammar_src_test"
      ;; udev
      "get_udevdir" "udev_dorules" "udev_get_udevdir" "udev_newrules"
      "udev_reload"
