@@ -122,7 +122,7 @@ If nil, use two spaces."
 (defcustom ebuild-mode-process-environment
   (if (or (featurep 'xemacs)
 	  (not (fboundp 'ansi-color-compilation-filter)))
-      '("NOCOLOR=true"))
+      '("NO_COLOR=1" "NOCOLOR=true"))
   "List of additional environment variables for subprocesses.
 Each element should be a string of the form NAME=VALUE. This will
 be prepended to `process-environment' when calling a subprocess."
