@@ -83,6 +83,14 @@ A formfeed is not considered whitespace by this function."
   :type 'string
   :group 'ebuild)
 
+(defcustom ebuild-mode-portage-tmpdir
+  (cond ((file-directory-p "/var/tmp/portage") "/var/tmp/portage")
+	((file-directory-p "/tmp/portage") "/tmp/portage")
+	(t "/var/tmp/portage"))
+  "Location Portage will use for compilations and temporary storage."
+  :type 'string
+  :group 'ebuild)
+
 (defcustom ebuild-mode-eapi-list
   '("6" "7" "8")
   "List of supported EAPIs.
@@ -546,6 +554,34 @@ Like `compile', but with autocompletion for pkgcheck."
 	(compile command)
       (compile command ebuild-log-buffer-mode))))
 
+(defun ebuild-mode-find-workdir (&optional other-window)
+  "Visit Portage's working directory for the ebuild in this buffer.
+With prefix argument OTHER-WINDOW, visit the directory in another window."
+  (interactive "P")
+  (unless buffer-file-name
+    (error "No file for this buffer"))
+  (let* ((pkgdir (directory-file-name (file-name-directory buffer-file-name)))
+	 (catdir (directory-file-name (file-name-directory pkgdir)))
+	 (category (file-name-nondirectory catdir))
+	 (pn (file-name-nondirectory pkgdir))
+	 (pf (file-name-sans-extension
+	      (file-name-nondirectory buffer-file-name))))
+    ;; sanity check
+    (unless (and (file-exists-p
+		  (expand-file-name "../profiles/repo_name" catdir))
+		 (string-match (concat "\\`" (regexp-quote pn) "-") pf)
+		 (string-match "\\.ebuild\\'"
+			       (file-name-sans-versions buffer-file-name)))
+      (error "This doesn't look like an ebuild repository"))
+    (let ((workdir (concat (file-name-as-directory ebuild-mode-portage-tmpdir)
+			   (file-name-as-directory category)
+			   (file-name-as-directory pf)
+			   "work")))
+      (unless (file-directory-p workdir)
+	(error "Portage workdir doesn't exist"))
+      (if other-window
+	  (find-file-other-window workdir)
+	(find-file workdir)))))
 
 ;;; Modify package keywords.
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
@@ -825,6 +861,7 @@ in a Gentoo profile."
 (define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
 (define-key ebuild-mode-map "\C-c\C-p" 'ebuild-mode-run-pkgdev)
 (define-key ebuild-mode-map "\C-c\C-q" 'ebuild-mode-run-pkgcheck)
+(define-key ebuild-mode-map "\C-c\C-d" 'ebuild-mode-find-workdir)
 (define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
 (define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
 (define-key ebuild-mode-map "\C-c\C-b" 'ebuild-mode-all-keywords-unstable)
@@ -841,6 +878,7 @@ in a Gentoo profile."
 	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
     ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
+    ["Find Portage workdir" ebuild-mode-find-workdir]
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]

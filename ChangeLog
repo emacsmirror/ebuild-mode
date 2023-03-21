@@ -1,3 +1,10 @@
+2023-03-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-find-workdir): New function.
+	Thanks to Pascal Jäger for the idea.
+	(ebuild-mode-portage-tmpdir): New custom variable.
+	(ebuild-mode-map, ebuild-mode-menu): Keybinding and menu entry.
+
 2023-02-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-process-environment): Set NO_COLOR
