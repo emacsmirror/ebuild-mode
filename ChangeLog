@@ -1,3 +1,8 @@
+2023-03-24  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Don't override variables if
+	they already have a buffer-local binding.
+
 2023-03-20  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-find-workdir): New function.
