@@ -259,10 +259,10 @@
      "filter-lfs-flags" "filter-lto" "filter-mfpmath" "get-flag" "is-flag"
      "is-flagq" "is-ldflag" "is-ldflagq" "no-as-needed" "raw-ldflags"
      "replace-cpu-flags" "replace-flags" "replace-sparc64-flags" "strip-flags"
-     "strip-unsupported-flags" "test-flag-CC" "test-flag-CCLD" "test-flag-CXX"
-     "test-flag-F77" "test-flag-FC" "test-flags" "test-flags-CC"
-     "test-flags-CCLD" "test-flags-CXX" "test-flags-F77" "test-flags-FC"
-     "test_version_info"
+     "strip-unsupported-flags" "test-compile" "test-flag-CC" "test-flag-CCLD"
+     "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flags"
+     "test-flags-CC" "test-flags-CCLD" "test-flags-CXX" "test-flags-F77"
+     "test-flags-FC" "test_version_info"
      ;; font
      "font_cleanup_dirs" "font_fontconfig" "font_pkg_postinst"
      "font_pkg_postrm" "font_pkg_setup" "font_src_install"
@@ -293,7 +293,7 @@
      ;; gnome2
      "gnome2_pkg_postinst" "gnome2_pkg_postrm" "gnome2_pkg_preinst"
      "gnome2_src_compile" "gnome2_src_configure" "gnome2_src_install"
-     "gnome2_src_prepare" "gnome2_src_unpack"
+     "gnome2_src_prepare"
      ;; gnome2-utils
      "gnome2_disable_deprecation_warning" "gnome2_environment_reset"
      "gnome2_gconf_install" "gnome2_gconf_savelist" "gnome2_gconf_uninstall"
@@ -610,7 +610,7 @@
      "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod"
      ;; qt6-build
      "qt6-build_src_configure" "qt6-build_src_install" "qt6-build_src_prepare"
-     "qt_feature"
+     "qt6_symlink_binary_to_path" "qt_feature"
      ;; readme.gentoo-r1
      "readme.gentoo_create_doc" "readme.gentoo_print_elog"
      ;; rebar
@@ -636,7 +636,7 @@
      "doruby" "ruby-ng_cucumber" "ruby-ng_pkg_setup" "ruby-ng_rspec"
      "ruby-ng_src_compile" "ruby-ng_src_configure" "ruby-ng_src_install"
      "ruby-ng_src_prepare" "ruby-ng_src_test" "ruby-ng_src_unpack"
-     "ruby-ng_testrb-2" "ruby_add_bdepend" "ruby_add_depend"
+     "ruby-ng_sus" "ruby-ng_testrb-2" "ruby_add_bdepend" "ruby_add_depend"
      "ruby_add_rdepend" "ruby_get_hdrdir" "ruby_get_implementation"
      "ruby_get_libruby" "ruby_get_use_implementations" "ruby_get_use_targets"
      "ruby_get_version" "ruby_implementation_command"
@@ -671,8 +671,6 @@
      ;; subversion
      "subversion_fetch" "subversion_pkg_preinst" "subversion_src_unpack"
      "subversion_wc_info"
-     ;; sword-module
-     "sword-module_src_install"
      ;; systemd
      "systemd_dounit" "systemd_douserunit" "systemd_enable_ntpunit"
      "systemd_enable_service" "systemd_get_sleepdir"
@@ -787,7 +785,7 @@
      ;; vim-plugin
      "display_vim_plugin_help" "update_vim_afterscripts"
      "vim-plugin_pkg_postinst" "vim-plugin_pkg_postrm"
-     "vim-plugin_src_install"
+     "vim-plugin_src_install" "vim-plugin_src_prepare"
      ;; vim-spell
      "vim-spell_pkg_postinst" "vim-spell_src_install"
      ;; virtualx
@@ -808,7 +806,7 @@
      ;; wxwidgets
      "setup-wxwidgets"
      ;; xdg
-     "xdg_pkg_postinst" "xdg_pkg_postrm" "xdg_pkg_preinst"
+     "xdg_pkg_postinst" "xdg_pkg_postrm" "xdg_pkg_preinst" "xdg_src_prepare"
      ;; xdg-utils
      "xdg_desktop_database_update" "xdg_environment_reset"
      "xdg_icon_cache_update" "xdg_mimeinfo_database_update"
