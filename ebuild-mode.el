@@ -365,6 +365,13 @@ Compatibility function for XEmacs."
 	    (delete-region (match-beginning 0) (point))
 	    (indent-to end-col)))))))
 
+(defun ebuild-mode-squash-empty-lines ()
+  "Replace multiple consecutive empty lines by a single one."
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "^\n+$" nil t)
+      (replace-match ""))))
+
 (defun ebuild-mode-update-copyright ()
   "Update the copyright notice in the ebuild's header."
   (save-excursion
@@ -793,9 +800,10 @@ This will be added to the `write-contents-functions' hook."
   (when ebuild-mode-fix-whitespace
     ;; trim trailing whitespace, except for patches
     (delete-trailing-whitespace)
-    ;; tabify whitespace for ebuilds
-    (if (derived-mode-p 'ebuild-mode)
-	(ebuild-mode-tabify)))
+    ;; tabify whitespace and squash multiple empty lines for ebuilds
+    (when (derived-mode-p 'ebuild-mode)
+      (ebuild-mode-tabify)
+      (ebuild-mode-squash-empty-lines)))
   (when ebuild-mode-update-copyright
     (ebuild-mode-update-copyright)
     ;; call it only once per buffer
