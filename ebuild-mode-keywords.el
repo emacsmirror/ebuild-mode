@@ -77,7 +77,8 @@
 (defvar ebuild-mode-keywords-eapi-deprecated
   ;; deprecated or banned package manager commands
   '(("dohard" "dohtml" "dolib" "dosed" "einstall" "hasq" "hasv" "libopts"
-     "prepalldocs" "prepall" "prepallinfo" "prepallman" "prepallstrip" "useq")
+     "portageq" "prepall" "prepalldocs" "prepallinfo" "prepallman"
+     "prepallstrip" "prepinfo" "preplib" "prepman" "prepstrip" "useq")
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-warn
