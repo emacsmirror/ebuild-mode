@@ -89,7 +89,7 @@
 
 ;; Eclass keywords
 
-(defvar ebuild-mode-keywords-eclass-documentation
+(defvar ebuild-mode-keywords-eclassdoc
   '(("@AUTHOR" "@BLURB" "@BUGREPORTS" "@CODE" "@DEFAULT_UNSET" "@DESCRIPTION"
      "@ECLASS" "@ECLASS_VARIABLE" "@EXAMPLE" "@FUNCTION" "@INTERNAL"
      "@MAINTAINER" "@OUTPUT_VARIABLE" "@PRE_INHERIT" "@PROVIDES" "@REQUIRED"

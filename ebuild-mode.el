@@ -322,7 +322,7 @@ of the elements."
 	    ebuild-mode-keywords-sandbox
 	    ebuild-mode-keywords-eapi-deprecated
 	    ebuild-mode-keywords-warn
-	    ebuild-mode-keywords-eclass-documentation
+	    ebuild-mode-keywords-eclassdoc
 	    ebuild-mode-keywords-eclassdoc-warn
 	    ebuild-mode-keywords-eclass)
       1000))))

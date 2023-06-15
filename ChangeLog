@@ -1,3 +1,9 @@
+2023-06-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclassdoc):
+	Renamed from ebuild-mode-keywords-eclass-documentation.
+	* ebuild-mode.el (ebuild-mode-font-lock-keywords): Update.
+
 2023-05-13  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eapi-deprecated):
