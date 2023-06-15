@@ -1,5 +1,8 @@
 2023-06-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-put-keywords): Do not modify the
+	buffer unless there is an actual change.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclassdoc):
 	Renamed from ebuild-mode-keywords-eclass-documentation.
 	* ebuild-mode.el (ebuild-mode-font-lock-keywords): Update.

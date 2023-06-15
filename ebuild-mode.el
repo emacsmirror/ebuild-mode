@@ -620,16 +620,17 @@ Signal an error if this is not possible, or return nil if the
 optional second argument NOERROR is non-nil."
   (save-excursion
     (goto-char (point-min))
-    (let ((case-fold-search nil))
+    (let ((case-fold-search nil)
+	  (kw-string (mapconcat
+		      (lambda (e) (concat (cdr e) (car e))) kw " ")))
       (cond
        ((not (re-search-forward ebuild-mode-arch-regexp nil t))
 	(unless noerror (error "No KEYWORDS assignment found")))
        ((re-search-forward ebuild-mode-arch-regexp nil t)
 	(unless noerror (error "More than one KEYWORDS assignment found")))
        (t
-	(replace-match
-	 (mapconcat (lambda (e) (concat (cdr e) (car e))) kw " ")
-	 t t nil 1))))))
+	(unless (string-equal kw-string (match-string 1))
+	  (replace-match kw-string t t nil 1)))))))
 
 (defun ebuild-mode-modify-keywords (kw)
   "Set keywords. KW is an alist of architectures and leaders."
