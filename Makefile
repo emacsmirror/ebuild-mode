@@ -10,12 +10,21 @@ DISTFILES = ebuild-mode.el ebuild-mode-keywords.el \
 	devbook-mode.el gentoo-newsitem-mode.el glep-mode.el \
 	ebuild-mode.texi keyword-generation.sh ChangeLog
 
+ELCS = ebuild-mode.elc devbook-mode.elc gentoo-newsitem-mode.elc glep-mode.elc
+INFOFILES = ebuild-mode.info
 
-.PHONY: all dist clean
+EMACS = emacs
+EMACSFLAGS = -batch -q --no-site-file
 
-all:
+.PHONY: all keywords dist clean
 
-ebuild-mode.info: ebuild-mode.texi
+all: $(ELCS) $(INFOFILES)
+
+%.elc: %.el
+	$(EMACS) $(EMACSFLAGS) -eval "(add-to-list 'load-path nil)" \
+		-f batch-byte-compile $<
+
+%.info: %.texi
 	makeinfo $<
 
 keywords:
@@ -26,4 +35,4 @@ dist: $(DISTFILES)
 	tar -tJvf $(P).tar.xz
 
 clean:
-	-rm -f *~ *.tmp *.gz *.bz2 *.xz *.info
+	-rm -f *~ *.tmp *.gz *.bz2 *.xz *.elc *.info

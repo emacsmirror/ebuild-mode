@@ -1,3 +1,11 @@
+2023-06-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* Makefile (ELCS, INFOFILES, EMACS, EMACSFLAGS): New variables.
+	(.PHONY): Add keywords target.
+	(all): Build ELCS and INFOFILES by default.
+	(%.elc, %.info): New rules.
+	(clean): Add *.elc.
+
 2023-06-15  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-put-keywords): Do not modify the
