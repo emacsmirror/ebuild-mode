@@ -231,11 +231,13 @@
      ;; elisp
      "elisp_pkg_postinst" "elisp_pkg_postrm" "elisp_pkg_setup"
      "elisp_src_compile" "elisp_src_configure" "elisp_src_install"
-     "elisp_src_prepare" "elisp_src_unpack"
+     "elisp_src_prepare" "elisp_src_test" "elisp_src_unpack"
      ;; elisp-common
      "elisp-check-emacs-version" "elisp-compile" "elisp-emacs-version"
-     "elisp-install" "elisp-make-autoload-file" "elisp-modules-install"
-     "elisp-site-file-install" "elisp-site-regen"
+     "elisp-enable-tests" "elisp-install" "elisp-make-autoload-file"
+     "elisp-modules-install" "elisp-site-file-install" "elisp-site-regen"
+     "elisp-test" "elisp-test-buttercup" "elisp-test-ert"
+     "elisp-test-ert-runner"
      ;; emboss-r3
      "emboss-r3_src_configure" "emboss-r3_src_install"
      ;; epatch
@@ -377,8 +379,6 @@
      "java-pkg_regso" "java-pkg_rm_files" "java-pkg_set-current-vm"
      "java-pkg_sointo" "java-utils-2_pkg_preinst" "java-utils-2_src_prepare"
      "use_doc"
-     ;; java-virtuals-2
-     "java-virtuals-2_do_write" "java-virtuals-2_src_install"
      ;; java-vm-2
      "get_system_arch" "java-vm-2_pkg_postinst" "java-vm-2_pkg_postrm"
      "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup" "java-vm_install-env"
@@ -435,13 +435,17 @@
      "linux-mod_pkg_setup_binary" "linux-mod_src_compile"
      "linux-mod_src_install" "remove_moduledb" "set_kvobj" "strip_modulenames"
      "update_moduledb" "use_m"
+     ;; linux-mod-r1
+     "linux-mod-r1_pkg_postinst" "linux-mod-r1_pkg_setup"
+     "linux-mod-r1_src_compile" "linux-mod-r1_src_install" "linux_domodule"
+     "linux_moduleinto" "modules_post_process"
      ;; llvm
      "get_llvm_prefix" "get_llvm_slot" "llvm_fix_clang_version"
      "llvm_fix_tool_path" "llvm_pkg_setup"
      ;; llvm.org
      "get_lit_flags" "llvm.org_set_globals" "llvm.org_src_prepare"
      "llvm.org_src_unpack" "llvm_are_manpages_built" "llvm_install_manpages"
-     "llvm_manpage_dist_available"
+     "llvm_manpage_get_dist"
      ;; ltprune
      "prune_libtool_files"
      ;; lua
@@ -602,8 +606,10 @@
      "qmail_supervise_install_one" "qmail_tcprules_build"
      "qmail_tcprules_config" "qmail_tcprules_install"
      ;; qmake-utils
-     "eqmake5" "qt5_get_bindir" "qt5_get_headerdir" "qt5_get_libdir"
+     "eqmake5" "eqmake6" "qt5_get_bindir" "qt5_get_headerdir" "qt5_get_libdir"
      "qt5_get_mkspecsdir" "qt5_get_plugindir" "qt5_get_qmake_args"
+     "qt6_get_bindir" "qt6_get_headerdir" "qt6_get_libdir"
+     "qt6_get_mkspecsdir" "qt6_get_plugindir" "qt6_get_qmake_args"
      ;; qt5-build
      "qt5-build_pkg_postinst" "qt5-build_pkg_postrm" "qt5-build_src_compile"
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
@@ -695,23 +701,20 @@
      ;; tmpfiles
      "dotmpfiles" "newtmpfiles" "tmpfiles_process"
      ;; toolchain
-     "XGCC" "copy_minispecs_gcc_specs" "create_gcc_env_entry"
-     "create_revdep_rebuild_entry" "do_gcc_CYGWINPORTS_patches"
-     "do_gcc_PIE_patches" "do_gcc_config" "do_gcc_gentoo_patches"
-     "downgrade_arch_flags" "fix_libtool_libdir_paths" "gcc-abi-map"
-     "gcc-lang-supported" "gcc-multilib-configure" "gcc_do_filter_flags"
-     "gcc_do_make" "gcc_movelibs" "gcc_slot_java" "gcc_version_patch"
-     "gentoo_urls" "get_gcc_src_uri" "get_make_var" "hardened_gcc_is_stable"
-     "hardened_gcc_works" "is_ada" "is_crosscompile" "is_cxx" "is_d" "is_f77"
-     "is_f95" "is_fortran" "is_gcj" "is_go" "is_jit" "is_multilib" "is_objc"
-     "is_objcxx" "is_rust" "make_gcc_hard" "setup_minispecs_gcc_build_specs"
-     "setup_multilib_osdirnames" "should_we_gcc_config" "tc_has_feature"
-     "tc_is_live" "tc_use_major_version_only" "tc_version_is_at_least"
-     "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
-     "toolchain_pkg_postrm" "toolchain_pkg_pretend" "toolchain_pkg_setup"
-     "toolchain_src_compile" "toolchain_src_configure" "toolchain_src_install"
-     "toolchain_src_prepare" "toolchain_src_test" "toolchain_src_unpack"
-     "want_minispecs" "want_pie"
+     "XGCC" "create_gcc_env_entry" "create_revdep_rebuild_entry"
+     "do_gcc_config" "do_gcc_gentoo_patches" "downgrade_arch_flags"
+     "fix_libtool_libdir_paths" "gcc-abi-map" "gcc-lang-supported"
+     "gcc-multilib-configure" "gcc_do_filter_flags" "gcc_do_make"
+     "gcc_movelibs" "gentoo_urls" "get_gcc_src_uri" "get_make_var" "is_ada"
+     "is_crosscompile" "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_go"
+     "is_jit" "is_modula2" "is_multilib" "is_objc" "is_objcxx" "is_rust"
+     "make_gcc_hard" "setup_multilib_osdirnames" "should_we_gcc_config"
+     "tc_has_feature" "tc_is_live" "tc_use_major_version_only"
+     "tc_version_is_at_least" "tc_version_is_between" "toolchain_death_notice"
+     "toolchain_pkg_postinst" "toolchain_pkg_postrm" "toolchain_pkg_pretend"
+     "toolchain_pkg_setup" "toolchain_src_compile" "toolchain_src_configure"
+     "toolchain_src_install" "toolchain_src_prepare" "toolchain_src_test"
+     "toolchain_src_unpack"
      ;; toolchain-autoconf
      "slot_info_pages" "toolchain-autoconf_src_configure"
      "toolchain-autoconf_src_install" "toolchain-autoconf_src_prepare"
