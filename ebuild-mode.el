@@ -831,18 +831,18 @@ This will be added to the `write-contents-functions' hook."
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
     (make-local-hook 'write-contents-hooks)
     (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
-  (unless (local-variable-p 'fill-column)
+  (unless (local-variable-p 'fill-column (current-buffer))
     (setq fill-column 72))
-  (unless (local-variable-p 'tab-width)
+  (unless (local-variable-p 'tab-width (current-buffer))
     (setq tab-width 4))
   (when (derived-mode-p 'nxml-mode)
     (eval-when-compile (ignore-errors (require 'nxml-mode)))
-    (unless (or (local-variable-p 'nxml-child-indent)
-		(local-variable-p 'nxml-attribute-indent))
+    (unless (or (local-variable-p 'nxml-child-indent (current-buffer))
+		(local-variable-p 'nxml-attribute-indent (current-buffer)))
       (let ((indent (if ebuild-mode-xml-indent-tabs 4 2)))
 	(set (make-local-variable 'nxml-child-indent) indent)
 	(set (make-local-variable 'nxml-attribute-indent) (* 2 indent))))
-    (unless (local-variable-p 'indent-tabs-mode)
+    (unless (local-variable-p 'indent-tabs-mode (current-buffer))
       (setq indent-tabs-mode ebuild-mode-xml-indent-tabs))))
 
 ;;;###autoload
