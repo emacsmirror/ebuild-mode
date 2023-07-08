@@ -831,7 +831,7 @@ This will be added to the `write-contents-functions' hook."
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
     (make-local-hook 'write-contents-hooks)
     (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
-  (unless (local-variable-p 'fill-column (current-buffer))
+  (unless (local-variable-p 'fill-column (current-buffer)) ; XEmacs wants 2 args
     (setq fill-column 72))
   (unless (local-variable-p 'tab-width (current-buffer))
     (setq tab-width 4))
