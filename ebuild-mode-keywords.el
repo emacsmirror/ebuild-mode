@@ -398,8 +398,9 @@
      "universal_unpack" "unpack_fix_install_path" "unpack_set_extraversion"
      ;; kernel-build
      "kernel-build_merge_configs" "kernel-build_pkg_postinst"
-     "kernel-build_src_compile" "kernel-build_src_configure"
-     "kernel-build_src_install" "kernel-build_src_test"
+     "kernel-build_pkg_setup" "kernel-build_src_compile"
+     "kernel-build_src_configure" "kernel-build_src_install"
+     "kernel-build_src_test"
      ;; kernel-install
      "kernel-install_can_update_symlink" "kernel-install_create_init"
      "kernel-install_create_qemu_image" "kernel-install_get_qemu_arch"
@@ -613,7 +614,8 @@
      ;; qt5-build
      "qt5-build_pkg_postinst" "qt5-build_pkg_postrm" "qt5-build_src_compile"
      "qt5-build_src_configure" "qt5-build_src_install" "qt5-build_src_prepare"
-     "qt5-build_src_test" "qt5_symlink_binary_to_path" "qt_use"
+     "qt5-build_src_test" "qt5_configure_oos_quirk"
+     "qt5_symlink_binary_to_path" "qt5_syncqt_version" "qt_use"
      "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod"
      ;; qt6-build
      "qt6-build_src_configure" "qt6-build_src_install" "qt6-build_src_prepare"
@@ -662,6 +664,8 @@
      "restore_config" "save_config" "savedconfig_pkg_postinst"
      ;; scons-utils
      "escons"
+     ;; secureboot
+     "secureboot_auto_sign" "secureboot_pkg_setup" "secureboot_sign_efi_file"
      ;; selinux-policy-2
      "selinux-policy-2_pkg_postinst" "selinux-policy-2_pkg_postrm"
      "selinux-policy-2_src_compile" "selinux-policy-2_src_install"
@@ -669,6 +673,9 @@
      ;; sgml-catalog-r1
      "sgml-catalog-r1_pkg_postinst" "sgml-catalog-r1_pkg_postrm"
      "sgml-catalog-r1_update_catalog" "sgml-catalog-r1_update_env"
+     ;; shell-completion
+     "dofishcomp" "dozshcomp" "get_fishcompdir" "get_zshcompdir" "newfishcomp"
+     "newzshcomp"
      ;; ssl-cert
      "install_cert"
      ;; stardict
