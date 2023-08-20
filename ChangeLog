@@ -1,3 +1,9 @@
+2023-08-20  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-delete-trailing-whitespace):
+	New function. This avoids redefining delete-trailing-whitespace.
+	(ebuild-repo-mode-before-save): Update caller.
+
 2023-08-01  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):

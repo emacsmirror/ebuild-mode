@@ -33,30 +33,6 @@
 (require 'skeleton)
 
 
-;;; Compatibility code.
-
-(eval-and-compile
-  (or (fboundp 'delete-trailing-whitespace) ; doesn't exist in XEmacs 21.4
-      ;; from simple.el of GNU Emacs 22.1
-(defun delete-trailing-whitespace ()
-  "Delete all the trailing whitespace across the current buffer.
-All whitespace after the last non-whitespace character in a line is deleted.
-This respects narrowing, created by \\[narrow-to-region] and friends.
-A formfeed is not considered whitespace by this function."
-  (interactive "*")
-  (save-match-data
-    (save-excursion
-      (goto-char (point-min))
-      (while (re-search-forward "\\s-$" nil t)
-	(skip-syntax-backward "-" (save-excursion (forward-line 0) (point)))
-	;; Don't delete formfeeds, even if they are considered whitespace.
-	(save-match-data
-	  (if (looking-at ".*\f")
-	      (goto-char (match-end 0))))
-	(delete-region (point) (match-end 0))))))
-))
-
-
 ;;; Variables.
 
 (defgroup ebuild nil
@@ -364,6 +340,15 @@ Compatibility function for XEmacs."
 	      nil
 	    (delete-region (match-beginning 0) (point))
 	    (indent-to end-col)))))))
+
+(defun ebuild-mode-delete-trailing-whitespace ()
+  "Delete all the trailing spaces and tabs across the current buffer."
+  ;; Simple non-interactive version of delete-trailing-whitespace
+  ;; which doesn't exist in XEmacs
+  (save-excursion
+    (goto-char (point-min))
+    (while (re-search-forward "[ \t]+$" nil t)
+      (replace-match ""))))
 
 (defun ebuild-mode-squash-empty-lines ()
   "Replace multiple consecutive empty lines by a single one."
@@ -800,7 +785,7 @@ that shall be manipulated."
 This will be added to the `write-contents-functions' hook."
   (when ebuild-mode-fix-whitespace
     ;; trim trailing whitespace, except for patches
-    (delete-trailing-whitespace)
+    (ebuild-mode-delete-trailing-whitespace)
     ;; tabify whitespace and squash multiple empty lines for ebuilds
     (when (derived-mode-p 'ebuild-mode)
       (ebuild-mode-tabify)
