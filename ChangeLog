@@ -1,5 +1,8 @@
 2023-08-24  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-process-environment): No longer set
+	NOCOLOR, because NO_COLOR is supported by stable Portage.
+
 	* ebuild-mode.el (ebuild-mode): Refer to sh-mode directly,
 	instead of shell-script-mode which is its alias.
 	(sh-must-be-shell-mode): Test for its existence, rather than
