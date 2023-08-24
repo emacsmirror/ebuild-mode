@@ -159,15 +159,14 @@ to `font-lock-end'."
       ret)))
 
 ;; Prevent rst-mode from interpreting the "---" delimiter as section header.
-;; We cannot use advice-add because it did not exist in Emacs 23.
 ;; *** FIXME *** This is incomplete and probably too brittle.
-(defadvice rst-classify-adornment (around glep-ignore-preamble)
+(defun glep-ignore-preamble (oldfun adornment end &rest args)
   "Ignore GLEP preamble in `rst-classify-adornment'."
   (if (not (and (eq major-mode 'glep-mode)
-		(glep-mode-in-preamble-p (ad-get-arg 1))))
-      ad-do-it))
+		(glep-mode-in-preamble-p end)))
+      (apply oldfun adornment end args)))
 
-(ad-activate 'rst-classify-adornment)
+(advice-add 'rst-classify-adornment :around #'glep-ignore-preamble)
 
 ;;; Generate HTML from GLEP.
 

@@ -1,5 +1,8 @@
 2023-08-24  Ulrich Müller  <ulm@gentoo.org>
 
+	* glep-mode.el (rst-classify-adornment, glep-ignore-preamble):
+	Port from defadvice to advice-add.
+
 	* glep-mode.el (glep-mode-format-html): Move docstring to the top.
 
 2023-08-20  Ulrich Müller  <ulm@gentoo.org>
