@@ -1,4 +1,4 @@
-;;; ebuild-mode-keywords.el
+;;; ebuild-mode-keywords.el  -*-lexical-binding:t-*-
 
 ;; Copyright 2006-2023 Gentoo Authors
 

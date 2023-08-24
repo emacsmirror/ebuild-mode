@@ -1,5 +1,14 @@
 2023-08-24  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el:
+	* ebuild-mode-keywords.el:
+	* gentoo-newsitem-mode.el:
+	* glep-mode.el:
+	* devbook-mode.el: Enable lexical binding.
+	* ebuild-mode.el (ebuild-run-command, ebuild-mode-run-pkgdev)
+	(ebuild-mode-run-pkgcheck): Add underscore to name of unused
+	function argument.
+
 	* ebuild-mode.el (ebuild-mode-process-environment): No longer set
 	NOCOLOR, because NO_COLOR is supported by stable Portage.
 

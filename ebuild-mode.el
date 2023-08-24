@@ -1,4 +1,4 @@
-;;; ebuild-mode.el --- edit Gentoo ebuild and eclass files
+;;; ebuild-mode.el --- edit ebuild and eclass files  -*-lexical-binding:t-*-
 
 ;; Copyright 2006-2023 Gentoo Authors
 
@@ -447,7 +447,7 @@ If nil, `compilation-mode' will be used.")
 	 (process-environment (append ebuild-mode-process-environment
 				      process-environment))
 	 ;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
-	 (compilation-buffer-name-function (lambda (mode) "*ebuild*")))
+	 (compilation-buffer-name-function (lambda (_mode) "*ebuild*")))
     (if (featurep 'xemacs)
 	(compile shell-command)
       (compile shell-command ebuild-log-buffer-mode))))
@@ -526,7 +526,7 @@ Like `compile', but with autocompletion for pkgdev."
 			  'ebuild-mode-pkgdev-history)))
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
-	(compilation-buffer-name-function (lambda (mode) "*pkgdev*")))
+	(compilation-buffer-name-function (lambda (_mode) "*pkgdev*")))
     (if (featurep 'xemacs)
 	(compile command)
       (compile command ebuild-log-buffer-mode))))
@@ -541,7 +541,7 @@ Like `compile', but with autocompletion for pkgcheck."
 			  'ebuild-mode-pkgcheck-history)))
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
-	(compilation-buffer-name-function (lambda (mode) "*pkgcheck*")))
+	(compilation-buffer-name-function (lambda (_mode) "*pkgcheck*")))
     (if (featurep 'xemacs)
 	(compile command)
       (compile command ebuild-log-buffer-mode))))

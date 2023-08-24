@@ -1,4 +1,4 @@
-;;; devbook-mode.el --- edit the Gentoo Devmanual
+;;; devbook-mode.el --- edit the Gentoo Devmanual  -*-lexical-binding:t-*-
 
 ;; Copyright 2020-2023 Gentoo Authors
 

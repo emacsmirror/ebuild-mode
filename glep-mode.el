@@ -1,4 +1,4 @@
-;;; glep-mode.el --- edit Gentoo Linux Enhancement Proposals
+;;; glep-mode.el --- edit Gentoo GLEPs  -*-lexical-binding:t-*-
 
 ;; Copyright 2017-2023 Gentoo Authors
 

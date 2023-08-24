@@ -1,4 +1,4 @@
-;;; gentoo-newsitem-mode.el --- edit Gentoo GLEP 42 news items
+;;; gentoo-newsitem-mode.el --- edit Gentoo news items  -*-lexical-binding:t-*-
 
 ;; Copyright 2009-2023 Gentoo Authors
 
