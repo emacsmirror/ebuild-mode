@@ -401,7 +401,7 @@ Compatibility function for XEmacs."
 	  (delete-region (match-beginning 0) (1+ (point)))))))
 
 ;;;###autoload
-(define-derived-mode ebuild-mode shell-script-mode "Ebuild"
+(define-derived-mode ebuild-mode sh-mode "Ebuild"
   "Major mode for Gentoo .ebuild and .eclass files."
   ;; Always enable ebuild-repo-mode, even if the ebuild is edited
   ;; outside an ebuild repository
@@ -892,12 +892,12 @@ in a Gentoo profile."
     ["Insert package.mask tag line" ebuild-mode-insert-tag-line]
     ["Customize ebuild-mode" (customize-group 'ebuild)]))
 
-(and (< emacs-major-version 22)
-     ;; make TAB key work
-     (defadvice sh-must-be-shell-mode
-	 (around ebuild-mode-sh-must-be-shell-mode activate)
-       (or (eq major-mode 'ebuild-mode)
-	   ad-do-it)))
+(if (fboundp 'sh-must-be-shell-mode)
+    ;; make TAB key work
+    (defun sh-must-be-shell-mode ()
+      "Signal an error if not in Shell-script mode."
+      (unless (derived-mode-p 'sh-mode)
+	(error "This buffer is not in Shell-script mode"))))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.\\(ebuild\\|eclass\\)\\'" . ebuild-mode))

@@ -1,5 +1,13 @@
 2023-08-24  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode): Refer to sh-mode directly,
+	instead of shell-script-mode which is its alias.
+	(sh-must-be-shell-mode): Test for its existence, rather than
+	testing emacs-major-version. Simply redefine the function,
+	in order to avoid obsolete defadvice and non-portable advice-add.
+	This fixes a byte-compile warning in Emacs 30 while keeping
+	compatibility with XEmacs.
+
 	* glep-mode.el (rst-classify-adornment, glep-ignore-preamble):
 	Port from defadvice to advice-add.
 
