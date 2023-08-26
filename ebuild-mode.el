@@ -412,12 +412,15 @@ Compatibility function for XEmacs."
   (setq fill-column 72)
   (setq tab-width 4)
   (setq indent-tabs-mode t)
-  (and buffer-file-name
-       (let ((case-fold-search t))
-	 (string-match "\\.eclass\\'"
-		       (file-name-sans-versions buffer-file-name)))
-       ;; Eclass documentation uses two spaces after sentence ends
-       (set (make-local-variable 'sentence-end-double-space) t)))
+  (when (and buffer-file-name
+	     (let ((case-fold-search t))
+	       (string-match "\\.eclass\\'"
+			     (file-name-sans-versions buffer-file-name))))
+    ;; Eclass documentation uses two spaces after sentence ends
+    (set (make-local-variable 'sentence-end-double-space) t)
+    ;; Don't rewrap paragraphs into a preceding eclassdoc token
+    (set (make-local-variable 'paragraph-separate)
+	 (concat paragraph-start "\\|^# @"))))
 
 (add-hook 'ebuild-mode-hook
 	  (lambda () (font-lock-add-keywords
