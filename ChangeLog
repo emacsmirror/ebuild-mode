@@ -1,3 +1,8 @@
+2023-08-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 2023-08-26  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode): Set paragraph-separate for

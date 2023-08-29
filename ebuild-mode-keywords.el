@@ -175,6 +175,8 @@
      "common-lisp-install-sources" "lisp-file-p"
      ;; cron
      "cron_pkg_postinst" "docron" "docrondir" "docrontab"
+     ;; crossdev
+     "is_crosspkg" "target_is_not_host"
      ;; cuda
      "cuda_add_sandbox" "cuda_cudnn_version" "cuda_gccdir" "cuda_sanitize"
      "cuda_src_prepare" "cuda_toolkit_version"
@@ -235,9 +237,9 @@
      ;; elisp-common
      "elisp-check-emacs-version" "elisp-compile" "elisp-emacs-version"
      "elisp-enable-tests" "elisp-install" "elisp-make-autoload-file"
-     "elisp-make-site-file" "elisp-modules-install" "elisp-site-file-install"
-     "elisp-site-regen" "elisp-test" "elisp-test-buttercup" "elisp-test-ert"
-     "elisp-test-ert-runner"
+     "elisp-make-site-file" "elisp-modules-install" "elisp-org-export-to"
+     "elisp-site-file-install" "elisp-site-regen" "elisp-test"
+     "elisp-test-buttercup" "elisp-test-ert" "elisp-test-ert-runner"
      ;; emboss-r3
      "emboss-r3_src_configure" "emboss-r3_src_install"
      ;; epatch
@@ -247,8 +249,6 @@
      ;; estack
      "eshopts_pop" "eshopts_push" "estack_pop" "estack_push" "eumask_pop"
      "eumask_push" "evar_pop" "evar_push" "evar_push_set"
-     ;; eutils
-     "emktemp" "path_exists" "use_if_iuse"
      ;; fcaps
      "fcaps" "fcaps_pkg_postinst"
      ;; findlib
