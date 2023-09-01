@@ -744,6 +744,10 @@ that shall be manipulated."
   (completing-read "Source URI: "
 		   (mapcar 'list ebuild-mode-protocols-src_uri))
   "\"\n"
+  "S=\""
+  (completing-read "S (null string for default): "
+		   '(("${WORKDIR}") ("${WORKDIR}/${PN}")))
+  & "\"\n" | -3
   "\n"
   ;; second variables block
   "LICENSE=\""
@@ -773,7 +777,8 @@ that shall be manipulated."
   "\n"
   ;; dependencies
   "RDEPEND=\"\"\n"
-  "DEPEND=\"${RDEPEND}\"\n")
+  "DEPEND=\"${RDEPEND}\"\n"
+  "BDEPEND=\"\"\n")
 
 
 ;;; Minor mode for editing files in an ebuild repository.
