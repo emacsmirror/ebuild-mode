@@ -857,8 +857,9 @@ This is intended for package.mask and similar configuration files
 in a Gentoo profile."
   (interactive)
   (beginning-of-line)
-  (insert (format "%s %s <%s> (%s)\n"
-		  comment-start
+  (insert (concat comment-start
+		  (if (/= 0 (length comment-start)) " "))
+	  (format "%s <%s> (%s)\n"
 		  ebuild-mode-full-name ebuild-mode-mail-address
 		  (ebuild-mode-time-string "%Y-%m-%d"))))
 

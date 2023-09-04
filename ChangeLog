@@ -1,3 +1,8 @@
+2023-09-04  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-insert-tag-line): Make it work when
+	comment-start is nil or empty.
+
 2023-09-01  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-skeleton): Add S and BDEPEND.
