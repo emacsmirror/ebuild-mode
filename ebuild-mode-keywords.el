@@ -619,7 +619,8 @@
      "qt_use_compile_test" "qt_use_disable_config" "qt_use_disable_mod"
      ;; qt6-build
      "qt6-build_src_configure" "qt6-build_src_install" "qt6-build_src_prepare"
-     "qt6_symlink_binary_to_path" "qt_feature"
+     "qt6-build_src_test" "qt6-build_src_unpack" "qt6_symlink_binary_to_path"
+     "qt_feature"
      ;; readme.gentoo-r1
      "readme.gentoo_create_doc" "readme.gentoo_print_elog"
      ;; rebar
