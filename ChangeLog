@@ -1,5 +1,7 @@
 2023-09-12  Ulrich Müller  <ulm@gentoo.org>
 
+	* Version 1.67 released.
+
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
 	Regenerated.
 
