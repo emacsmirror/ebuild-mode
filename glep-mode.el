@@ -160,13 +160,12 @@ to `font-lock-end'."
 
 ;; Prevent rst-mode from interpreting the "---" delimiter as section header.
 ;; *** FIXME *** This is incomplete and probably too brittle.
-(defun glep-ignore-preamble (oldfun adornment end &rest args)
+(defun glep-mode-ignore-preamble (_adornment end &rest _args)
   "Ignore GLEP preamble in `rst-classify-adornment'."
-  (if (not (and (eq major-mode 'glep-mode)
-		(glep-mode-in-preamble-p end)))
-      (apply oldfun adornment end args)))
+  (not (and (eq major-mode 'glep-mode)
+	    (glep-mode-in-preamble-p end))))
 
-(advice-add 'rst-classify-adornment :around #'glep-ignore-preamble)
+(advice-add 'rst-classify-adornment :before-while #'glep-mode-ignore-preamble)
 
 ;;; Generate HTML from GLEP.
 
