@@ -901,12 +901,11 @@ in a Gentoo profile."
     ["Insert package.mask tag line" ebuild-mode-insert-tag-line]
     ["Customize ebuild-mode" (customize-group 'ebuild)]))
 
-(if (fboundp 'sh-must-be-shell-mode)
+(if (eval-when-compile (fboundp 'sh-must-be-shell-mode))
     ;; make TAB key work
-    (defun sh-must-be-shell-mode ()
-      "Signal an error if not in Shell-script mode."
-      (unless (derived-mode-p 'sh-mode)
-	(error "This buffer is not in Shell-script mode"))))
+    (defadvice sh-must-be-shell-mode
+	(around ebuild-mode-sh-must-be-shell-mode activate)
+      (unless (derived-mode-p 'sh-mode) ad-do-it)))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.\\(ebuild\\|eclass\\)\\'" . ebuild-mode))

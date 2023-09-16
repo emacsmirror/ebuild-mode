@@ -1,5 +1,9 @@
 2023-09-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (sh-must-be-shell-mode): Test if the function is
+	defined at compile time. This should only be the case for Emacs
+	versions where defadvice is unobsolete.
+
 	* glep-mode.el (rst-classify-adornment)
 	(glep-mode-ignore-preamble): Use :before-while instead of :around
 	as advice combinator.
