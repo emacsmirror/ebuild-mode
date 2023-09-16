@@ -309,9 +309,11 @@ of the elements."
   "Use FORMAT-STRING to format the time value TIME.
 Calls `format-time-string' (which see) for the UTC time zone.
 Compatibility function for XEmacs."
-  (if (featurep 'xemacs)
-      ;; format-time-string in XEmacs 21.5 can take only two arguments,
-      ;; i.e. it doesn't support ZONE
+  (if (and (featurep 'xemacs)
+	   (not (function-allows-args 'format-time-string 3)))
+      ;; format-time-string in older XEmacs versions can take only two
+      ;; arguments. Version 21.5.35 still doesn't support a time zone
+      ;; as third argument, but accepts non-nil to mean Universal Time.
       (let ((process-environment (copy-sequence process-environment))
 	    (tz (getenv "TZ")))
 	(setenv "TZ" "UTC")
