@@ -813,6 +813,12 @@ This will be added to the `write-contents-functions' hook."
   (make-sparse-keymap)
   "Keymap for `ebuild-repo-mode'.")
 
+(defvar ebuild-mode-tag-line-regexp
+  ".*[ \t]+<.*>[ \t]+([0-9]\\{4\\}-[01][0-9]-[0-3][0-9])$"
+  "Regexp matching an author/date tag line in a configuration file.
+This excludes `comment-start'.  See `ebuild-mode-insert-tag-line'
+for the format of the tag line.")
+
 ;;;###autoload
 (define-minor-mode ebuild-repo-mode
   "Minor mode for files in an ebuild repository."
@@ -830,7 +836,17 @@ This will be added to the `write-contents-functions' hook."
     (setq fill-column 72))
   (unless (local-variable-p 'tab-width (current-buffer))
     (setq tab-width 4))
-  (when (derived-mode-p 'nxml-mode)
+  (cond
+   ((derived-mode-p 'conf-unix-mode)
+    (unless (local-variable-p 'paragraph-separate (current-buffer))
+      ;; Prevent fill-paragraph from rewrapping the paragraph into
+      ;; a preceding author/date tag line
+      (set (make-local-variable 'paragraph-separate)
+	   (concat (default-value 'paragraph-separate)
+		   "\\|^"
+		   (regexp-quote (concat comment-start))
+		   ebuild-mode-tag-line-regexp))))
+   ((derived-mode-p 'nxml-mode)
     (eval-when-compile (ignore-errors (require 'nxml-mode)))
     (unless (or (local-variable-p 'nxml-child-indent (current-buffer))
 		(local-variable-p 'nxml-attribute-indent (current-buffer)))
@@ -838,7 +854,7 @@ This will be added to the `write-contents-functions' hook."
 	(set (make-local-variable 'nxml-child-indent) indent)
 	(set (make-local-variable 'nxml-attribute-indent) (* 2 indent))))
     (unless (local-variable-p 'indent-tabs-mode (current-buffer))
-      (setq indent-tabs-mode ebuild-mode-xml-indent-tabs))))
+      (setq indent-tabs-mode ebuild-mode-xml-indent-tabs)))))
 
 ;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()
