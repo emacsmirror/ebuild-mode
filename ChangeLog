@@ -1,3 +1,9 @@
+2023-09-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (ebuild-mode): Document the
+	ebuild-mode-find-workdir command and its keybinding.
+	(ebuild-repo-mode): Document ebuild-mode-xml-indent-tabs.
+
 2023-09-20  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-tag-line-regexp): New variable.

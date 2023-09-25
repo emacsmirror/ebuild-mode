@@ -158,6 +158,11 @@ program suite.  @kbd{C-c C-e} calls @code{ebuild-run-command} which asks
 for one of the possible actions as argument.  See the man page of ebuild
 what actions are provided.
 
+The command @code{ebuild-mode-find-workdir} (bound to @kbd{C-c C-d})
+allows to visit the working directory (@code{$@{WORKDIR@}}) that belongs
+to the ebuild in the current buffer.  With a prefix argument, the
+directory will be visited in another window.
+
 @section Running @command{pkgdev} and @command{pkgcheck}
 
 @kbd{C-c C-p} calls the command @code{ebuild-mode-run-pkgdev} command,
@@ -181,6 +186,8 @@ Generate architecture keywords with the syntax from the ekeyword tool.
 Mark all architectures as testing.  Handy for version/revision bumps.
 @item C-c C-e
 Run Portage's ebuild command, you are prompted for the phase you want.
+@item C-c C-d
+Visit the working directory that belongs to the ebuild.
 @item C-c C-p
 Run a @command{pkgdev} command.
 @item C-c C-q
@@ -204,6 +211,11 @@ Furthermore, it will automatically fix whitespace and update copyright
 years when writing the buffer to a file.  This can be customized with
 variables @code{ebuild-mode-fix-whitespace} and
 @code{ebuild-mode-update-copyright}, respectively.
+
+Indentation of XML in @code{nxml-mode} can be customized with the
+variable @code{ebuild-mode-xml-indent-tabs}.  A value of nil (which is
+the default) means to use two spaces; non-nil means to use tab
+characters.
 
 There is only one keybinding, namely @kbd{C-c -} which inserts a tag
 line with the user's name, e-mail address and date, in the format that
