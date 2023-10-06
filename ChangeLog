@@ -1,3 +1,9 @@
+2023-10-06  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-add-font-lock): New function.
+	(ebuild-mode-hook): Add it, instead of an anonymous function.
+	* glep-mode.el (glep-mode-add-font-lock, glep-mode-hook): Ditto.
+
 2023-09-25  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.texi (ebuild-mode): Document the

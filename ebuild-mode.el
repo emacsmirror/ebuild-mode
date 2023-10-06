@@ -424,9 +424,11 @@ Compatibility function for XEmacs."
     (set (make-local-variable 'paragraph-separate)
 	 (concat paragraph-start "\\|^# @"))))
 
-(add-hook 'ebuild-mode-hook
-	  (lambda () (font-lock-add-keywords
-		      nil ebuild-mode-font-lock-keywords)))
+(defun ebuild-mode-add-font-lock ()
+  "Add `ebuild-mode' font-lock keywords for the current buffer."
+  (font-lock-add-keywords nil ebuild-mode-font-lock-keywords))
+
+(add-hook 'ebuild-mode-hook 'ebuild-mode-add-font-lock)
 
 ;;; Run ebuild command.
 

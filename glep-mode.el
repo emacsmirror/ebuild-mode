@@ -96,14 +96,15 @@ For efficiency only. Unlimited if nil.")
 	    'glep-mode-font-lock-extend-region t)
   (add-hook 'write-contents-functions 'glep-mode-before-save t t))
 
-(add-hook
- 'glep-mode-hook
- (lambda ()
-   (font-lock-add-keywords
-    nil `((glep-mode-font-lock-match-delims
-	   . ,font-lock-comment-delimiter-face)
-	  (glep-mode-font-lock-match-preamble
-	   . ,font-lock-keyword-face)))))
+(defun glep-mode-add-font-lock ()
+  "Add `glep-mode' font-lock keywords for the current buffer."
+  (font-lock-add-keywords
+   nil `((glep-mode-font-lock-match-delims
+	  . ,font-lock-comment-delimiter-face)
+	 (glep-mode-font-lock-match-preamble
+	  . ,font-lock-keyword-face))))
+
+(add-hook 'glep-mode-hook 'glep-mode-add-font-lock)
 
 (defun glep-mode-preamble-bounds ()
   "Return list with begin and end of the preamble, or nil if none found."
