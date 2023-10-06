@@ -214,6 +214,20 @@
      "sphinx_compile"
      ;; dotnet
      "dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild"
+     ;; dotnet-pkg
+     "dotnet-pkg_foreach-project" "dotnet-pkg_pkg_setup"
+     "dotnet-pkg_src_compile" "dotnet-pkg_src_configure"
+     "dotnet-pkg_src_install" "dotnet-pkg_src_prepare" "dotnet-pkg_src_test"
+     "dotnet-pkg_src_unpack"
+     ;; dotnet-pkg-base
+     "dotnet-pkg-base_append_launchervar" "dotnet-pkg-base_build"
+     "dotnet-pkg-base_dolauncher" "dotnet-pkg-base_dolauncher_portable"
+     "dotnet-pkg-base_foreach-solution" "dotnet-pkg-base_get-configuration"
+     "dotnet-pkg-base_get-output" "dotnet-pkg-base_get-runtime"
+     "dotnet-pkg-base_info" "dotnet-pkg-base_install"
+     "dotnet-pkg-base_launcherinto" "dotnet-pkg-base_remove-global-json"
+     "dotnet-pkg-base_restore" "dotnet-pkg-base_restore_tools"
+     "dotnet-pkg-base_setup" "dotnet-pkg-base_test" "edotnet"
      ;; dune
      "dune-compile" "dune-install" "dune-release" "dune-test"
      "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
@@ -371,9 +385,9 @@
      "java-pkg_force-compiler" "java-pkg_get-bootclasspath"
      "java-pkg_get-javac" "java-pkg_get-jni-cflags" "java-pkg_get-source"
      "java-pkg_get-target" "java-pkg_getjar" "java-pkg_getjars"
-     "java-pkg_init-compiler_" "java-pkg_init_paths_" "java-pkg_jar-from"
-     "java-pkg_jar-list" "java-pkg_jarfrom" "java-pkg_jarinto"
-     "java-pkg_javac-args" "java-pkg_newjar" "java-pkg_register-ant-task"
+     "java-pkg_init-compiler_" "java-pkg_jar-from" "java-pkg_jar-list"
+     "java-pkg_jarfrom" "java-pkg_jarinto" "java-pkg_javac-args"
+     "java-pkg_newjar" "java-pkg_register-ant-task"
      "java-pkg_register-dependency" "java-pkg_register-environment-variable"
      "java-pkg_register-optional-dependency" "java-pkg_regjar"
      "java-pkg_regso" "java-pkg_rm_files" "java-pkg_set-current-vm"
@@ -517,6 +531,8 @@
      "netsurf_define_makeconf"
      ;; ninja-utils
      "eninja" "get_NINJAOPTS"
+     ;; nuget
+     "nuget_donuget" "nuget_link" "nuget_link-system-nugets"
      ;; office-ext-r1
      "office-ext-r1_src_install" "office-ext-r1_src_unpack"
      ;; opam
@@ -691,7 +707,7 @@
      "systemd_enable_service" "systemd_get_sleepdir"
      "systemd_get_systemgeneratordir" "systemd_get_systempresetdir"
      "systemd_get_systemunitdir" "systemd_get_unitdir"
-     "systemd_get_userunitdir" "systemd_get_utildir"
+     "systemd_get_userunitdir" "systemd_get_utildir" "systemd_install_dropin"
      "systemd_install_serviced" "systemd_is_booted" "systemd_newunit"
      "systemd_newuserunit" "systemd_reenable" "systemd_update_catalog"
      "systemd_with_unitdir" "systemd_with_utildir"
