@@ -1,3 +1,9 @@
+2023-10-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
+	* glep-mode.el (glep-mode-insert-skeleton): Drop local require
+	for ebuild-mode, as it is required globally.
+
 2023-10-06  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.68 released.

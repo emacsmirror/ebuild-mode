@@ -208,10 +208,8 @@ Calls the external \"glep\" command."
   "Title: " (skeleton-read "Title: ") "\n"
   "Author: " (skeleton-read
 	      "Author's real name and e-mail address: "
-	      (progn
-		(require 'ebuild-mode)
-		(concat ebuild-mode-full-name
-			" <" ebuild-mode-mail-address ">")))
+	      (concat ebuild-mode-full-name
+		      " <" ebuild-mode-mail-address ">"))
   "\n"
   "Type: "
   (completing-read
