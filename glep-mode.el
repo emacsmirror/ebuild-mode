@@ -31,7 +31,7 @@
 
 (defgroup glep nil
   "Major mode for Gentoo Linux Enhancement Proposals."
-  :group 'wp)
+  :group 'text)
 
 (defcustom glep-mode-update-last-modified t
   "If non-nil, update Last-Modified date before writing a file."

@@ -1,5 +1,8 @@
 2023-10-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* glep-mode.el (glep): Change parent group to text, because the wp
+	group is deprecated since Emacs 26.
+
 	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
 	* glep-mode.el (glep-mode-insert-skeleton): Drop local require
 	for ebuild-mode, as it is required globally.
