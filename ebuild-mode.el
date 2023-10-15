@@ -921,7 +921,17 @@ in a Gentoo profile."
     ["Insert package.mask tag line" ebuild-mode-insert-tag-line]
     ["Customize ebuild-mode" (customize-group 'ebuild)]))
 
-(if (eval-when-compile (fboundp 'sh-must-be-shell-mode))
+
+(eval-when-compile
+  (unless (fboundp 'static-if)
+    (defmacro static-if (cond then &rest else) ; from APEL
+      "Like `if', but evaluate COND at compile time."
+      (if (eval cond)
+	  then
+	`(progn ,@else)))
+    ))
+
+(static-if (fboundp 'sh-must-be-shell-mode)
     ;; make TAB key work
     (defadvice sh-must-be-shell-mode
 	(around ebuild-mode-sh-must-be-shell-mode activate)

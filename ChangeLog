@@ -1,5 +1,9 @@
 2023-10-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (static-if): New macro, taken from APEL.
+	(sh-must-be-shell-mode): Use it. This should finally fix the
+	byte-compile warning for defadvice in Emacs 30.
+
 	* glep-mode.el (glep): Change parent group to text, because the wp
 	group is deprecated since Emacs 26.
 
