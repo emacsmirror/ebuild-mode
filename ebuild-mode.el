@@ -916,7 +916,7 @@ in a Gentoo profile."
 
 (easy-menu-define ebuild-repo-mode-menu ebuild-repo-mode-map
   "Menu for `ebuild-repo-mode'."
-  `("Ebuild"
+  '("Ebuild"
     ;; show the menu only for conf files
     :visible (derived-mode-p 'conf-unix-mode)
     ["Insert package.mask tag line" ebuild-mode-insert-tag-line]

@@ -380,7 +380,7 @@ https://creativecommons.org/licenses/by-sa/4.0/.
 
 (easy-menu-define glep-mode-menu glep-mode-map
   "Menu for `glep-mode'."
-  `("GLEP"
+  '("GLEP"
     ["Insert skeleton" glep-mode-insert-skeleton]
     ["Format as HTML" glep-mode-format-html]))
 

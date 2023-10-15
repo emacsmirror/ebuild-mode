@@ -66,7 +66,7 @@
 
 (easy-menu-define devbook-mode-menu devbook-mode-map
   "Menu for `devbook-mode'."
-  `("DevBook"
+  '("DevBook"
     ["Insert skeleton" devbook-insert-skeleton]))
 
 ;;;###autoload
