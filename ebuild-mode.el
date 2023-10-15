@@ -316,9 +316,10 @@ Compatibility function for XEmacs."
       ;; as third argument, but accepts non-nil to mean Universal Time.
       (let ((process-environment (copy-sequence process-environment))
 	    (tz (getenv "TZ")))
-	(setenv "TZ" "UTC")
 	(unwind-protect
-	    (format-time-string format-string time)
+	    (progn
+	      (setenv "TZ" "UTC")
+	      (format-time-string format-string time))
 	  ;; This is needed because setenv handles TZ specially.
 	  ;; So, restoring the environment is not enough.
 	  (setenv "TZ" tz)))
