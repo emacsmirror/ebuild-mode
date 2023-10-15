@@ -132,7 +132,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	  (concat ebuild-mode-portdir "/profiles/arch.list"))
 	 (while (re-search-forward "#.*$" nil t)
 	   (replace-match ""))
-	 (sort (split-string (buffer-string)) 'ebuild-mode-arch-lessp))
+	 (sort (split-string (buffer-string)) #'ebuild-mode-arch-lessp))
      (file-error nil))
    ;; could not read architectures from repository, so fall back to default
    '("alpha" "amd64" "arm" "arm64" "hppa" "ia64" "loong" "m68k" "mips"
@@ -154,7 +154,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	     (and (not (member arch archs))
 		  (member arch ebuild-mode-arch-list)
 		  (setq archs (cons arch archs))))
-	   (sort archs 'ebuild-mode-arch-lessp)))
+	   (sort archs #'ebuild-mode-arch-lessp)))
      (file-error nil))
    (condition-case nil
        (with-temp-buffer
@@ -168,7 +168,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	     (and (not (member arch archs))
 		  (member arch ebuild-mode-arch-list)
 		  (setq archs (cons arch archs))))
-	   (sort archs 'ebuild-mode-arch-lessp)))
+	   (sort archs #'ebuild-mode-arch-lessp)))
      (file-error nil))
    ;; fall back to list of all architectures
    ebuild-mode-arch-list)
@@ -310,7 +310,7 @@ of the elements."
 Calls `format-time-string' (which see) for the UTC time zone.
 Compatibility function for XEmacs."
   (if (and (featurep 'xemacs)
-	   (not (function-allows-args 'format-time-string 3)))
+	   (not (function-allows-args #'format-time-string 3)))
       ;; format-time-string in older XEmacs versions can take only two
       ;; arguments. Version 21.5.35 still doesn't support a time zone
       ;; as third argument, but accepts non-nil to mean Universal Time.
@@ -429,7 +429,7 @@ Compatibility function for XEmacs."
   "Add `ebuild-mode' font-lock keywords for the current buffer."
   (font-lock-add-keywords nil ebuild-mode-font-lock-keywords))
 
-(add-hook 'ebuild-mode-hook 'ebuild-mode-add-font-lock)
+(add-hook 'ebuild-mode-hook #'ebuild-mode-add-font-lock)
 
 ;;; Run ebuild command.
 
@@ -446,7 +446,7 @@ If nil, `compilation-mode' will be used.")
   (interactive
    (list
     (completing-read "Run ebuild command(s): "
-		     'ebuild-mode-ebuild-cmd-complete
+		     #'ebuild-mode-ebuild-cmd-complete
 		     nil nil nil 'ebuild-mode-ebuild-history)))
   (or buffer-file-name
       (error "No file for this buffer"))
@@ -467,19 +467,19 @@ Emacs version supports it). Variable `ansi-color-for-compilation-mode'
 must be non-nil for this to have any effect."
   (if (fboundp 'ansi-color-compilation-filter)
       (add-hook 'compilation-filter-hook
-		'ansi-color-compilation-filter nil t)))
+		#'ansi-color-compilation-filter nil t)))
 
 (defun ebuild-mode-get-completion-function (mode)
   "Get completion function for completion mode MODE."
-  (cond ((null mode) 'try-completion)
-	((eq mode t) 'all-completions)
+  (cond ((null mode) #'try-completion)
+	((eq mode t) #'all-completions)
 	((eq mode 'lambda)
 	 (if (fboundp 'test-completion)
-	     'test-completion
+	     #'test-completion
 	   ;; XEmacs 21.4 doesn't have test-completion
 	   (lambda (&rest args)
-	     (eq (apply 'try-completion args) t))))
-	(t 'ignore)))
+	     (eq (apply #'try-completion args) t))))
+	(t #'ignore)))
 
 (defun ebuild-mode-ebuild-cmd-complete (s predicate mode)
   "Completion function for ebuild command.
@@ -529,7 +529,7 @@ an explanation of arguments S, PREDICATE and MODE."
 Like `compile', but with autocompletion for pkgdev."
   (interactive
    (list (completing-read "Run pkgdev command: "
-			  'ebuild-mode-command-complete
+			  #'ebuild-mode-command-complete
 			  nil nil "pkgdev "
 			  'ebuild-mode-pkgdev-history)))
   (let ((process-environment (append ebuild-mode-process-environment
@@ -544,7 +544,7 @@ Like `compile', but with autocompletion for pkgdev."
 Like `compile', but with autocompletion for pkgcheck."
   (interactive
    (list (completing-read "Run pkgcheck command: "
-			  'ebuild-mode-command-complete
+			  #'ebuild-mode-command-complete
 			  nil nil "pkgcheck "
 			  'ebuild-mode-pkgcheck-history)))
   (let ((process-environment (append ebuild-mode-process-environment
@@ -652,7 +652,7 @@ optional second argument NOERROR is non-nil."
 	 ;; add keyword
 	 (t (setq keywords (cons k keywords))))))
     (ebuild-mode-put-keywords
-     (sort keywords 'ebuild-mode-arch-lessp))))
+     (sort keywords #'ebuild-mode-arch-lessp))))
 
 (defun ebuild-mode-keyword (action arch)
   "Keyword manipulation.
@@ -664,7 +664,7 @@ architecture from `ebuild-mode-arch-list'."
 				 nil t nil nil "unstable")
 		ebuild-mode-action-alist))
     (completing-read "Architecture: "
-		     (mapcar 'list
+		     (mapcar #'list
 			     (append '("all" "*") ebuild-mode-arch-list))
 		     nil t)))
   (ebuild-mode-modify-keywords (list (cons arch action))))
@@ -684,7 +684,7 @@ and `all-completions' for details."
 	   (c2 (funcall
 		(ebuild-mode-get-completion-function mode)
 		s2
-		(mapcar 'list
+		(mapcar #'list
 			(if (string-equal s2 "")
 			    '("" "~" "-" "^")
 			  (string-match "^[-^~]?" s2)
@@ -704,7 +704,7 @@ and `all-completions' for details."
 KEYWORDS is a whitespace separated string containing the keywords
 that shall be manipulated."
   (interactive
-   (list (completing-read "Keywords: " 'ebuild-mode-ekeyword-complete)))
+   (list (completing-read "Keywords: " #'ebuild-mode-ekeyword-complete)))
   (ebuild-mode-modify-keywords
    (mapcar (lambda (s)
 	     (string-match "^\\([-^~]?\\)\\(.*\\)" s)
@@ -729,25 +729,25 @@ that shall be manipulated."
   "\n"
   "EAPI="
   (completing-read
-   "EAPI: " (mapcar 'list ebuild-mode-eapi-list)
+   "EAPI: " (mapcar #'list ebuild-mode-eapi-list)
    nil nil (car (last ebuild-mode-eapi-list))) ; default to most recent EAPI
   "\n"
   "\n"
   ;; inherited eclasses
   "inherit "
   ((completing-read "Eclass (null string to terminate): "
-		    (mapcar 'list ebuild-mode-eclasses))
+		    (mapcar #'list ebuild-mode-eclasses))
    str & " ")
   & -1 & "\n\n" | -8
   ;; first variables block
   "DESCRIPTION=\"" (skeleton-read "Description: ") "\"\n"
   "HOMEPAGE=\""
   (completing-read "Homepage: "
-		   (mapcar 'list ebuild-mode-protocols-homepage))
+		   (mapcar #'list ebuild-mode-protocols-homepage))
   "\"\n"
   "SRC_URI=\""
   (completing-read "Source URI: "
-		   (mapcar 'list ebuild-mode-protocols-src_uri))
+		   (mapcar #'list ebuild-mode-protocols-src_uri))
   "\"\n"
   "S=\""
   (completing-read "S (null string for default): "
@@ -757,7 +757,7 @@ that shall be manipulated."
   ;; second variables block
   "LICENSE=\""
   ((completing-read "License (null string to terminate): "
-		    (mapcar 'list ebuild-mode-licenses))
+		    (mapcar #'list ebuild-mode-licenses))
    str & " ")
   & -1 "\"\n"
   "SLOT=\"0\"\n"
@@ -766,17 +766,17 @@ that shall be manipulated."
     "Keyword (null string to terminate): "
     (nconc
      (mapcar (lambda (x) (list (concat "~" x))) ebuild-mode-arch-list)
-     (mapcar 'list ebuild-mode-arch-stable-list)))
+     (mapcar #'list ebuild-mode-arch-stable-list)))
    str & " ")
   & -1 "\"\n"
   "IUSE=\""
   ((completing-read "USE flag (null string to terminate): "
-		    (mapcar 'list ebuild-mode-use-flags))
+		    (mapcar #'list ebuild-mode-use-flags))
    str & " ")
   & -1 & "\"\n" | -6
   "RESTRICT=\""
   ((completing-read "RESTRICT (null string to terminate): "
-		    (mapcar 'list ebuild-mode-restrict-list))
+		    (mapcar #'list ebuild-mode-restrict-list))
    str & " ")
   & -1 & "\"\n" | -10
   "\n"
@@ -831,10 +831,12 @@ for the format of the tag line.")
       ;; utf-8-unix doesn't exist in XEmacs 21.4
       (setq buffer-file-coding-system 'utf-8-unix))
   (if (not (featurep 'xemacs))
-      (add-hook 'write-contents-functions 'ebuild-repo-mode-before-save t t)
+      (add-hook 'write-contents-functions
+		#'ebuild-repo-mode-before-save t t)
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
     (make-local-hook 'write-contents-hooks)
-    (add-hook 'write-contents-hooks 'ebuild-repo-mode-before-save t t))
+    (add-hook 'write-contents-hooks
+	      #'ebuild-repo-mode-before-save t t))
   (unless (local-variable-p 'fill-column (current-buffer)) ; XEmacs wants 2 args
     (setq fill-column 72))
   (unless (local-variable-p 'tab-width (current-buffer))
@@ -887,15 +889,15 @@ in a Gentoo profile."
 ;;; Keybindings.
 
 ;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
-(define-key ebuild-mode-map "\C-c\C-e" 'ebuild-run-command)
-(define-key ebuild-mode-map "\C-c\C-p" 'ebuild-mode-run-pkgdev)
-(define-key ebuild-mode-map "\C-c\C-q" 'ebuild-mode-run-pkgcheck)
-(define-key ebuild-mode-map "\C-c\C-d" 'ebuild-mode-find-workdir)
-(define-key ebuild-mode-map "\C-c\C-k" 'ebuild-mode-keyword)
-(define-key ebuild-mode-map "\C-c\C-y" 'ebuild-mode-ekeyword)
-(define-key ebuild-mode-map "\C-c\C-b" 'ebuild-mode-all-keywords-unstable)
-(define-key ebuild-mode-map "\C-c\C-n" 'ebuild-mode-insert-skeleton)
-(define-key ebuild-repo-mode-map "\C-c-" 'ebuild-mode-insert-tag-line)
+(define-key ebuild-mode-map "\C-c\C-e" #'ebuild-run-command)
+(define-key ebuild-mode-map "\C-c\C-p" #'ebuild-mode-run-pkgdev)
+(define-key ebuild-mode-map "\C-c\C-q" #'ebuild-mode-run-pkgcheck)
+(define-key ebuild-mode-map "\C-c\C-d" #'ebuild-mode-find-workdir)
+(define-key ebuild-mode-map "\C-c\C-k" #'ebuild-mode-keyword)
+(define-key ebuild-mode-map "\C-c\C-y" #'ebuild-mode-ekeyword)
+(define-key ebuild-mode-map "\C-c\C-b" #'ebuild-mode-all-keywords-unstable)
+(define-key ebuild-mode-map "\C-c\C-n" #'ebuild-mode-insert-skeleton)
+(define-key ebuild-repo-mode-map "\C-c-" #'ebuild-mode-insert-tag-line)
 
 ;; Menu support for both Emacs and XEmacs.
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
@@ -903,8 +905,8 @@ in a Gentoo profile."
   `("Ebuild"
     ("ebuild commands"
      ["Run ebuild command" ebuild-run-command]
-     ,@(mapcar (lambda (c) (vector c (list 'ebuild-run-command c)))
-	       (sort (copy-sequence ebuild-commands-list) 'string-lessp)))
+     ,@(mapcar (lambda (c) (vector c (list #'ebuild-run-command c)))
+	       (sort (copy-sequence ebuild-commands-list) #'string-lessp)))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
     ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
     ["Find Portage workdir" ebuild-mode-find-workdir]
@@ -945,7 +947,7 @@ in a Gentoo profile."
 (add-hook
  ;; XEmacs 21.5 doesn't have find-file-hook
  (if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
- 'ebuild-repo-mode-maybe-enable)
+ #'ebuild-repo-mode-maybe-enable)
 
 (provide 'ebuild-mode)
 

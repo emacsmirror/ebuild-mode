@@ -1,5 +1,10 @@
 2023-10-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el:
+	* gentoo-newsitem-mode.el:
+	* glep-mode.el:
+	* devbook-mode.el: Sharp-quote all function names.
+
 	* ebuild-mode.el (ebuild-repo-mode-menu):
 	* gentoo-newsitem-mode.el (gentoo-newsitem-mode-menu):
 	* glep-mode.el (glep-mode-menu):

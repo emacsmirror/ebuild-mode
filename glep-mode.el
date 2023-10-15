@@ -93,8 +93,8 @@ For efficiency only. Unlimited if nil.")
   (setq fill-column 70)
   (set (make-local-variable 'sentence-end-double-space) t)
   (add-hook 'font-lock-extend-region-functions
-	    'glep-mode-font-lock-extend-region t)
-  (add-hook 'write-contents-functions 'glep-mode-before-save t t))
+	    #'glep-mode-font-lock-extend-region t)
+  (add-hook 'write-contents-functions #'glep-mode-before-save t t))
 
 (defun glep-mode-add-font-lock ()
   "Add `glep-mode' font-lock keywords for the current buffer."
@@ -104,7 +104,7 @@ For efficiency only. Unlimited if nil.")
 	 (glep-mode-font-lock-match-preamble
 	  . ,font-lock-keyword-face))))
 
-(add-hook 'glep-mode-hook 'glep-mode-add-font-lock)
+(add-hook 'glep-mode-hook #'glep-mode-add-font-lock)
 
 (defun glep-mode-preamble-bounds ()
   "Return list with begin and end of the preamble, or nil if none found."
@@ -166,7 +166,8 @@ to `font-lock-end'."
   (not (and (eq major-mode 'glep-mode)
 	    (glep-mode-in-preamble-p end))))
 
-(advice-add 'rst-classify-adornment :before-while #'glep-mode-ignore-preamble)
+(advice-add 'rst-classify-adornment
+	    :before-while #'glep-mode-ignore-preamble)
 
 ;;; Generate HTML from GLEP.
 
@@ -214,14 +215,14 @@ Calls the external \"glep\" command."
   "Type: "
   (completing-read
    "Type (TAB for completion): "
-   (mapcar 'list '("Informational" "Standards Track"))
+   (mapcar #'list '("Informational" "Standards Track"))
    nil 'confirm)
   "\n"
   "Status: "
   (completing-read
    "Status (TAB for completion): "
-   (mapcar 'list '("Draft" "Active" "Accepted" "Deferred" "Withdrawn"
-		   "Rejected" "Final" "Replaced" "Moribund"))
+   (mapcar #'list '("Draft" "Active" "Accepted" "Deferred" "Withdrawn"
+		    "Rejected" "Final" "Replaced" "Moribund"))
    nil 'confirm "Draft")
   "\n"
   "Version: " (skeleton-read "Version: " "1") "\n"
@@ -375,8 +376,8 @@ https://creativecommons.org/licenses/by-sa/4.0/.
 ")
 
 ;; rst-mode already uses the following C-c C-<letter> keys: aclrt
-(define-key glep-mode-map "\C-c\C-n" 'glep-mode-insert-skeleton)
-(define-key glep-mode-map "\C-c\C-f" 'glep-mode-format-html)
+(define-key glep-mode-map "\C-c\C-n" #'glep-mode-insert-skeleton)
+(define-key glep-mode-map "\C-c\C-f" #'glep-mode-format-html)
 
 (easy-menu-define glep-mode-menu glep-mode-map
   "Menu for `glep-mode'."

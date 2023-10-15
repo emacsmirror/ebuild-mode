@@ -80,7 +80,7 @@
   "News-Item-Format: "
   (setq v1 (completing-read
 	    "News-Item-Format: "
-	    (mapcar 'list gentoo-newsitem-format-list) nil 'confirm
+	    (mapcar #'list gentoo-newsitem-format-list) nil 'confirm
 	    nil nil (car (last gentoo-newsitem-format-list))))
   "\n"
   (if (string-equal v1 "1.0")
@@ -99,7 +99,7 @@
 
 
 (define-key gentoo-newsitem-mode-map
-  "\C-c\C-n" 'gentoo-newsitem-insert-skeleton)
+	    "\C-c\C-n" #'gentoo-newsitem-insert-skeleton)
 
 (easy-menu-define gentoo-newsitem-mode-menu gentoo-newsitem-mode-map
   "Menu for `gentoo-newsitem-mode'."
