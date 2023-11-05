@@ -291,8 +291,8 @@
      ;; freedict
      "freedict_src_install"
      ;; ghc-package
-     "check-for-collisions" "ghc-cabal-version" "ghc-confdir"
-     "ghc-extract-pm-version" "ghc-getghc" "ghc-getghcpkgbin"
+     "check-for-collisions" "ghc-bindir" "ghc-cabal-version" "ghc-confdir"
+     "ghc-extract-pm-version" "ghc-getghc" "ghc-getghcpkg" "ghc-getghcpkgbin"
      "ghc-install-pkg" "ghc-is-dynamic" "ghc-libdir" "ghc-localpkgconfd"
      "ghc-make-args" "ghc-package-db" "ghc-package-exists"
      "ghc-package_pkg_postinst" "ghc-package_pkg_postrm"
@@ -347,11 +347,12 @@
      "multilib_src_configure" "multilib_src_install" "multilib_src_test"
      ;; haskell-cabal
      "cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-constraint"
-     "cabal-copy" "cabal-die-if-nonempty" "cabal-haddock" "cabal-hscolour"
-     "cabal-is-dummy-lib" "cabal-mksetup" "cabal-pkg" "cabal-show-brokens"
-     "cabal-show-brokens-and-die" "cabal-show-old" "cabal-version"
-     "cabal_chdeps" "cabal_flag" "cabal_src_compile" "cabal_src_configure"
-     "cabal_src_install" "haskell-cabal-run_verbose"
+     "cabal-copy" "cabal-die-if-nonempty" "cabal-export-dist-libs"
+     "cabal-haddock" "cabal-hscolour" "cabal-is-dummy-lib" "cabal-mksetup"
+     "cabal-pkg" "cabal-register-inplace" "cabal-run-dist-bin"
+     "cabal-show-brokens" "cabal-show-brokens-and-die" "cabal-show-old"
+     "cabal-version" "cabal_chdeps" "cabal_flag" "cabal_src_compile"
+     "cabal_src_configure" "cabal_src_install" "haskell-cabal-run_verbose"
      "haskell-cabal_pkg_postinst" "haskell-cabal_pkg_postrm"
      "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
      "haskell-cabal_src_configure" "haskell-cabal_src_install"
@@ -524,7 +525,8 @@
      "multilib-minimal_src_compile" "multilib-minimal_src_configure"
      "multilib-minimal_src_install" "multilib-minimal_src_test"
      ;; multiprocessing
-     "get_nproc" "makeopts_jobs" "makeopts_loadavg"
+     "get_makeopts_jobs" "get_makeopts_loadavg" "get_nproc" "makeopts_jobs"
+     "makeopts_loadavg"
      ;; myspell-r2
      "myspell-r2_src_install" "myspell-r2_src_unpack"
      ;; netsurf
@@ -532,7 +534,8 @@
      ;; ninja-utils
      "eninja" "get_NINJAOPTS"
      ;; nuget
-     "nuget_donuget" "nuget_link" "nuget_link-system-nugets"
+     "nuget_donuget" "nuget_link" "nuget_link-nuget-archives"
+     "nuget_link-system-nugets" "nuget_unpack-non-nuget-archives"
      ;; office-ext-r1
      "office-ext-r1_src_install" "office-ext-r1_src_unpack"
      ;; opam
@@ -827,8 +830,7 @@
      "webapp_pkg_prerm" "webapp_pkg_setup" "webapp_postinst_txt"
      "webapp_postupgrade_txt" "webapp_read_config" "webapp_server_configfile"
      "webapp_serverowned" "webapp_sqlscript" "webapp_src_install"
-     "webapp_src_preinst" "webapp_strip_appdir" "webapp_strip_cwd"
-     "webapp_strip_d"
+     "webapp_src_preinst"
      ;; wrapper
      "make_wrapper"
      ;; wxwidgets

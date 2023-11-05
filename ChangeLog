@@ -1,5 +1,8 @@
 2023-11-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* glep-mode.el: Doc fixes.
 
 2023-10-15  Ulrich Müller  <ulm@gentoo.org>
