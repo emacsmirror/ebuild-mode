@@ -61,7 +61,7 @@
 For efficiency only. Unlimited if nil.")
 
 (defun glep-mode-update-last-modified ()
-  ;; Update Last-Modified date
+  "Update the Last-Modified date."
   (save-excursion
     (goto-char (point-min))
     (let ((date (ebuild-mode-time-string "%Y-%m-%d"))
@@ -73,6 +73,8 @@ For efficiency only. Unlimited if nil.")
 	   (replace-match date t t nil 1)))))
 
 (defun glep-mode-before-save ()
+  "Function to be called before saving a buffer.
+This will be added to the `write-contents-functions' hook."
   (when glep-mode-update-last-modified
     (glep-mode-update-last-modified)
     ;; call it only once per buffer
@@ -124,7 +126,8 @@ For efficiency only. Unlimited if nil.")
     (and pre (>= pos (car pre)) (<= pos (cadr pre)))))
 
 (defun glep-mode-font-lock-match-delims (limit)
-  "Match delimiters to be highlighted by font-lock."
+  "Match delimiters to be highlighted by font-lock.
+LIMIT is the limit of the search."
   (let ((pos (save-excursion
 	       (re-search-forward glep-mode-delim-re limit t))))
     (and pos
@@ -132,7 +135,8 @@ For efficiency only. Unlimited if nil.")
 	 (goto-char pos))))
 
 (defun glep-mode-font-lock-match-preamble (limit)
-  "Match expressions in the preamble to be highlighted by font-lock."
+  "Match expressions in the preamble to be highlighted by font-lock.
+LIMIT is the limit of the search."
   (let ((pos (save-excursion
 	       (re-search-forward glep-mode-font-lock-keywords limit t))))
     (and pos
@@ -162,6 +166,7 @@ to `font-lock-end'."
 ;; Prevent rst-mode from interpreting the "---" delimiter as section header.
 ;; *** FIXME *** This is incomplete and probably too brittle.
 (defun glep-mode-ignore-preamble (_adornment end &rest _args)
+  ;; checkdoc-params: (_adornment end _args)
   "Ignore GLEP preamble in `rst-classify-adornment'."
   (not (and (eq major-mode 'glep-mode)
 	    (glep-mode-in-preamble-p end))))
