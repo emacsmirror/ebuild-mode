@@ -58,7 +58,7 @@
      "eapply" "eapply_user" "einstalldocs" "get_libdir" "in_iuse"
      ;; EAPI 7
      "dostrip" "eqawarn" "ver_cut" "ver_rs" "ver_test")
-    font-lock-type-face))
+    font-lock-builtin-face))
 
 (defvar ebuild-mode-keywords-functions
   '(("pkg_nofetch" "pkg_setup" "src_unpack" "src_compile" "src_test"

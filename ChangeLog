@@ -1,3 +1,8 @@
+2023-11-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-0):
+	Use font-lock-builtin-face for package manager commands.
+
 2023-11-05  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.69 released.
