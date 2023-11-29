@@ -101,10 +101,10 @@ This will be added to the `write-contents-functions' hook."
 (defun glep-mode-add-font-lock ()
   "Add `glep-mode' font-lock keywords for the current buffer."
   (font-lock-add-keywords
-   nil `((glep-mode-font-lock-match-delims
-	  . ,font-lock-comment-delimiter-face)
+   nil '((glep-mode-font-lock-match-delims
+	  . font-lock-comment-delimiter-face)
 	 (glep-mode-font-lock-match-preamble
-	  . ,font-lock-keyword-face))))
+	  . font-lock-keyword-face))))
 
 (add-hook 'glep-mode-hook #'glep-mode-add-font-lock)
 
