@@ -1,5 +1,8 @@
 2024-01-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* keyword-generation.sh: Create only the bare list of keywords,
 	without the variable definition.
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
