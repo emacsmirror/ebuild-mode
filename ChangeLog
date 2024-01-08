@@ -1,3 +1,10 @@
+2024-01-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: Create only the bare list of keywords,
+	without the variable definition.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Move the begin and end marker comments into the defvar.
+
 2023-11-29  Ulrich Müller  <ulm@gentoo.org>
 
 	* glep-mode.el (glep-mode-add-font-lock): Specify faces directly

@@ -40,9 +40,6 @@ has() {
     return 1
 }
 
-echo "(defvar ebuild-mode-keywords-eclass" >"${TMPFILE}"
-echo "'((" >>"${TMPFILE}"
-
 for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     eclass=${ECLASSES[i]}
     file=${ECLASSFILES[i]}
@@ -68,22 +65,19 @@ for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
 
     {
         echo ";; ${eclass}"
-        printf ' "%s"' "${functions[@]}"
+        printf '"%s" ' "${functions[@]}"
         echo
     } >>"${TMPFILE}"
     echo "ok" >&2
 done
 
-echo ")" >>"${TMPFILE}"
-echo "font-lock-type-face))" >>"${TMPFILE}"
-
 emacs -q --no-site-file --batch \
     --visit "${TMPFILE}" \
     --eval "(emacs-lisp-mode)" \
-    --eval "(indent-region (point-min) (point-max))" \
     --eval "(let ((fill-column 78)
-                  (fill-indent-according-to-mode t)
+                  (fill-prefix \"     \")
                   (paragraph-start \"^.\"))
+              (indent-region (point-min) (point-max))
               (fill-region (point-min) (point-max)))" \
     --eval "(save-buffer)" --kill || exit 1
 

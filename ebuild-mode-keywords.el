@@ -108,9 +108,9 @@
 ;; The list of eclass function keywords below is auto-generated
 ;; by keyword-generation.sh.
 
-;; @@KEYWORDS-BEGIN@@
 (defvar ebuild-mode-keywords-eclass
   '((
+     ;; @@KEYWORDS-BEGIN@@
      ;; acct-group
      "acct-group_pkg_preinst" "acct-group_pkg_pretend"
      "acct-group_src_install"
@@ -849,9 +849,9 @@
      "xorg-3_pkg_postrm" "xorg-3_pkg_setup" "xorg-3_reconf_source"
      "xorg-3_src_compile" "xorg-3_src_configure" "xorg-3_src_install"
      "xorg-3_src_prepare" "xorg-3_src_unpack"
+     ;; @@KEYWORDS-END@@
      )
     font-lock-type-face))
-;; @@KEYWORDS-END@@
 
 (provide 'ebuild-mode-keywords)
 
