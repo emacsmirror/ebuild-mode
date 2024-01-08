@@ -1,6 +1,6 @@
 ;;; ebuild-mode-keywords.el  -*-lexical-binding:t-*-
 
-;; Copyright 2006-2023 Gentoo Authors
+;; Copyright 2006-2024 Gentoo Authors
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>

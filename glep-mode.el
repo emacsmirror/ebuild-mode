@@ -1,6 +1,6 @@
 ;;; glep-mode.el --- edit Gentoo GLEPs  -*-lexical-binding:t-*-
 
-;; Copyright 2017-2023 Gentoo Authors
+;; Copyright 2017-2024 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
