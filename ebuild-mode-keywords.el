@@ -122,8 +122,6 @@
      ;; alternatives
      "alternatives_auto_makesym" "alternatives_makesym"
      "alternatives_pkg_postinst" "alternatives_pkg_postrm"
-     ;; ant-tasks
-     "ant-tasks_src_compile" "ant-tasks_src_install" "ant-tasks_src_unpack"
      ;; apache-2
      "apache-2_pkg_postinst" "apache-2_pkg_setup" "apache-2_src_configure"
      "apache-2_src_install" "apache-2_src_prepare" "check_module_critical"
@@ -143,8 +141,6 @@
      "eautoreconf"
      ;; bash-completion-r1
      "bashcomp_alias" "dobashcomp" "get_bashcompdir" "newbashcomp"
-     ;; bazel
-     "bazel_get_flags" "bazel_load_distfiles" "bazel_setup_bazelrc" "ebazel"
      ;; bzr
      "bzr_fetch" "bzr_src_unpack"
      ;; cargo
@@ -215,19 +211,22 @@
      ;; dotnet
      "dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild"
      ;; dotnet-pkg
-     "dotnet-pkg_foreach-project" "dotnet-pkg_pkg_setup"
-     "dotnet-pkg_src_compile" "dotnet-pkg_src_configure"
-     "dotnet-pkg_src_install" "dotnet-pkg_src_prepare" "dotnet-pkg_src_test"
-     "dotnet-pkg_src_unpack"
+     "dotnet-pkg_force-compat" "dotnet-pkg_foreach-project"
+     "dotnet-pkg_pkg_setup" "dotnet-pkg_remove-bad" "dotnet-pkg_src_compile"
+     "dotnet-pkg_src_configure" "dotnet-pkg_src_install"
+     "dotnet-pkg_src_prepare" "dotnet-pkg_src_test" "dotnet-pkg_src_unpack"
      ;; dotnet-pkg-base
-     "dotnet-pkg-base_append_launchervar" "dotnet-pkg-base_build"
-     "dotnet-pkg-base_dolauncher" "dotnet-pkg-base_dolauncher_portable"
-     "dotnet-pkg-base_foreach-solution" "dotnet-pkg-base_get-configuration"
-     "dotnet-pkg-base_get-output" "dotnet-pkg-base_get-runtime"
-     "dotnet-pkg-base_info" "dotnet-pkg-base_install"
-     "dotnet-pkg-base_launcherinto" "dotnet-pkg-base_remove-global-json"
-     "dotnet-pkg-base_restore" "dotnet-pkg-base_restore_tools"
-     "dotnet-pkg-base_setup" "dotnet-pkg-base_test" "edotnet"
+     "dotnet-pkg-base_append-launchervar" "dotnet-pkg-base_append_launchervar"
+     "dotnet-pkg-base_build" "dotnet-pkg-base_dolauncher"
+     "dotnet-pkg-base_dolauncher-portable"
+     "dotnet-pkg-base_dolauncher_portable" "dotnet-pkg-base_foreach-solution"
+     "dotnet-pkg-base_get-configuration" "dotnet-pkg-base_get-output"
+     "dotnet-pkg-base_get-runtime" "dotnet-pkg-base_info"
+     "dotnet-pkg-base_install" "dotnet-pkg-base_launcherinto"
+     "dotnet-pkg-base_remove-global-json" "dotnet-pkg-base_restore"
+     "dotnet-pkg-base_restore-tools" "dotnet-pkg-base_restore_tools"
+     "dotnet-pkg-base_setup" "dotnet-pkg-base_sln-remove"
+     "dotnet-pkg-base_test" "edotnet"
      ;; dune
      "dune-compile" "dune-install" "dune-release" "dune-test"
      "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
@@ -256,8 +255,6 @@
      "elisp-test-buttercup" "elisp-test-ert" "elisp-test-ert-runner"
      ;; emboss-r3
      "emboss-r3_src_configure" "emboss-r3_src_install"
-     ;; epatch
-     "epatch"
      ;; eqawarn
      "eqawarn"
      ;; estack
@@ -290,6 +287,10 @@
      "fortran-2_pkg_setup" "fortran_int64_abi_fflags"
      ;; freedict
      "freedict_src_install"
+     ;; gap-pkg
+     "gap-pkg_dir" "gap-pkg_econf" "gap-pkg_enable_tests"
+     "gap-pkg_src_compile" "gap-pkg_src_configure" "gap-pkg_src_install"
+     "gap-pkg_src_test"
      ;; ghc-package
      "check-for-collisions" "ghc-bindir" "ghc-cabal-version" "ghc-confdir"
      "ghc-extract-pm-version" "ghc-getghc" "ghc-getghcpkg" "ghc-getghcpkgbin"
@@ -343,11 +344,12 @@
      ;; golang-vcs-snapshot
      "golang-vcs-snapshot_src_unpack"
      ;; gstreamer-meson
-     "gstreamer_multilib_src_compile" "gstreamer_multilib_src_configure"
-     "gstreamer_multilib_src_install" "gstreamer_multilib_src_install_all"
-     "gstreamer_multilib_src_test" "gstreamer_system_library"
-     "gstreamer_system_package" "multilib_src_compile"
-     "multilib_src_configure" "multilib_src_install" "multilib_src_test"
+     "gstreamer-meson_pkg_setup" "gstreamer_multilib_src_compile"
+     "gstreamer_multilib_src_configure" "gstreamer_multilib_src_install"
+     "gstreamer_multilib_src_install_all" "gstreamer_multilib_src_test"
+     "gstreamer_system_library" "gstreamer_system_package"
+     "multilib_src_compile" "multilib_src_configure" "multilib_src_install"
+     "multilib_src_test"
      ;; haskell-cabal
      "cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-constraint"
      "cabal-copy" "cabal-die-if-nonempty" "cabal-export-dist-libs"
@@ -460,14 +462,15 @@
      "linux-mod-r1_src_compile" "linux-mod-r1_src_install" "linux_domodule"
      "linux_moduleinto" "modules_post_process"
      ;; llvm
-     "get_llvm_prefix" "get_llvm_slot" "llvm_fix_clang_version"
-     "llvm_fix_tool_path" "llvm_pkg_setup" "llvm_tuple_to_target"
+     "get_llvm_prefix" "get_llvm_slot" "llvm_pkg_setup"
+     ;; llvm-r1
+     "get_llvm_prefix" "llvm-r1_pkg_setup" "llvm_gen_dep"
+     ;; llvm-utils
+     "llvm_fix_clang_version" "llvm_fix_tool_path" "llvm_prepend_path"
+     "llvm_tuple_to_target"
      ;; llvm.org
      "get_lit_flags" "llvm.org_set_globals" "llvm.org_src_prepare"
      "llvm.org_src_unpack" "llvm_are_manpages_built" "llvm_install_manpages"
-     "llvm_manpage_get_dist"
-     ;; ltprune
-     "prune_libtool_files"
      ;; lua
      "lua_copy_sources" "lua_foreach_impl"
      ;; lua-single
@@ -485,6 +488,7 @@
      ;; meson
      "meson_feature" "meson_install" "meson_src_compile" "meson_src_configure"
      "meson_src_install" "meson_src_test" "meson_use"
+     "setup_meson_src_configure"
      ;; meson-multilib
      "meson-multilib_src_compile" "meson-multilib_src_configure"
      "meson-multilib_src_install" "meson-multilib_src_test"
@@ -540,6 +544,7 @@
      ;; nuget
      "nuget_donuget" "nuget_link" "nuget_link-nuget-archives"
      "nuget_link-system-nugets" "nuget_unpack-non-nuget-archives"
+     "nuget_writeconfig"
      ;; office-ext-r1
      "office-ext-r1_src_install" "office-ext-r1_src_unpack"
      ;; opam
@@ -653,7 +658,7 @@
      ;; rocm
      "check_amdgpu" "get_amdgpu_flags"
      ;; rpm
-     "rpm_spec_epatch" "rpm_src_unpack" "rpm_unpack" "srcrpm_unpack"
+     "rpm_src_unpack" "rpm_unpack" "srcrpm_unpack"
      ;; ruby-fakegem
      "all_fakegem_compile" "all_fakegem_install" "all_ruby_compile"
      "all_ruby_install" "all_ruby_unpack" "each_fakegem_compile"
@@ -719,8 +724,9 @@
      "systemd_with_unitdir" "systemd_with_utildir"
      ;; texlive-common
      "dobin_texmf_scripts" "efmtutil-sys" "etexlinks" "etexmf-update"
-     "texlive-common_do_symlinks" "texlive-common_handle_config_files"
-     "texlive-common_is_file_present_in_texmf"
+     "texlive-common_append_to_src_uri" "texlive-common_do_symlinks"
+     "texlive-common_handle_config_files"
+     "texlive-common_is_file_present_in_texmf" "texlive-common_update_tlpdb"
      ;; texlive-module
      "texlive-module_add_format" "texlive-module_make_language_dat_lines"
      "texlive-module_make_language_def_lines"
@@ -742,9 +748,10 @@
      "tc_enable_hardened_gcc" "tc_has_feature" "tc_is_live"
      "tc_use_major_version_only" "tc_version_is_at_least"
      "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
-     "toolchain_pkg_postrm" "toolchain_pkg_pretend" "toolchain_pkg_setup"
-     "toolchain_src_compile" "toolchain_src_configure" "toolchain_src_install"
-     "toolchain_src_prepare" "toolchain_src_test" "toolchain_src_unpack"
+     "toolchain_pkg_postrm" "toolchain_pkg_preinst" "toolchain_pkg_pretend"
+     "toolchain_pkg_setup" "toolchain_src_compile" "toolchain_src_configure"
+     "toolchain_src_install" "toolchain_src_prepare" "toolchain_src_test"
+     "toolchain_src_unpack"
      ;; toolchain-autoconf
      "slot_info_pages" "toolchain-autoconf_src_configure"
      "toolchain-autoconf_src_install" "toolchain-autoconf_src_prepare"
@@ -775,7 +782,8 @@
      "tc-ld-is-gold" "tc-ld-is-lld" "tc-ninja_magic_to_arch"
      "tc-stack-grows-down" "tc-tuple-is-softfloat"
      ;; tree-sitter-grammar
-     "tree-sitter-grammar_src_compile" "tree-sitter-grammar_src_install"
+     "tree-sitter-grammar_src_compile" "tree-sitter-grammar_src_configure"
+     "tree-sitter-grammar_src_install" "tree-sitter-grammar_src_prepare"
      "tree-sitter-grammar_src_test"
      ;; udev
      "get_udevdir" "udev_dorules" "udev_get_udevdir" "udev_newrules"
