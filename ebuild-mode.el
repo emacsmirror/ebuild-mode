@@ -77,8 +77,12 @@ The most recent EAPI must be listed last."
 (defcustom ebuild-mode-fix-whitespace t
   "If non-nil, fix whitespace before writing a file.
 Namely, delete trailing whitespace and tabify whitespace at beginning
-of lines."
-  :type 'boolean
+of lines.
+If the value is `ebuild', fixes for tabs and newlines will only
+be applied to ebuilds but not to eclasses."
+  :type '(choice (const :tag "Yes" t)
+                 (const :tag "No" nil)
+                 (const :tag "Ebuilds only" ebuild))
   :group 'ebuild)
 
 (defcustom ebuild-mode-update-copyright t
@@ -800,7 +804,9 @@ This will be added to the `write-contents-functions' hook."
     ;; trim trailing whitespace, except for patches
     (ebuild-mode-delete-trailing-whitespace)
     ;; tabify whitespace and squash multiple empty lines for ebuilds
-    (when (derived-mode-p 'ebuild-mode)
+    (when (and (derived-mode-p 'ebuild-mode)
+	       (or (eq major-mode 'ebuild-mode)
+		   (not (eq ebuild-mode-fix-whitespace 'ebuild))))
       (ebuild-mode-tabify)
       (ebuild-mode-squash-empty-lines)))
   (when ebuild-mode-update-copyright

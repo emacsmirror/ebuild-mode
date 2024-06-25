@@ -1,5 +1,10 @@
 2024-06-25  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-fix-whitespace): Add new choice
+	'ebuild'.
+	(ebuild-repo-mode-before-save): Make fixing of whitespace in
+	eclasses conditional on it.
+
 	* ebuild-mode.el (ebuild-eclass-mode): New major mode for editing
 	of eclasses, split off from ebuild-mode.
 	(auto-mode-alist): Add ebuild-eclass-mode.
