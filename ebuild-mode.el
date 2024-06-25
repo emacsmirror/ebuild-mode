@@ -405,7 +405,7 @@ Compatibility function for XEmacs."
 
 ;;;###autoload
 (define-derived-mode ebuild-mode sh-mode "Ebuild"
-  "Major mode for Gentoo .ebuild and .eclass files."
+  "Major mode for Gentoo .ebuild files."
   ;; Always enable ebuild-repo-mode, even if the ebuild is edited
   ;; outside an ebuild repository
   (ebuild-repo-mode 1)
@@ -414,22 +414,22 @@ Compatibility function for XEmacs."
       (easy-menu-add ebuild-mode-menu))
   (setq fill-column 72)
   (setq tab-width 4)
-  (setq indent-tabs-mode t)
-  (when (and buffer-file-name
-	     (let ((case-fold-search t))
-	       (string-match "\\.eclass\\'"
-			     (file-name-sans-versions buffer-file-name))))
-    ;; Eclass documentation uses two spaces after sentence ends
-    (set (make-local-variable 'sentence-end-double-space) t)
-    ;; Don't rewrap paragraphs into a preceding eclassdoc token
-    (set (make-local-variable 'paragraph-separate)
-	 (concat paragraph-start "\\|^# @"))))
+  (setq indent-tabs-mode t))
 
 (defun ebuild-mode-add-font-lock ()
   "Add `ebuild-mode' font-lock keywords for the current buffer."
   (font-lock-add-keywords nil ebuild-mode-font-lock-keywords))
 
 (add-hook 'ebuild-mode-hook #'ebuild-mode-add-font-lock)
+
+;;;###autoload
+(define-derived-mode ebuild-eclass-mode ebuild-mode "Eclass"
+  "Major mode for Gentoo .eclass files."
+  ;; Eclass documentation uses two spaces after sentence ends
+  (set (make-local-variable 'sentence-end-double-space) t)
+  ;; Don't rewrap paragraphs into a preceding eclassdoc token
+  (set (make-local-variable 'paragraph-separate)
+       (concat paragraph-start "\\|^# @")))
 
 ;;; Run ebuild command.
 
@@ -941,7 +941,10 @@ in a Gentoo profile."
       (unless (derived-mode-p 'sh-mode) ad-do-it)))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.\\(ebuild\\|eclass\\)\\'" . ebuild-mode))
+(add-to-list 'auto-mode-alist '("\\.ebuild\\'" . ebuild-mode))
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-eclass-mode))
 
 ;;;###autoload
 (add-hook

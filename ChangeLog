@@ -1,3 +1,11 @@
+2024-06-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-eclass-mode): New major mode for editing
+	of eclasses, split off from ebuild-mode.
+	(auto-mode-alist): Add ebuild-eclass-mode.
+	* ebuild-mode.texi (ebuild-eclass-mode): Chapter renamed from
+	eclass-mode and updated.
+
 2024-06-09  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.71 released.

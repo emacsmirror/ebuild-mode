@@ -52,7 +52,7 @@ scripts and there easy to create.  Eclasses are comparable to a library
 which provides generic functions that a set of ebuilds can use by
 sourcing it on request.
 
-ebuild-mode provides a major mode to edit the above two file types.
+ebuild-mode provides major modes to edit the above two file types.
 Other features are the execution of often needed commands
 (like KEYWORDS manipulation) or fast-track creation of new ebuilds
 by skeleton support.
@@ -60,7 +60,7 @@ by skeleton support.
 @menu
 * Commands:: What ebuild-mode provides.
 * ebuild-mode:: Editing ebuilds.
-* eclass-mode:: Editing eclasses.
+* ebuild-eclass-mode:: Editing eclasses.
 * ebuild-repo-mode:: Minor mode for ebuild repositories.
 * devbook-mode:: Editing the Gentoo Devmanual.
 * gentoo-newsitem-mode:: Editing GLEP 42 news items.
@@ -88,7 +88,7 @@ keybindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
-@node ebuild-mode, eclass-mode, Commands, Top
+@node ebuild-mode, ebuild-eclass-mode, Commands, Top
 @chapter ebuild-mode
 @section Writing a new ebuild
 Starting a completely new ebuild from scratch is best done by inserting
@@ -194,12 +194,13 @@ Run a @command{pkgdev} command.
 Run a @command{pkgcheck} command.
 @end table
 
-@node eclass-mode, ebuild-repo-mode, ebuild-mode, Top
-@chapter eclass-mode
-There is no special eclass-mode but ebuild-mode is used without the
-commands that make no sense in eclasses.
+@node ebuild-eclass-mode, ebuild-repo-mode, ebuild-mode, Top
+@chapter ebuild-eclass-mode
+For editing of eclasses, ebuild-eclass-mode is a derived mode of
+ebuild-mode and provides all its features.  In addition, highlighting
+of eclass documentation keywords with font-lock is supported.
 
-@node ebuild-repo-mode, devbook-mode, eclass-mode, Top
+@node ebuild-repo-mode, devbook-mode, ebuild-eclass-mode, Top
 @chapter ebuild-repo-mode
 This is a minor mode intended for editing ebuilds and other files in
 an ebuild repository (except patches).
@@ -228,7 +229,7 @@ is commonly used in @file{package.mask} and other files:
 The user's name and e-mail address can be customized with variables
 @code{ebuild-mode-full-name} and @code{ebuild-mode-mail-address}.
 
-@node devbook-mode, gentoo-newsitem-mode, eclass-mode, Top
+@node devbook-mode, gentoo-newsitem-mode, ebuild-eclass-mode, Top
 @chapter devbook-mode for the Gentoo Devmanual
 This is a very simple derived major mode for editing the Devmanual.
 Because the Devmanual is written in DevBook XML, this mode is derived
