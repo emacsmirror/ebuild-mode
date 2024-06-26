@@ -910,13 +910,16 @@ in a Gentoo profile."
   "Menu for `ebuild-mode'."
   `("Ebuild"
     ("ebuild commands"
+     :active (eq major-mode 'ebuild-mode)
      ["Run ebuild command" ebuild-run-command]
      ,@(mapcar (lambda (c) (vector c (list #'ebuild-run-command c)))
 	       (sort (copy-sequence ebuild-commands-list) #'string-lessp)))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
     ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
-    ["Find Portage workdir" ebuild-mode-find-workdir]
-    ["Insert ebuild skeleton" ebuild-mode-insert-skeleton]
+    ["Find Portage workdir" ebuild-mode-find-workdir
+     :active (eq major-mode 'ebuild-mode)]
+    ["Insert ebuild skeleton" ebuild-mode-insert-skeleton
+     :active (eq major-mode 'ebuild-mode)]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
     ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]

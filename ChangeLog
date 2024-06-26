@@ -1,5 +1,8 @@
 2024-06-26  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-menu): Deactivate entries that are
+	not useful in ebuild-eclass-mode.
+
 	* ebuild-mode.el (ebuild-mode-fix-whitespace): Default to ebuild.
 
 2024-06-25  Ulrich Müller  <ulm@gentoo.org>
