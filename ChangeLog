@@ -1,5 +1,8 @@
 2024-06-26  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-find-workdir): Display a separate
+	error message when the file is not an ebuild.
+
 	* ebuild-mode.el (ebuild-mode-menu): Deactivate entries that are
 	not useful in ebuild-eclass-mode.
 

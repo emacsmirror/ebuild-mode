@@ -568,14 +568,14 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 	 (catdir (directory-file-name (file-name-directory pkgdir)))
 	 (category (file-name-nondirectory catdir))
 	 (pn (file-name-nondirectory pkgdir))
-	 (pf (file-name-sans-extension
-	      (file-name-nondirectory buffer-file-name))))
+	 (basename (file-name-nondirectory buffer-file-name))
+	 (pf (file-name-sans-extension basename)))
     ;; sanity check
+    (unless (string-match "\\.ebuild\\'" (file-name-sans-versions basename))
+      (error "Filename \"%s\" does not end in \".ebuild\"" basename))
     (unless (and (file-exists-p
 		  (expand-file-name "../profiles/repo_name" catdir))
-		 (string-match (concat "\\`" (regexp-quote pn) "-") pf)
-		 (string-match "\\.ebuild\\'"
-			       (file-name-sans-versions buffer-file-name)))
+		 (string-match (concat "\\`" (regexp-quote pn) "-") pf))
       (error "This doesn't look like an ebuild repository"))
     (let ((workdir (concat (file-name-as-directory ebuild-mode-portage-tmpdir)
 			   (file-name-as-directory category)
