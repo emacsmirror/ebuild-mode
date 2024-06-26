@@ -74,7 +74,7 @@ The most recent EAPI must be listed last."
   :type '(repeat string)
   :group 'ebuild)
 
-(defcustom ebuild-mode-fix-whitespace t
+(defcustom ebuild-mode-fix-whitespace 'ebuild
   "If non-nil, fix whitespace before writing a file.
 Namely, delete trailing whitespace and tabify whitespace at beginning
 of lines.
