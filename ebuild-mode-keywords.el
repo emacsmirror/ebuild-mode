@@ -146,7 +146,7 @@
      ;; cargo
      "cargo_crate_uris" "cargo_gen_config" "cargo_live_src_unpack"
      "cargo_src_compile" "cargo_src_configure" "cargo_src_install"
-     "cargo_src_test" "cargo_src_unpack"
+     "cargo_src_test" "cargo_src_unpack" "cargo_target_dir"
      ;; cdrom
      "cdrom_get_cds" "cdrom_load_next_cd"
      ;; check-reqs
@@ -427,9 +427,9 @@
      "kernel-install_extract_from_uki" "kernel-install_get_qemu_arch"
      "kernel-install_install_all" "kernel-install_pkg_config"
      "kernel-install_pkg_postinst" "kernel-install_pkg_postrm"
-     "kernel-install_pkg_preinst" "kernel-install_pkg_prerm"
-     "kernel-install_pkg_pretend" "kernel-install_src_test"
-     "kernel-install_test" "kernel-install_update_symlink"
+     "kernel-install_pkg_preinst" "kernel-install_pkg_pretend"
+     "kernel-install_src_test" "kernel-install_test"
+     "kernel-install_update_symlink"
      ;; kodi-addon
      "kodi-addon_src_configure"
      ;; latex-package
@@ -684,7 +684,7 @@
      "each_ruby_configure" "each_ruby_install" "each_ruby_test"
      "ruby-ng-gnome2_all_ruby_prepare"
      ;; rust-toolchain
-     "rust_abi" "rust_all_abis" "rust_all_arch_uris" "rust_arch_uri"
+     "rust_abi" "rust_all_arch_uris" "rust_arch_uri"
      ;; s6
      "s6_get_servicedir" "s6_install_service" "s6_service_down"
      "s6_service_nosetsid"
