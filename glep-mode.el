@@ -271,7 +271,8 @@ directions below.
 - Reset the Version to \"1\".
 
 - Change the Created and Last-Modified headers to today's date.  Be sure to
-  follow the format carefully: it must be in ISO 8601 ``yyyy-mm-dd`` format.
+  follow the format carefully: it must be in ISO 8601 ``yyyy-mm-dd`` format,
+  with the date represented in UTC (Coordinated Universal Time).
 
 - Reset the Post-History to empty for now; you'll add dates to this header
   each time you post your GLEP to gentoo-dev@lists.gentoo.org.  If you
@@ -280,8 +281,8 @@ directions below.
 
       Post-History: 2003-08-14, 2003-09-03
 
-  You must manually add new dates and check them in.  If you don't have
-  check-in privileges, send your changes to the GLEP editors.
+  You must manually add new dates (again, in UTC) and check them in.  If you
+  don't have check-in privileges, send your changes to the GLEP editors.
 
 - For Standards Track GLEPs, if your feature depends on the acceptance
   of some other currently in-development GLEP, add a Requires header right

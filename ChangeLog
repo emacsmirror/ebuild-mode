@@ -1,3 +1,8 @@
+2024-06-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* glep-mode.el (glep-mode-insert-skeleton): Update from GLEP 2,
+	specify that all dates must be in UTC.
+
 2024-06-26  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-find-workdir): Display a separate
