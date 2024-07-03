@@ -24,8 +24,30 @@
 ;;; Code:
 
 (require 'nxml-mode)
+(require 'rng-loc)
 (require 'easymenu)
 (require 'skeleton)
+
+(defvar devbook-schema-file-name "devbook.rnc")
+
+(defun devbook-locate-schema-file (&optional noerror)
+  "Look for a devbook schema file in any parent directory.
+If successful, load it as the schema for the current buffer.
+Otherwise, signal an error, or return nil if the optional argument
+NOERROR is non-nil."
+  (interactive "P")
+  (let* ((dir (and buffer-file-name
+		   (locate-dominating-file buffer-file-name
+					   devbook-schema-file-name)))
+	 (file (and dir (expand-file-name devbook-schema-file-name dir))))
+    (cond (file
+	   (condition-case err
+	       (progn
+		 (rng-set-schema-file-1 file)
+		 (rng-what-schema))
+	     (error (unless noerror (signal (car err) (cdr err))))))
+	  (noerror nil)
+	  (t (error "Schema file %s not found" devbook-schema-file-name)))))
 
 ;;;###autoload
 (define-derived-mode devbook-mode nxml-mode "DevBook"
@@ -39,7 +61,9 @@
   ;; *** FIXME *** The style guide says no indentation, except inside
   ;; <tr>, <ul>, <ol> and <dl>, where it must be 2 spaces. There is no
   ;; easy way to achieve this, so set to 0 which is right more often.
-  (set (make-local-variable 'nxml-child-indent) 0))
+  (set (make-local-variable 'nxml-child-indent) 0)
+  (unless rng-current-schema-file-name
+    (devbook-locate-schema-file t)))
 
 (define-skeleton devbook-insert-skeleton
   "Insert a skeleton for a DevBook XML document."

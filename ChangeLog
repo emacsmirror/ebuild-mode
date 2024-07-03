@@ -1,5 +1,10 @@
 2024-10-12  Ulrich Müller  <ulm@gentoo.org>
 
+	* devbook-mode.el (rng-loc): Require.
+	(devbook-schema-file-name): New variable.
+	(devbook-locate-schema-file): New function.
+	(devbook-mode): Call it unless we already have a schema.
+
 	* ebuild-mode.el (ebuild-mode-tabify): Do not let-bind
 	tabify-regexp because it is a special variable.
 	(ebuild-run-command): Ditto for shell-command.
