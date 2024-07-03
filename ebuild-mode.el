@@ -252,6 +252,37 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 (defvar ebuild-mode-menu)
 
 
+;;; Compatibility code.
+
+(eval-when-compile
+  (unless (fboundp 'static-if)
+    (defmacro static-if (cond then &rest else) ; from APEL
+      "Like `if', but evaluate COND at compile time."
+      (if (eval cond)
+	  then
+	`(progn ,@else)))
+    ))
+
+(defun ebuild-mode-time-string (format-string &optional time)
+  "Use FORMAT-STRING to format the time value TIME.
+Calls `format-time-string' (which see) for the UTC time zone.
+Compatibility function for XEmacs."
+  (if (and (featurep 'xemacs)
+	   (not (function-allows-args #'format-time-string 3)))
+      ;; format-time-string in older XEmacs versions can take only two
+      ;; arguments. Version 21.5.35 still doesn't support a time zone
+      ;; as third argument, but accepts non-nil to mean Universal Time.
+      (let ((process-environment (copy-sequence process-environment))
+	    (tz (getenv "TZ")))
+	(unwind-protect
+	    (progn
+	      (setenv "TZ" "UTC")
+	      (format-time-string format-string time))
+	  ;; This is needed because setenv handles TZ specially.
+	  ;; So, restoring the environment is not enough.
+	  (setenv "TZ" tz)))
+    (format-time-string format-string time t)))
+
 ;;; Font-lock.
 
 (eval-when-compile
@@ -308,26 +339,6 @@ of the elements."
       1000))))
 
 ;;; Mode definitions.
-
-(defun ebuild-mode-time-string (format-string &optional time)
-  "Use FORMAT-STRING to format the time value TIME.
-Calls `format-time-string' (which see) for the UTC time zone.
-Compatibility function for XEmacs."
-  (if (and (featurep 'xemacs)
-	   (not (function-allows-args #'format-time-string 3)))
-      ;; format-time-string in older XEmacs versions can take only two
-      ;; arguments. Version 21.5.35 still doesn't support a time zone
-      ;; as third argument, but accepts non-nil to mean Universal Time.
-      (let ((process-environment (copy-sequence process-environment))
-	    (tz (getenv "TZ")))
-	(unwind-protect
-	    (progn
-	      (setenv "TZ" "UTC")
-	      (format-time-string format-string time))
-	  ;; This is needed because setenv handles TZ specially.
-	  ;; So, restoring the environment is not enough.
-	  (setenv "TZ" tz)))
-    (format-time-string format-string time t)))
 
 (defun ebuild-mode-tabify ()
   "Tabify whitespace at beginning of lines."
@@ -933,16 +944,6 @@ in a Gentoo profile."
     :visible (derived-mode-p 'conf-unix-mode)
     ["Insert package.mask tag line" ebuild-mode-insert-tag-line]
     ["Customize ebuild-mode" (customize-group 'ebuild)]))
-
-
-(eval-when-compile
-  (unless (fboundp 'static-if)
-    (defmacro static-if (cond then &rest else) ; from APEL
-      "Like `if', but evaluate COND at compile time."
-      (if (eval cond)
-	  then
-	`(progn ,@else)))
-    ))
 
 (static-if (fboundp 'sh-must-be-shell-mode)
     ;; make TAB key work
