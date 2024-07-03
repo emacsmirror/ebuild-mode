@@ -267,8 +267,8 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
   "Use FORMAT-STRING to format the time value TIME.
 Calls `format-time-string' (which see) for the UTC time zone.
 Compatibility function for XEmacs."
-  (if (and (featurep 'xemacs)
-	   (not (function-allows-args #'format-time-string 3)))
+  (static-if (and (featurep 'xemacs)
+		  (not (function-allows-args #'format-time-string 3)))
       ;; format-time-string in older XEmacs versions can take only two
       ;; arguments. Version 21.5.35 still doesn't support a time zone
       ;; as third argument, but accepts non-nil to mean Universal Time.

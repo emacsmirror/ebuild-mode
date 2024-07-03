@@ -1,5 +1,7 @@
 2024-07-03  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-time-string): Use static-if.
+
 	* ebuild-mode.el (ebuild-mode-update-copyright): Replace nested
 	ifs with cond.
 
