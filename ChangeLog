@@ -1,3 +1,8 @@
+2024-07-03  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-update-copyright): Replace nested
+	ifs with cond.
+
 2024-06-29  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.72 released.
