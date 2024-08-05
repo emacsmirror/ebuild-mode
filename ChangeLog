@@ -1,3 +1,10 @@
+2024-08-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode, ebuild-run-command)
+	(ebuild-mode-get-completion-function, ebuild-mode-run-pkgdev)
+	(ebuild-mode-run-pkgcheck, ebuild-repo-mode, find-file-hook):
+	Use static-if.
+
 2024-07-03  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-time-string): Use static-if.

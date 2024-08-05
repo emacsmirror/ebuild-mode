@@ -426,7 +426,7 @@ of the elements."
   ;; outside an ebuild repository
   (ebuild-repo-mode 1)
   (sh-set-shell "bash")
-  (if (featurep 'xemacs)
+  (static-if (featurep 'xemacs)
       (easy-menu-add ebuild-mode-menu))
   (setq fill-column 72)
   (setq tab-width 4)
@@ -472,7 +472,7 @@ If nil, `compilation-mode' will be used.")
 				      process-environment))
 	 ;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
 	 (compilation-buffer-name-function (lambda (_mode) "*ebuild*")))
-    (if (featurep 'xemacs)
+    (static-if (featurep 'xemacs)
 	(compile shell-command)
       (compile shell-command ebuild-log-buffer-mode))))
 
@@ -490,7 +490,7 @@ must be non-nil for this to have any effect."
   (cond ((null mode) #'try-completion)
 	((eq mode t) #'all-completions)
 	((eq mode 'lambda)
-	 (if (fboundp 'test-completion)
+	 (static-if (fboundp 'test-completion)
 	     #'test-completion
 	   ;; XEmacs 21.4 doesn't have test-completion
 	   (lambda (&rest args)
@@ -551,7 +551,7 @@ Like `compile', but with autocompletion for pkgdev."
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
 	(compilation-buffer-name-function (lambda (_mode) "*pkgdev*")))
-    (if (featurep 'xemacs)
+    (static-if (featurep 'xemacs)
 	(compile command)
       (compile command ebuild-log-buffer-mode))))
 
@@ -566,7 +566,7 @@ Like `compile', but with autocompletion for pkgcheck."
   (let ((process-environment (append ebuild-mode-process-environment
 				     process-environment))
 	(compilation-buffer-name-function (lambda (_mode) "*pkgcheck*")))
-    (if (featurep 'xemacs)
+    (static-if (featurep 'xemacs)
 	(compile command)
       (compile command ebuild-log-buffer-mode))))
 
@@ -848,7 +848,7 @@ for the format of the tag line.")
   (if (ignore-errors (check-coding-system 'utf-8-unix))
       ;; utf-8-unix doesn't exist in XEmacs 21.4
       (setq buffer-file-coding-system 'utf-8-unix))
-  (if (not (featurep 'xemacs))
+  (static-if (not (featurep 'xemacs))
       (add-hook 'write-contents-functions
 		#'ebuild-repo-mode-before-save t t)
     ;; make-local-hook gives a byte-compiler warning in GNU Emacs
@@ -960,7 +960,7 @@ in a Gentoo profile."
 ;;;###autoload
 (add-hook
  ;; XEmacs 21.5 doesn't have find-file-hook
- (if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
+ (static-if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
  #'ebuild-repo-mode-maybe-enable)
 
 (provide 'ebuild-mode)
