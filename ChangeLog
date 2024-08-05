@@ -1,5 +1,9 @@
 2024-08-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-map): Keybindings now use C-c C-e
+	as their prefix.
+	* ebuild-mode.texi (ebuild-mode): Document the new keybindings.
+
 	* ebuild-mode.el (ebuild-mode, ebuild-run-command)
 	(ebuild-mode-get-completion-function, ebuild-mode-run-pkgdev)
 	(ebuild-mode-run-pkgcheck, ebuild-repo-mode, find-file-hook):

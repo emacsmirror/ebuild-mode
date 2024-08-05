@@ -93,8 +93,8 @@ interfacing with Emacs.
 @section Writing a new ebuild
 Starting a completely new ebuild from scratch is best done by inserting
 an ebuild skeleton.  The command @code{ebuild-mode-skeleton} does this
-for you and can be called via @kbd{C-c C-n}.  You are prompted for the
-always needed information, while having the possibility to give more
+for you and can be called via @kbd{C-c C-e C-n}.  You are prompted for
+the always needed information, while having the possibility to give more
 than one item (in LICENSE for example) and choose via tab completion
 from the possible choices.  Giving an empty input on items, that are not
 mandatory, will remove it from the buffer.  After that adding custom
@@ -111,8 +111,8 @@ ekeyword syntax.
 @end enumerate
 
 The first command is called @code{ebuild-mode-keyword} (bound to
-@kbd{C-c C-k}) and initially asks for the action to take which is one
-out of
+@kbd{C-c C-e C-k}) and initially asks for the action to take which is
+one out of
 @table @code
 @item drop
 Remove the architecture entirely.
@@ -129,8 +129,8 @@ After choosing the action the architectures to handle need to be chosen.
 Tab completion is available for all possible architectures.
 
 Using the ekeyword syntax for the @code{ebuild-mode-ekeyword} command
-(@kbd{C-c C-y} as keybinding) is equal what you can pass as argument to
-said utility from the @code{app-portage/gentoolkit-dev} package:
+(@kbd{C-c C-e C-y} as keybinding) is equal what you can pass as argument
+to said utility from the @code{app-portage/gentoolkit-dev} package:
 @table @code
 @item ^<arch>
 Remove the architecture entirely.
@@ -146,51 +146,51 @@ It is possible to use @code{all} instead of an individual architecture
 which works on all currently available architectures for the ebuild.
 
 Handy for version/revision bumps is to mark all architectures from a
-copied stable ebuild as testing.  The keybinding @kbd{C-c C-b} calling
-the @code{ebuild-mode-all-keywords-unstable} command can be used for
-this task.
+copied stable ebuild as testing.  The keybinding @kbd{C-c C-e C-u}
+calling the @code{ebuild-mode-all-keywords-unstable} command can be used
+for this task.
 
 @section Testing and interfacing with Portage
 
 Apart from the normal external program calls via @kbd{M-!}, ebuild-mode
 provides a direct interface to the ebuild utility found in the Portage
-program suite.  @kbd{C-c C-e} calls @code{ebuild-run-command} which asks
-for one of the possible actions as argument.  See the man page of ebuild
-what actions are provided.
+program suite.  @kbd{C-c C-e C-e} calls @code{ebuild-run-command} which
+asks for one of the possible actions as argument.  See the man page of
+ebuild what actions are provided.
 
-The command @code{ebuild-mode-find-workdir} (bound to @kbd{C-c C-d})
+The command @code{ebuild-mode-find-workdir} (bound to @kbd{C-c C-e C-w})
 allows to visit the working directory (@code{$@{WORKDIR@}}) that belongs
 to the ebuild in the current buffer.  With a prefix argument, the
 directory will be visited in another window.
 
 @section Running @command{pkgdev} and @command{pkgcheck}
 
-@kbd{C-c C-p} calls the command @code{ebuild-mode-run-pkgdev} command,
-which can be used to run @command{pkgdev} tools. Minibuffer completion
-for subcommands is supported.
+@kbd{C-c C-e C-p} calls the command @code{ebuild-mode-run-pkgdev}
+command, which can be used to run @command{pkgdev} tools.  Minibuffer
+completion for subcommands is supported.
 
-Similarly, @kbd{C-c C-q} (mnemonic: ``q'' for quality assurance) calls
-@code{ebuild-mode-run-pkgcheck} which runs @command{pkgcheck}.
+Similarly, @kbd{C-c C-e C-c} calls @code{ebuild-mode-run-pkgcheck}
+which runs @command{pkgcheck}.
 
 @section Keybindings
 @table @kbd
-@item C-c C-n
+@item C-c C-e C-n
 Insert a skeleton ebuild contents, with prompts for desired eclass
 inclusions, licenses and USE flags.
-@item C-c C-k
+@item C-c C-e C-k
 Keywording is done via prompts that narrows down your choices which
 architectures to mark as testing, dropped among other things.
-@item C-c C-y
+@item C-c C-e C-y
 Generate architecture keywords with the syntax from the ekeyword tool.
-@item C-c C-b
+@item C-c C-e C-u
 Mark all architectures as testing.  Handy for version/revision bumps.
-@item C-c C-e
+@item C-c C-e C-e
 Run Portage's ebuild command, you are prompted for the phase you want.
-@item C-c C-d
+@item C-c C-e C-w
 Visit the working directory that belongs to the ebuild.
-@item C-c C-p
+@item C-c C-e C-p
 Run a @command{pkgdev} command.
-@item C-c C-q
+@item C-c C-e C-c
 Run a @command{pkgcheck} command.
 @end table
 

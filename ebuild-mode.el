@@ -906,15 +906,16 @@ in a Gentoo profile."
 
 ;;; Keybindings.
 
-;; sh-mode already uses the following C-c C-<letter> keys: cfilorstuwx
-(define-key ebuild-mode-map "\C-c\C-e" #'ebuild-run-command)
-(define-key ebuild-mode-map "\C-c\C-p" #'ebuild-mode-run-pkgdev)
-(define-key ebuild-mode-map "\C-c\C-q" #'ebuild-mode-run-pkgcheck)
-(define-key ebuild-mode-map "\C-c\C-d" #'ebuild-mode-find-workdir)
-(define-key ebuild-mode-map "\C-c\C-k" #'ebuild-mode-keyword)
-(define-key ebuild-mode-map "\C-c\C-y" #'ebuild-mode-ekeyword)
-(define-key ebuild-mode-map "\C-c\C-b" #'ebuild-mode-all-keywords-unstable)
-(define-key ebuild-mode-map "\C-c\C-n" #'ebuild-mode-insert-skeleton)
+(dolist (k '(("\C-c\C-e\C-e" ebuild-run-command)
+	     ("\C-c\C-e\C-p" ebuild-mode-run-pkgdev)
+	     ("\C-c\C-e\C-c" ebuild-mode-run-pkgcheck)
+	     ("\C-c\C-e\C-w" ebuild-mode-find-workdir)
+	     ("\C-c\C-e\C-k" ebuild-mode-keyword)
+	     ("\C-c\C-e\C-y" ebuild-mode-ekeyword)
+	     ("\C-c\C-e\C-u" ebuild-mode-all-keywords-unstable)
+	     ("\C-c\C-e\C-n" ebuild-mode-insert-skeleton)))
+  (apply #'define-key ebuild-mode-map k))
+
 (define-key ebuild-repo-mode-map "\C-c-" #'ebuild-mode-insert-tag-line)
 
 ;; Menu support for both Emacs and XEmacs.
