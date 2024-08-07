@@ -1,5 +1,9 @@
 2024-08-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-unescape-string): New function,
+	decodes backslash and ANSI-C escape sequences in strings.
+	(ebuild-mode-find-s): Call it.
+
 	* ebuild-mode.el (ebuild-mode-get-builddir): New function, split
 	off from ebuild-mode-find-workdir.
 	(ebuild-mode-find-s): New function.

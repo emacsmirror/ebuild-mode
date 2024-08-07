@@ -605,25 +605,56 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 	(find-file-other-window workdir)
       (find-file workdir))))
 
+(defun ebuild-mode-unescape-string (s &optional ansi-c)
+  "Convert string S by expanding backslash escape sequences.
+With optional argument ANSI-C, expand a string with ANSI C escape
+sequences, instead of a simple double-quoted string.
+
+This function supports only escape sequences that can occur in
+the output of the \"declare -p\" Bash command."
+  (let ((case-fold-search nil)
+	(decode-re (if ansi-c
+		       "\\\\\\([abtnvfreE\\'\"?]\\|[0-7]\\{1,3\\}\\)"
+		     "\\\\\\([$`\"\\\n]\\)"))
+	(decode-alist '((?a . ?\a) (?b . ?\b) (?t . ?\t) (?n . ?\n) (?v . ?\v)
+			(?f . ?\f) (?r . ?\r) (?e . ?\e) (?E . ?\e)))
+	i)
+    (while (setq i (string-match decode-re s i))
+      (let* ((m (match-string 1 s))
+	     (c (aref m 0))
+	     (byte (cond ((and (>= c ?0) (< c ?8))
+			  ;; no string-to-number with base in XEmacs 21.4
+			  (let ((n 0))
+			    (dotimes (j (length m))
+			      (setq n (+ (* n 8) (- (aref m j) ?0))))
+			    (logand n #xff)))
+			 ((cdr (assq c decode-alist)))
+			 (t c))))
+	(setq s (replace-match
+		 (static-if (fboundp 'byte-to-string)
+		     (byte-to-string byte)
+		   (char-to-string byte))
+		 nil t s))
+	(setq i (1+ i))))
+    s))
+
 (defun ebuild-mode-find-s (&optional other-window)
   "Visit the temporary build directory (S) for the ebuild in this buffer.
 With prefix argument OTHER-WINDOW, visit the directory in another window."
   (interactive "P")
   (let ((builddir (ebuild-mode-get-builddir))
-	s i)
+	s)
     (condition-case nil
 	(with-temp-buffer
 	  (insert-file-contents-literally
 	   (concat builddir "/temp/environment"))
-	  (re-search-forward "^declare -\\S-* S=\"\\(.*\\)\"$")
-	  (setq s (match-string 1)))
+	  (re-search-forward
+	   "^declare -\\S-* S=\\(\"\\|\\$'\\)\\(.*\\)[\"']$")
+	  (setq s (ebuild-mode-unescape-string
+		   (match-string 2)
+		   (string-equal (match-string 1) "$'"))))
       (file-error (error "Failed to read environment file"))
       (search-failed (error "Could not find S in the environment file")))
-    ;; Handle simple backslash escapes in double-quoted string.
-    ;; ***FIXME*** Must we consider $'STRING' ANSI-C quotes?
-    (while (setq i (string-match "\\\\\\([$`\"\\\n]\\)" s i))
-      (setq s (replace-match (match-string 1 s) nil t s))
-      (setq i (1+ i)))
     (ignore-errors
       (setq s (decode-coding-string s 'utf-8-unix)))
     (unless (file-directory-p s)
