@@ -592,7 +592,8 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
     (let ((workdir (concat (file-name-as-directory ebuild-mode-portage-tmpdir)
 			   (file-name-as-directory category)
 			   (file-name-as-directory pf)
-			   "work")))
+			   "work"))
+	  (find-file-run-dired t))
       (unless (file-directory-p workdir)
 	(error "Portage workdir doesn't exist"))
       (if other-window
