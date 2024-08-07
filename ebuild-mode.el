@@ -570,10 +570,8 @@ Like `compile', but with autocompletion for pkgcheck."
 	(compile command)
       (compile command ebuild-log-buffer-mode))))
 
-(defun ebuild-mode-find-workdir (&optional other-window)
-  "Visit Portage's working directory for the ebuild in this buffer.
-With prefix argument OTHER-WINDOW, visit the directory in another window."
-  (interactive "P")
+(defun ebuild-mode-get-builddir ()
+  "Get Portage's build directory for the ebuild in this buffer."
   (unless buffer-file-name
     (error "No file for this buffer"))
   (let* ((pkgdir (directory-file-name (file-name-directory buffer-file-name)))
@@ -588,17 +586,60 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
     (unless (and (file-exists-p
 		  (expand-file-name "../profiles/repo_name" catdir))
 		 (string-match (concat "\\`" (regexp-quote pn) "-") pf))
-      (error "This doesn't look like an ebuild repository"))
-    (let ((workdir (concat (file-name-as-directory ebuild-mode-portage-tmpdir)
-			   (file-name-as-directory category)
-			   (file-name-as-directory pf)
-			   "work"))
-	  (find-file-run-dired t))
-      (unless (file-directory-p workdir)
-	(error "Portage workdir doesn't exist"))
+      (error "This does not look like an ebuild repository"))
+    (let ((builddir (concat (file-name-as-directory ebuild-mode-portage-tmpdir)
+			    category "/" pf)))
+      (unless (file-directory-p builddir)
+	(error "Package build directory \"%s\" does not exist" builddir))
+      builddir)))
+
+(defun ebuild-mode-find-workdir (&optional other-window)
+  "Visit the working directory (WORKDIR) for the ebuild in this buffer.
+With prefix argument OTHER-WINDOW, visit the directory in another window."
+  (interactive "P")
+  (let ((workdir (concat (ebuild-mode-get-builddir) "/work"))
+	(find-file-run-dired t))
+    (unless (file-directory-p workdir)
+      (error "WORKDIR=\"%s\" does not exist" workdir))
+    (if other-window
+	(find-file-other-window workdir)
+      (find-file workdir))))
+
+(defun ebuild-mode-find-s (&optional other-window)
+  "Visit the temporary build directory (S) for the ebuild in this buffer.
+With prefix argument OTHER-WINDOW, visit the directory in another window."
+  (interactive "P")
+  (let ((builddir (ebuild-mode-get-builddir))
+	s i)
+    (condition-case nil
+	(with-temp-buffer
+	  (insert-file-contents-literally
+	   (concat builddir "/temp/environment"))
+	  (re-search-forward "^declare -\\S-* S=\"\\(.*\\)\"$")
+	  (setq s (match-string 1)))
+      (file-error (error "Failed to read environment file"))
+      (search-failed (error "Could not find S in the environment file")))
+    ;; Handle simple backslash escapes in double-quoted string.
+    ;; ***FIXME*** Must we consider $'STRING' ANSI-C quotes?
+    (while (setq i (string-match "\\\\\\([$`\"\\\n]\\)" s i))
+      (setq s (replace-match (match-string 1 s) nil t s))
+      (setq i (1+ i)))
+    (ignore-errors
+      (setq s (decode-coding-string s 'utf-8-unix)))
+    (unless (file-directory-p s)
+      (error "Directory S=\"%s\" does not exist" s))
+    ;; sanity check, S should be WORKDIR or a subdir of it
+    ;; XEmacs does not have file-in-directory-p
+    (let* ((workdir (concat builddir "/work"))
+	   (wd (file-name-as-directory workdir))
+	   (sd (file-name-as-directory s))
+	   (find-file-run-dired t))
+      (unless (and (>= (length sd) (length wd))
+		   (string-equal (substring sd 0 (length wd)) wd))
+	(error "S=\"%s\" is outside WORKDIR=\"%s\"" s workdir))
       (if other-window
-	  (find-file-other-window workdir)
-	(find-file workdir)))))
+	  (find-file-other-window s)
+	(find-file s)))))
 
 ;;; Modify package keywords.
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
@@ -911,6 +952,7 @@ in a Gentoo profile."
 	     ("\C-c\C-e\C-p" ebuild-mode-run-pkgdev)
 	     ("\C-c\C-e\C-c" ebuild-mode-run-pkgcheck)
 	     ("\C-c\C-e\C-w" ebuild-mode-find-workdir)
+	     ("\C-c\C-e\C-s" ebuild-mode-find-s)
 	     ("\C-c\C-e\C-k" ebuild-mode-keyword)
 	     ("\C-c\C-e\C-y" ebuild-mode-ekeyword)
 	     ("\C-c\C-e\C-u" ebuild-mode-all-keywords-unstable)
@@ -930,7 +972,9 @@ in a Gentoo profile."
 	       (sort (copy-sequence ebuild-commands-list) #'string-lessp)))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
     ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
-    ["Find Portage workdir" ebuild-mode-find-workdir
+    ["Find working directory (WORKDIR)" ebuild-mode-find-workdir
+     :active (eq major-mode 'ebuild-mode)]
+    ["Find build directory (S)" ebuild-mode-find-s
      :active (eq major-mode 'ebuild-mode)]
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton
      :active (eq major-mode 'ebuild-mode)]

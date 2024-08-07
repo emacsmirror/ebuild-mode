@@ -158,10 +158,12 @@ program suite.  @kbd{C-c C-e C-e} calls @code{ebuild-run-command} which
 asks for one of the possible actions as argument.  See the man page of
 ebuild what actions are provided.
 
-The command @code{ebuild-mode-find-workdir} (bound to @kbd{C-c C-e C-w})
-allows to visit the working directory (@code{$@{WORKDIR@}}) that belongs
-to the ebuild in the current buffer.  With a prefix argument, the
-directory will be visited in another window.
+The commands @code{ebuild-mode-find-workdir} and @code{ebuild-mode-find-s}
+(bound to @kbd{C-c C-e C-w} and @kbd{C-c C-e C-s}, respectively) allow
+to visit the working directory (@code{$@{WORKDIR@}}) and the temporary
+build directory (@code{$@{S@}}) that belong to the ebuild in the current
+buffer.  With a prefix argument, the directory will be visited in
+another window.
 
 @section Running @command{pkgdev} and @command{pkgcheck}
 
@@ -187,7 +189,9 @@ Mark all architectures as testing.  Handy for version/revision bumps.
 @item C-c C-e C-e
 Run Portage's ebuild command, you are prompted for the phase you want.
 @item C-c C-e C-w
-Visit the working directory that belongs to the ebuild.
+Visit the working directory (@code{WORKDIR}) that belongs to the ebuild.
+@item C-c C-e C-s
+Visit temporary build directory (@code{S}) that belongs to the ebuild.
 @item C-c C-e C-p
 Run a @command{pkgdev} command.
 @item C-c C-e C-c
