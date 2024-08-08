@@ -6,22 +6,25 @@ PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
 	ebuild-mode.el)
 P = $(PN)-$(PV)
 
+TESTS = test/ebuild-mode-tests.el test/glep-mode-tests.el
 DISTFILES = ebuild-mode.el ebuild-mode-keywords.el \
 	devbook-mode.el gentoo-newsitem-mode.el glep-mode.el \
-	ebuild-mode.texi keyword-generation.sh ChangeLog
+	ebuild-mode.texi keyword-generation.sh ChangeLog \
+	$(TESTS)
 
 ELCS = ebuild-mode.elc devbook-mode.elc gentoo-newsitem-mode.elc glep-mode.elc
 INFOFILES = ebuild-mode.info
 
 EMACS = emacs
 EMACSFLAGS = -batch -q --no-site-file
+BYTECOMPFLAGS = -eval "(add-to-list 'load-path nil)"
 
-.PHONY: all keywords dist clean
+.PHONY: all keywords check dist clean
 
 all: $(ELCS) $(INFOFILES)
 
 %.elc: %.el
-	$(EMACS) $(EMACSFLAGS) -eval "(add-to-list 'load-path nil)" \
+	$(EMACS) $(EMACSFLAGS) $(BYTECOMPFLAGS) \
 		-f batch-byte-compile $<
 
 %.info: %.texi
@@ -29,6 +32,10 @@ all: $(ELCS) $(INFOFILES)
 
 keywords:
 	./keyword-generation.sh
+
+check:
+	$(EMACS) $(EMACSFLAGS) $(BYTECOMPFLAGS) $(patsubst %,-l %,$(TESTS)) \
+		-f ert-run-tests-batch-and-exit
 
 dist: $(DISTFILES)
 	tar -cJf $(P).tar.xz --transform='s%^%$(P)/%' $^

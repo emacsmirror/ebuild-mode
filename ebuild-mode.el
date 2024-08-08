@@ -285,7 +285,7 @@ Compatibility function for XEmacs."
 
 ;;; Font-lock.
 
-(eval-when-compile
+(eval-and-compile
   (defun ebuild-mode-collect-and-split (src &optional limit)
     "For alist SRC, collect elements with equal cdr and concat their cars.
 Optional argument LIMIT specifies the maximum length for the car
@@ -309,7 +309,9 @@ of the elements."
 	    (while cc
 	      (setq dst (cons (cons (last cc limit) (cdr c)) dst))
 	      (setq cc (butlast cc limit)))))))))
+  )
 
+(eval-when-compile
   (require 'ebuild-mode-keywords))
 
 (defvar ebuild-mode-font-lock-keywords
