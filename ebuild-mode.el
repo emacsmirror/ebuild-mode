@@ -974,7 +974,9 @@ in a Gentoo profile."
   (interactive)
   (beginning-of-line)
   (insert (concat comment-start
-		  (if (/= 0 (length comment-start)) " "))
+		  (and (/= 0 (length comment-start))
+		       (not (string-match "[ \t]" comment-start -1))
+		       " "))
 	  (format "%s <%s> (%s)\n"
 		  ebuild-mode-full-name ebuild-mode-mail-address
 		  (ebuild-mode-time-string "%Y-%m-%d"))))

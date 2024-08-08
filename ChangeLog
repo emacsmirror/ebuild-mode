@@ -1,5 +1,8 @@
 2024-08-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-insert-tag-line): Don't insert
+	another space when comment-start ends with a space or tab.
+
 	* test/ebuild-mode-tests.el:
 	* test/glep-mode-tests.el: New files, introducing tests.
 	* ebuild-mode.el (ebuild-mode-collect-and-split): Make it visible
