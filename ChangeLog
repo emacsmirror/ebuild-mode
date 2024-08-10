@@ -1,3 +1,8 @@
+2024-08-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (find-file-hook): Use 'if' because 'static-if'
+	breaks autoloads.
+
 2024-08-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-insert-tag-line): Don't insert

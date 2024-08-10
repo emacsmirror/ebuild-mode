@@ -1041,7 +1041,7 @@ in a Gentoo profile."
 ;;;###autoload
 (add-hook
  ;; XEmacs 21.5 doesn't have find-file-hook
- (static-if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
+ (if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
  #'ebuild-repo-mode-maybe-enable)
 
 (provide 'ebuild-mode)
