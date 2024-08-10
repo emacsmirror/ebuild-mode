@@ -23,6 +23,14 @@
 (require 'ert)
 (require 'glep-mode)
 
+(defmacro glep-mode-test-run-with-fixed-time (&rest body)
+  `(cl-letf* ((fixed-time (date-to-time "2024-08-10T00:00:00Z"))
+	      (orig-fun (symbol-function 'format-time-string))
+	      ((symbol-function 'format-time-string)
+	       (lambda (fmt-string &optional time &rest args)
+		 (apply orig-fun fmt-string (or time fixed-time) args))))
+     ,@body))
+
 (ert-deftest glep-mode-test-font-lock ()
   (with-temp-buffer
     (glep-mode)
@@ -42,35 +50,34 @@
     (should-not (get-text-property (match-beginning 0) 'face))))
 
 (ert-deftest glep-mode-test-update-last-modified ()
-  (cl-letf (((symbol-function 'format-time-string)
-	     (lambda (&rest _args) "2024-08-08")))
-    (with-temp-buffer
-      (insert "---\n"
-	      "GLEP: 2\n"
-	      "Created: 2003-05-31\n"
-	      "Last-Modified: 2023-02-22\n"
-	      "---\n")
-      (glep-mode-update-last-modified)
-      (should (string-equal
-	       (buffer-string)
-	       (concat "---\n"
-		       "GLEP: 2\n"
-		       "Created: 2003-05-31\n"
-		       "Last-Modified: 2024-08-08\n"
-		       "---\n")))
-      (erase-buffer)
-      (insert "---\n"
-	      "GLEP: 2\n"
-	      "---\n"
-	      ;; Last-Modified outside header must not be touched
-	      "Last-Modified: 2023-02-22\n")
-      (glep-mode-update-last-modified)
-      (should (string-equal
-	       (buffer-string)
-	       (concat "---\n"
-		       "GLEP: 2\n"
-		       "---\n"
-		       "Last-Modified: 2023-02-22\n"))))))
+  (glep-mode-test-run-with-fixed-time
+   (with-temp-buffer
+     (insert "---\n"
+	     "GLEP: 2\n"
+	     "Created: 2003-05-31\n"
+	     "Last-Modified: 2023-02-22\n"
+	     "---\n")
+     (glep-mode-update-last-modified)
+     (should (string-equal
+	      (buffer-string)
+	      (concat "---\n"
+		      "GLEP: 2\n"
+		      "Created: 2003-05-31\n"
+		      "Last-Modified: 2024-08-10\n"
+		      "---\n")))
+     (erase-buffer)
+     (insert "---\n"
+	     "GLEP: 2\n"
+	     "---\n"
+	     ;; Last-Modified outside header must not be touched
+	     "Last-Modified: 2023-02-22\n")
+     (glep-mode-update-last-modified)
+     (should (string-equal
+	      (buffer-string)
+	      (concat "---\n"
+		      "GLEP: 2\n"
+		      "---\n"
+		      "Last-Modified: 2023-02-22\n"))))))
 
 (ert-deftest glep-mode-test-in-preamble-p ()
   (with-temp-buffer

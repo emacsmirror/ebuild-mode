@@ -23,6 +23,14 @@
 (require 'ert)
 (require 'ebuild-mode)
 
+(defmacro ebuild-mode-test-run-with-fixed-time (&rest body)
+  `(cl-letf* ((fixed-time (date-to-time "2024-08-10T00:00:00Z"))
+	      (orig-fun (symbol-function 'format-time-string))
+	      ((symbol-function 'format-time-string)
+	       (lambda (fmt-string &optional time &rest args)
+		 (apply orig-fun fmt-string (or time fixed-time) args))))
+     ,@body))
+
 (ert-deftest ebuild-mode-test-arch-lessp ()
   (should (ebuild-mode-arch-lessp "amd64" "x86"))
   (should-not (ebuild-mode-arch-lessp "amd64-linux" "x86"))
@@ -66,20 +74,19 @@
 		     ((i j k) y) ((e f g h) z) ((a b c d) z))))))
 
 (ert-deftest ebuild-mode-test-update-copyright ()
-  (cl-letf (((symbol-function 'format-time-string)
-	     (lambda (&rest _args) "2024"))
-	    (ebuild-mode-update-copyright t))
-    (with-temp-buffer
-      (insert "# Copyright 2023 Gentoo Foundation\n")
-      (ebuild-mode-update-copyright)
-      (should (string-equal
-	       (buffer-string)
-	       "# Copyright 2023-2024 Gentoo Authors\n"))
-      (erase-buffer)
-      (insert "# Copyright 2020-2023 other author\n")
-      (should (string-equal
-	       (buffer-string)
-	       "# Copyright 2020-2023 other author\n")))))
+  (let ((ebuild-mode-update-copyright t))
+    (ebuild-mode-test-run-with-fixed-time
+     (with-temp-buffer
+       (insert "# Copyright 2023 Gentoo Foundation\n")
+       (ebuild-mode-update-copyright)
+       (should (string-equal
+		(buffer-string)
+		"# Copyright 2023-2024 Gentoo Authors\n"))
+       (erase-buffer)
+       (insert "# Copyright 2020-2023 other author\n")
+       (should (string-equal
+		(buffer-string)
+		"# Copyright 2020-2023 other author\n"))))))
 
 (ert-deftest ebuild-mode-test-delete-cvs-line ()
   (with-temp-buffer
@@ -169,22 +176,21 @@
 	     "KEYWORDS=\"~amd64 ~arm -m68k ~ppc64 ~x86\"\n"))))
 
 (ert-deftest ebuild-mode-test-insert-tag-line ()
-  (cl-letf (((symbol-function 'format-time-string)
-	     (lambda (&rest _args) "2024-08-08"))
-	    (ebuild-mode-full-name "Larry the Cow")
-	    (ebuild-mode-mail-address "larry@example.org"))
-    (with-temp-buffer
-      (let ((comment-start nil))
-	(ebuild-mode-insert-tag-line))
-      (should (string-equal
-	       (buffer-string)
-	       "Larry the Cow <larry@example.org> (2024-08-08)\n"))
-      (erase-buffer)
-      (let ((comment-start "#"))
-	(ebuild-mode-insert-tag-line))
-      (should (string-equal
-	       (buffer-string)
-	       "# Larry the Cow <larry@example.org> (2024-08-08)\n")))))
+  (let ((ebuild-mode-full-name "Larry the Cow")
+	(ebuild-mode-mail-address "larry@example.org"))
+    (ebuild-mode-test-run-with-fixed-time
+     (with-temp-buffer
+       (let ((comment-start nil))
+	 (ebuild-mode-insert-tag-line))
+       (should (string-equal
+		(buffer-string)
+		"Larry the Cow <larry@example.org> (2024-08-10)\n"))
+       (erase-buffer)
+       (let ((comment-start "#"))
+	 (ebuild-mode-insert-tag-line))
+       (should (string-equal
+		(buffer-string)
+		"# Larry the Cow <larry@example.org> (2024-08-10)\n"))))))
 
 (provide 'ebuild-mode-tests)
 

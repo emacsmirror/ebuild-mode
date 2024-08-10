@@ -1,5 +1,13 @@
 2024-08-10  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el
+	(ebuild-mode-test-run-with-fixed-time): New macro.
+	(ebuild-mode-test-update-copyright)
+	(ebuild-mode-test-insert-tag-line): Use it.
+	* test/glep-mode-tests.el
+	(glep-mode-test-run-with-fixed-time): New macro.
+	(glep-mode-test-update-last-modified): Use it.
+
 	* ebuild-mode.el (find-file-hook): Use 'if' because 'static-if'
 	breaks autoloads.
 
