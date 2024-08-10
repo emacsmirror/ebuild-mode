@@ -1,5 +1,9 @@
 2024-08-10  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-find-build-log): New function.
+	(ebuild-mode-map, ebuild-mode-menu): Keybinding and menu entry.
+	* ebuild-mode.texi (ebuild-mode): Document it.
+
 	* test/ebuild-mode-tests.el
 	(ebuild-mode-test-run-with-fixed-time): New macro.
 	(ebuild-mode-test-update-copyright)

@@ -165,6 +165,12 @@ build directory (@code{$@{S@}}) that belong to the ebuild in the current
 buffer.  With a prefix argument, the directory will be visited in
 another window.
 
+The command @code{ebuild-mode-find-build-log} (@kbd{C-c C-e C-l}) visits
+the @code{build.log} of the ebuild in the current buffer.  With a prefix
+argument, it visits the file in another window.  Decoding of ANSI color
+escape sequences is also supported when the @file{tty-format} library is
+loaded.
+
 @section Running @command{pkgdev} and @command{pkgcheck}
 
 @kbd{C-c C-e C-p} calls the command @code{ebuild-mode-run-pkgdev}
@@ -192,6 +198,8 @@ Run Portage's ebuild command, you are prompted for the phase you want.
 Visit the working directory (@code{WORKDIR}) that belongs to the ebuild.
 @item C-c C-e C-s
 Visit temporary build directory (@code{S}) that belongs to the ebuild.
+@item C-c C-e C-l
+Visit the @code{build.log} file that belongs to the ebuild.
 @item C-c C-e C-p
 Run a @command{pkgdev} command.
 @item C-c C-e C-c

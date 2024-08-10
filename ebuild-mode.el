@@ -674,6 +674,23 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 	  (find-file-other-window s)
 	(find-file s)))))
 
+(defun ebuild-mode-find-build-log (&optional other-window)
+  "Visit the build log for the ebuild in this buffer.
+With prefix argument OTHER-WINDOW, visit the directory in another window."
+  (interactive "P")
+  (let ((build-log (concat (ebuild-mode-get-builddir) "/temp/build.log")))
+    (unless (file-readable-p build-log)
+      (error "Cannot read file \"%s\"" build-log))
+    (if other-window
+	(find-file-other-window build-log)
+      (find-file build-log))
+    ;; decode ANSI SGR control sequences if possible (tty-format.el)
+    (and (assq 'ansi-colors format-alist)
+	 (save-excursion
+           (goto-char (point-min))
+           (re-search-forward "\e\\[[0-9;]*m" nil t))
+	 (format-decode-buffer 'ansi-colors))))
+
 ;;; Modify package keywords.
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
 
@@ -988,6 +1005,7 @@ in a Gentoo profile."
 	     ("\C-c\C-e\C-c" ebuild-mode-run-pkgcheck)
 	     ("\C-c\C-e\C-w" ebuild-mode-find-workdir)
 	     ("\C-c\C-e\C-s" ebuild-mode-find-s)
+	     ("\C-c\C-e\C-l" ebuild-mode-find-build-log)
 	     ("\C-c\C-e\C-k" ebuild-mode-keyword)
 	     ("\C-c\C-e\C-y" ebuild-mode-ekeyword)
 	     ("\C-c\C-e\C-u" ebuild-mode-all-keywords-unstable)
@@ -1010,6 +1028,8 @@ in a Gentoo profile."
     ["Find working directory (WORKDIR)" ebuild-mode-find-workdir
      :active (eq major-mode 'ebuild-mode)]
     ["Find build directory (S)" ebuild-mode-find-s
+     :active (eq major-mode 'ebuild-mode)]
+    ["Find build log" ebuild-mode-find-build-log
      :active (eq major-mode 'ebuild-mode)]
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton
      :active (eq major-mode 'ebuild-mode)]
