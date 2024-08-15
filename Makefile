@@ -7,9 +7,9 @@ PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
 P = $(PN)-$(PV)
 
 TESTS = test/ebuild-mode-tests.el test/glep-mode-tests.el
-DISTFILES = ebuild-mode.el ebuild-mode-keywords.el \
-	devbook-mode.el gentoo-newsitem-mode.el glep-mode.el \
-	ebuild-mode.texi keyword-generation.sh ChangeLog \
+DISTFILES = ebuild-mode.el ebuild-mode-keywords.el devbook-mode.el \
+	gentoo-newsitem-mode.el glep-mode.el ebuild-mode.texi \
+	ChangeLog Makefile keyword-generation.sh \
 	$(TESTS)
 
 ELCS = ebuild-mode.elc devbook-mode.elc gentoo-newsitem-mode.elc glep-mode.elc

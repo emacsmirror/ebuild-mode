@@ -1,3 +1,7 @@
+2024-08-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* Makefile (DISTFILES): Add Makefile.
+
 2024-08-10  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-find-build-log): New function.
