@@ -1,5 +1,7 @@
 2024-08-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* keyword-generation.sh (OBSOLETE): Update.
+
 	* Makefile (DISTFILES): Add Makefile.
 
 2024-08-10  Ulrich Müller  <ulm@gentoo.org>
