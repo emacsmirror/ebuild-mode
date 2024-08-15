@@ -141,10 +141,8 @@
      "eautoreconf"
      ;; bash-completion-r1
      "bashcomp_alias" "dobashcomp" "get_bashcompdir" "newbashcomp"
-     ;; bzr
-     "bzr_fetch" "bzr_src_unpack"
      ;; cargo
-     "cargo_crate_uris" "cargo_gen_config" "cargo_live_src_unpack"
+     "cargo_crate_uris" "cargo_env" "cargo_gen_config" "cargo_live_src_unpack"
      "cargo_src_compile" "cargo_src_configure" "cargo_src_install"
      "cargo_src_test" "cargo_src_unpack" "cargo_target_dir"
      ;; cdrom
@@ -194,8 +192,8 @@
      "newmenu"
      ;; dist-kernel-utils
      "dist-kernel_PV_to_KV" "dist-kernel_compressed_module_cleanup"
-     "dist-kernel_get_image_path" "dist-kernel_install_kernel"
-     "dist-kernel_reinstall_initramfs"
+     "dist-kernel_get_image_path" "dist-kernel_get_module_suffix"
+     "dist-kernel_install_kernel" "dist-kernel_reinstall_initramfs"
      ;; distutils-r1
      "distutils-r1_python_compile" "distutils-r1_python_install"
      "distutils-r1_python_install_all" "distutils-r1_python_prepare_all"
@@ -255,8 +253,6 @@
      "elisp-test-buttercup" "elisp-test-ert" "elisp-test-ert-runner"
      ;; emboss-r3
      "emboss-r3_src_configure" "emboss-r3_src_install"
-     ;; eqawarn
-     "eqawarn"
      ;; estack
      "eshopts_pop" "eshopts_push" "estack_pop" "estack_push" "eumask_pop"
      "eumask_push" "evar_pop" "evar_push" "evar_push_set"
@@ -329,7 +325,7 @@
      "gnustep-base_src_configure" "gnustep-base_src_install"
      "gnustep-base_src_prepare"
      ;; go-env
-     "go-env_go386" "go-env_goarch" "go-env_goarm"
+     "go-env_go386" "go-env_goarch" "go-env_goarm" "go-env_goos"
      "go-env_set_compile_environment"
      ;; go-module
      "ego" "go-module_live_vendor" "go-module_set_globals"
@@ -343,6 +339,9 @@
      "golang-vcs_src_fetch" "golang-vcs_src_unpack"
      ;; golang-vcs-snapshot
      "golang-vcs-snapshot_src_unpack"
+     ;; greadme
+     "greadme_file" "greadme_pkg_postinst" "greadme_pkg_preinst"
+     "greadme_stdin"
      ;; gstreamer-meson
      "gstreamer-meson_pkg_setup" "gstreamer_multilib_src_compile"
      "gstreamer_multilib_src_configure" "gstreamer_multilib_src_install"
@@ -403,7 +402,7 @@
      "get_system_arch" "java-vm-2_pkg_postinst" "java-vm-2_pkg_postrm"
      "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup" "java-vm_install-env"
      "java-vm_revdep-mask" "java-vm_sandbox-predict"
-     "java-vm_set-pax-markings" "set_java_env"
+     "java-vm_set-pax-markings"
      ;; kde.org
      "kde.org_pkg_nofetch" "kde.org_src_unpack"
      ;; kernel-2
@@ -621,8 +620,8 @@
      "python_fix_shebang" "python_get_CFLAGS" "python_get_LIBS"
      "python_get_PYTHON_CONFIG" "python_get_includedir"
      "python_get_library_path" "python_get_scriptdir" "python_get_sitedir"
-     "python_has_version" "python_moduleinto" "python_newexe"
-     "python_newscript" "python_optimize" "python_scriptinto"
+     "python_get_stdlib" "python_has_version" "python_moduleinto"
+     "python_newexe" "python_newscript" "python_optimize" "python_scriptinto"
      ;; qmail
      "dospp" "dosupervise" "genqmail_src_unpack" "is_prime"
      "qmail_base_install" "qmail_config_fast" "qmail_config_install"
@@ -651,10 +650,15 @@
      ;; readme.gentoo-r1
      "readme.gentoo_create_doc" "readme.gentoo_print_elog"
      ;; rebar
-     "erebar" "get_erl_libs" "rebar_disable_coverage" "rebar_fix_include_path"
-     "rebar_remove_deps" "rebar_set_vsn" "rebar_src_compile"
-     "rebar_src_configure" "rebar_src_install" "rebar_src_prepare"
-     "rebar_src_test"
+     "erebar" "rebar_src_compile" "rebar_src_configure" "rebar_src_install"
+     "rebar_src_prepare" "rebar_src_test"
+     ;; rebar-utils
+     "get_erl_libs" "rebar_disable_coverage" "rebar_fix_include_path"
+     "rebar_remove_deps" "rebar_set_vsn"
+     ;; rebar3
+     "erebar3" "rebar3_install_lib" "rebar3_src_compile"
+     "rebar3_src_configure" "rebar3_src_install" "rebar3_src_prepare"
+     "rebar3_src_test"
      ;; rocm
      "check_amdgpu" "get_amdgpu_flags"
      ;; rpm
@@ -776,10 +780,10 @@
      "tc-getCXX" "tc-getDLLWRAP" "tc-getF77" "tc-getFC" "tc-getGCJ" "tc-getGO"
      "tc-getLD" "tc-getNM" "tc-getOBJCOPY" "tc-getOBJDUMP" "tc-getPKG_CONFIG"
      "tc-getPROG" "tc-getRANLIB" "tc-getRC" "tc-getREADELF" "tc-getSTRINGS"
-     "tc-getSTRIP" "tc-getTARGET_CPP" "tc-has-tls" "tc-is-clang"
-     "tc-is-cross-compiler" "tc-is-gcc" "tc-is-lto" "tc-is-softfloat"
-     "tc-is-static-only" "tc-ld-disable-gold" "tc-ld-force-bfd"
-     "tc-ld-is-gold" "tc-ld-is-lld" "tc-ninja_magic_to_arch"
+     "tc-getSTRIP" "tc-getTARGET_CPP" "tc-has-64bit-time_t" "tc-has-tls"
+     "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc" "tc-is-lto"
+     "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
+     "tc-ld-force-bfd" "tc-ld-is-gold" "tc-ld-is-lld" "tc-ninja_magic_to_arch"
      "tc-stack-grows-down" "tc-tuple-is-softfloat"
      ;; tree-sitter-grammar
      "tree-sitter-grammar_src_compile" "tree-sitter-grammar_src_configure"
@@ -815,14 +819,6 @@
      "verify-sig_src_unpack" "verify-sig_verify_detached"
      "verify-sig_verify_message" "verify-sig_verify_signed_checksums"
      "verify-sig_verify_unsigned_checksums"
-     ;; versionator
-     "delete_all_version_separators" "delete_version_separator"
-     "get_after_major_version" "get_all_version_components"
-     "get_last_version_component_index" "get_major_version"
-     "get_version_component_count" "get_version_component_range"
-     "get_version_components" "replace_all_version_separators"
-     "replace_version_separator" "version_compare" "version_format_string"
-     "version_is_at_least" "version_sort"
      ;; vim-doc
      "update_vim_helptags"
      ;; vim-plugin
