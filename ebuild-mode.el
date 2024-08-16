@@ -235,9 +235,9 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 
 (defvar ebuild-commands-list
   '("clean" "cleanrm" "compile" "config" "configure" "depend" "digest"
-    "fetch" "fetchall" "help" "info" "install" "manifest" "merge"
-    "package" "postinst" "postrm" "preinst" "prepare" "prerm"
-    "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack")
+    "fetch" "fetchall" "help" "info" "install" "instprep" "manifest"
+    "merge" "nofetch" "package" "postinst" "postrm" "preinst" "prepare"
+    "prerm" "pretend" "qmerge" "rpm" "setup" "test" "unmerge" "unpack")
   "List of ebuild sub-commands.")
 
 (defvar ebuild-mode-pkgdev-commands

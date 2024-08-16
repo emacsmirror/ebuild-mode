@@ -1,3 +1,8 @@
+2024-08-16  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-commands-list): Add "instprep" and
+	"nofetch" commands.
+
 2024-08-15  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.73 released.
