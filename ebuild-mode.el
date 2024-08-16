@@ -81,8 +81,8 @@ of lines.
 If the value is `ebuild', fixes for tabs and newlines will only
 be applied to ebuilds but not to eclasses."
   :type '(choice (const :tag "Yes" t)
-                 (const :tag "No" nil)
-                 (const :tag "Ebuilds only" ebuild))
+		 (const :tag "No" nil)
+		 (const :tag "Ebuilds only" ebuild))
   :group 'ebuild)
 
 (defcustom ebuild-mode-update-copyright t
@@ -687,8 +687,8 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
     ;; decode ANSI SGR control sequences if possible (tty-format.el)
     (and (assq 'ansi-colors format-alist)
 	 (save-excursion
-           (goto-char (point-min))
-           (re-search-forward "\e\\[[0-9;]*m" nil t))
+	   (goto-char (point-min))
+	   (re-search-forward "\e\\[[0-9;]*m" nil t))
 	 (format-decode-buffer 'ansi-colors))))
 
 ;;; Modify package keywords.
