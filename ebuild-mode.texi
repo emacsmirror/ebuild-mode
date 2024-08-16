@@ -158,6 +158,13 @@ program suite.  @kbd{C-c C-e C-e} calls @code{ebuild-run-command} which
 asks for one of the possible actions as argument.  See the man page of
 ebuild what actions are provided.
 
+Some common action (or subcommands) of the ebuild command can be
+executed via their own key sequences, all of them using @kbd{C-c C-e}
+followed by a letter.  For example, the @code{unpack} action is bound
+to @kbd{C-c C-e u}.  Subcommands that don't have their own key sequence
+--- but also those that do --- can be executed via the main
+@code{ebuild-run-command} bound to @kbd{C-c C-e C-e}, or via the menu.
+
 The commands @code{ebuild-mode-find-workdir} and @code{ebuild-mode-find-s}
 (bound to @kbd{C-c C-e C-w} and @kbd{C-c C-e C-s}, respectively) allow
 to visit the working directory (@code{$@{WORKDIR@}}) and the temporary
@@ -204,6 +211,8 @@ Visit the @code{build.log} file that belongs to the ebuild.
 Run a @command{pkgdev} command.
 @item C-c C-e C-c
 Run a @command{pkgcheck} command.
+@item C-c C-e LETTER
+Run an ebuild action/subcommand.
 @end table
 
 @node ebuild-eclass-mode, ebuild-repo-mode, ebuild-mode, Top

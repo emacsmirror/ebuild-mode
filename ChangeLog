@@ -1,5 +1,17 @@
 2024-08-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-run-command-*): Define functions
+	for ebuild subcommands.
+	(ebuild-mode-prefix-map): New variable, keymap for ebuild-mode
+	commands. Define C-c C-e <letter> keys for the most common ebuild
+	subcommands.
+	(ebuild-mode-map): Use the new keymap.
+	(ebuild-mode-menu): Use ebuild-run-command-* functions in menu
+	items; for the previously used expressions, easy-menu-define would
+	create internal functions anyway. Don't sort ebuild-commands-list
+	because it already is in alphabetical order.
+	* ebuild-mode.texi (ebuild-mode): Update.
+
 	* ebuild-mode.el (ebuild-commands-list): Add "instprep" and
 	"nofetch" commands.
 

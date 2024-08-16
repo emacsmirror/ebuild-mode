@@ -478,6 +478,17 @@ If nil, `compilation-mode' will be used.")
 	(compile shell-command)
       (compile shell-command ebuild-log-buffer-mode))))
 
+;; Define functions for all ebuild subcommands
+(dolist (command ebuild-commands-list)
+  (defalias (intern (concat "ebuild-run-command-" command))
+    ;; Backquote for XEmacs compatibility (no lexical binding).
+    ;; Also, defalias in 21.4 accepts only two args, so the docstring
+    ;; must be in the lambda form.
+    `(lambda ()
+       ,(format "Run ebuild command \"%s\"." command)
+       (interactive)
+       (ebuild-run-command ,command))))
+
 (define-derived-mode ebuild-compilation-mode compilation-mode "Compilation"
   "Like `compilation-mode' but with color support.
 Translates ANSI SGR control sequences into text properties (if the
@@ -1000,29 +1011,49 @@ in a Gentoo profile."
 
 ;;; Keybindings.
 
-(dolist (k '(("\C-c\C-e\C-e" ebuild-run-command)
-	     ("\C-c\C-e\C-p" ebuild-mode-run-pkgdev)
-	     ("\C-c\C-e\C-c" ebuild-mode-run-pkgcheck)
-	     ("\C-c\C-e\C-w" ebuild-mode-find-workdir)
-	     ("\C-c\C-e\C-s" ebuild-mode-find-s)
-	     ("\C-c\C-e\C-l" ebuild-mode-find-build-log)
-	     ("\C-c\C-e\C-k" ebuild-mode-keyword)
-	     ("\C-c\C-e\C-y" ebuild-mode-ekeyword)
-	     ("\C-c\C-e\C-u" ebuild-mode-all-keywords-unstable)
-	     ("\C-c\C-e\C-n" ebuild-mode-insert-skeleton)))
-  (apply #'define-key ebuild-mode-map k))
+(defvar ebuild-mode-prefix-map
+  (let ((map (make-sparse-keymap)))
+    ;; C-<letter> keys for general commands
+    (define-key map "\C-e" #'ebuild-run-command)
+    (define-key map "\C-p" #'ebuild-mode-run-pkgdev)
+    (define-key map "\C-c" #'ebuild-mode-run-pkgcheck)
+    (define-key map "\C-w" #'ebuild-mode-find-workdir)
+    (define-key map "\C-s" #'ebuild-mode-find-s)
+    (define-key map "\C-l" #'ebuild-mode-find-build-log)
+    (define-key map "\C-k" #'ebuild-mode-keyword)
+    (define-key map "\C-y" #'ebuild-mode-ekeyword)
+    (define-key map "\C-u" #'ebuild-mode-all-keywords-unstable)
+    (define-key map "\C-n" #'ebuild-mode-insert-skeleton)
+    ;; <letter> for ebuild subcommands
+    (define-key map "l" 'ebuild-run-command-clean)
+    (define-key map "c" 'ebuild-run-command-compile)
+    (define-key map "g" 'ebuild-run-command-configure)
+    (define-key map "f" 'ebuild-run-command-fetch)
+    (define-key map "i" 'ebuild-run-command-install)
+    (define-key map "d" 'ebuild-run-command-manifest) ; previously "digest"
+    (define-key map "m" 'ebuild-run-command-merge)
+    (define-key map "p" 'ebuild-run-command-prepare)
+    (define-key map "q" 'ebuild-run-command-qmerge)
+    (define-key map "t" 'ebuild-run-command-test)
+    (define-key map "n" 'ebuild-run-command-unmerge)
+    (define-key map "u" 'ebuild-run-command-unpack)
+    map)
+  "Keymap for `ebuild-mode' specific commands.")
 
+(define-key ebuild-mode-map "\C-c\C-e" ebuild-mode-prefix-map)
 (define-key ebuild-repo-mode-map "\C-c-" #'ebuild-mode-insert-tag-line)
 
 ;; Menu support for both Emacs and XEmacs.
 (easy-menu-define ebuild-mode-menu ebuild-mode-map
   "Menu for `ebuild-mode'."
   `("Ebuild"
+    ["Run ebuild command" ebuild-run-command
+     :active (eq major-mode 'ebuild-mode)]
     ("ebuild commands"
      :active (eq major-mode 'ebuild-mode)
-     ["Run ebuild command" ebuild-run-command]
-     ,@(mapcar (lambda (c) (vector c (list #'ebuild-run-command c)))
-	       (sort (copy-sequence ebuild-commands-list) #'string-lessp)))
+     ,@(mapcar (lambda (c)
+		 (vector c (intern (concat "ebuild-run-command-" c))))
+	       ebuild-commands-list))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
     ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
     ["Find working directory (WORKDIR)" ebuild-mode-find-workdir
