@@ -84,7 +84,7 @@ eclasses.  Missing highlighting should be reported on
 @code{https://bugs.gentoo.org/}.
 
 Generally all functionality is reachable through direct commands,
-keybindings (described later) and menu entries, if the latter is
+key bindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
@@ -129,8 +129,9 @@ After choosing the action the architectures to handle need to be chosen.
 Tab completion is available for all possible architectures.
 
 Using the ekeyword syntax for the @code{ebuild-mode-ekeyword} command
-(@kbd{C-c C-e C-y} as keybinding) is equal what you can pass as argument
-to said utility from the @code{app-portage/gentoolkit-dev} package:
+(@kbd{C-c C-e C-y} as key binding) is equal what you can pass as
+argument to said utility from the @code{app-portage/gentoolkit-dev}
+package:
 @table @code
 @item ^<arch>
 Remove the architecture entirely.
@@ -146,7 +147,7 @@ It is possible to use @code{all} instead of an individual architecture
 which works on all currently available architectures for the ebuild.
 
 Handy for version/revision bumps is to mark all architectures from a
-copied stable ebuild as testing.  The keybinding @kbd{C-c C-e C-u}
+copied stable ebuild as testing.  The key binding @kbd{C-c C-e C-u}
 calling the @code{ebuild-mode-all-keywords-unstable} command can be used
 for this task.
 
@@ -187,7 +188,7 @@ completion for subcommands is supported.
 Similarly, @kbd{C-c C-e C-c} calls @code{ebuild-mode-run-pkgcheck}
 which runs @command{pkgcheck}.
 
-@section Keybindings
+@section Key Bindings
 @table @kbd
 @item C-c C-e C-n
 Insert a skeleton ebuild contents, with prompts for desired eclass
@@ -239,7 +240,7 @@ variable @code{ebuild-mode-xml-indent-tabs}.  A value of nil (which is
 the default) means to use two spaces; non-nil means to use tab
 characters.
 
-There is only one keybinding, namely @kbd{C-c -} which inserts a tag
+There is only one key binding, namely @kbd{C-c -} which inserts a tag
 line with the user's name, e-mail address and date, in the format that
 is commonly used in @file{package.mask} and other files:
 
@@ -276,7 +277,7 @@ when doing so, but GLEP 42 stays the reference for the whole process.
 
 It gets automatically loaded when a file name matches the criteria of
 GLEP 42 (see there for details), but can also be invoked through the
-@code{gentoo-newsitem-mode} function.  The only available keybinding is
+@code{gentoo-newsitem-mode} function.  The only available key binding is
 @kbd{C-c C-n} which starts a skeleton assistant similar to the one
 available in @code{ebuild-mode}.  All mandatory information are asked
 from the user so no item is forgotten.

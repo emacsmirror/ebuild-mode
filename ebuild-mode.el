@@ -1009,7 +1009,7 @@ in a Gentoo profile."
 		  ebuild-mode-full-name ebuild-mode-mail-address
 		  (ebuild-mode-time-string "%Y-%m-%d"))))
 
-;;; Keybindings.
+;;; Key bindings.
 
 (defvar ebuild-mode-prefix-map
   (let ((map (make-sparse-keymap)))
