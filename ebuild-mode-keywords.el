@@ -1,4 +1,4 @@
-;;; ebuild-mode-keywords.el  -*-lexical-binding:t-*-
+;;; ebuild-mode-keywords.el --- keywords for font-lock  -*-lexical-binding:t-*-
 
 ;; Copyright 2006-2024 Gentoo Authors
 

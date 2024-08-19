@@ -111,7 +111,7 @@ If nil, use two spaces."
   (unless (fboundp 'ansi-color-compilation-filter)
     '("NO_COLOR=1"))
   "List of additional environment variables for subprocesses.
-Each element should be a string of the form NAME=VALUE. This will
+Each element should be a string of the form NAME=VALUE.  This will
 be prepended to `process-environment' when calling a subprocess."
   :type '(repeat string)
   :group 'ebuild)
@@ -495,7 +495,7 @@ With prefix argument CLEAN, run the \"clean\" command first"
 (define-derived-mode ebuild-compilation-mode compilation-mode "Compilation"
   "Like `compilation-mode' but with color support.
 Translates ANSI SGR control sequences into text properties (if the
-Emacs version supports it). Variable `ansi-color-for-compilation-mode'
+Emacs version supports it).  Variable `ansi-color-for-compilation-mode'
 must be non-nil for this to have any effect."
   (if (fboundp 'ansi-color-compilation-filter)
       (add-hook 'compilation-filter-hook
@@ -760,7 +760,7 @@ optional second argument NOERROR is non-nil."
 	  (replace-match kw-string t t nil 1)))))))
 
 (defun ebuild-mode-modify-keywords (kw)
-  "Set keywords. KW is an alist of architectures and leaders."
+  "Set keywords.  KW is an alist of architectures and leaders."
   (let ((keywords (ebuild-mode-get-keywords)))
     (dolist (k kw)
       (let* ((arch (car k))
@@ -806,7 +806,7 @@ architecture from `ebuild-mode-arch-list'."
 (defun ebuild-mode-ekeyword-complete (s predicate mode)
   "Completion function, to be used as second argument of `completing-read'.
 Return common substring of all completions of S for given PREDICATE.
-MODE can be nil, t, or `lambda'. See documentation of `try-completion'
+MODE can be nil, t, or `lambda'.  See documentation of `try-completion'
 and `all-completions' for details."
   (string-match "^\\(.*\\s-\\)?\\(.*\\)$" s)
   (if (eq (car-safe mode) 'boundaries) ; GNU Emacs 23
@@ -834,7 +834,7 @@ and `all-completions' for details."
       (if (stringp c2) (concat s1 c2) c2))))
 
 (defun ebuild-mode-ekeyword (keywords)
-  "Keyword manipulation. Accepts the same input format as ekeyword.
+  "Keyword manipulation.  Accepts the same input format as ekeyword.
 KEYWORDS is a whitespace separated string containing the keywords
 that shall be manipulated."
   (interactive

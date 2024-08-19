@@ -4,7 +4,7 @@
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Keywords: wp
+;; Keywords: text
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -58,7 +58,7 @@
 
 (defvar glep-mode-preamble-limit 2000
   "Maximum length of GLEP preamble.
-For efficiency only. Unlimited if nil.")
+For efficiency only.  Unlimited if nil.")
 
 (defun glep-mode-update-last-modified ()
   "Update the Last-Modified date."

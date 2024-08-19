@@ -1,5 +1,11 @@
 2024-08-19  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el:
+	* ebuild-mode-keywords.el:
+	* gentoo-newsitem-mode.el:
+	* glep-mode.el:
+	* devbook-mode.el: Doc fixes.
+
 	* ebuild-mode.el (ebuild-run-command-*): Run the "clean" command
 	when a prefix argument is given.
 	* ebuild-mode.texi (ebuild-mode): Document it.

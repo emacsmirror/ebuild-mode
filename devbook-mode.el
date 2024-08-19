@@ -4,7 +4,7 @@
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
-;; Keywords: wp, languages
+;; Keywords: text, languages
 
 ;; This file is free software: you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
