@@ -484,10 +484,13 @@ If nil, `compilation-mode' will be used.")
     ;; Backquote for XEmacs compatibility (no lexical binding).
     ;; Also, defalias in 21.4 accepts only two args, so the docstring
     ;; must be in the lambda form.
-    `(lambda ()
-       ,(format "Run ebuild command \"%s\"." command)
-       (interactive)
-       (ebuild-run-command ,command))))
+    `(lambda (&optional clean)
+       ,(format
+	 "Run ebuild \"%s\" command, with output to a compilation buffer.
+With prefix argument CLEAN, run the \"clean\" command first"
+	 command)
+       (interactive "P")
+       (ebuild-run-command (concat (if clean "clean ") ,command)))))
 
 (define-derived-mode ebuild-compilation-mode compilation-mode "Compilation"
   "Like `compilation-mode' but with color support.

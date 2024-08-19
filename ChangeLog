@@ -1,5 +1,9 @@
 2024-08-19  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-run-command-*): Run the "clean" command
+	when a prefix argument is given.
+	* ebuild-mode.texi (ebuild-mode): Document it.
+
 	* ebuild-mode.el (ebuild-mode-find-image-dir): New function.
 	(ebuild-mode-prefix-map, ebuild-mode-menu): Keybinding and
 	menu entry.

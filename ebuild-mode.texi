@@ -162,8 +162,9 @@ ebuild what actions are provided.
 Some common action (or subcommands) of the ebuild command can be
 executed via their own key sequences, all of them using @kbd{C-c C-e}
 followed by a letter.  For example, the @code{unpack} action is bound
-to @kbd{C-c C-e u}.  Subcommands that don't have their own key sequence
---- but also those that do --- can be executed via the main
+to @kbd{C-c C-e u}.  With a prefix argument, the @code{clean} action
+is executed first, additionally.  Subcommands that don't have their own
+key sequence --- but also those that do --- can be executed via the main
 @code{ebuild-run-command} bound to @kbd{C-c C-e C-e}, or via the menu.
 
 The commands @code{ebuild-mode-find-workdir}, @code{ebuild-mode-find-s}
