@@ -1,3 +1,10 @@
+2024-08-19  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-find-image-dir): New function.
+	(ebuild-mode-prefix-map, ebuild-mode-menu): Keybinding and
+	menu entry.
+	* ebuild-mode.texi (ebuild-mode): Document it.
+
 2024-08-16  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-run-command-*): Define functions

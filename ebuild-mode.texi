@@ -166,12 +166,13 @@ to @kbd{C-c C-e u}.  Subcommands that don't have their own key sequence
 --- but also those that do --- can be executed via the main
 @code{ebuild-run-command} bound to @kbd{C-c C-e C-e}, or via the menu.
 
-The commands @code{ebuild-mode-find-workdir} and @code{ebuild-mode-find-s}
-(bound to @kbd{C-c C-e C-w} and @kbd{C-c C-e C-s}, respectively) allow
-to visit the working directory (@code{$@{WORKDIR@}}) and the temporary
-build directory (@code{$@{S@}}) that belong to the ebuild in the current
-buffer.  With a prefix argument, the directory will be visited in
-another window.
+The commands @code{ebuild-mode-find-workdir}, @code{ebuild-mode-find-s}
+and @code{ebuild-mode-find-image-dir} (bound to @kbd{C-c C-e C-w},
+@kbd{C-c C-e C-s} and @kbd{C-c C-e C-d}, respectively) allow to visit
+the working directory (@code{$@{WORKDIR@}}), the temporary build
+directory (@code{$@{S@}}) and the image directory (@code{$@{D@}}) that
+belong to the ebuild in the current buffer.  With a prefix argument,
+the directory will be visited in another window.
 
 The command @code{ebuild-mode-find-build-log} (@kbd{C-c C-e C-l}) visits
 the @code{build.log} of the ebuild in the current buffer.  With a prefix
@@ -205,9 +206,11 @@ Run Portage's ebuild command, you are prompted for the phase you want.
 @item C-c C-e C-w
 Visit the working directory (@code{WORKDIR}) that belongs to the ebuild.
 @item C-c C-e C-s
-Visit temporary build directory (@code{S}) that belongs to the ebuild.
+Visit the temporary build directory (@code{S}).
+@item C-c C-e C-d
+Visit the image directory (@code{D}).
 @item C-c C-e C-l
-Visit the @code{build.log} file that belongs to the ebuild.
+Visit the @code{build.log} file.
 @item C-c C-e C-p
 Run a @command{pkgdev} command.
 @item C-c C-e C-c

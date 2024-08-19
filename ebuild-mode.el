@@ -618,6 +618,18 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 	(find-file-other-window workdir)
       (find-file workdir))))
 
+(defun ebuild-mode-find-image-dir (&optional other-window)
+  "Visit the image directory (D) for the ebuild in this buffer.
+With prefix argument OTHER-WINDOW, visit the directory in another window."
+  (interactive "P")
+  (let ((image (concat (ebuild-mode-get-builddir) "/image"))
+	(find-file-run-dired t))
+    (unless (file-directory-p image)
+      (error "D=\"%s\" does not exist" image))
+    (if other-window
+	(find-file-other-window image)
+      (find-file image))))
+
 (defun ebuild-mode-unescape-string (s &optional ansi-c)
   "Convert string S by expanding backslash escape sequences.
 With optional argument ANSI-C, expand a string with ANSI C escape
@@ -1019,6 +1031,7 @@ in a Gentoo profile."
     (define-key map "\C-c" #'ebuild-mode-run-pkgcheck)
     (define-key map "\C-w" #'ebuild-mode-find-workdir)
     (define-key map "\C-s" #'ebuild-mode-find-s)
+    (define-key map "\C-d" #'ebuild-mode-find-image-dir)
     (define-key map "\C-l" #'ebuild-mode-find-build-log)
     (define-key map "\C-k" #'ebuild-mode-keyword)
     (define-key map "\C-y" #'ebuild-mode-ekeyword)
@@ -1059,6 +1072,8 @@ in a Gentoo profile."
     ["Find working directory (WORKDIR)" ebuild-mode-find-workdir
      :active (eq major-mode 'ebuild-mode)]
     ["Find build directory (S)" ebuild-mode-find-s
+     :active (eq major-mode 'ebuild-mode)]
+    ["Find image directory (D)" ebuild-mode-find-image-dir
      :active (eq major-mode 'ebuild-mode)]
     ["Find build log" ebuild-mode-find-build-log
      :active (eq major-mode 'ebuild-mode)]
