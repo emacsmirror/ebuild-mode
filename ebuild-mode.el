@@ -302,12 +302,12 @@ of the elements."
 	 ((or (not limit)
 	      (<= (length (car c)) limit))
 	  ;; new element C is small enough => push to DST
-	  (setq dst (cons (copy-sequence c) dst)))
+	  (push (cons (car c) (cdr c)) dst))
 	 (t
 	  ;; otherwise, split the new element into chunks of length LIMIT
 	  (let ((cc (car c)))
 	    (while cc
-	      (setq dst (cons (cons (last cc limit) (cdr c)) dst))
+	      (push (cons (last cc limit) (cdr c)) dst)
 	      (setq cc (butlast cc limit)))))))))
   )
 
