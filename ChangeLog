@@ -1,5 +1,7 @@
 2024-08-20  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-arch-stable-list): Use push.
+
 	* ebuild-mode.el (ebuild-mode-collect-and-split): Don't copy the
 	element when creating a cons cell is enough.
 	* test/ebuild-mode-tests.el (ebuild-mode-test-collect-and-split):

@@ -157,7 +157,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	     (setq arch (match-string 1))
 	     (and (not (member arch archs))
 		  (member arch ebuild-mode-arch-list)
-		  (setq archs (cons arch archs))))
+		  (push arch archs)))
 	   (sort archs #'ebuild-mode-arch-lessp)))
      (file-error nil))
    (condition-case nil
@@ -171,7 +171,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	     (setq arch (match-string 1))
 	     (and (not (member arch archs))
 		  (member arch ebuild-mode-arch-list)
-		  (setq archs (cons arch archs))))
+		  (push arch archs)))
 	   (sort archs #'ebuild-mode-arch-lessp)))
      (file-error nil))
    ;; fall back to list of all architectures
