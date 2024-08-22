@@ -23,13 +23,28 @@
 (require 'ert)
 (require 'ebuild-mode)
 
+(when (and (featurep 'xemacs)
+	   (not (fboundp 'cl-letf)))
+  (defalias 'cl-letf  #'letf)
+  (defalias 'cl-letf* #'letf*))
+
 (defmacro ebuild-mode-test-run-with-fixed-time (&rest body)
-  `(cl-letf* ((fixed-time (date-to-time "2024-08-10T00:00:00Z"))
-	      (orig-fun (symbol-function 'format-time-string))
-	      ((symbol-function 'format-time-string)
-	       (lambda (fmt-string &optional time &rest args)
-		 (apply orig-fun fmt-string (or time fixed-time) args))))
-     ,@body))
+  (let ((zone (if (or (not (featurep 'xemacs))
+		      (function-allows-args #'format-time-string 3))
+		  (list 'zone))))
+    `(cl-letf* ((fixed-time (date-to-time "2024-08-10 00:00:00 +0000"))
+		(orig-fun (symbol-function 'format-time-string))
+		((symbol-function 'format-time-string)
+		 (lambda (fmt-string &optional time ,@zone)
+		   (funcall orig-fun fmt-string (or time fixed-time) ,@zone))))
+       ,@body)))
+
+(defmacro ebuild-mode-test-run-silently (&rest body)
+  (if (boundp 'inhibit-message)
+      `(let ((inhibit-message t)) ,@body)
+    `(cl-letf (((symbol-function 'append-message) #'ignore)
+	       ((symbol-function 'clear-message) #'ignore))
+       ,@body)))
 
 (ert-deftest ebuild-mode-test-arch-lessp ()
   (should (ebuild-mode-arch-lessp "amd64" "x86"))
@@ -46,12 +61,18 @@
 
 (ert-deftest ebuild-mode-test-font-lock ()
   (with-temp-buffer
-    (let ((inhibit-message t))
-      (ebuild-mode))
     (insert "src_install() {\n"
 	    "\temake install\n"
 	    "}\n")
-    (font-lock-ensure)
+    (ebuild-mode-test-run-silently
+     (ebuild-mode)
+     (if (fboundp 'font-lock-ensure)
+	 (font-lock-ensure))
+     (if (featurep 'xemacs)
+	 ;; XEmacs refuses to fontify in batch mode,
+	 ;; therefore pretend that we are interactive
+	 (cl-letf (((symbol-function 'noninteractive) #'ignore))
+	   (font-lock-fontify-buffer))))
     (goto-char (point-min))
     (search-forward "src_install")
     (should (equal (get-text-property (match-beginning 0) 'face)
@@ -128,11 +149,11 @@
   (should (string-equal
 	   (ebuild-mode-unescape-string "äöü" 'ansi-c)
 	   "äöü"))
-  (should (string-equal
-	   (decode-coding-string
-	    (ebuild-mode-unescape-string "\\360\\237\\221\\215" 'ansi-c)
-	    'utf-8-unix)
-	   "👍")))
+  (let ((s (ebuild-mode-unescape-string "\\360\\237\\221\\215" 'ansi-c)))
+    (if (or (not (featurep 'xemacs))
+	    (emacs-version>= 21 5))
+	(setq s (decode-coding-string s 'utf-8-unix)))
+    (should (string-equal s "👍"))))
 
 (ert-deftest ebuild-mode-test-get-keywords ()
   (with-temp-buffer

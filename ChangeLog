@@ -1,5 +1,17 @@
 2024-08-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (cl-letf, cl-letf*)
+	(ebuild-mode-test-run-with-fixed-time)
+	(ebuild-mode-test-run-silently, ebuild-mode-test-font-lock)
+	(ebuild-mode-test-unescape-string): Portability fixes for XEmacs.
+	* test/glep-mode-tests.el (glep-mode-test-run-with-fixed-time):
+	Sync from ebuild-mode-test-run-with-fixed-time.
+	* test/xemacs-test-wrapper.el: New file.
+	* Makefile (DISTFILES): Add xemacs-test-wrapper.el.
+	(ELCS, TESTS): Include only files that are actually supported by
+	the Emacs version.
+	(check): Make it work with XEmacs.
+
 	* ebuild-mode.el (ebuild-repo-mode): Activate the menu in XEmacs.
 	Use positive condition for feature.
 

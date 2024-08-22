@@ -24,11 +24,11 @@
 (require 'glep-mode)
 
 (defmacro glep-mode-test-run-with-fixed-time (&rest body)
-  `(cl-letf* ((fixed-time (date-to-time "2024-08-10T00:00:00Z"))
+  `(cl-letf* ((fixed-time (date-to-time "2024-08-10 00:00:00 +0000"))
 	      (orig-fun (symbol-function 'format-time-string))
 	      ((symbol-function 'format-time-string)
-	       (lambda (fmt-string &optional time &rest args)
-		 (apply orig-fun fmt-string (or time fixed-time) args))))
+	       (lambda (fmt-string &optional time zone)
+		 (funcall orig-fun fmt-string (or time fixed-time) zone))))
      ,@body))
 
 (ert-deftest glep-mode-test-font-lock ()
