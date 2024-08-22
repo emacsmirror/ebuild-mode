@@ -1,3 +1,8 @@
+2024-08-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-update-copyright): Save match data,
+	replace-match in XEmacs 21.4 clobbers it.
+
 2024-08-20  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-arch-stable-list): Use push.

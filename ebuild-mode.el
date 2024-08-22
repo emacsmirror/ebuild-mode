@@ -388,26 +388,28 @@ of the elements."
 			     (nth 1 ebuild-mode-update-copyright))))
       (when (re-search-forward ebuild-mode-copyright-regexp 400 t)
 	(if update-year
-	    (let* ((y1 (string-to-number (match-string 1)))
-		   (y2 (and (match-string 2)
-			    (string-to-number (match-string 2))))
-		   (year (save-match-data (ebuild-mode-time-string "%Y")))
-		   (y (string-to-number year)))
-	      (if y2
-		  ;; Update range of years
-		  (cond ((or (> 1999 y1) (>= y1 y2) (> y2 y))
-			 ;; XEmacs wants 'warning instead of :warning,
-			 ;; but nil always works (and defaults to :warning)
+	    (save-match-data
+	      (let* ((y1 (string-to-number (match-string 1)))
+		     (y2 (and (match-string 2)
+			      (string-to-number (match-string 2))))
+		     (year (save-match-data (ebuild-mode-time-string "%Y")))
+		     (y (string-to-number year)))
+		(if y2
+		    ;; Update range of years
+		    (cond ((or (> 1999 y1) (>= y1 y2) (> y2 y))
+			   ;; XEmacs wants 'warning instead of :warning,
+			   ;; but nil always works (and defaults to :warning)
+			   (lwarn 'ebuild nil
+				  "Suspicious range of copyright years: %d-%d"
+				  y1 y2))
+			  ((/= y2 y)
+			   (replace-match year t t nil 2)))
+		  ;; Update single year and convert to range if necessary
+		  (cond ((or (> 1999 y1) (> y1 y))
 			 (lwarn 'ebuild nil
-				"Suspicious range of copyright years: %d-%d"
-				y1 y2))
-			((/= y2 y)
-			 (replace-match year t t nil 2)))
-		;; Update single year and convert to range if necessary
-		(cond ((or (> 1999 y1) (> y1 y))
-		       (lwarn 'ebuild nil "Suspicious copyright year: %d" y1))
-		      ((/= y1 y)
-		       (replace-match (concat "\\1-" year) t nil nil 1))))))
+				"Suspicious copyright year: %d" y1))
+			((/= y1 y)
+			 (replace-match (concat "\\1-" year) t nil nil 1)))))))
 	(if update-author
 	    ;; Update default author in copyright notice
 	    (if (string-equal (match-string 3) "Gentoo Foundation")
