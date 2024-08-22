@@ -248,8 +248,9 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
   '("cache" "ci" "replay" "scan" "show")
   "List of pkgcheck sub-commands.")
 
-;; suppress byte-compiler warning in XEmacs
+;; suppress byte-compiler warnings in XEmacs
 (defvar ebuild-mode-menu)
+(defvar ebuild-repo-mode-menu)
 
 
 ;;; Compatibility code.
@@ -968,12 +969,14 @@ for the format of the tag line.")
   (if (ignore-errors (check-coding-system 'utf-8-unix))
       ;; utf-8-unix doesn't exist in XEmacs 21.4
       (setq buffer-file-coding-system 'utf-8-unix))
-  (static-if (not (featurep 'xemacs))
-      (add-hook 'write-contents-functions
-		#'ebuild-repo-mode-before-save t t)
-    ;; make-local-hook gives a byte-compiler warning in GNU Emacs
-    (make-local-hook 'write-contents-hooks)
-    (add-hook 'write-contents-hooks
+  (static-if (featurep 'xemacs)
+      (progn
+	(easy-menu-add ebuild-repo-mode-menu)
+	;; make-local-hook gives a byte-compiler warning in GNU Emacs
+	(make-local-hook 'write-contents-hooks)
+	(add-hook 'write-contents-hooks
+		  #'ebuild-repo-mode-before-save t t))
+    (add-hook 'write-contents-functions
 	      #'ebuild-repo-mode-before-save t t))
   (unless (local-variable-p 'fill-column (current-buffer)) ; XEmacs wants 2 args
     (setq fill-column 72))

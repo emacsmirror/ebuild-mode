@@ -1,5 +1,8 @@
 2024-08-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-repo-mode): Activate the menu in XEmacs.
+	Use positive condition for feature.
+
 	* ebuild-mode.el (ebuild-mode-menu): Drop :active keyword because
 	the three-element vector form of menu items is more portable.
 	(ebuild-repo-mode-menu): Rename menu bar item to "Ebuild-Repo".
