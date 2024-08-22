@@ -1066,24 +1066,24 @@ in a Gentoo profile."
   "Menu for `ebuild-mode'."
   `("Ebuild"
     ["Run ebuild command" ebuild-run-command
-     :active (eq major-mode 'ebuild-mode)]
+     (eq major-mode 'ebuild-mode)]
     ("ebuild commands"
-     :active (eq major-mode 'ebuild-mode)
      ,@(mapcar (lambda (c)
-		 (vector c (intern (concat "ebuild-run-command-" c))))
+		 (vector c (intern (concat "ebuild-run-command-" c))
+			 '(eq major-mode 'ebuild-mode)))
 	       ebuild-commands-list))
     ["Run pkgdev command" ebuild-mode-run-pkgdev]
     ["Run pkgcheck command" ebuild-mode-run-pkgcheck]
     ["Find working directory (WORKDIR)" ebuild-mode-find-workdir
-     :active (eq major-mode 'ebuild-mode)]
+     (eq major-mode 'ebuild-mode)]
     ["Find build directory (S)" ebuild-mode-find-s
-     :active (eq major-mode 'ebuild-mode)]
+     (eq major-mode 'ebuild-mode)]
     ["Find image directory (D)" ebuild-mode-find-image-dir
-     :active (eq major-mode 'ebuild-mode)]
+     (eq major-mode 'ebuild-mode)]
     ["Find build log" ebuild-mode-find-build-log
-     :active (eq major-mode 'ebuild-mode)]
+     (eq major-mode 'ebuild-mode)]
     ["Insert ebuild skeleton" ebuild-mode-insert-skeleton
-     :active (eq major-mode 'ebuild-mode)]
+     (eq major-mode 'ebuild-mode)]
     ["Set/unset keyword" ebuild-mode-keyword]
     ["Set/unset keywords (ekeyword syntax)" ebuild-mode-ekeyword]
     ["Mark all keywords as unstable" ebuild-mode-all-keywords-unstable]
@@ -1091,9 +1091,9 @@ in a Gentoo profile."
 
 (easy-menu-define ebuild-repo-mode-menu ebuild-repo-mode-map
   "Menu for `ebuild-repo-mode'."
-  '("Ebuild"
+  '("Ebuild-Repo"
     ;; show the menu only for conf files
-    :visible (derived-mode-p 'conf-unix-mode)
+    :included (derived-mode-p 'conf-unix-mode)
     ["Insert package.mask tag line" ebuild-mode-insert-tag-line]
     ["Customize ebuild-mode" (customize-group 'ebuild)]))
 

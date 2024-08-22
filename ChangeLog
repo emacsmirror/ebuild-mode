@@ -1,5 +1,11 @@
 2024-08-22  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-menu): Drop :active keyword because
+	the three-element vector form of menu items is more portable.
+	(ebuild-repo-mode-menu): Rename menu bar item to "Ebuild-Repo".
+	Replace :visible keyword by :included; XEmacs 21.4 doesn't know
+	the former.
+
 	* ebuild-mode.el (ebuild-mode-update-copyright): Save match data,
 	replace-match in XEmacs 21.4 clobbers it.
 
