@@ -259,6 +259,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
   (unless (fboundp 'static-if)
     (defmacro static-if (cond then &rest else) ; from APEL
       "Like `if', but evaluate COND at compile time."
+      (declare (indent 2))
       (if (eval cond)
 	  then
 	`(progn ,@else)))
