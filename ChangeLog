@@ -1,3 +1,8 @@
+2024-08-26  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/xemacs-test-wrapper.el (kill-emacs): Return a useful exit
+	status.
+
 2024-08-22  Ulrich Müller  <ulm@gentoo.org>
 
 	* test/ebuild-mode-tests.el (cl-letf, cl-letf*)

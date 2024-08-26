@@ -31,3 +31,15 @@
 
 (defmacro should-error (form)
   `(Check-Error 'error ,form))
+
+;; return a useful exit status
+(defadvice kill-emacs (before xemacs-test-wrapper-kill-emacs activate)
+  (let ((ret (ad-get-arg 0)))
+    (cond ((and (integerp ret) (>= ret 2)))
+	  ((/= unexpected-test-suite-failures 0)
+	   (setq ret 2))
+	  (t (dolist (result test-harness-file-results-alist)
+	       ;; result is a list: (file passes total)
+	       (if (/= (nth 1 result) (nth 2 result))
+		   (setq ret 1)))))
+    (ad-set-arg 0 ret)))
