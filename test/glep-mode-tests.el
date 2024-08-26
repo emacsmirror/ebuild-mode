@@ -31,6 +31,11 @@
 		 (funcall orig-fun fmt-string (or time fixed-time) zone))))
      ,@body))
 
+(defvar glep-mode-test-input nil)
+
+(defun glep-mode-test-input (&rest _args)
+  (concat (pop glep-mode-test-input)))
+
 (ert-deftest glep-mode-test-font-lock ()
   (with-temp-buffer
     (glep-mode)
@@ -79,6 +84,42 @@
 		      "---\n"
 		      "Last-Modified: 2023-02-22\n"))))))
 
+(ert-deftest glep-mode-test-skeleton ()
+  (with-temp-buffer
+    (cl-letf (((symbol-function 'read-from-minibuffer)
+	       #'glep-mode-test-input)
+	      ((symbol-function 'read-string)
+	       #'glep-mode-test-input)
+	      (buffer-file-name
+	       "/home/larry/devmanual/quickstart/text.xml"))
+      (setq glep-mode-test-input
+	    '("9999"			; GLEP
+	      "Skeleton test"		; Title
+	      "Larry the Cow"		; Author
+	      "Informational"		; Type
+	      "Draft"			; Status
+	      "1"			; Version
+	      ""			; Requires
+	      ""))			; Replaces
+      (glep-mode-test-run-with-fixed-time
+       (glep-mode-insert-skeleton)))
+    (goto-char (point-min))
+    (search-forward "---\n" nil nil 2)
+    (should (string-equal
+	     (buffer-substring (point-min) (point))
+	     (concat "---\n"
+		     "GLEP: 9999\n"
+		     "Title: Skeleton test\n"
+		     "Author: Larry the Cow\n"
+		     "Type: Informational\n"
+		     "Status: Draft\n"
+		     "Version: 1\n"
+		     "Created: 2024-08-10\n"
+		     "Last-Modified: 2024-08-10\n"
+		     "Post-History: \n"
+		     "Content-Type: text/x-rst\n"
+		     "---\n")))))
+
 (ert-deftest glep-mode-test-in-preamble-p ()
   (with-temp-buffer
     (let ((preamble "---\nGLEP: 2\n---\n"))
@@ -90,6 +131,14 @@
     (should (glep-mode-in-preamble-p (point)))
     (forward-line 3)
     (should-not (glep-mode-in-preamble-p (point)))))
+
+(ert-deftest glep-mode-test-keybindings ()
+  (should (equal (lookup-key glep-mode-map "\C-c\C-n")
+		 'glep-mode-insert-skeleton))
+  (with-temp-buffer
+    (glep-mode)
+    (should (equal (local-key-binding "\C-c\C-n")
+		   'glep-mode-insert-skeleton))))
 
 (provide 'glep-mode-tests)
 

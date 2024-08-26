@@ -13,15 +13,16 @@ BYTECOMPFLAGS = -eval "(add-to-list 'load-path nil)"
 DISTFILES = ebuild-mode.el ebuild-mode-keywords.el devbook-mode.el \
 	gentoo-newsitem-mode.el glep-mode.el ebuild-mode.texi \
 	ChangeLog Makefile keyword-generation.sh \
-	test/ebuild-mode-tests.el test/glep-mode-tests.el \
+	test/ebuild-mode-tests.el test/devbook-mode-tests.el \
+	test/gentoo-newsitem-mode-tests.el test/glep-mode-tests.el \
 	test/xemacs-test-wrapper.el
 
 ELCS = ebuild-mode.elc gentoo-newsitem-mode.elc
-TESTS = test/ebuild-mode-tests.el
+TESTS = test/ebuild-mode-tests.el test/gentoo-newsitem-mode-tests.el
 INFOFILES = ebuild-mode.info
 ifeq ($(findstring xemacs,$(EMACS)),)
   ELCS += devbook-mode.elc glep-mode.elc
-  TESTS += test/glep-mode-tests.el
+  TESTS += test/devbook-mode-tests.el test/glep-mode-tests.el
 endif
 
 .PHONY: all keywords check dist clean

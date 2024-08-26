@@ -46,6 +46,11 @@
 	       ((symbol-function 'clear-message) #'ignore))
        ,@body)))
 
+(defvar ebuild-mode-test-input nil)
+
+(defun ebuild-mode-test-input (&rest _args)
+  (concat (pop ebuild-mode-test-input)))
+
 (ert-deftest ebuild-mode-test-arch-lessp ()
   (should (ebuild-mode-arch-lessp "amd64" "x86"))
   (should-not (ebuild-mode-arch-lessp "amd64-linux" "x86"))
@@ -199,6 +204,47 @@
 	     (buffer-string)
 	     "KEYWORDS=\"~amd64 ~arm -m68k ~ppc64 ~x86\"\n"))))
 
+(ert-deftest ebuild-mode-test-skeleton ()
+  (with-temp-buffer
+    (cl-letf (((symbol-function 'read-from-minibuffer)
+	       #'ebuild-mode-test-input)
+	      ((symbol-function 'read-string)
+	       #'ebuild-mode-test-input))
+      (setq ebuild-mode-test-input
+	    '("8"			  ; EAPI
+	      ""			  ; inherit
+	      "Skeleton test"		  ; DESCRIPTION
+	      "https://www.gentoo.org/"	  ; HOMEPAGE
+	      ""			  ; SRC_URI
+	      ""			  ; S
+	      "GPL-2+" "MIT" ""		  ; LICENSE
+	      "~amd64" ""		  ; KEYWORDS
+	      ""			  ; IUSE
+	      ""))			  ; RESTRICT
+      (ebuild-mode-test-run-with-fixed-time
+       (ebuild-mode-test-run-silently
+	(if (featurep 'xemacs)
+	    ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
+	    (cl-letf (((symbol-function 'pos-visible-in-window-p)
+		       (lambda (&rest _args) t)))
+	      (ebuild-mode-insert-skeleton))
+	  (ebuild-mode-insert-skeleton))))
+      (should (string-equal
+	       (buffer-string)
+	       (concat "# Copyright 2024 Gentoo Authors\n"
+		       "# Distributed under the terms of the "
+		       "GNU General Public License v2\n\n"
+		       "EAPI=8\n\n"
+		       "DESCRIPTION=\"Skeleton test\"\n"
+		       "HOMEPAGE=\"https://www.gentoo.org/\"\n"
+		       "SRC_URI=\"\"\n\n"
+		       "LICENSE=\"GPL-2+ MIT\"\n"
+		       "SLOT=\"0\"\n"
+		       "KEYWORDS=\"~amd64\"\n\n"
+		       "RDEPEND=\"\"\n"
+		       "DEPEND=\"${RDEPEND}\"\n"
+		       "BDEPEND=\"\"\n"))))))
+
 (ert-deftest ebuild-mode-test-insert-tag-line ()
   (let ((ebuild-mode-full-name "Larry the Cow")
 	(ebuild-mode-mail-address "larry@example.org"))
@@ -215,6 +261,17 @@
        (should (string-equal
 		(buffer-string)
 		"# Larry the Cow <larry@example.org> (2024-08-10)\n"))))))
+
+(ert-deftest ebuild-mode-test-keybindings ()
+  (should (equal (lookup-key ebuild-mode-map "\C-c\C-e\C-k")
+		 'ebuild-mode-keyword))
+  (should (equal (lookup-key ebuild-repo-mode-map "\C-c-")
+		 'ebuild-mode-insert-tag-line))
+  (with-temp-buffer
+    (ebuild-mode-test-run-silently
+     (ebuild-mode))
+    (should (equal (local-key-binding "\C-c\C-eu")
+		   'ebuild-run-command-unpack))))
 
 (provide 'ebuild-mode-tests)
 

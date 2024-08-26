@@ -1,5 +1,16 @@
 2024-08-26  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (ebuild-mode-test-input): New variable
+	and function.
+	(ebuild-mode-test-skeleton, ebuild-mode-test-keybindings):
+	New tests.
+	* test/glep-mode-tests.el (glep-mode-test-input): New variable and
+	function.
+	(glep-mode-test-skeleton, glep-mode-test-keybindings): New tests.
+	* test/gentoo-newsitem-mode-tests.el:
+	* test/devbook-mode-tests.el: New files.
+	* Makefile (DISTFILES, TESTS): Add them.
+
 	* test/xemacs-test-wrapper.el (kill-emacs): Return a useful exit
 	status.
 
