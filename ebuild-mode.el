@@ -68,9 +68,9 @@
   :group 'ebuild)
 
 (defcustom ebuild-mode-eapi-list
-  '("6" "7" "8")
+  '("7" "8")
   "List of supported EAPIs.
-The most recent EAPI must be listed last."
+The most recent EAPI is listed last."
   :type '(repeat string)
   :group 'ebuild)
 

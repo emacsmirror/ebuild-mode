@@ -1,5 +1,8 @@
 2024-08-26  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-eapi-list): Drop 6 from list of
+	supported EAPIs.
+
 	* test/ebuild-mode-tests.el (ebuild-mode-test-input): New variable
 	and function.
 	(ebuild-mode-test-skeleton, ebuild-mode-test-keybindings):
