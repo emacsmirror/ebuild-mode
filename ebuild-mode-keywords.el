@@ -228,15 +228,17 @@
      ;; dune
      "dune-compile" "dune-install" "dune-release" "dune-test"
      "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
-     ;; eapi7-ver
-     "ver_cut" "ver_rs" "ver_test"
      ;; eapi8-dosym
      "dosym8"
      ;; ecm
      "ecm_pkg_postinst" "ecm_pkg_postrm" "ecm_pkg_preinst" "ecm_pkg_pretend"
      "ecm_pkg_setup" "ecm_punt_bogus_dep" "ecm_punt_kf_module"
-     "ecm_punt_qt_module" "ecm_src_compile" "ecm_src_configure"
-     "ecm_src_install" "ecm_src_prepare" "ecm_src_test"
+     "ecm_punt_po_install" "ecm_punt_qt_module" "ecm_src_compile"
+     "ecm_src_configure" "ecm_src_install" "ecm_src_prepare" "ecm_src_test"
+     ;; ecm-common
+     "ecm-common-check_deps" "ecm-common_inject_heredoc"
+     "ecm-common_pkg_setup" "ecm-common_src_configure"
+     "ecm-common_src_prepare"
      ;; edo
      "edo" "edob"
      ;; edos2unix
@@ -349,6 +351,18 @@
      "gstreamer_system_library" "gstreamer_system_package"
      "multilib_src_compile" "multilib_src_configure" "multilib_src_install"
      "multilib_src_test"
+     ;; guile
+     "guile_copy_sources" "guile_for_best_impl" "guile_foreach_impl"
+     "guile_merge_roots" "guile_pkg_setup" "guile_src_compile"
+     "guile_src_configure" "guile_src_install" "guile_src_prepare"
+     "guile_src_test"
+     ;; guile-single
+     "guile-single_pkg_setup" "guile-single_src_install"
+     "guile-single_src_prepare" "guile_gen_cond_dep"
+     ;; guile-utils
+     "guile_bump_sources" "guile_check_compat" "guile_create_temporary_config"
+     "guile_export" "guile_filter_pkgconfig_path" "guile_generate_depstrings"
+     "guile_set_common_vars" "guile_unstrip_ccache"
      ;; haskell-cabal
      "cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-constraint"
      "cabal-copy" "cabal-die-if-nonempty" "cabal-export-dist-libs"
@@ -721,11 +735,10 @@
      "systemd_dounit" "systemd_douserunit" "systemd_enable_ntpunit"
      "systemd_enable_service" "systemd_get_sleepdir"
      "systemd_get_systemgeneratordir" "systemd_get_systempresetdir"
-     "systemd_get_systemunitdir" "systemd_get_unitdir"
-     "systemd_get_userunitdir" "systemd_get_utildir" "systemd_install_dropin"
-     "systemd_install_serviced" "systemd_is_booted" "systemd_newunit"
-     "systemd_newuserunit" "systemd_reenable" "systemd_update_catalog"
-     "systemd_with_unitdir" "systemd_with_utildir"
+     "systemd_get_systemunitdir" "systemd_get_userunitdir"
+     "systemd_get_utildir" "systemd_install_dropin" "systemd_install_serviced"
+     "systemd_is_booted" "systemd_newunit" "systemd_newuserunit"
+     "systemd_reenable" "systemd_update_catalog"
      ;; texlive-common
      "dobin_texmf_scripts" "efmtutil-sys" "etexlinks" "etexmf-update"
      "texlive-common_append_to_src_uri" "texlive-common_do_symlinks"
@@ -783,8 +796,9 @@
      "tc-getSTRIP" "tc-getTARGET_CPP" "tc-has-64bit-time_t" "tc-has-tls"
      "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc" "tc-is-lto"
      "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
-     "tc-ld-force-bfd" "tc-ld-is-gold" "tc-ld-is-lld" "tc-ninja_magic_to_arch"
-     "tc-stack-grows-down" "tc-tuple-is-softfloat"
+     "tc-ld-force-bfd" "tc-ld-is-bfd" "tc-ld-is-gold" "tc-ld-is-lld"
+     "tc-ld-is-mold" "tc-ninja_magic_to_arch" "tc-stack-grows-down"
+     "tc-tuple-is-softfloat"
      ;; tree-sitter-grammar
      "tree-sitter-grammar_src_compile" "tree-sitter-grammar_src_configure"
      "tree-sitter-grammar_src_install" "tree-sitter-grammar_src_prepare"
