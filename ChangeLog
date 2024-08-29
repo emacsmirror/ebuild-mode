@@ -1,3 +1,9 @@
+2024-08-29  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/ebuild-mode-tests.el (ebuild-mode-test-run-with-fixed-time):
+	* test/glep-mode-tests.el (glep-mode-test-run-with-fixed-time):
+	Use encode-time instead of date-to-time. Bug 938666.
+
 2024-08-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.74 released.
