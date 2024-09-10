@@ -1,3 +1,8 @@
+2024-09-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/ebuild-mode-tests.el (ebuild-mode-test-update-copyright):
+	Actually run ebuild-mode-update-copyright.
+
 2024-08-29  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.75 released.

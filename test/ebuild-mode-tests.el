@@ -118,6 +118,7 @@
 		"# Copyright 2023-2024 Gentoo Authors\n"))
        (erase-buffer)
        (insert "# Copyright 2020-2023 other author\n")
+       (ebuild-mode-update-copyright)
        (should (string-equal
 		(buffer-string)
 		"# Copyright 2020-2023 other author\n"))))))
