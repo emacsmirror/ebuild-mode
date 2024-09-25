@@ -1,3 +1,7 @@
+2024-09-25  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-arch-list): Remove ia64.
+
 2024-09-10  Ulrich Müller  <ulm@gentoo.org>
 
 	* test/ebuild-mode-tests.el (ebuild-mode-test-update-copyright):

@@ -139,7 +139,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	 (sort (split-string (buffer-string)) #'ebuild-mode-arch-lessp))
      (file-error nil))
    ;; could not read architectures from repository, so fall back to default
-   '("alpha" "amd64" "arm" "arm64" "hppa" "ia64" "loong" "m68k" "mips"
+   '("alpha" "amd64" "arm" "arm64" "hppa" "loong" "m68k" "mips"
      "ppc" "ppc64" "riscv" "s390" "sparc" "x86"))
   "List of architectures.")
 
