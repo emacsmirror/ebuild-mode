@@ -1,5 +1,8 @@
 2024-09-25  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (ebuild-mode-test-time-string):
+	Run with fixed time.
+
 	* ebuild-mode.el (ebuild-mode-arch-list): Remove ia64.
 
 2024-09-10  Ulrich Müller  <ulm@gentoo.org>

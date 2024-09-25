@@ -62,12 +62,10 @@
   (should (ebuild-mode-arch-lessp "x86-linux" "ppc-macos")))
 
 (ert-deftest ebuild-mode-test-time-string ()
-  (should (string-equal
-	   (ebuild-mode-time-string "%Y-%m-%d %H:%M:%S" '(14257 22633))
-	   "1999-08-11 11:03:05"))
-  (should (string-equal
-	   (ebuild-mode-time-string "%Y-%m-%d %H:%M:%S" '(33451 44363))
-	   "2039-06-21 17:11:39")))
+  (ebuild-mode-test-run-with-fixed-time
+   (should (string-equal
+	    (ebuild-mode-time-string "%Y-%m-%d %H:%M:%S")
+	    "2024-08-10 00:00:00"))))
 
 (ert-deftest ebuild-mode-test-font-lock ()
   (with-temp-buffer
