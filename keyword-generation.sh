@@ -10,7 +10,7 @@
 
 REPO=gentoo
 # Obsolete eclasses
-OBSOLETE="eapi7-ver eqawarn versionator"
+OBSOLETE=""
 
 TMPFILE="$(mktemp ${TMPDIR:-/tmp}/keyword-generation.XXXXXX)"
 
