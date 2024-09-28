@@ -13,8 +13,15 @@
 (require 'test-harness)
 (provide 'ert)				; pretend that ERT is present
 
-(defmacro ert-deftest (_name _args &rest body)
-  `(progn ,@body))
+(define-error 'test-skipped "Test skipped")
+
+(defmacro ert-deftest (name _args &rest body)
+  `(condition-case nil
+       (progn ,@body)
+     (test-skipped (message "SKIP: %s" ',name))))
+
+(defun skip-unless (cond)
+  (unless cond (signal 'test-skipped nil)))
 
 (defmacro should (assertion)
   (let ((args (ignore-errors
