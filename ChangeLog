@@ -1,5 +1,12 @@
 2024-09-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-enable-bug-reference):
+	New custom variable.
+	(ebuild-mode-bug-regexp, ebuild-mode-bug-url-format):
+	New variables.
+	(ebuild-repo-mode): Conditionally enable bug-reference-prog-mode.
+	* test/ebuild-mode-tests.el (ebuild-mode-test-bug-url): New test.
+
 	* ebuild-mode.el (ebuild-repo-mode): Define the nxml-* variables
 	instead of requiring nxml-mode at compile time.
 

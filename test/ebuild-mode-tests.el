@@ -249,6 +249,31 @@
 		       "DEPEND=\"${RDEPEND}\"\n"
 		       "BDEPEND=\"\"\n"))))))
 
+(ert-deftest ebuild-mode-test-bug-url ()
+  (skip-unless (fboundp 'bug-reference-prog-mode))
+  (let* ((ebuild-mode-enable-bug-reference t)
+	 url-found
+	 (browse-url-browser-function
+	  (lambda (url &rest _args) (setq url-found url))))
+    (with-temp-buffer
+      (insert "# abc #876543 xyz\n"
+	      "# bug 765432\n")
+      (ebuild-mode-test-run-silently
+       (ebuild-mode))
+      (bug-reference-fontify (point-min) (point-max))
+      (goto-char (point-min))
+      (search-forward "#" nil nil 2)
+      (bug-reference-push-button (point))
+      (should (equal url-found "https://bugs.gentoo.org/876543"))
+      (setq url-found nil)
+      (search-forward "bug")
+      (bug-reference-push-button (point))
+      (should (equal url-found "https://bugs.gentoo.org/765432"))
+      (setq url-found nil)
+      (bug-reference-push-button (point-min))
+      (bug-reference-push-button (point-max))
+      (should-not url-found))))
+
 (ert-deftest ebuild-mode-test-insert-tag-line ()
   (let ((ebuild-mode-full-name "Larry the Cow")
 	(ebuild-mode-mail-address "larry@example.org"))

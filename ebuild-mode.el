@@ -101,6 +101,11 @@ If nil, don't update."
   :type 'boolean
   :group 'ebuild)
 
+(defcustom ebuild-mode-enable-bug-reference t
+  "If non-nil, enable `bug-reference-prog-mode' in `ebuild-repo-mode'."
+  :type 'boolean
+  :group 'ebuild)
+
 (defcustom ebuild-mode-xml-indent-tabs nil
   "If non-nil, use tab characters for indenting of XML.
 If nil, use two spaces."
@@ -962,6 +967,19 @@ This will be added to the `write-contents-functions' hook."
 This excludes `comment-start'.  See `ebuild-mode-insert-tag-line'
 for the format of the tag line.")
 
+(defvar ebuild-mode-bug-regexp
+  "\\(\\(?:\\b[Bb]ug *[ #]\\|#\\)\\([0-9]\\{4,\\}\\)\\)"
+  "Regular expression matching bug references.
+The format is the same as for `bug-reference-bug-regexp', which see.")
+
+(defvar ebuild-mode-bug-url-format
+  "https://bugs.gentoo.org/%s"
+  "Format used to turn a bug number into a URL.
+The bug number is supplied as a string, so this should have a single %s.
+See `bug-reference-url-format' for further details.")
+
+(defvar bug-reference-bug-regexp)	; bug-reference.el
+(defvar bug-reference-url-format)
 (defvar nxml-child-indent)		; nxml-mode.el
 (defvar nxml-attribute-indent)
 
@@ -986,6 +1004,16 @@ for the format of the tag line.")
     (setq fill-column 72))
   (unless (local-variable-p 'tab-width (current-buffer))
     (setq tab-width 4))
+  (static-if (fboundp 'bug-reference-prog-mode)
+      (progn
+	(unless (local-variable-p 'bug-reference-bug-regexp (current-buffer))
+	  (set (make-local-variable 'bug-reference-bug-regexp)
+	       ebuild-mode-bug-regexp))
+	(unless (local-variable-p 'bug-reference-url-format (current-buffer))
+	  (set (make-local-variable 'bug-reference-url-format)
+	       ebuild-mode-bug-url-format))
+	(if ebuild-mode-enable-bug-reference
+	    (bug-reference-prog-mode 1))))
   (cond
    ((derived-mode-p 'conf-unix-mode)
     (unless (local-variable-p 'paragraph-separate (current-buffer))
