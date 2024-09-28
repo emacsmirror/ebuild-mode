@@ -23,8 +23,7 @@
 (require 'ert)
 (require 'ebuild-mode)
 
-(when (and (featurep 'xemacs)
-	   (not (fboundp 'cl-letf)))
+(unless (fboundp 'cl-letf)
   (defalias 'cl-letf  #'letf)
   (defalias 'cl-letf* #'letf*))
 
@@ -75,12 +74,11 @@
     (ebuild-mode-test-run-silently
      (ebuild-mode)
      (if (fboundp 'font-lock-ensure)
-	 (font-lock-ensure))
-     (if (featurep 'xemacs)
-	 ;; XEmacs refuses to fontify in batch mode,
-	 ;; therefore pretend that we are interactive
-	 (cl-letf (((symbol-function 'noninteractive) #'ignore))
-	   (font-lock-fontify-buffer))))
+	 (font-lock-ensure)
+       ;; XEmacs refuses to fontify in batch mode,
+       ;; therefore pretend that we are interactive
+       (cl-letf (((symbol-function 'noninteractive) #'ignore))
+	 (font-lock-fontify-buffer))))
     (goto-char (point-min))
     (search-forward "src_install")
     (should (equal (get-text-property (match-beginning 0) 'face)

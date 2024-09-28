@@ -1,5 +1,9 @@
 2024-09-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el:
+	* test/gentoo-newsitem-mode-tests.el: Drop redundant XEmacs
+	conditionals.
+
 	* test/xemacs-test-wrapper.el (skip-unless): New function.
 	(test-skipped): New error symbol.
 	(ert-deftest): Handle it.
