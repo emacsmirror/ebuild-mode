@@ -962,6 +962,9 @@ This will be added to the `write-contents-functions' hook."
 This excludes `comment-start'.  See `ebuild-mode-insert-tag-line'
 for the format of the tag line.")
 
+(defvar nxml-child-indent)		; nxml-mode.el
+(defvar nxml-attribute-indent)
+
 ;;;###autoload
 (define-minor-mode ebuild-repo-mode
   "Minor mode for files in an ebuild repository."
@@ -994,7 +997,6 @@ for the format of the tag line.")
 		   (regexp-quote (concat comment-start))
 		   ebuild-mode-tag-line-regexp))))
    ((derived-mode-p 'nxml-mode)
-    (eval-when-compile (ignore-errors (require 'nxml-mode)))
     (unless (or (local-variable-p 'nxml-child-indent (current-buffer))
 		(local-variable-p 'nxml-attribute-indent (current-buffer)))
       (let ((indent (if ebuild-mode-xml-indent-tabs 4 2)))

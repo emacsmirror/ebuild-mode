@@ -1,3 +1,8 @@
+2024-09-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Define the nxml-* variables
+	instead of requiring nxml-mode at compile time.
+
 2024-09-25  Ulrich Müller  <ulm@gentoo.org>
 
 	* keyword-generation.sh (OBSOLETE): Update.
