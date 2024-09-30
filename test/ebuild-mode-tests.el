@@ -224,13 +224,12 @@
 	      ""			  ; IUSE
 	      ""))			  ; RESTRICT
       (ebuild-mode-test-run-with-fixed-time
-       (ebuild-mode-test-run-silently
-	(if (featurep 'xemacs)
-	    ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
-	    (cl-letf (((symbol-function 'pos-visible-in-window-p)
-		       (lambda (&rest _args) t)))
-	      (ebuild-mode-insert-skeleton))
-	  (ebuild-mode-insert-skeleton))))
+       (if (featurep 'xemacs)
+	   ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
+	   (cl-letf (((symbol-function 'pos-visible-in-window-p)
+		      (lambda (&rest _args) t)))
+	     (ebuild-mode-insert-skeleton))
+	 (ebuild-mode-insert-skeleton)))
       (should (string-equal
 	       (buffer-string)
 	       (concat "# Copyright 2024 Gentoo Authors\n"

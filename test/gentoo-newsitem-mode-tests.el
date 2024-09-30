@@ -72,13 +72,12 @@
 	      ""			; Display-If-Installed
 	      ""			; Display-If-Keyword
 	      ""))			; Display-If-Profile
-      (gentoo-newsitem-mode-test-run-silently
-       (if (featurep 'xemacs)
-	   ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
-	   (cl-letf (((symbol-function 'pos-visible-in-window-p)
-		      (lambda (&rest _args) t)))
-	     (gentoo-newsitem-insert-skeleton))
-	 (gentoo-newsitem-insert-skeleton)))
+      (if (featurep 'xemacs)
+	  ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
+	  (cl-letf (((symbol-function 'pos-visible-in-window-p)
+		     (lambda (&rest _args) t)))
+	    (gentoo-newsitem-insert-skeleton))
+	(gentoo-newsitem-insert-skeleton))
       (should (string-equal
 	       (buffer-string)
 	       (concat "Title: Skeleton test\n"
