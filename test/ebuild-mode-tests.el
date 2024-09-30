@@ -29,15 +29,14 @@
     (defalias 'cl-letf* #'letf*)))
 
 (defmacro ebuild-mode-test-run-with-fixed-time (&rest body)
-  (let ((zone (if (or (not (featurep 'xemacs))
+  (let ((encode-time (if (and (fboundp 'func-arity)
+			      (>= 1 (car (func-arity 'encode-time))))
+			 ;; new calling convention since Emacs 27
+			 '(encode-time) '(apply #'encode-time)))
+	(zone (if (or (not (featurep 'xemacs))
 		      (function-allows-args #'format-time-string 3))
 		  (list 'zone))))
-    `(cl-letf* ((calendrical '(0 0 0 10 8 2024 nil nil 0))
-		(fixed-time (condition-case nil
-				;; new calling convention since Emacs 27
-				(encode-time calendrical)
-			      (wrong-number-of-arguments
-			       (apply #'encode-time calendrical))))
+    `(cl-letf* ((fixed-time (,@encode-time '(0 0 0 10 8 2024 nil nil 0)))
 		(orig-fun (symbol-function 'format-time-string))
 		((symbol-function 'format-time-string)
 		 (lambda (fmt-string &optional time ,@zone)

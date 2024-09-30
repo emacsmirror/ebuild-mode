@@ -1,5 +1,9 @@
 2024-09-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (ebuild-mode-test-run-with-fixed-time):
+	* test/glep-mode-tests.el (glep-mode-test-run-with-fixed-time):
+	Use func-arity to detect the calling convention for encode-time.
+
 	* test/ebuild-mode-tests.el (cl-letf, cl-letf*): Enclose their
 	definition in eval-when-compile.
 	(ebuild-mode-test-font-lock): Call font-lock-fontify-region
