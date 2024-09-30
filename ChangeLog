@@ -1,5 +1,14 @@
 2024-09-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (cl-letf, cl-letf*): Enclose their
+	definition in eval-when-compile.
+	(ebuild-mode-test-font-lock): Call font-lock-fontify-region
+	instead of font-lock-fontify-buffer. This is silent and also
+	avoids the noninteractive trickery.
+	* test/gentoo-newsitem-mode-tests.el (cl-letf, cl-letf*)
+	(gentoo-newsitem-mode-test-font-lock): Ditto.
+	(gentoo-newsitem-mode-test-run-silently): Remove.
+
 	* test/ebuild-mode-tests.el (ebuild-mode-test-skeleton):
 	Remove unnecessary ebuild-mode-test-run-silently.
 	* test/gentoo-newsitem-mode-tests.el

@@ -23,9 +23,10 @@
 (require 'ert)
 (require 'ebuild-mode)
 
-(unless (fboundp 'cl-letf)
-  (defalias 'cl-letf  #'letf)
-  (defalias 'cl-letf* #'letf*))
+(eval-when-compile
+  (unless (fboundp 'cl-letf)
+    (defalias 'cl-letf  #'letf)
+    (defalias 'cl-letf* #'letf*)))
 
 (defmacro ebuild-mode-test-run-with-fixed-time (&rest body)
   (let ((zone (if (or (not (featurep 'xemacs))
@@ -68,17 +69,14 @@
 
 (ert-deftest ebuild-mode-test-font-lock ()
   (with-temp-buffer
+    (ebuild-mode-test-run-silently
+     (ebuild-mode))
     (insert "src_install() {\n"
 	    "\temake install\n"
 	    "}\n")
-    (ebuild-mode-test-run-silently
-     (ebuild-mode)
-     (if (fboundp 'font-lock-ensure)
-	 (font-lock-ensure)
-       ;; XEmacs refuses to fontify in batch mode,
-       ;; therefore pretend that we are interactive
-       (cl-letf (((symbol-function 'noninteractive) #'ignore))
-	 (font-lock-fontify-buffer))))
+    (if (fboundp 'font-lock-ensure)
+	(font-lock-ensure)
+      (font-lock-fontify-region (point-min) (point-max)))
     (goto-char (point-min))
     (search-forward "src_install")
     (should (equal (get-text-property (match-beginning 0) 'face)

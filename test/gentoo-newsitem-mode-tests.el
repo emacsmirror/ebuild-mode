@@ -23,16 +23,10 @@
 (require 'ert)
 (require 'gentoo-newsitem-mode)
 
-(unless (fboundp 'cl-letf)
-  (defalias 'cl-letf  #'letf)
-  (defalias 'cl-letf* #'letf*))
-
-(defmacro gentoo-newsitem-mode-test-run-silently (&rest body)
-  (if (boundp 'inhibit-message)
-      `(let ((inhibit-message t)) ,@body)
-    `(cl-letf (((symbol-function 'append-message) #'ignore)
-	       ((symbol-function 'clear-message) #'ignore))
-       ,@body)))
+(eval-when-compile
+  (unless (fboundp 'cl-letf)
+    (defalias 'cl-letf  #'letf)
+    (defalias 'cl-letf* #'letf*)))
 
 (defvar gentoo-newsitem-mode-test-input nil)
 
@@ -45,11 +39,7 @@
     (insert "Author: Larry the Cow\n")
     (if (fboundp 'font-lock-ensure)
 	(font-lock-ensure)
-      ;; XEmacs refuses to fontify in batch mode,
-      ;; therefore pretend that we are interactive
-      (cl-letf (((symbol-function 'noninteractive) #'ignore))
-	(gentoo-newsitem-mode-test-run-silently
-	 (font-lock-fontify-buffer))))
+      (font-lock-fontify-region (point-min) (point-max)))
     (goto-char (point-min))
     (search-forward "Author")
     (should (equal (get-text-property (match-beginning 0) 'face)
