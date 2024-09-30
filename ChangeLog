@@ -1,5 +1,10 @@
 2024-09-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* gentoo-newsitem-mode.el (gentoo-newsitem-mode): Don't set
+	font-lock-defaults.
+	(gentoo-newsitem-add-font-lock): New function.
+	(gentoo-newsitem-mode-hook): Add it to the mode hook.
+
 	* test/gentoo-newsitem-mode-tests.el (gentoo-newsitem-test-input)
 	(gentoo-newsitem-test-font-lock, gentoo-newsitem-test-skeleton)
 	(gentoo-newsitem-test-keybindings): Shorten names.

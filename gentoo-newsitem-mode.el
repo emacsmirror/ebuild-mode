@@ -50,11 +50,15 @@
 ;;;###autoload
 (define-derived-mode gentoo-newsitem-mode text-mode "Newsitem"
   "Major mode for Gentoo GLEP 42 news items."
-  (make-local-variable 'font-lock-defaults)
   (if (featurep 'xemacs)
       (easy-menu-add gentoo-newsitem-mode-menu))
-  (setq font-lock-defaults '(gentoo-newsitem-font-lock-keywords t))
   (setq fill-column 72))
+
+(defun gentoo-newsitem-add-font-lock ()
+  "Add `gentoo-newsitem-mode' font-lock keywords for the current buffer."
+  (font-lock-add-keywords nil gentoo-newsitem-font-lock-keywords))
+
+(add-hook 'gentoo-newsitem-mode-hook #'gentoo-newsitem-add-font-lock)
 
 (define-skeleton gentoo-newsitem-insert-skeleton
   "Insert a skeleton for a Gentoo GLEP 42 news item."
