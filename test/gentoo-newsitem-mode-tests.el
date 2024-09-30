@@ -28,12 +28,12 @@
     (defalias 'cl-letf  #'letf)
     (defalias 'cl-letf* #'letf*)))
 
-(defvar gentoo-newsitem-mode-test-input nil)
+(defvar gentoo-newsitem-test-input nil)
 
-(defun gentoo-newsitem-mode-test-input (&rest _args)
-  (concat (pop gentoo-newsitem-mode-test-input)))
+(defun gentoo-newsitem-test-input (&rest _args)
+  (concat (pop gentoo-newsitem-test-input)))
 
-(ert-deftest gentoo-newsitem-mode-test-font-lock ()
+(ert-deftest gentoo-newsitem-test-font-lock ()
   (with-temp-buffer
     (gentoo-newsitem-mode)
     (insert "Author: Larry the Cow\n")
@@ -47,13 +47,13 @@
     (search-forward "Larry")
     (should-not (get-text-property (match-beginning 0) 'face))))
 
-(ert-deftest gentoo-newsitem-mode-test-skeleton ()
+(ert-deftest gentoo-newsitem-test-skeleton ()
   (with-temp-buffer
     (cl-letf (((symbol-function 'read-from-minibuffer)
-	       #'gentoo-newsitem-mode-test-input)
+	       #'gentoo-newsitem-test-input)
 	      ((symbol-function 'read-string)
-	       #'gentoo-newsitem-mode-test-input))
-      (setq gentoo-newsitem-mode-test-input
+	       #'gentoo-newsitem-test-input))
+      (setq gentoo-newsitem-test-input
 	    '("Skeleton test"		; Title
 	      "Larry the Cow <larry@example.org>" "" ; Author
 	      ""			; Translator
@@ -76,7 +76,7 @@
 		       "Revision: 1\n"
 		       "News-Item-Format: 2.0\n\n"))))))
 
-(ert-deftest gentoo-newsitem-mode-test-keybindings ()
+(ert-deftest gentoo-newsitem-test-keybindings ()
   (should (equal (lookup-key gentoo-newsitem-mode-map "\C-c\C-n")
 		 'gentoo-newsitem-insert-skeleton))
   (with-temp-buffer

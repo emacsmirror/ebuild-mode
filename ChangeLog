@@ -1,5 +1,9 @@
 2024-09-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/gentoo-newsitem-mode-tests.el (gentoo-newsitem-test-input)
+	(gentoo-newsitem-test-font-lock, gentoo-newsitem-test-skeleton)
+	(gentoo-newsitem-test-keybindings): Shorten names.
+
 	* test/ebuild-mode-tests.el (ebuild-mode-test-run-with-fixed-time):
 	* test/glep-mode-tests.el (glep-mode-test-run-with-fixed-time):
 	Use func-arity to detect the calling convention for encode-time.
