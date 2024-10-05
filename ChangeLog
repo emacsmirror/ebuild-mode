@@ -1,5 +1,9 @@
 2024-10-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.texi (ebuild-repo-mode): Document the bug-reference
+	feature.
+	(devbook-mode): Add cross reference to the nXML Mode manual.
+
 	* ebuild-mode.el (ebuild-repo-mode): Don't set the bug-reference-*
 	variables if ebuild-mode-enable-bug-reference is nil. Test for
 	bug-reference-prog-mode at run time instead of compile time.

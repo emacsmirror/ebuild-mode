@@ -255,13 +255,27 @@ is commonly used in @file{package.mask} and other files:
 The user's name and e-mail address can be customized with variables
 @code{ebuild-mode-full-name} and @code{ebuild-mode-mail-address}.
 
+By default, @code{ebuild-repo-mode} will enable
+@code{bug-reference-prog-mode}.  This highlights references to bug
+reports and makes it possible to follow them to the Gentoo bug tracker
+(typically by pressing @kbd{C-c RET} or clicking @kbd{mouse-2} on the
+highlighted text).  For example, the reference @samp{bug #161121} in a
+comment line would link to @url{https://bugs.gentoo.org/161121}.
+
+@xref{Bug Reference,,, emacs, The Emacs Editor} for further
+explanation.
+
+You can disable bug references by setting the custom variable
+@code{ebuild-mode-enable-bug-reference} to nil.
+
 @node devbook-mode, gentoo-newsitem-mode, ebuild-eclass-mode, Top
 @chapter devbook-mode for the Gentoo Devmanual
 This is a very simple derived major mode for editing the Devmanual.
 Because the Devmanual is written in DevBook XML, this mode is derived
 from @code{nxml-mode} and inherits its syntax highlighting and editing
-functions.  A skeleton for a new Devmanual file can be inserted via
-the @code{devbook-insert-skeleton} function bound to @kbd{C-c C-n}.
+functions (@pxref{Top,,, nxml-mode, nXML Mode}).  A skeleton for a new
+Devmanual file can be inserted via the @code{devbook-insert-skeleton}
+function bound to @kbd{C-c C-n}.
 
 It is recommended to install the @code{app-emacs/nxml-gentoo-schemas}
 package in addition, which will enable on-the-fly syntax validation.
