@@ -1,3 +1,9 @@
+2024-10-05  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Don't set the bug-reference-*
+	variables if ebuild-mode-enable-bug-reference is nil. Test for
+	bug-reference-prog-mode at run time instead of compile time.
+
 2024-09-30  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-newsitem-mode.el (gentoo-newsitem-mode): Don't set
