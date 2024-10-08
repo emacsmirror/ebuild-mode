@@ -1,5 +1,7 @@
 2024-10-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* Makefile (EMACSFLAGS): Use single hyphen for compatibility.
+
 	* ebuild-mode.el (ebuild-mode-collect-and-split): Preserve order.
 	(ebuild-mode-font-lock-keywords): Add docstring.
 	* test/ebuild-mode-tests.el (ebuild-mode-test-collect-and-split):

@@ -7,7 +7,7 @@ PV = $(shell sed '/^;.*[Vv]ersion/!d;s/[^0-9.]*\([^ \t]*\).*/\1/;q' \
 P = $(PN)-$(PV)
 
 EMACS = emacs
-EMACSFLAGS = -batch -q --no-site-file
+EMACSFLAGS = -batch -q -no-site-file
 BYTECOMPFLAGS = -eval "(add-to-list 'load-path nil)"
 
 DISTFILES = ebuild-mode.el ebuild-mode-keywords.el devbook-mode.el \
