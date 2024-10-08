@@ -1,3 +1,11 @@
+2024-10-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-collect-and-split): Preserve order.
+	(ebuild-mode-font-lock-keywords): Add docstring.
+	* test/ebuild-mode-tests.el (ebuild-mode-test-collect-and-split):
+	Update.
+	(ebuild-mode-test-font-lock-keywords): New test.
+
 2024-10-05  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.texi (ebuild-repo-mode): Document the bug-reference

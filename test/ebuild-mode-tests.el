@@ -66,6 +66,39 @@
 	    (ebuild-mode-time-string "%Y-%m-%d %H:%M:%S")
 	    "2024-08-10 00:00:00"))))
 
+(ert-deftest ebuild-mode-test-collect-and-split ()
+  (let* ((alist '(((a b) z) ((c d) z) ((e) z) ((f) z) ((g h) z)
+		  ((i j) y x) ((k) y x) ((l)) ((m) z) ((n o) y x) ((p))
+		  ((q r s t u v) w)))
+	 (alist-copy (copy-tree alist)))
+    (should (equal (ebuild-mode-collect-and-split alist)
+		   '(((a b c d e f g h m) z) ((i j k n o) y x) ((l p))
+		     ((q r s t u v) w))))
+    (should (equal (ebuild-mode-collect-and-split alist 4)
+		   '(((a b c d) z) ((e f g h) z) ((i j k) y x) ((l p))
+		     ((m) z) ((n o) y x) ((q r s t) w) ((u v) w))))
+    ;; was it non-destructive?
+    (should (equal alist alist-copy))))
+
+(ert-deftest ebuild-mode-test-font-lock-keywords ()
+  (let ((case-fold-search nil)
+	(find-kw (lambda (key)
+		   (catch 'found
+		     (dolist (e ebuild-mode-font-lock-keywords)
+		       (if (string-match (car e) key)
+			   (throw 'found (cdr e))))))))
+    ;; Verify that all regexps are below the 32 KiB limit.
+    ;; Our regexps are ASCII only, so don't bother with string-bytes
+    ;; (GNU Emacs), string-char-byte-conversion-info (XEmacs 21.5),
+    ;; or other horrid incompatibilities.
+    (should (< (apply #'max (mapcar (lambda (e) (length (car e)))
+				    ebuild-mode-font-lock-keywords))
+	       32768))
+    (should (equal (funcall find-kw "doins") 'font-lock-builtin-face))
+    (should (equal (funcall find-kw "elisp-compile") 'font-lock-type-face))
+    (should (equal (funcall find-kw "# @ECLASS") '(1 font-lock-type-face t)))
+    (should-not (funcall find-kw "@ECLASS"))))
+
 (ert-deftest ebuild-mode-test-font-lock ()
   (with-temp-buffer
     (ebuild-mode-test-run-silently
@@ -85,20 +118,6 @@
 		   'font-lock-builtin-face))
     (search-forward "install")
     (should-not (get-text-property (match-beginning 0) 'face))))
-
-(ert-deftest ebuild-mode-test-collect-and-split ()
-  (let* ((alist '(((a b) z) ((c d) z) ((e) z) ((f) z) ((g h) z)
-		  ((i j) y x) ((k) y x) ((l)) ((m) z) ((n o) y x) ((p))
-		  ((q r s t u v) w)))
-	 (alist-copy (copy-tree alist)))
-    (should (equal (ebuild-mode-collect-and-split alist)
-		   '(((q r s t u v) w) ((l p)) ((i j k n o) y x)
-		     ((a b c d e f g h m) z))))
-    (should (equal (ebuild-mode-collect-and-split alist 4)
-		   '(((q r) w) ((s t u v) w) ((n o) y x) ((m) z) ((l p))
-		     ((i j k) y x) ((e f g h) z) ((a b c d) z))))
-    ;; was it non-destructive?
-    (should (equal alist alist-copy))))
 
 (ert-deftest ebuild-mode-test-update-copyright ()
   (let ((ebuild-mode-update-copyright t))

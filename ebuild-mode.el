@@ -297,25 +297,27 @@ Compatibility function for XEmacs."
     "For alist SRC, collect elements with equal cdr and concat their cars.
 Optional argument LIMIT specifies the maximum length for the car
 of the elements."
-    (let (dst e)
-      (dolist (c src dst)
-	(setq e (rassoc (cdr c) dst))
-	(cond
-	 ((and e (or (not limit)
-		     (<= (+ (length (car e)) (length (car c))) limit)))
-	  ;; cdrs of new element C and previous element E are equal,
-	  ;; and their combined length is below LIMIT => append to E
-	  (setcar e (append (car e) (car c))))
-	 ((or (not limit)
-	      (<= (length (car c)) limit))
-	  ;; new element C is small enough => push to DST
-	  (push (cons (car c) (cdr c)) dst))
-	 (t
-	  ;; otherwise, split the new element into chunks of length LIMIT
-	  (let ((cc (car c)))
-	    (while cc
-	      (push (cons (last cc limit) (cdr c)) dst)
-	      (setq cc (butlast cc limit)))))))))
+    (let (dst)
+      (dolist (c src)
+	(let ((e (rassoc (cdr c) dst)))
+	  (cond
+	   ((and e (or (not limit)
+		       (<= (+ (length (car e)) (length (car c))) limit)))
+	    ;; cdrs of new element C and previous element E are equal,
+	    ;; and their combined length is below LIMIT => append to E
+	    (setcar e (append (car e) (car c))))
+	   ((or (not limit)
+		(<= (length (car c)) limit))
+	    ;; new element C is small enough => push to DST
+	    (push (cons (car c) (cdr c)) dst))
+	   (t
+	    ;; otherwise, split the new element into pieces of length LIMIT
+	    (let ((p (copy-sequence (car c))))
+	      (while p
+		(push (cons p (cdr c)) dst)
+		(and (setq p (nthcdr (1- limit) p))
+		     (setq p (prog1 (cdr p) (setcdr p nil))))))))))
+      (nreverse dst)))
   )
 
 (eval-when-compile
@@ -329,8 +331,8 @@ of the elements."
 		     (regexp-opt (car x) t)
 		     (or (nth 3 x) "\\>"))
 	     (cadr x)))
-     ;; Emacs has a limit of 32 kbyte for the size of regular
-     ;; expressions. Unfortunately, this is a hard limit in Emacs'
+     ;; GNU Emacs has a limit of 32 KiB for the size of regular
+     ;; expressions. Unfortunately, this is a hard limit in the
      ;; C code, MAX_BUF_SIZE in regex.c, which cannot be increased.
      ;; Therefore, split the list into several parts with at most
      ;; 1000 keywords; this appears to keep the regexp size below
@@ -345,7 +347,8 @@ of the elements."
 	    ebuild-mode-keywords-eclassdoc
 	    ebuild-mode-keywords-eclassdoc-warn
 	    ebuild-mode-keywords-eclass)
-      1000))))
+      1000)))
+  "Expressions to highlight in `ebuild-mode'.")
 
 ;;; Mode definitions.
 
