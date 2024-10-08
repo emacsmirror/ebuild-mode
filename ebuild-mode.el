@@ -150,33 +150,19 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 
 (defvar ebuild-mode-arch-stable-list
   (or
-   ;; try to read arches.desc (GLEP 72) first, then profiles.desc
+   ;; try to read arches.desc (GLEP 72) first
    (condition-case nil
        (with-temp-buffer
 	 (insert-file-contents-literally
 	  (concat ebuild-mode-portdir "/profiles/arches.desc"))
-	 (let (arch archs)
+	 (let (archs)
 	   (while (re-search-forward
 		   "^[ \t]*\\([^ \t\n#]+\\)[ \t]+\\(stable\\|transitional\\)\\>"
 		   nil t)
-	     (setq arch (match-string 1))
-	     (and (not (member arch archs))
-		  (member arch ebuild-mode-arch-list)
-		  (push arch archs)))
-	   (sort archs #'ebuild-mode-arch-lessp)))
-     (file-error nil))
-   (condition-case nil
-       (with-temp-buffer
-	 (insert-file-contents-literally
-	  (concat ebuild-mode-portdir "/profiles/profiles.desc"))
-	 (let (arch archs)
-	   (while (re-search-forward
-		   "^[ \t]*\\([^ \t\n#]+\\)[ \t]+[^ \t\n#]+[ \t]+stable\\>"
-		   nil t)
-	     (setq arch (match-string 1))
-	     (and (not (member arch archs))
-		  (member arch ebuild-mode-arch-list)
-		  (push arch archs)))
+	     (let ((arch (match-string 1)))
+	       (and (not (member arch archs))
+		    (member arch ebuild-mode-arch-list)
+		    (push arch archs))))
 	   (sort archs #'ebuild-mode-arch-lessp)))
      (file-error nil))
    ;; fall back to list of all architectures

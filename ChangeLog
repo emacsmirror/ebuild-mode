@@ -1,5 +1,8 @@
 2024-10-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-arch-stable-list): Don't fall back
+	to profiles.desc to determine whether an arch has stable keywords.
+
 	* Makefile (EMACSFLAGS): Use single hyphen for compatibility.
 
 	* ebuild-mode.el (ebuild-mode-collect-and-split): Preserve order.
