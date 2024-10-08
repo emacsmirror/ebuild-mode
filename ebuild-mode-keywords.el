@@ -83,7 +83,7 @@
 
 (defvar ebuild-mode-keywords-warn
   ;; warn about "which" usage, see <200703121910.26067.vapier@gentoo.org>
-  ;; https://archives.gentoo.org/gentoo-dev/message/e04d4db72572dd5fec48e87c6b18c525
+  ;; https://public-inbox.gentoo.org/gentoo-dev/200703121910.26067.vapier@gentoo.org/
   '(("which")
     font-lock-warning-face))
 
