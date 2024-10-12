@@ -182,9 +182,9 @@ Calls the external \"glep\" command."
   (interactive)
   (or buffer-file-name
       (error "No file for this buffer"))
-  (let* ((rst-file (file-relative-name buffer-file-name))
-	 (html-file (concat (file-name-sans-extension rst-file) ".html")))
-    (compile (format "glep %s %s" rst-file html-file))))
+  (let* ((src (file-relative-name buffer-file-name))
+	 (dst (concat (file-name-sans-extension src) ".html")))
+    (compile (format "glep %s %s" src dst))))
 
 ;;; Skeleton support.
 

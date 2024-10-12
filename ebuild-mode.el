@@ -343,19 +343,17 @@ of the elements."
   ;; We cannot use the following since XEmacs doesn't support tabify-regexp.
   ;;(let ((tabify-regexp "^\t* [ \t]+"))
   ;;  (tabify (point-min) (point-max)))
-  (let ((tabify-regexp "^\t* [ \t]+")
-	(indent-tabs-mode t))
+  (let ((indent-tabs-mode t))
     (save-excursion
       (goto-char (point-min))
-      (while (re-search-forward tabify-regexp nil t)
-	(let ((end-col (current-column))
-	      (beg-col (save-excursion (goto-char (match-beginning 0))
-				       (skip-chars-forward "\t")
-				       (current-column))))
-	  (if (= (/ end-col tab-width) (/ beg-col tab-width))
-	      nil
+      (while (re-search-forward "^\t* [ \t]+" nil t)
+	(let ((end (current-column))
+	      (beg (save-excursion (goto-char (match-beginning 0))
+				   (skip-chars-forward "\t")
+				   (current-column))))
+	  (unless (= (/ end tab-width) (/ beg tab-width))
 	    (delete-region (match-beginning 0) (point))
-	    (indent-to end-col)))))))
+	    (indent-to end)))))))
 
 (defun ebuild-mode-delete-trailing-whitespace ()
   "Delete all the trailing spaces and tabs across the current buffer."
@@ -378,12 +376,12 @@ of the elements."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil)
-	  (update-year (or (nlistp ebuild-mode-update-copyright)
-			   (nth 0 ebuild-mode-update-copyright)))
-	  (update-author (or (nlistp ebuild-mode-update-copyright)
-			     (nth 1 ebuild-mode-update-copyright))))
+	  (updyear (or (nlistp ebuild-mode-update-copyright)
+		       (nth 0 ebuild-mode-update-copyright)))
+	  (updauth (or (nlistp ebuild-mode-update-copyright)
+		       (nth 1 ebuild-mode-update-copyright))))
       (when (re-search-forward ebuild-mode-copyright-regexp 400 t)
-	(if update-year
+	(if updyear
 	    (save-match-data
 	      (let* ((y1 (string-to-number (match-string 1)))
 		     (y2 (and (match-string 2)
@@ -406,7 +404,7 @@ of the elements."
 				"Suspicious copyright year: %d" y1))
 			((/= y1 y)
 			 (replace-match (concat "\\1-" year) t nil nil 1)))))))
-	(if update-author
+	(if updauth
 	    ;; Update default author in copyright notice
 	    (if (string-equal (match-string 3) "Gentoo Foundation")
 		(replace-match "Gentoo Authors" t t nil 3)))))))
@@ -467,14 +465,14 @@ If nil, `compilation-mode' will be used.")
   (or buffer-file-name
       (error "No file for this buffer"))
   (let* ((file (file-relative-name buffer-file-name))
-	 (shell-command (format "ebuild %s %s" file command))
+	 (cmd (format "ebuild %s %s" file command))
 	 (process-environment (append ebuild-mode-process-environment
 				      process-environment))
 	 ;;(compilation-mode-hook (lambda () (setq truncate-lines t)))
 	 (compilation-buffer-name-function (lambda (_mode) "*ebuild*")))
     (static-if (featurep 'xemacs)
-	(compile shell-command)
-      (compile shell-command ebuild-log-buffer-mode))))
+	(compile cmd)
+      (compile cmd ebuild-log-buffer-mode))))
 
 ;; Define functions for all ebuild subcommands
 (dolist (command ebuild-commands-list)
@@ -639,13 +637,13 @@ sequences, instead of a simple double-quoted string.
 This function supports only escape sequences that can occur in
 the output of the \"declare -p\" Bash command."
   (let ((case-fold-search nil)
-	(decode-re (if ansi-c
-		       "\\\\\\([abtnvfreE\\'\"?]\\|[0-7]\\{1,3\\}\\)"
-		     "\\\\\\([$`\"\\\n]\\)"))
-	(decode-alist '((?a . ?\a) (?b . ?\b) (?t . ?\t) (?n . ?\n) (?v . ?\v)
-			(?f . ?\f) (?r . ?\r) (?e . ?\e) (?E . ?\e)))
+	(re (if ansi-c
+		"\\\\\\([abtnvfreE\\'\"?]\\|[0-7]\\{1,3\\}\\)"
+	      "\\\\\\([$`\"\\\n]\\)"))
+	(map '((?a . ?\a) (?b . ?\b) (?t . ?\t) (?n . ?\n) (?v . ?\v)
+	       (?f . ?\f) (?r . ?\r) (?e . ?\e) (?E . ?\e)))
 	i)
-    (while (setq i (string-match decode-re s i))
+    (while (setq i (string-match re s i))
       (let* ((m (match-string 1 s))
 	     (c (aref m 0))
 	     (byte (cond ((and (>= c ?0) (< c ?8))
@@ -654,7 +652,7 @@ the output of the \"declare -p\" Bash command."
 			    (dotimes (j (length m))
 			      (setq n (+ (* n 8) (- (aref m j) ?0))))
 			    (logand n #xff)))
-			 ((cdr (assq c decode-alist)))
+			 ((cdr (assq c map)))
 			 (t c))))
 	(setq s (replace-match
 		 (static-if (fboundp 'byte-to-string)
@@ -702,12 +700,12 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
   "Visit the build log for the ebuild in this buffer.
 With prefix argument OTHER-WINDOW, visit the directory in another window."
   (interactive "P")
-  (let ((build-log (concat (ebuild-mode-get-builddir) "/temp/build.log")))
-    (unless (file-readable-p build-log)
-      (error "Cannot read file \"%s\"" build-log))
+  (let ((file (concat (ebuild-mode-get-builddir) "/temp/build.log")))
+    (unless (file-readable-p file)
+      (error "Cannot read file \"%s\"" file))
     (if other-window
-	(find-file-other-window build-log)
-      (find-file build-log))
+	(find-file-other-window file)
+      (find-file file))
     ;; decode ANSI SGR control sequences if possible (tty-format.el)
     (and (assq 'ansi-colors format-alist)
 	 (save-excursion
@@ -746,16 +744,16 @@ optional second argument NOERROR is non-nil."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil)
-	  (kw-string (mapconcat
-		      (lambda (e) (concat (cdr e) (car e))) kw " ")))
+	  (kwstring (mapconcat
+		     (lambda (e) (concat (cdr e) (car e))) kw " ")))
       (cond
        ((not (re-search-forward ebuild-mode-arch-regexp nil t))
 	(unless noerror (error "No KEYWORDS assignment found")))
        ((re-search-forward ebuild-mode-arch-regexp nil t)
 	(unless noerror (error "More than one KEYWORDS assignment found")))
        (t
-	(unless (string-equal kw-string (match-string 1))
-	  (replace-match kw-string t t nil 1)))))))
+	(unless (string-equal kwstring (match-string 1))
+	  (replace-match kwstring t t nil 1)))))))
 
 (defun ebuild-mode-modify-keywords (kw)
   "Set keywords.  KW is an alist of architectures and leaders."
@@ -763,12 +761,12 @@ optional second argument NOERROR is non-nil."
     (dolist (k kw)
       (let* ((arch (car k))
 	     (leader (cdr k))
-	     (old-k (assoc arch keywords)))
+	     (oldk (assoc arch keywords)))
 	(cond
 	 ;; remove keywords
 	 ((null leader)
 	  (setq keywords (and (not (string-equal arch "all"))
-			      (delq old-k keywords))))
+			      (delq oldk keywords))))
 	 ;; modify all non-masked keywords in the list
 	 ((string-equal arch "all")
 	  (dolist (e keywords)
@@ -780,7 +778,7 @@ optional second argument NOERROR is non-nil."
 			   ebuild-mode-arch-list))
 		 (setcdr e leader))))
 	 ;; modify keyword
-	 (old-k (setcdr old-k leader))
+	 (oldk (setcdr oldk leader))
 	 ;; add keyword
 	 (t (setq keywords (cons k keywords))))))
     (ebuild-mode-put-keywords

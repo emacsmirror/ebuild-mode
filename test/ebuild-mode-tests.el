@@ -70,7 +70,7 @@
   (let* ((alist '(((a b) z) ((c d) z) ((e) z) ((f) z) ((g h) z)
 		  ((i j) y x) ((k) y x) ((l)) ((m) z) ((n o) y x) ((p))
 		  ((q r s t u v) w)))
-	 (alist-copy (copy-tree alist)))
+	 (alist1 (copy-tree alist)))
     (should (equal (ebuild-mode-collect-and-split alist)
 		   '(((a b c d e f g h m) z) ((i j k n o) y x) ((l p))
 		     ((q r s t u v) w))))
@@ -78,11 +78,11 @@
 		   '(((a b c d) z) ((e f g h) z) ((i j k) y x) ((l p))
 		     ((m) z) ((n o) y x) ((q r s t) w) ((u v) w))))
     ;; was it non-destructive?
-    (should (equal alist alist-copy))))
+    (should (equal alist alist1))))
 
 (ert-deftest ebuild-mode-test-font-lock-keywords ()
   (let ((case-fold-search nil)
-	(find-kw (lambda (key)
+	(findkey (lambda (key)
 		   (catch 'found
 		     (dolist (e ebuild-mode-font-lock-keywords)
 		       (if (string-match (car e) key)
@@ -94,10 +94,10 @@
     (should (< (apply #'max (mapcar (lambda (e) (length (car e)))
 				    ebuild-mode-font-lock-keywords))
 	       32768))
-    (should (equal (funcall find-kw "doins") 'font-lock-builtin-face))
-    (should (equal (funcall find-kw "elisp-compile") 'font-lock-type-face))
-    (should (equal (funcall find-kw "# @ECLASS") '(1 font-lock-type-face t)))
-    (should-not (funcall find-kw "@ECLASS"))))
+    (should (equal (funcall findkey "doins") 'font-lock-builtin-face))
+    (should (equal (funcall findkey "elisp-compile") 'font-lock-type-face))
+    (should (equal (funcall findkey "# @ECLASS") '(1 font-lock-type-face t)))
+    (should-not (funcall findkey "@ECLASS"))))
 
 (ert-deftest ebuild-mode-test-font-lock ()
   (with-temp-buffer
@@ -265,9 +265,9 @@
 (ert-deftest ebuild-mode-test-bug-url ()
   (skip-unless (fboundp 'bug-reference-prog-mode))
   (let* ((ebuild-mode-enable-bug-reference t)
-	 url-found
+	 found
 	 (browse-url-browser-function
-	  (lambda (url &rest _args) (setq url-found url))))
+	  (lambda (url &rest _args) (setq found url))))
     (with-temp-buffer
       (insert "# abc #876543 xyz\n"
 	      "# bug 765432\n")
@@ -277,15 +277,15 @@
       (goto-char (point-min))
       (search-forward "#" nil nil 2)
       (bug-reference-push-button (point))
-      (should (equal url-found "https://bugs.gentoo.org/876543"))
-      (setq url-found nil)
+      (should (equal found "https://bugs.gentoo.org/876543"))
+      (setq found nil)
       (search-forward "bug")
       (bug-reference-push-button (point))
-      (should (equal url-found "https://bugs.gentoo.org/765432"))
-      (setq url-found nil)
+      (should (equal found "https://bugs.gentoo.org/765432"))
+      (setq found nil)
       (bug-reference-push-button (point-min))
       (bug-reference-push-button (point-max))
-      (should-not url-found))))
+      (should-not found))))
 
 (ert-deftest ebuild-mode-test-insert-tag-line ()
   (let ((ebuild-mode-full-name "Larry the Cow")

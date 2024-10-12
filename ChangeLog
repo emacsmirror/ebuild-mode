@@ -1,3 +1,14 @@
+2024-10-12  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-tabify): Do not let-bind
+	tabify-regexp because it is a special variable.
+	(ebuild-run-command): Ditto for shell-command.
+	* ebuild-mode.el:
+	* glep-mode.el:
+	* test/ebuild-mode-tests.el: Use unhyphenated names for lexical
+	variables throughout, in order not to accidentally override any
+	special variables.
+
 2024-10-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-arch-stable-list): Don't fall back
