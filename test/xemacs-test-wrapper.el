@@ -7,7 +7,7 @@
 ;; harness.
 
 ;; Run the tests:
-;; xemacs -batch -q --no-site-file -eval "(add-to-list 'load-path nil)" \
+;; xemacs -batch -q -no-site-file -eval "(add-to-list 'load-path nil)" \
 ;; -l test/xemacs-test-wrapper -f batch-test-emacs test/mytest.el
 
 (require 'test-harness)
