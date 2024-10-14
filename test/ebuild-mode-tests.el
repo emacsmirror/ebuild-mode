@@ -84,14 +84,14 @@
   (let ((case-fold-search nil)
 	(findkey (lambda (key)
 		   (catch 'found
-		     (dolist (e ebuild-mode-font-lock-keywords)
-		       (if (string-match (car e) key)
-			   (throw 'found (cdr e))))))))
+		     (dolist (c ebuild-mode-font-lock-keywords)
+		       (if (string-match (car c) key)
+			   (throw 'found (cdr c))))))))
     ;; Verify that all regexps are below the 32 KiB limit.
     ;; Our regexps are ASCII only, so don't bother with string-bytes
     ;; (GNU Emacs), string-char-byte-conversion-info (XEmacs 21.5),
     ;; or other horrid incompatibilities.
-    (should (< (apply #'max (mapcar (lambda (e) (length (car e)))
+    (should (< (apply #'max (mapcar (lambda (c) (length (car c)))
 				    ebuild-mode-font-lock-keywords))
 	       32768))
     (should (equal (funcall findkey "doins") 'font-lock-builtin-face))

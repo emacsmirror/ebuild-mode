@@ -285,13 +285,13 @@ Optional argument LIMIT specifies the maximum length for the car
 of the elements."
     (let (dst)
       (dolist (c src)
-	(let ((e (rassoc (cdr c) dst)))
+	(let ((d (rassoc (cdr c) dst)))
 	  (cond
-	   ((and e (or (not limit)
-		       (<= (+ (length (car e)) (length (car c))) limit)))
-	    ;; cdrs of new element C and previous element E are equal,
-	    ;; and their combined length is below LIMIT => append to E
-	    (setcar e (append (car e) (car c))))
+	   ((and d (or (not limit)
+		       (<= (+ (length (car d)) (length (car c))) limit)))
+	    ;; cdrs of new element C and previous element D are equal,
+	    ;; and their combined length is below LIMIT => append to D
+	    (setcar d (append (car d) (car c))))
 	   ((or (not limit)
 		(<= (length (car c)) limit))
 	    ;; new element C is small enough => push to DST
@@ -744,8 +744,8 @@ optional second argument NOERROR is non-nil."
   (save-excursion
     (goto-char (point-min))
     (let ((case-fold-search nil)
-	  (kwstring (mapconcat
-		     (lambda (e) (concat (cdr e) (car e))) kw " ")))
+	  (kwstring (mapconcat (lambda (x) (concat (cdr x) (car x)))
+			       kw " ")))
       (cond
        ((not (re-search-forward ebuild-mode-arch-regexp nil t))
 	(unless noerror (error "No KEYWORDS assignment found")))
@@ -769,14 +769,12 @@ optional second argument NOERROR is non-nil."
 			      (delq oldk keywords))))
 	 ;; modify all non-masked keywords in the list
 	 ((string-equal arch "all")
-	  (dolist (e keywords)
-	    (and (or (equal (cdr e) "")
-		     (equal (cdr e) "~"))
-		 (member (car e)
-			 (if (equal leader "")
-			     ebuild-mode-arch-stable-list
-			   ebuild-mode-arch-list))
-		 (setcdr e leader))))
+	  (dolist (j keywords)
+	    (and (member (cdr j) '("" "~"))
+		 (member (car j) (if (equal leader "")
+				     ebuild-mode-arch-stable-list
+				   ebuild-mode-arch-list))
+		 (setcdr j leader))))
 	 ;; modify keyword
 	 (oldk (setcdr oldk leader))
 	 ;; add keyword
