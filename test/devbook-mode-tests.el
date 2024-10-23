@@ -31,6 +31,25 @@
 (defun devbook-mode-test-input (&rest _args)
   (concat (pop devbook-mode-test-input)))
 
+(ert-deftest devbook-mode-test-locate-schema ()
+  (cl-letf* ((rncfile "/home/larry/devmanual/devbook.rnc")
+	     ((symbol-function 'file-exists-p)
+	      (lambda (file) (string-equal file rncfile)))
+	     ((symbol-function 'file-directory-p)
+	      (lambda (_file) t))
+	     ((symbol-function 'insert-file-contents)
+	      (lambda (file &rest _args)
+		(unless (string-equal file rncfile)
+		  (signal 'file-missing nil))
+		(insert "start = element foo { empty }\n"))))
+    (let ((buffer-file-name "/home/larry/devmanual/quickstart/text.xml"))
+      (devbook-locate-schema-file)
+      (should (equal rng-current-schema-file-name rncfile)))
+    (let ((buffer-file-name "/home/larry/elsewhere/text.xml"))
+      (should (equal
+	       (should-error (devbook-locate-schema-file))
+	       '(error "Schema file devbook.rnc not found"))))))
+
 (ert-deftest devbook-mode-test-skeleton ()
   (with-temp-buffer
     (cl-letf (((symbol-function 'read-from-minibuffer)

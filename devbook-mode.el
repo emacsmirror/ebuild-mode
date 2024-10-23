@@ -44,7 +44,7 @@ NOERROR is non-nil."
 	   (condition-case err
 	       (progn
 		 (rng-set-schema-file-1 file)
-		 (rng-what-schema))
+		 (unless noninteractive (rng-what-schema)))
 	     (error (unless noerror (signal (car err) (cdr err))))))
 	  (noerror nil)
 	  (t (error "Schema file %s not found" devbook-schema-file-name)))))
