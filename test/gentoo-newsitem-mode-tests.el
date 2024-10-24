@@ -64,6 +64,7 @@
 	      ""))			; Display-If-Profile
       (if (featurep 'xemacs)
 	  ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
+	  ;; https://foss.heptapod.net/xemacs/xemacs/-/issues/6
 	  (cl-letf (((symbol-function 'pos-visible-in-window-p)
 		     (lambda (&rest _args) t)))
 	    (gentoo-newsitem-insert-skeleton))
