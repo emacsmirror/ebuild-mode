@@ -462,7 +462,7 @@ If nil, `compilation-mode' will be used.")
     `(lambda (&optional clean)
        ,(format
 	 "Run ebuild \"%s\" command, with output to a compilation buffer.
-With prefix argument CLEAN, run the \"clean\" command first"
+With prefix argument CLEAN, run the \"clean\" command first."
 	 command)
        (interactive "P")
        (ebuild-run-command (concat (if clean "clean ") ,command)))))

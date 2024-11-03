@@ -1,5 +1,7 @@
 2024-11-03  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-run-command-*): Doc fix.
+
 	* ebuild-mode.el (ebuild-mode-get-completion-function):
 	(ebuild-mode-get-keywords, ebuild-mode-unescape-string):
 	* test/ebuild-mode-tests.el (ebuild-mode-test-unescape-string):
