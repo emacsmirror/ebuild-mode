@@ -338,7 +338,6 @@ of the elements."
 (defun ebuild-mode-delete-trailing-whitespace ()
   "Delete all the trailing spaces and tabs across the current buffer."
   ;; Simple non-interactive version of delete-trailing-whitespace
-  ;; which doesn't exist in XEmacs
   (save-excursion
     (goto-char (point-min))
     (while (re-search-forward "[ \t]+$" nil t)
@@ -481,12 +480,7 @@ must be non-nil for this to have any effect."
   "Get completion function for completion mode MODE."
   (cond ((null mode) #'try-completion)
 	((eq mode t) #'all-completions)
-	((eq mode 'lambda)
-	 (static-if (fboundp 'test-completion)
-	     #'test-completion
-	   ;; XEmacs 21.4 doesn't have test-completion
-	   (lambda (&rest args)
-	     (eq (apply #'try-completion args) t))))
+	((eq mode 'lambda) #'test-completion)
 	(t #'ignore)))
 
 (defun ebuild-mode-ebuild-cmd-complete (s predicate mode)
@@ -626,12 +620,8 @@ the output of the \"declare -p\" Bash command."
     (while (setq i (string-match re s i))
       (let* ((m (match-string 1 s))
 	     (c (aref m 0))
-	     (byte (cond ((and (>= c ?0) (< c ?8))
-			  ;; no string-to-number with base in XEmacs 21.4
-			  (let ((n 0))
-			    (dotimes (j (length m))
-			      (setq n (+ (* n 8) (- (aref m j) ?0))))
-			    (logand n #xff)))
+	     (byte (cond ((<= ?0 c ?7)
+			  (logand (string-to-number m 8) #xff))
 			 ((cdr (assq c map)))
 			 (t c))))
 	(setq s (replace-match
@@ -712,10 +702,7 @@ optional argument NOERROR is non-nil."
 	(mapcar (lambda (s)
 		  (string-match "^\\([-~]?\\)\\(.*\\)" s)
 		  (cons (match-string 2 s) (match-string 1 s)))
-		(split-string
-		 ;;(match-string-no-properties 1) ; not in XEmacs 21.4
-		 (buffer-substring-no-properties (match-beginning 1)
-						 (match-end 1)))))))))
+		(split-string (match-string-no-properties 1))))))))
 
 (defun ebuild-mode-put-keywords (kw &optional noerror)
   "Replace the ebuild's KEYWORDS by those given in the string KW.

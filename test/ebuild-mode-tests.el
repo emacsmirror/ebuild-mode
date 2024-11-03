@@ -163,11 +163,11 @@
   (should (string-equal
 	   (ebuild-mode-unescape-string "äöü" 'ansi-c)
 	   "äöü"))
-  (let ((s (ebuild-mode-unescape-string "\\360\\237\\221\\215" 'ansi-c)))
-    (if (or (not (featurep 'xemacs))
-	    (emacs-version>= 21 5))
-	(setq s (decode-coding-string s 'utf-8-unix)))
-    (should (string-equal s "👍"))))
+  (should (string-equal
+	   (decode-coding-string
+	    (ebuild-mode-unescape-string "\\360\\237\\221\\215" 'ansi-c)
+	    'utf-8-unix)
+	   "👍")))
 
 (ert-deftest ebuild-mode-test-get-keywords ()
   (with-temp-buffer
