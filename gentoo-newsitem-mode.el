@@ -78,7 +78,7 @@
     (setq v2 (point-marker))
     nil)
   "Posted: " (skeleton-read "Date of posting: "
-			    (ebuild-mode-time-string "%Y-%m-%d"))
+			    (format-time-string "%Y-%m-%d" nil t))
   "\n"
   "Revision: 1\n"
   "News-Item-Format: "

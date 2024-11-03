@@ -256,26 +256,6 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 	`(progn ,@else)))
     ))
 
-(defun ebuild-mode-time-string (format-string &optional time)
-  "Use FORMAT-STRING to format the time value TIME.
-Calls `format-time-string' (which see) for the UTC time zone.
-Compatibility function for XEmacs."
-  (static-if (and (featurep 'xemacs)
-		  (not (function-allows-args #'format-time-string 3)))
-      ;; format-time-string in older XEmacs versions can take only two
-      ;; arguments. Version 21.5.35 still doesn't support a time zone
-      ;; as third argument, but accepts non-nil to mean Universal Time.
-      (let ((process-environment (copy-sequence process-environment))
-	    (tz (getenv "TZ")))
-	(unwind-protect
-	    (progn
-	      (setenv "TZ" "UTC")
-	      (format-time-string format-string time))
-	  ;; This is needed because setenv handles TZ specially.
-	  ;; So, restoring the environment is not enough.
-	  (setenv "TZ" tz)))
-    (format-time-string format-string time t)))
-
 ;;; Font-lock.
 
 (eval-and-compile
@@ -386,7 +366,7 @@ of the elements."
 	      (let* ((y1 (string-to-number (match-string 1)))
 		     (y2 (and (match-string 2)
 			      (string-to-number (match-string 2))))
-		     (year (save-match-data (ebuild-mode-time-string "%Y")))
+		     (year (save-match-data (format-time-string "%Y" nil t)))
 		     (y (string-to-number year)))
 		(if y2
 		    ;; Update range of years
@@ -852,7 +832,7 @@ that shall be manipulated."
   "Insert a statement skeleton for a new ebuild."
   nil
   ;; standard header
-  "# Copyright " (ebuild-mode-time-string "%Y") " Gentoo Authors\n"
+  "# Copyright " (format-time-string "%Y" nil t) " Gentoo Authors\n"
   "# Distributed under the terms of the GNU General Public License v2\n"
   "\n"
   "EAPI="
@@ -1042,7 +1022,7 @@ in a Gentoo profile."
 		       " "))
 	  (format "%s <%s> (%s)\n"
 		  ebuild-mode-full-name ebuild-mode-mail-address
-		  (ebuild-mode-time-string "%Y-%m-%d"))))
+		  (format-time-string "%Y-%m-%d" nil t))))
 
 ;;; Key bindings.
 

@@ -64,7 +64,7 @@ For efficiency only.  Unlimited if nil.")
   "Update the Last-Modified date."
   (save-excursion
     (goto-char (point-min))
-    (let ((date (ebuild-mode-time-string "%Y-%m-%d"))
+    (let ((date (format-time-string "%Y-%m-%d" nil t))
 	  (case-fold-search nil))
       (and (re-search-forward glep-mode-last-modified-re
 			      glep-mode-preamble-limit t)
@@ -231,8 +231,8 @@ Calls the external \"glep\" command."
    nil 'confirm "Draft")
   "\n"
   "Version: " (skeleton-read "Version: " "1") "\n"
-  "Created: " (ebuild-mode-time-string "%Y-%m-%d") "\n"
-  "Last-Modified: " (ebuild-mode-time-string "%Y-%m-%d") "\n"
+  "Created: " (format-time-string "%Y-%m-%d" nil t) "\n"
+  "Last-Modified: " (format-time-string "%Y-%m-%d" nil t) "\n"
   "Post-History: \n"
   "Content-Type: text/x-rst\n"
   ((skeleton-read "Requires: (null string if none): ") "Requires: " str "\n")

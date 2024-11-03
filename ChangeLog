@@ -1,3 +1,16 @@
+2024-11-03  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-time-string): Delete compatibility
+	function for XEmacs 21.4.
+	(ebuild-mode-update-copyright, ebuild-mode-insert-skeleton)
+	(ebuild-mode-insert-tag-line): Update all callers.
+	* gentoo-newsitem-mode.el (gentoo-newsitem-insert-skeleton):
+	* glep-mode.el (glep-mode-update-last-modified)
+	(glep-mode-insert-skeleton): Update all callers.
+	* test/ebuild-mode-tests.el
+	(ebuild-mode-test-run-with-fixed-time): Update macro.
+	(ebuild-mode-test-time-string): Delete test.
+
 2024-10-23  Ulrich Müller  <ulm@gentoo.org>
 
 	* devbook-mode.el (devbook-locate-schema-file): Be less verbose

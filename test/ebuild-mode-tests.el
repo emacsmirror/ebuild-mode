@@ -32,15 +32,12 @@
   (let ((encode-time (if (and (fboundp 'func-arity)
 			      (>= 1 (car (func-arity 'encode-time))))
 			 ;; new calling convention since Emacs 27
-			 '(encode-time) '(apply #'encode-time)))
-	(zone (if (or (not (featurep 'xemacs))
-		      (function-allows-args #'format-time-string 3))
-		  (list 'zone))))
+			 '(encode-time) '(apply #'encode-time))))
     `(cl-letf* ((fixed-time (,@encode-time '(0 0 0 10 8 2024 nil nil 0)))
 		(orig-fun (symbol-function 'format-time-string))
 		((symbol-function 'format-time-string)
-		 (lambda (fmt-string &optional time ,@zone)
-		   (funcall orig-fun fmt-string (or time fixed-time) ,@zone))))
+		 (lambda (fmt-string &optional time zone)
+		   (funcall orig-fun fmt-string (or time fixed-time) zone))))
        ,@body)))
 
 (defmacro ebuild-mode-test-run-silently (&rest body)
@@ -59,12 +56,6 @@
   (should (ebuild-mode-arch-lessp "amd64" "x86"))
   (should-not (ebuild-mode-arch-lessp "amd64-linux" "x86"))
   (should (ebuild-mode-arch-lessp "x86-linux" "ppc-macos")))
-
-(ert-deftest ebuild-mode-test-time-string ()
-  (ebuild-mode-test-run-with-fixed-time
-   (should (string-equal
-	    (ebuild-mode-time-string "%Y-%m-%d %H:%M:%S")
-	    "2024-08-10 00:00:00"))))
 
 (ert-deftest ebuild-mode-test-collect-and-split ()
   (let* ((alist '(((a b) z) ((c d) z) ((e) z) ((f) z) ((g h) z)
