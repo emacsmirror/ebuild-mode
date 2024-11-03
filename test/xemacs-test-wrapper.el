@@ -17,7 +17,11 @@
 
 (defmacro ert-deftest (name _args &rest body)
   `(condition-case nil
-       (progn ,@body)
+       ;; XEmacs 21.5.35 displays random info-level warnings,
+       ;; e.g. for "format" called with too many arguments.
+       ;; Increase the minimum level to silence them.
+       (let ((log-warning-minimum-level 'notice))
+	 ,@body)
      (test-skipped (message "SKIP: %s" ',name))))
 
 (defun skip-unless (cond)

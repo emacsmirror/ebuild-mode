@@ -1,5 +1,8 @@
 2024-11-03  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/xemacs-test-wrapper.el (ert-deftest): Silence info-level
+	warnings in XEmacs 21.5.
+
 	* ebuild-mode.el (ebuild-run-command-*): Doc fix.
 
 	* ebuild-mode.el (ebuild-mode-get-completion-function):
