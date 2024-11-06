@@ -26,8 +26,9 @@
 (defmacro devbook-mode-test-run-silently (&rest body)
   `(let ((inhibit-message t)) ,@body))
 
-(ert-deftest devbook-mode-test-locate-schema ()
+(ert-deftest devbook-mode-test-set-schema ()
   (cl-letf* ((rncfile "/home/larry/devmanual/devbook.rnc")
+	     (rncschema "start = element foo { empty }\n")
 	     ((symbol-function 'file-exists-p)
 	      (lambda (file) (string-equal file rncfile)))
 	     ((symbol-function 'file-directory-p)
@@ -36,14 +37,15 @@
 	      (lambda (file &rest _args)
 		(unless (string-equal file rncfile)
 		  (signal 'file-missing nil))
-		(insert "start = element foo { empty }\n"))))
+		(insert rncschema))))
     (let ((buffer-file-name "/home/larry/devmanual/quickstart/text.xml"))
-      (devbook-locate-schema-file)
-      (should (equal rng-current-schema-file-name rncfile)))
-    (let ((buffer-file-name "/home/larry/elsewhere/text.xml"))
+      (should (equal (devbook-set-schema) rncfile))
+      (setq rncschema "foo = element foo { empty }\n") ; bad schema
       (should (equal
-	       (should-error (devbook-locate-schema-file))
-	       '(error "Schema file devbook.rnc not found"))))))
+	       (car (should-error (devbook-set-schema)))
+	       'rng-c-incorrect-schema)))
+    (let ((buffer-file-name "/home/larry/elsewhere/text.xml"))
+      (should-not (devbook-set-schema)))))
 
 (ert-deftest devbook-mode-test-skeleton ()
   (with-temp-buffer

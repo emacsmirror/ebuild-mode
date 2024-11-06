@@ -1,5 +1,12 @@
 2024-11-06  Ulrich Müller  <ulm@gentoo.org>
 
+	* devbook-mode.el (devbook-set-schema): Renamed from
+	devbook-locate-schema-file. Call rng-locate-schema-file first,
+	then fall back to parent directories.
+	(devbook-mode): Update caller.
+	* test/devbook-mode-tests.el (devbook-mode-test-set-schema):
+	Renamed from devbook-mode-test-locate-schema and updated.
+
 	* test/ebuild-mode-tests.el (ebuild-mode-test-skeleton):
 	* test/glep-mode-tests.el (glep-mode-test-skeleton):
 	* test/gentoo-newsitem-mode-tests.el

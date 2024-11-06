@@ -30,24 +30,34 @@
 
 (defvar devbook-schema-file-name "devbook.rnc")
 
-(defun devbook-locate-schema-file (&optional noerror)
-  "Look for a devbook schema file in any parent directory.
-If successful, load it as the schema for the current buffer.
-Otherwise, signal an error, or return nil if the optional argument
-NOERROR is non-nil."
+(defun devbook-set-schema (&optional noerror)
+  "Set the schema for this buffer.
+Call `rng-locate-schema-file' first, which tries to locate a schema
+based on the buffer's contents and file-name.  If unsuccessful,
+look for a devbook schema file in any parent directory.  If no
+schema file could be found either way, use the vacuous schema which
+allows any well-formed XML.
+
+Optional argument NOERROR suppresses signalling of any errors.
+Return the schema file name, or nil if no schema was found."
   (interactive "P")
-  (let* ((dir (and buffer-file-name
-		   (locate-dominating-file buffer-file-name
-					   devbook-schema-file-name)))
-	 (file (and dir (expand-file-name devbook-schema-file-name dir))))
-    (cond (file
-	   (condition-case err
-	       (progn
-		 (rng-set-schema-file-1 file)
-		 (unless noninteractive (rng-what-schema)))
-	     (error (unless noerror (signal (car err) (cdr err))))))
-	  (noerror nil)
-	  (t (error "Schema file %s not found" devbook-schema-file-name)))))
+  (condition-case err
+      (rng-set-schema-file-1
+       (or (cl-letf* ((origfn (symbol-function 'rng-document-element))
+		      ;; make sure that rng-document-element returns
+		      ;; a document element even if the buffer is empty
+		      ((symbol-function 'rng-document-element)
+		       (lambda ()
+			 (or (funcall origfn)
+			     '(nil nil "guide")))))
+	     (rng-locate-schema-file))
+	   (let ((dir (and buffer-file-name
+			   (locate-dominating-file buffer-file-name
+						   devbook-schema-file-name))))
+	     (and dir (expand-file-name devbook-schema-file-name dir)))))
+    (error (unless noerror (signal (car err) (cdr err)))))
+  (unless noninteractive (rng-what-schema))
+  rng-current-schema-file-name)
 
 ;;;###autoload
 (define-derived-mode devbook-mode nxml-mode "DevBook"
@@ -63,7 +73,7 @@ NOERROR is non-nil."
   ;; easy way to achieve this, so set to 0 which is right more often.
   (set (make-local-variable 'nxml-child-indent) 0)
   (unless rng-current-schema-file-name
-    (devbook-locate-schema-file t)))
+    (devbook-set-schema t)))
 
 (define-skeleton devbook-insert-skeleton
   "Insert a skeleton for a DevBook XML document."
