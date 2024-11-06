@@ -1,3 +1,13 @@
+2024-11-06  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/ebuild-mode-tests.el (ebuild-mode-test-skeleton):
+	* test/glep-mode-tests.el (glep-mode-test-skeleton):
+	* test/gentoo-newsitem-mode-tests.el
+	(gentoo-newsitem-test-skeleton):
+	* test/devbook-mode-tests.el (devbook-mode-test-skeleton):
+	Move variable and function for test input into the cl-letf* form
+	and delete them from global scope.
+
 2024-11-03  Ulrich Müller  <ulm@gentoo.org>
 
 	* test/xemacs-test-wrapper.el (ert-deftest): Silence info-level

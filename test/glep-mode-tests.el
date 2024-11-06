@@ -35,11 +35,6 @@
 		   (funcall orig-fun fmt-string (or time fixed-time) zone))))
        ,@body)))
 
-(defvar glep-mode-test-input nil)
-
-(defun glep-mode-test-input (&rest _args)
-  (concat (pop glep-mode-test-input)))
-
 (ert-deftest glep-mode-test-font-lock ()
   (with-temp-buffer
     (glep-mode)
@@ -90,21 +85,19 @@
 
 (ert-deftest glep-mode-test-skeleton ()
   (with-temp-buffer
-    (cl-letf (((symbol-function 'read-from-minibuffer)
-	       #'glep-mode-test-input)
-	      ((symbol-function 'read-string)
-	       #'glep-mode-test-input)
-	      (buffer-file-name
-	       "/home/larry/devmanual/quickstart/text.xml"))
-      (setq glep-mode-test-input
-	    '("9999"			; GLEP
-	      "Skeleton test"		; Title
-	      "Larry the Cow"		; Author
-	      "Informational"		; Type
-	      "Draft"			; Status
-	      "1"			; Version
-	      ""			; Requires
-	      ""))			; Replaces
+    (cl-letf* ((testinput
+		'("9999"		; GLEP
+		  "Skeleton test"	; Title
+		  "Larry the Cow"	; Author
+		  "Informational"	; Type
+		  "Draft"		; Status
+		  "1"			; Version
+		  ""			; Requires
+		  ""))			; Replaces
+	       (getinput (lambda (&rest _args)
+			   (concat (pop testinput))))
+	       ((symbol-function 'read-from-minibuffer) getinput)
+	       ((symbol-function 'read-string) getinput))
       (glep-mode-test-run-with-fixed-time
        (glep-mode-insert-skeleton)))
     (goto-char (point-min))

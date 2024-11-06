@@ -28,11 +28,6 @@
     (defalias 'cl-letf  #'letf)
     (defalias 'cl-letf* #'letf*)))
 
-(defvar gentoo-newsitem-test-input nil)
-
-(defun gentoo-newsitem-test-input (&rest _args)
-  (concat (pop gentoo-newsitem-test-input)))
-
 (ert-deftest gentoo-newsitem-test-font-lock ()
   (with-temp-buffer
     (gentoo-newsitem-mode)
@@ -49,19 +44,19 @@
 
 (ert-deftest gentoo-newsitem-test-skeleton ()
   (with-temp-buffer
-    (cl-letf (((symbol-function 'read-from-minibuffer)
-	       #'gentoo-newsitem-test-input)
-	      ((symbol-function 'read-string)
-	       #'gentoo-newsitem-test-input))
-      (setq gentoo-newsitem-test-input
-	    '("Skeleton test"		; Title
-	      "Larry the Cow <larry@example.org>" "" ; Author
-	      ""			; Translator
-	      "2024-08-10"		; Posted
-	      ""			; News-Item-Format
-	      ""			; Display-If-Installed
-	      ""			; Display-If-Keyword
-	      ""))			; Display-If-Profile
+    (cl-letf* ((testinput
+		'("Skeleton test"			 ; Title
+		  "Larry the Cow <larry@example.org>" "" ; Author
+		  ""					 ; Translator
+		  "2024-08-10"				 ; Posted
+		  ""					 ; News-Item-Format
+		  ""					 ; Display-If-Installed
+		  ""					 ; Display-If-Keyword
+		  ""))					 ; Display-If-Profile
+	       (getinput (lambda (&rest _args)
+			   (concat (pop testinput))))
+	       ((symbol-function 'read-from-minibuffer) getinput)
+	       ((symbol-function 'read-string) getinput))
       (if (featurep 'xemacs)
 	  ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
 	  ;; https://foss.heptapod.net/xemacs/xemacs/-/issues/6

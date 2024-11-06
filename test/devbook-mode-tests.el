@@ -26,11 +26,6 @@
 (defmacro devbook-mode-test-run-silently (&rest body)
   `(let ((inhibit-message t)) ,@body))
 
-(defvar devbook-mode-test-input nil)
-
-(defun devbook-mode-test-input (&rest _args)
-  (concat (pop devbook-mode-test-input)))
-
 (ert-deftest devbook-mode-test-locate-schema ()
   (cl-letf* ((rncfile "/home/larry/devmanual/devbook.rnc")
 	     ((symbol-function 'file-exists-p)
@@ -52,14 +47,12 @@
 
 (ert-deftest devbook-mode-test-skeleton ()
   (with-temp-buffer
-    (cl-letf (((symbol-function 'read-from-minibuffer)
-	       #'devbook-mode-test-input)
-	      ((symbol-function 'read-string)
-	       #'devbook-mode-test-input)
-	      (buffer-file-name
-	       "/home/larry/devmanual/quickstart/text.xml"))
-      (setq devbook-mode-test-input
-	    '("Quickstart guide"))
+    (cl-letf* ((buffer-file-name "/home/larry/devmanual/quickstart/text.xml")
+	       (testinput '("Quickstart guide"))
+	       (getinput (lambda (&rest _args)
+			   (concat (pop testinput))))
+	       ((symbol-function 'read-from-minibuffer) getinput)
+	       ((symbol-function 'read-string) getinput))
       (devbook-insert-skeleton))
     (let ((buf1 (concat "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
 			"<guide self=\"quickstart/\">\n"

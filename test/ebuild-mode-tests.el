@@ -47,11 +47,6 @@
 	       ((symbol-function 'clear-message) #'ignore))
        ,@body)))
 
-(defvar ebuild-mode-test-input nil)
-
-(defun ebuild-mode-test-input (&rest _args)
-  (concat (pop ebuild-mode-test-input)))
-
 (ert-deftest ebuild-mode-test-arch-lessp ()
   (should (ebuild-mode-arch-lessp "amd64" "x86"))
   (should-not (ebuild-mode-arch-lessp "amd64-linux" "x86"))
@@ -215,21 +210,21 @@
 
 (ert-deftest ebuild-mode-test-skeleton ()
   (with-temp-buffer
-    (cl-letf (((symbol-function 'read-from-minibuffer)
-	       #'ebuild-mode-test-input)
-	      ((symbol-function 'read-string)
-	       #'ebuild-mode-test-input))
-      (setq ebuild-mode-test-input
-	    '("8"			  ; EAPI
-	      ""			  ; inherit
-	      "Skeleton test"		  ; DESCRIPTION
-	      "https://www.gentoo.org/"	  ; HOMEPAGE
-	      ""			  ; SRC_URI
-	      ""			  ; S
-	      "GPL-2+" "MIT" ""		  ; LICENSE
-	      "~amd64" ""		  ; KEYWORDS
-	      ""			  ; IUSE
-	      ""))			  ; RESTRICT
+    (cl-letf* ((testinput
+		'("8"			    ; EAPI
+		  ""			    ; inherit
+		  "Skeleton test"	    ; DESCRIPTION
+		  "https://www.gentoo.org/" ; HOMEPAGE
+		  ""			    ; SRC_URI
+		  ""			    ; S
+		  "GPL-2+" "MIT" ""	    ; LICENSE
+		  "~amd64" ""		    ; KEYWORDS
+		  ""			    ; IUSE
+		  ""))			    ; RESTRICT
+	       (getinput (lambda (&rest _args)
+			   (concat (pop testinput))))
+	       ((symbol-function 'read-from-minibuffer) getinput)
+	       ((symbol-function 'read-string) getinput))
       (ebuild-mode-test-run-with-fixed-time
        (if (featurep 'xemacs)
 	   ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
