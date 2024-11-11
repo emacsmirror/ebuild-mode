@@ -1,3 +1,9 @@
+2024-11-11  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-bug-regexp): Allow a fragment
+	identifier, in order to refer to a specific comment.
+	* test/ebuild-mode-tests.el (ebuild-mode-test-bug-url): Update.
+
 2024-11-06  Ulrich Müller  <ulm@gentoo.org>
 
 	* devbook-mode.el (devbook-set-schema): Renamed from

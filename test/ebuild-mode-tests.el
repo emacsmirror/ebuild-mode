@@ -257,7 +257,8 @@
 	  (lambda (url &rest _args) (setq found url))))
     (with-temp-buffer
       (insert "# abc #876543 xyz\n"
-	      "# bug 765432\n")
+	      "# bug 765432\n"
+	      "# bug #654321#c10\n")
       (ebuild-mode-test-run-silently
        (ebuild-mode))
       (bug-reference-fontify (point-min) (point-max))
@@ -269,6 +270,10 @@
       (search-forward "bug")
       (bug-reference-push-button (point))
       (should (equal found "https://bugs.gentoo.org/765432"))
+      (setq found nil)
+      (search-forward "bug")
+      (bug-reference-push-button (point))
+      (should (equal found "https://bugs.gentoo.org/654321#c10"))
       (setq found nil)
       (bug-reference-push-button (point-min))
       (bug-reference-push-button (point-max))

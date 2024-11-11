@@ -920,7 +920,7 @@ This excludes `comment-start'.  See `ebuild-mode-insert-tag-line'
 for the format of the tag line.")
 
 (defvar ebuild-mode-bug-regexp
-  "\\(\\(?:\\b[Bb]ug *[ #]\\|#\\)\\([0-9]\\{4,\\}\\)\\)"
+  "\\(\\(?:\\b[Bb]ug *[ #]\\|#\\)\\([0-9]\\{4,\\}\\(?:#c[0-9]+\\)?\\)\\)"
   "Regular expression matching bug references.
 The format is the same as for `bug-reference-bug-regexp', which see.")
 
