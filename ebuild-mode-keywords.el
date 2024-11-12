@@ -224,7 +224,7 @@
      "dotnet-pkg-base_remove-global-json" "dotnet-pkg-base_restore"
      "dotnet-pkg-base_restore-tools" "dotnet-pkg-base_restore_tools"
      "dotnet-pkg-base_setup" "dotnet-pkg-base_sln-remove"
-     "dotnet-pkg-base_test" "edotnet"
+     "dotnet-pkg-base_test" "edotnet" "efsi"
      ;; dune
      "dune-compile" "dune-install" "dune-release" "dune-test"
      "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
@@ -244,9 +244,10 @@
      ;; edos2unix
      "edos2unix"
      ;; elisp
-     "elisp_pkg_postinst" "elisp_pkg_postrm" "elisp_pkg_setup"
-     "elisp_src_compile" "elisp_src_configure" "elisp_src_install"
-     "elisp_src_prepare" "elisp_src_test" "elisp_src_unpack"
+     "elisp_pkg_info" "elisp_pkg_postinst" "elisp_pkg_postrm"
+     "elisp_pkg_setup" "elisp_src_compile" "elisp_src_configure"
+     "elisp_src_install" "elisp_src_prepare" "elisp_src_test"
+     "elisp_src_unpack"
      ;; elisp-common
      "elisp-check-emacs-version" "elisp-compile" "elisp-emacs-version"
      "elisp-enable-tests" "elisp-install" "elisp-make-autoload-file"
@@ -375,16 +376,11 @@
      "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
      "haskell-cabal_src_configure" "haskell-cabal_src_install"
      "haskell-cabal_src_prepare" "haskell-cabal_src_test" "replace-hcflags"
-     ;; java-ant-2
-     "java-ant-2_src_configure" "java-ant_bsfix_files" "java-ant_bsfix_one"
-     "java-ant_ignore-system-classes" "java-ant_rewrite-bootclasspath"
-     "java-ant_rewrite-classpath" "java-ant_xml-rewrite"
      ;; java-osgi
      "java-osgi_dojar" "java-osgi_dojar-fromfile" "java-osgi_newjar"
      "java-osgi_newjar-fromfile"
      ;; java-pkg-2
-     "java-pkg-2_pkg_preinst" "java-pkg-2_pkg_setup" "java-pkg-2_src_compile"
-     "java-pkg-2_src_prepare" "java-pkg-2_src_test"
+     "java-pkg-2_pkg_preinst" "java-pkg-2_pkg_setup" "java-pkg-2_src_prepare"
      ;; java-pkg-opt-2
      "java-pkg-opt-2_pkg_preinst" "java-pkg-opt-2_pkg_setup"
      "java-pkg-opt-2_src_prepare"
@@ -393,9 +389,7 @@
      "java-pkg-simple_src_test"
      ;; java-utils-2
      "eant" "ejavac" "ejavadoc" "ejunit" "ejunit4" "increment-qa-violations"
-     "is-java-strict" "java-pkg_addcp" "java-pkg_addres"
-     "java-pkg_announce-qa-violation" "java-pkg_check-jikes"
-     "java-pkg_check-phase" "java-pkg_check-versioned-jar" "java-pkg_clean"
+     "java-pkg_addcp" "java-pkg_addres" "java-pkg_clean"
      "java-pkg_current-vm-matches" "java-pkg_doexamples" "java-pkg_dohtml"
      "java-pkg_dojar" "java-pkg_dojavadoc" "java-pkg_dolauncher"
      "java-pkg_doso" "java-pkg_dosrc" "java-pkg_dowar"
@@ -403,15 +397,13 @@
      "java-pkg_find-normal-jars" "java-pkg_force-compiler"
      "java-pkg_get-bootclasspath" "java-pkg_get-javac"
      "java-pkg_get-jni-cflags" "java-pkg_get-source" "java-pkg_get-target"
-     "java-pkg_getjar" "java-pkg_getjars" "java-pkg_init-compiler_"
-     "java-pkg_jar-from" "java-pkg_jar-list" "java-pkg_jarfrom"
-     "java-pkg_jarinto" "java-pkg_javac-args" "java-pkg_newjar"
-     "java-pkg_register-ant-task" "java-pkg_register-dependency"
-     "java-pkg_register-environment-variable"
+     "java-pkg_getjar" "java-pkg_getjars" "java-pkg_jar-from"
+     "java-pkg_jar-list" "java-pkg_jarfrom" "java-pkg_jarinto"
+     "java-pkg_javac-args" "java-pkg_newjar" "java-pkg_register-ant-task"
+     "java-pkg_register-dependency" "java-pkg_register-environment-variable"
      "java-pkg_register-optional-dependency" "java-pkg_regjar"
-     "java-pkg_regso" "java-pkg_rm_files" "java-pkg_set-current-vm"
-     "java-pkg_sointo" "java-utils-2_pkg_preinst" "java-utils-2_src_prepare"
-     "use_doc"
+     "java-pkg_regso" "java-pkg_rm_files" "java-pkg_sointo"
+     "java-utils-2_pkg_preinst" "java-utils-2_src_prepare"
      ;; java-vm-2
      "get_system_arch" "java-vm-2_pkg_postinst" "java-vm-2_pkg_postrm"
      "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup" "java-vm_install-env"
@@ -674,7 +666,7 @@
      "rebar3_src_configure" "rebar3_src_install" "rebar3_src_prepare"
      "rebar3_src_test"
      ;; rocm
-     "check_amdgpu" "get_amdgpu_flags"
+     "check_amdgpu" "get_amdgpu_flags" "rocm_use_hipcc"
      ;; rpm
      "rpm_src_unpack" "rpm_unpack" "srcrpm_unpack"
      ;; ruby-fakegem
@@ -701,6 +693,8 @@
      "all_ruby_install" "all_ruby_prepare" "each_ruby_compile"
      "each_ruby_configure" "each_ruby_install" "each_ruby_test"
      "ruby-ng-gnome2_all_ruby_prepare"
+     ;; rust
+     "get_rust_path" "get_rust_prefix" "rust_pkg_setup" "rust_prepend_path"
      ;; rust-toolchain
      "rust_abi" "rust_all_arch_uris" "rust_arch_uri"
      ;; s6

@@ -1,5 +1,8 @@
 2024-11-12  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* devbook-mode.el (devbook-set-schema, devbook-insert-skeleton):
 	The document element has been renamed from guide to devbook.
 	* test/devbook-mode-tests.el (devbook-mode-test-skeleton): Update.
