@@ -1,3 +1,9 @@
+2024-11-12  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el (devbook-set-schema, devbook-insert-skeleton):
+	The document element has been renamed from guide to devbook.
+	* test/devbook-mode-tests.el (devbook-mode-test-skeleton): Update.
+
 2024-11-11  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-bug-regexp): Allow a fragment

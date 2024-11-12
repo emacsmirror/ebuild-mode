@@ -57,12 +57,12 @@
 	       ((symbol-function 'read-string) getinput))
       (devbook-insert-skeleton))
     (let ((buf1 (concat "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-			"<guide self=\"quickstart/\">\n"
+			"<devbook self=\"quickstart/\">\n"
 			"<chapter>\n"
 			"<title>Quickstart guide</title>\n"))
 	  (buf2 (concat "\n"
 			"</chapter>\n"
-			"</guide>\n")))
+			"</devbook>\n")))
       (should (equal (point)
 		     (+ (point-min) (length buf1))))
       (should (string-equal (buffer-string)

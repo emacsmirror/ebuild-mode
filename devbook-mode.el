@@ -49,7 +49,7 @@ Return the schema file name, or nil if no schema was found."
 		      ((symbol-function 'rng-document-element)
 		       (lambda ()
 			 (or (funcall origfn)
-			     '(nil nil "guide")))))
+			     '(nil nil "devbook")))))
 	     (rng-locate-schema-file))
 	   (let ((dir (and buffer-file-name
 			   (locate-dominating-file buffer-file-name
@@ -79,7 +79,7 @@ Return the schema file name, or nil if no schema was found."
   "Insert a skeleton for a DevBook XML document."
   nil
   "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-  "<guide "
+  "<devbook "
   (let ((path (if (and buffer-file-name
 		       (string-match "/devmanual[^/]*/\\(.*/\\)"
 				     buffer-file-name))
@@ -93,7 +93,7 @@ Return the schema file name, or nil if no schema was found."
   "<title>" (skeleton-read "Title: ") "</title>\n"
   - "\n"
   "</chapter>\n"
-  "</guide>\n")
+  "</devbook>\n")
 
 (define-key devbook-mode-map "\C-c\C-n" #'devbook-insert-skeleton)
 
