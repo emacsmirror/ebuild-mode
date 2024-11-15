@@ -56,21 +56,19 @@
 	       (getinput (lambda (&rest _args)
 			   (concat (pop testinput))))
 	       ((symbol-function 'read-from-minibuffer) getinput)
-	       ((symbol-function 'read-string) getinput))
-      (if (featurep 'xemacs)
-	  ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
-	  ;; https://foss.heptapod.net/xemacs/xemacs/-/issues/6
-	  (cl-letf (((symbol-function 'pos-visible-in-window-p)
-		     (lambda (&rest _args) t)))
-	    (gentoo-newsitem-insert-skeleton))
-	(gentoo-newsitem-insert-skeleton))
-      (should (string-equal
-	       (buffer-string)
-	       (concat "Title: Skeleton test\n"
-		       "Author: Larry the Cow <larry@example.org>\n"
-		       "Posted: 2024-08-10\n"
-		       "Revision: 1\n"
-		       "News-Item-Format: 2.0\n\n"))))))
+	       ((symbol-function 'read-string) getinput)
+	       ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
+	       ;; https://foss.heptapod.net/xemacs/xemacs/-/issues/6
+	       ((symbol-function 'pos-visible-in-window-p)
+		(lambda (&rest _args) t)))
+      (gentoo-newsitem-insert-skeleton))
+    (should (string-equal
+	     (buffer-string)
+	     (concat "Title: Skeleton test\n"
+		     "Author: Larry the Cow <larry@example.org>\n"
+		     "Posted: 2024-08-10\n"
+		     "Revision: 1\n"
+		     "News-Item-Format: 2.0\n\n")))))
 
 (ert-deftest gentoo-newsitem-test-keybindings ()
   (should (equal (lookup-key gentoo-newsitem-mode-map "\C-c\C-n")

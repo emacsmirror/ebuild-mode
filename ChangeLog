@@ -1,3 +1,10 @@
+2024-11-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/ebuild-mode-tests.el (ebuild-mode-test-skeleton):
+	* test/gentoo-newsitem-mode-tests.el
+	(gentoo-newsitem-test-skeleton): Override pos-visible-in-window-p
+	unconditionally.
+
 2024-11-12  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.76 released.

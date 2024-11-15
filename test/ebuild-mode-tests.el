@@ -224,30 +224,28 @@
 	       (getinput (lambda (&rest _args)
 			   (concat (pop testinput))))
 	       ((symbol-function 'read-from-minibuffer) getinput)
-	       ((symbol-function 'read-string) getinput))
+	       ((symbol-function 'read-string) getinput)
+	       ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
+	       ;; https://foss.heptapod.net/xemacs/xemacs/-/issues/6
+	       ((symbol-function 'pos-visible-in-window-p)
+		(lambda (&rest _args) t)))
       (ebuild-mode-test-run-with-fixed-time
-       (if (featurep 'xemacs)
-	   ;; prevent a segfault (seen with XEmacs 21.4.24 and 21.5.35)
-	   ;; https://foss.heptapod.net/xemacs/xemacs/-/issues/6
-	   (cl-letf (((symbol-function 'pos-visible-in-window-p)
-		      (lambda (&rest _args) t)))
-	     (ebuild-mode-insert-skeleton))
-	 (ebuild-mode-insert-skeleton)))
-      (should (string-equal
-	       (buffer-string)
-	       (concat "# Copyright 2024 Gentoo Authors\n"
-		       "# Distributed under the terms of the "
-		       "GNU General Public License v2\n\n"
-		       "EAPI=8\n\n"
-		       "DESCRIPTION=\"Skeleton test\"\n"
-		       "HOMEPAGE=\"https://www.gentoo.org/\"\n"
-		       "SRC_URI=\"\"\n\n"
-		       "LICENSE=\"GPL-2+ MIT\"\n"
-		       "SLOT=\"0\"\n"
-		       "KEYWORDS=\"~amd64\"\n\n"
-		       "RDEPEND=\"\"\n"
-		       "DEPEND=\"${RDEPEND}\"\n"
-		       "BDEPEND=\"\"\n"))))))
+       (ebuild-mode-insert-skeleton)))
+    (should (string-equal
+	     (buffer-string)
+	     (concat "# Copyright 2024 Gentoo Authors\n"
+		     "# Distributed under the terms of the "
+		     "GNU General Public License v2\n\n"
+		     "EAPI=8\n\n"
+		     "DESCRIPTION=\"Skeleton test\"\n"
+		     "HOMEPAGE=\"https://www.gentoo.org/\"\n"
+		     "SRC_URI=\"\"\n\n"
+		     "LICENSE=\"GPL-2+ MIT\"\n"
+		     "SLOT=\"0\"\n"
+		     "KEYWORDS=\"~amd64\"\n\n"
+		     "RDEPEND=\"\"\n"
+		     "DEPEND=\"${RDEPEND}\"\n"
+		     "BDEPEND=\"\"\n")))))
 
 (ert-deftest ebuild-mode-test-bug-url ()
   (skip-unless (fboundp 'bug-reference-prog-mode))
