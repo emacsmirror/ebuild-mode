@@ -47,6 +47,17 @@
     (let ((buffer-file-name "/home/larry/elsewhere/text.xml"))
       (should-not (devbook-set-schema)))))
 
+(ert-deftest devbook-mode-test-fill-nobreak-p ()
+  (with-temp-buffer
+    (insert "<th align=\"center\" colspan=\"4\">four columns</th>\n")
+    (goto-char (point-min))
+    (search-forward "<th")
+    (should (devbook-fill-tag-nobreak-p))
+    (search-forward "center\"")
+    (should-not (devbook-fill-tag-nobreak-p))
+    (search-forward "four")
+    (should-not (devbook-fill-tag-nobreak-p))))
+
 (ert-deftest devbook-mode-test-skeleton ()
   (with-temp-buffer
     (cl-letf* ((buffer-file-name "/home/larry/devmanual/quickstart/text.xml")

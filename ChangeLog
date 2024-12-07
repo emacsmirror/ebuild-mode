@@ -1,3 +1,10 @@
+2024-12-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el (devbook-fill-tag-nobreak-p): New function.
+	(devbook-mode): Add it to fill-nobreak-predicate hook.
+	* test/devbook-mode-tests.el (devbook-mode-test-fill-nobreak-p):
+	New test.
+
 2024-11-15  Ulrich Müller  <ulm@gentoo.org>
 
 	* test/ebuild-mode-tests.el (ebuild-mode-test-skeleton):

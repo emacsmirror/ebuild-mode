@@ -59,6 +59,16 @@ Return the schema file name, or nil if no schema was found."
   (unless noninteractive (rng-what-schema))
   rng-current-schema-file-name)
 
+(defun devbook-fill-tag-nobreak-p ()
+  "Return non-nil if point is inside a tag right after its name.
+This is used in `fill-nobreak-predicate' to prevent breaking a line
+between the element name and its first attribute."
+  (save-excursion
+    (skip-chars-backward " \t")
+    (when (/= (skip-chars-backward "[:alnum:]_.:-") 0)
+      (skip-chars-backward "/?!")
+      (eq (char-before) ?<))))
+
 ;;;###autoload
 (define-derived-mode devbook-mode nxml-mode "DevBook"
   "Major mode for editing the Gentoo Devmanual."
@@ -72,6 +82,7 @@ Return the schema file name, or nil if no schema was found."
   ;; <tr>, <ul>, <ol> and <dl>, where it must be 2 spaces. There is no
   ;; easy way to achieve this, so set to 0 which is right more often.
   (set (make-local-variable 'nxml-child-indent) 0)
+  (add-hook 'fill-nobreak-predicate #'devbook-fill-tag-nobreak-p nil t)
   (unless rng-current-schema-file-name
     (devbook-set-schema t)))
 
