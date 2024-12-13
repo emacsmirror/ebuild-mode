@@ -1,3 +1,9 @@
+2024-12-13  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Do not enable
+	bug-reference-prog-mode when bug-reference-bug-regexp or
+	bug-reference-url-format already exists as a local variable.
+
 2024-12-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* devbook-mode.el (devbook-fill-tag-nobreak-p): New function.
