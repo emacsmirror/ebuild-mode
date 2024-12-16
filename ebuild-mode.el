@@ -137,8 +137,9 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
   (or
    (condition-case nil
        (with-temp-buffer
-	 (insert-file-contents-literally
-	  (concat ebuild-mode-portdir "/profiles/arch.list"))
+	 (let ((coding-system-for-read 'utf-8-unix))
+	   (insert-file-contents
+	    (concat ebuild-mode-portdir "/profiles/arch.list")))
 	 (while (re-search-forward "#.*$" nil t)
 	   (replace-match ""))
 	 (sort (split-string (buffer-string)) #'ebuild-mode-arch-lessp))
@@ -153,8 +154,9 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
    ;; try to read arches.desc (GLEP 72) first
    (condition-case nil
        (with-temp-buffer
-	 (insert-file-contents-literally
-	  (concat ebuild-mode-portdir "/profiles/arches.desc"))
+	 (let ((coding-system-for-read 'utf-8-unix))
+	   (insert-file-contents
+	    (concat ebuild-mode-portdir "/profiles/arches.desc")))
 	 (let (archs)
 	   (while (re-search-forward
 		   "^[ \t]*\\([^ \t\n#]+\\)[ \t]+\\(stable\\|transitional\\)\\>"
@@ -210,8 +212,9 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 (defvar ebuild-mode-use-flags
   (condition-case nil
       (with-temp-buffer
-	(insert-file-contents-literally
-	 (concat ebuild-mode-portdir "/profiles/use.desc"))
+	(let ((coding-system-for-read 'utf-8-unix))
+	  (insert-file-contents
+	   (concat ebuild-mode-portdir "/profiles/use.desc")))
 	(while (re-search-forward "[ \t#].*$" nil t)
 	  (replace-match ""))
 	(split-string (buffer-string)))

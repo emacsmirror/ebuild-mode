@@ -1,5 +1,10 @@
 2024-12-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-arch-list)
+	(ebuild-mode-arch-stable-list, ebuild-mode-use-flags):
+	Call insert-file-contents with explicit coding-system-for-read
+	instead of insert-file-contents-literally.
+
 	* ebuild-mode.el (ebuild-repo-mode): Unconditionally set
 	buffer-file-coding-system to utf-8-unix.
 	(ebuild-mode-find-s): Allow in-place decoding of filename.
