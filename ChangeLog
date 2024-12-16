@@ -1,3 +1,9 @@
+2024-12-16  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-repo-mode): Unconditionally set
+	buffer-file-coding-system to utf-8-unix.
+	(ebuild-mode-find-s): Allow in-place decoding of filename.
+
 2024-12-13  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-repo-mode): Do not enable

@@ -650,7 +650,7 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
       (file-error (error "Failed to read environment file"))
       (search-failed (error "Could not find S in the environment file")))
     (ignore-errors
-      (setq s (decode-coding-string s 'utf-8-unix)))
+      (setq s (decode-coding-string s 'utf-8-unix t)))
     (unless (file-directory-p s)
       (error "Directory S=\"%s\" does not exist" s))
     ;; sanity check, S should be WORKDIR or a subdir of it
@@ -940,9 +940,7 @@ See `bug-reference-url-format' for further details.")
   "Minor mode for files in an ebuild repository."
   :lighter " Repo"
   :keymap ebuild-repo-mode-map
-  (if (ignore-errors (check-coding-system 'utf-8-unix))
-      ;; utf-8-unix doesn't exist in XEmacs 21.4
-      (setq buffer-file-coding-system 'utf-8-unix))
+  (setq buffer-file-coding-system 'utf-8-unix)
   (static-if (featurep 'xemacs)
       (progn
 	(easy-menu-add ebuild-repo-mode-menu)
