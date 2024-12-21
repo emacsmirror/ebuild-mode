@@ -145,6 +145,7 @@
      "cargo_crate_uris" "cargo_env" "cargo_gen_config" "cargo_live_src_unpack"
      "cargo_src_compile" "cargo_src_configure" "cargo_src_install"
      "cargo_src_test" "cargo_src_unpack" "cargo_target_dir"
+     "cargo_update_crates"
      ;; cdrom
      "cdrom_get_cds" "cdrom_load_next_cd"
      ;; check-reqs
@@ -230,11 +231,12 @@
      "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
      ;; eapi8-dosym
      "dosym8"
+     ;; eapi9-pipestatus
+     "pipestatus"
      ;; ecm
-     "ecm_pkg_postinst" "ecm_pkg_postrm" "ecm_pkg_preinst" "ecm_pkg_pretend"
-     "ecm_pkg_setup" "ecm_punt_bogus_dep" "ecm_punt_kf_module"
-     "ecm_punt_po_install" "ecm_punt_qt_module" "ecm_src_compile"
-     "ecm_src_configure" "ecm_src_install" "ecm_src_prepare" "ecm_src_test"
+     "ecm_punt_bogus_dep" "ecm_punt_kf_module" "ecm_punt_po_install"
+     "ecm_punt_qt_module" "ecm_src_compile" "ecm_src_configure"
+     "ecm_src_install" "ecm_src_prepare" "ecm_src_test"
      ;; ecm-common
      "ecm-common-check_deps" "ecm-common_inject_heredoc"
      "ecm-common_pkg_setup" "ecm-common_src_configure"
@@ -388,17 +390,16 @@
      "java-pkg-simple_src_compile" "java-pkg-simple_src_install"
      "java-pkg-simple_src_test"
      ;; java-utils-2
-     "eant" "ejavac" "ejavadoc" "ejunit" "ejunit4" "increment-qa-violations"
-     "java-pkg_addcp" "java-pkg_addres" "java-pkg_clean"
-     "java-pkg_current-vm-matches" "java-pkg_doexamples" "java-pkg_dohtml"
-     "java-pkg_dojar" "java-pkg_dojavadoc" "java-pkg_dolauncher"
-     "java-pkg_doso" "java-pkg_dosrc" "java-pkg_dowar"
-     "java-pkg_ensure-no-bundled-jars" "java-pkg_filter-compiler"
-     "java-pkg_find-normal-jars" "java-pkg_force-compiler"
-     "java-pkg_get-bootclasspath" "java-pkg_get-javac"
-     "java-pkg_get-jni-cflags" "java-pkg_get-source" "java-pkg_get-target"
-     "java-pkg_getjar" "java-pkg_getjars" "java-pkg_jar-from"
-     "java-pkg_jar-list" "java-pkg_jarfrom" "java-pkg_jarinto"
+     "eant" "ejavac" "ejavadoc" "ejunit" "ejunit4" "java-pkg_addcp"
+     "java-pkg_addres" "java-pkg_clean" "java-pkg_current-vm-matches"
+     "java-pkg_doexamples" "java-pkg_dohtml" "java-pkg_dojar"
+     "java-pkg_dojavadoc" "java-pkg_dolauncher" "java-pkg_doso"
+     "java-pkg_dosrc" "java-pkg_dowar" "java-pkg_ensure-no-bundled-jars"
+     "java-pkg_filter-compiler" "java-pkg_find-normal-jars"
+     "java-pkg_force-compiler" "java-pkg_get-bootclasspath"
+     "java-pkg_get-javac" "java-pkg_get-jni-cflags" "java-pkg_get-source"
+     "java-pkg_get-target" "java-pkg_getjar" "java-pkg_getjars"
+     "java-pkg_jar-from" "java-pkg_jarfrom" "java-pkg_jarinto"
      "java-pkg_javac-args" "java-pkg_newjar" "java-pkg_register-ant-task"
      "java-pkg_register-dependency" "java-pkg_register-environment-variable"
      "java-pkg_register-optional-dependency" "java-pkg_regjar"
@@ -410,7 +411,7 @@
      "java-vm_revdep-mask" "java-vm_sandbox-predict"
      "java-vm_set-pax-markings"
      ;; kde.org
-     "kde.org_pkg_nofetch" "kde.org_src_unpack"
+     "kde.org_pkg_info" "kde.org_pkg_nofetch" "kde.org_src_unpack"
      ;; kernel-2
      "cross_pre_c_headers" "debug-print-kernel2-variables" "detect_arch"
      "detect_version" "env_setup_kernel_makeopts" "getfilevar"
@@ -773,7 +774,7 @@
      "gcc-specs-directive" "gcc-specs-nostrict" "gcc-specs-now"
      "gcc-specs-pie" "gcc-specs-relro" "gcc-specs-ssp" "gcc-specs-ssp-to-all"
      "gcc-specs-stack-check" "gcc-version" "gen_usr_ldscript" "tc-arch"
-     "tc-arch-kernel" "tc-check-openmp" "tc-cpp-is-true"
+     "tc-arch-kernel" "tc-check-min_ver" "tc-check-openmp" "tc-cpp-is-true"
      "tc-detect-is-softfloat" "tc-enables-cxx-assertions"
      "tc-enables-fortify-source" "tc-enables-pie" "tc-enables-ssp"
      "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-env_build"
@@ -865,6 +866,13 @@
      "xorg-3_pkg_postrm" "xorg-3_pkg_setup" "xorg-3_reconf_source"
      "xorg-3_src_compile" "xorg-3_src_configure" "xorg-3_src_install"
      "xorg-3_src_prepare" "xorg-3_src_unpack"
+     ;; zig
+     "zig_get_jobs" "zig_init_base_args" "zig_live_fetch" "zig_pkg_setup"
+     "zig_src_compile" "zig_src_configure" "zig_src_install" "zig_src_prepare"
+     "zig_src_test" "zig_src_unpack"
+     ;; zig-utils
+     "ezig" "zig-utils_c_env_to_zig_cpu" "zig-utils_c_env_to_zig_target"
+     "zig-utils_find_installation" "zig-utils_setup"
      ;; @@KEYWORDS-END@@
      )
     font-lock-type-face))
