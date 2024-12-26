@@ -34,7 +34,7 @@ all: $(ELCS) $(INFOFILES)
 		-f batch-byte-compile $<
 
 %.info: %.texi
-	makeinfo $<
+	makeinfo --no-split $<
 
 keywords:
 	./keyword-generation.sh
