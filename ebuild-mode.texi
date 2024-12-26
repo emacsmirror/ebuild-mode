@@ -67,7 +67,7 @@ by skeleton support.
 * glep-mode:: Editing Gentoo Linux Enhancement Proposals.
 @end menu
 
-@node Commands, ebuild-mode, Top, Top
+@node Commands
 @chapter Available functionality
 Two packages are available for installation:
 @code{app-emacs/ebuild-mode} and @code{app-xemacs/ebuild-mode}
@@ -88,7 +88,7 @@ key bindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
 interfacing with Emacs.
 
-@node ebuild-mode, ebuild-eclass-mode, Commands, Top
+@node ebuild-mode
 @chapter ebuild-mode
 @section Writing a new ebuild
 Starting a completely new ebuild from scratch is best done by inserting
@@ -220,13 +220,13 @@ Run a @command{pkgcheck} command.
 Run an ebuild action/subcommand.
 @end table
 
-@node ebuild-eclass-mode, ebuild-repo-mode, ebuild-mode, Top
+@node ebuild-eclass-mode
 @chapter ebuild-eclass-mode
 For editing of eclasses, ebuild-eclass-mode is a derived mode of
 ebuild-mode and provides all its features.  In addition, highlighting
 of eclass documentation keywords with font-lock is supported.
 
-@node ebuild-repo-mode, devbook-mode, ebuild-eclass-mode, Top
+@node ebuild-repo-mode
 @chapter ebuild-repo-mode
 This is a minor mode intended for editing ebuilds and other files in
 an ebuild repository (except patches).
@@ -268,7 +268,7 @@ explanation.
 You can disable bug references by setting the custom variable
 @code{ebuild-mode-enable-bug-reference} to nil.
 
-@node devbook-mode, gentoo-newsitem-mode, ebuild-eclass-mode, Top
+@node devbook-mode
 @chapter devbook-mode for the Gentoo Devmanual
 This is a very simple derived major mode for editing the Devmanual.
 Because the Devmanual is written in DevBook XML, this mode is derived
@@ -283,7 +283,7 @@ package in addition, which will enable on-the-fly syntax validation.
 Currently @code{devbook-mode} works with GNU Emacs only, because the
 underlying @code{nxml-mode} does not support XEmacs.
 
-@node gentoo-newsitem-mode, glep-mode, devbook-mode, Top
+@node gentoo-newsitem-mode
 @chapter gentoo-newsitem-mode for GLEP 42 news items
 This mode supports the highlighting of relevant keywords for GLEP 42
 news items.  These news items get displayed if special criteria for
@@ -300,7 +300,7 @@ GLEP 42 (see there for details), but can also be invoked through the
 available in @code{ebuild-mode}.  All mandatory information are asked
 from the user so no item is forgotten.
 
-@node glep-mode, , gentoo-newsitem-mode, Top
+@node glep-mode
 @chapter glep-mode for Gentoo Linux Enhancement Proposals
 This major mode supports editing of Gentoo Linux Enhancement Proposals.
 Because GLEPs are written in reStructuredText, this mode is derived

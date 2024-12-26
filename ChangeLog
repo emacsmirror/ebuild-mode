@@ -1,5 +1,7 @@
 2024-12-26  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.texi: Drop handwritten node pointers.
+
 	* ebuild-mode.el (ebuild-mode-unescape-string): Support \x.
 	(ebuild-mode-find-s): Use unibyte buffer for the environment file.
 	* test/ebuild-mode-tests.el (ebuild-mode-test-unescape-string):
