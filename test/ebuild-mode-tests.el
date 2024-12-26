@@ -156,8 +156,13 @@
 	   (ebuild-mode-unescape-string "ab\\r\\E\\'\\143\\144\\ ef" 'ansi-c)
 	   "ab\r\e'cd\\ ef"))
   (should (string-equal
-	   (ebuild-mode-unescape-string "äöü" 'ansi-c)
-	   "äöü"))
+	   (ebuild-mode-unescape-string "12\\20034" 'ansi-c)
+	   "12\20034"))
+  (should (string-equal
+	   (decode-coding-string
+	    (ebuild-mode-unescape-string "ab\\xc3\\xa4\\xc3\\xb6cd" 'ansi-c)
+	    'utf-8-unix)
+	   "abäöcd"))
   (should (string-equal
 	   (decode-coding-string
 	    (ebuild-mode-unescape-string "\\360\\237\\221\\215" 'ansi-c)

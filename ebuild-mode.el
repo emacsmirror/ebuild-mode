@@ -615,7 +615,8 @@ This function supports only escape sequences that can occur in
 the output of the \"declare -p\" Bash command."
   (let ((case-fold-search nil)
 	(re (if ansi-c
-		"\\\\\\([abtnvfreE\\'\"?]\\|[0-7]\\{1,3\\}\\)"
+		"\\\\\\([abtnvfreE\\'\"?]\\|[0-7]\\{1,3\\}\
+\\|x[[:xdigit:]]\\{1,2\\}\\)"
 	      "\\\\\\([$`\"\\\n]\\)"))
 	(map '((?a . ?\a) (?b . ?\b) (?t . ?\t) (?n . ?\n) (?v . ?\v)
 	       (?f . ?\f) (?r . ?\r) (?e . ?\e) (?E . ?\e)))
@@ -623,8 +624,8 @@ the output of the \"declare -p\" Bash command."
     (while (setq i (string-match re s i))
       (let* ((m (match-string 1 s))
 	     (c (aref m 0))
-	     (byte (cond ((<= ?0 c ?7)
-			  (logand (string-to-number m 8) #xff))
+	     (byte (cond ((<= ?0 c ?7) (logand (string-to-number m 8) #xff))
+			 ((eq c ?x) (string-to-number (substring m 1) 16))
 			 ((cdr (assq c map)))
 			 (t c))))
 	(setq s (replace-match
@@ -643,6 +644,8 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 	s)
     (condition-case nil
 	(with-temp-buffer
+	  (static-if (fboundp 'set-buffer-multibyte)
+	      (set-buffer-multibyte nil))
 	  (insert-file-contents-literally
 	   (concat builddir "/temp/environment"))
 	  (re-search-forward
