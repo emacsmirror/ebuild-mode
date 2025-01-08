@@ -1,3 +1,7 @@
+2025-01-08  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/ebuild-mode-tests.el (ebuild-mode-test-find-s): New test.
+
 2024-12-26  Ulrich Müller  <ulm@gentoo.org>
 
 	* Makefile (%.info): Call makeinfo with --no-split option.

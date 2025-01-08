@@ -169,6 +169,22 @@
 	    'utf-8-unix)
 	   "👍")))
 
+(ert-deftest ebuild-mode-test-find-s ()
+  (cl-letf (((symbol-function 'file-exists-p) #'stringp)
+	    ((symbol-function 'file-directory-p) #'stringp)
+	    ((symbol-function 'find-file) #'identity)
+	    ((symbol-function 'insert-file-contents-literally)
+	     (lambda (&rest _args)
+	       (insert "declare -x S=\"/tmp/portage/app-misc/foo-1/work/"
+		       "foo \xc3\xa4\xe2\x86\x92\\$\\'\\`bar\"\n")
+	       (goto-char (point-min))))
+	    (ebuild-mode-portage-tmpdir "/tmp/portage")
+	    (buffer-file-name
+	     "/home/larry/gentoo/app-misc/foo/foo-1.ebuild"))
+    (should (equal
+	     (ebuild-mode-find-s)
+	     "/tmp/portage/app-misc/foo-1/work/foo ä→$\\'`bar"))))
+
 (ert-deftest ebuild-mode-test-get-keywords ()
   (with-temp-buffer
     (insert "KEYWORDS=\"amd64 arm ~ppc64 x86\"\n")
