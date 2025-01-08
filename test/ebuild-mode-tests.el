@@ -134,7 +134,7 @@
   (cl-letf (((symbol-function 'file-exists-p)
 	     (lambda (file)
 	       (string-equal file "/home/larry/gentoo/profiles/repo_name")))
-	    ((symbol-function 'file-directory-p) (lambda (_file) t))
+	    ((symbol-function 'file-directory-p) #'stringp)
 	    (ebuild-mode-portage-tmpdir "/var/tmp/portage"))
     (let ((buffer-file-name
 	   "/home/larry/gentoo/app-editors/emacs/emacs-29.4.ebuild"))
