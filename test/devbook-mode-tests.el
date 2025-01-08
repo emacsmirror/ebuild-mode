@@ -1,6 +1,6 @@
 ;;; devbook-mode-tests.el --- tests for devbook-mode.el -*-lexical-binding:t-*-
 
-;; Copyright 2024 Gentoo Authors
+;; Copyright 2024-2025 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>

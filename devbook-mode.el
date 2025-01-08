@@ -1,6 +1,6 @@
 ;;; devbook-mode.el --- edit the Gentoo Devmanual  -*-lexical-binding:t-*-
 
-;; Copyright 2020-2024 Gentoo Authors
+;; Copyright 2020-2025 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>
