@@ -1,5 +1,8 @@
 2025-01-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-find-s): Restrict scope of the inner
+	let-binding.
+
 	* ebuild-mode.el (ebuild-commands-list): Remove "depend" command.
 
 2025-01-08  Ulrich Müller  <ulm@gentoo.org>

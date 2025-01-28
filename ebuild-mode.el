@@ -640,7 +640,8 @@ the output of the \"declare -p\" Bash command."
   "Visit the temporary build directory (S) for the ebuild in this buffer.
 With prefix argument OTHER-WINDOW, visit the directory in another window."
   (interactive "P")
-  (let ((builddir (ebuild-mode-get-builddir))
+  (let ((find-file-run-dired t)
+	(builddir (ebuild-mode-get-builddir))
 	s)
     (condition-case nil
 	(with-temp-buffer
@@ -663,14 +664,13 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
     ;; XEmacs does not have file-in-directory-p
     (let* ((workdir (concat builddir "/work"))
 	   (wd (file-name-as-directory workdir))
-	   (sd (file-name-as-directory s))
-	   (find-file-run-dired t))
+	   (sd (file-name-as-directory s)))
       (unless (and (>= (length sd) (length wd))
 		   (string-equal (substring sd 0 (length wd)) wd))
-	(error "S=\"%s\" is outside WORKDIR=\"%s\"" s workdir))
-      (if other-window
-	  (find-file-other-window s)
-	(find-file s)))))
+	(error "S=\"%s\" is outside WORKDIR=\"%s\"" s workdir)))
+    (if other-window
+	(find-file-other-window s)
+      (find-file s))))
 
 (defun ebuild-mode-find-build-log (&optional other-window)
   "Visit the build log for the ebuild in this buffer.
