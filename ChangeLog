@@ -1,3 +1,7 @@
+2025-01-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-commands-list): Remove "depend" command.
+
 2025-01-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* test/ebuild-mode-tests.el (ebuild-mode-test-get-builddir):
