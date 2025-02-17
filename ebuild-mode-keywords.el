@@ -125,7 +125,7 @@
      ;; apache-2
      "apache-2_pkg_postinst" "apache-2_pkg_setup" "apache-2_src_configure"
      "apache-2_src_install" "apache-2_src_prepare" "check_module_critical"
-     "check_upgrade" "generate_load_module" "setup_modules" "setup_mpm"
+     "generate_load_module" "setup_modules" "setup_mpm"
      ;; apache-module
      "apache-module_pkg_postinst" "apache-module_src_compile"
      "apache-module_src_install" "apache_cd_dir" "apache_doc_magic"
@@ -233,6 +233,8 @@
      "dosym8"
      ;; eapi9-pipestatus
      "pipestatus"
+     ;; eapi9-ver
+     "ver_replacing"
      ;; ecm
      "ecm_punt_bogus_dep" "ecm_punt_kf_module" "ecm_punt_po_install"
      "ecm_punt_qt_module" "ecm_src_compile" "ecm_src_configure"
@@ -471,6 +473,9 @@
      "get_llvm_prefix" "get_llvm_slot" "llvm_pkg_setup"
      ;; llvm-r1
      "get_llvm_prefix" "llvm-r1_pkg_setup" "llvm_gen_dep"
+     ;; llvm-r2
+     "generate_llvm_config" "get_llvm_prefix" "llvm-r2_pkg_setup"
+     "llvm_cbuild_setup" "llvm_chost_setup" "llvm_gen_dep"
      ;; llvm-utils
      "llvm_fix_clang_version" "llvm_fix_tool_path" "llvm_prepend_path"
      "llvm_tuple_to_target"
@@ -501,8 +506,6 @@
      "meson_native_enabled" "meson_native_true" "meson_native_use_bool"
      "meson_native_use_feature" "multilib_src_compile"
      "multilib_src_configure" "multilib_src_install" "multilib_src_test"
-     ;; mono
-     "egacinstall" "mono_multilib_comply"
      ;; mono-env
      "mono-env_pkg_setup"
      ;; mount-boot
@@ -825,8 +828,9 @@
      "vdr-plugin-2_src_unpack" "vdr-plugin-2_src_util"
      "vdr_remove_i18n_include"
      ;; verify-sig
-     "verify-sig_src_unpack" "verify-sig_verify_detached"
-     "verify-sig_verify_message" "verify-sig_verify_signed_checksums"
+     "verify-sig_src_unpack" "verify-sig_uncompress_verify_unpack"
+     "verify-sig_verify_detached" "verify-sig_verify_message"
+     "verify-sig_verify_signed_checksums"
      "verify-sig_verify_unsigned_checksums"
      ;; vim-doc
      "update_vim_helptags"
