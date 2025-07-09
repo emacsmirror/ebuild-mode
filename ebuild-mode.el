@@ -139,7 +139,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
        (with-temp-buffer
 	 (let ((coding-system-for-read 'utf-8-unix))
 	   (insert-file-contents
-	    (concat ebuild-mode-portdir "/profiles/arch.list")))
+	    (expand-file-name "profiles/arch.list" ebuild-mode-portdir)))
 	 (while (re-search-forward "#.*$" nil t)
 	   (replace-match ""))
 	 (sort (split-string (buffer-string)) #'ebuild-mode-arch-lessp))
@@ -156,7 +156,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
        (with-temp-buffer
 	 (let ((coding-system-for-read 'utf-8-unix))
 	   (insert-file-contents
-	    (concat ebuild-mode-portdir "/profiles/arches.desc")))
+	    (expand-file-name "profiles/arches.desc" ebuild-mode-portdir)))
 	 (let (archs)
 	   (while (re-search-forward
 		   "^[ \t]*\\([^ \t\n#]+\\)[ \t]+\\(stable\\|transitional\\)\\>"
@@ -189,7 +189,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
 
 (defvar ebuild-mode-licenses
   (condition-case nil
-      (directory-files (concat ebuild-mode-portdir "/licenses")
+      (directory-files (expand-file-name "licenses" ebuild-mode-portdir)
 		       nil "\\`[^.]")
     (file-error nil))
   "List of licenses, determined from the ebuild repository.")
@@ -198,7 +198,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
   (condition-case nil
       (mapcar
        (lambda (x) (substring x 0 (string-match "\\.eclass\\'" x)))
-       (directory-files (concat ebuild-mode-portdir "/eclass")
+       (directory-files (expand-file-name "eclass" ebuild-mode-portdir)
 			nil "\\.eclass\\'"))
     (file-error nil))
   "List of eclasses, determined from the ebuild repository.")
@@ -214,7 +214,7 @@ Returns non-nil if A is less than B by Gentoo keyword ordering."
       (with-temp-buffer
 	(let ((coding-system-for-read 'utf-8-unix))
 	  (insert-file-contents
-	   (concat ebuild-mode-portdir "/profiles/use.desc")))
+	   (expand-file-name "profiles/use.desc" ebuild-mode-portdir)))
 	(while (re-search-forward "[ \t#].*$" nil t)
 	  (replace-match ""))
 	(split-string (buffer-string)))
@@ -576,8 +576,8 @@ Like `compile', but with autocompletion for pkgcheck."
 		  (expand-file-name "../profiles/repo_name" catdir))
 		 (string-match (concat "\\`" (regexp-quote pn) "-") pf))
       (error "This does not look like an ebuild repository"))
-    (let ((builddir (concat (file-name-as-directory ebuild-mode-portage-tmpdir)
-			    category "/" pf)))
+    (let ((builddir (expand-file-name (concat category "/" pf)
+				      ebuild-mode-portage-tmpdir)))
       (unless (file-directory-p builddir)
 	(error "Package build directory \"%s\" does not exist" builddir))
       builddir)))
@@ -586,7 +586,7 @@ Like `compile', but with autocompletion for pkgcheck."
   "Visit the working directory (WORKDIR) for the ebuild in this buffer.
 With prefix argument OTHER-WINDOW, visit the directory in another window."
   (interactive "P")
-  (let ((workdir (concat (ebuild-mode-get-builddir) "/work"))
+  (let ((workdir (expand-file-name "work" (ebuild-mode-get-builddir)))
 	(find-file-run-dired t))
     (unless (file-directory-p workdir)
       (error "WORKDIR=\"%s\" does not exist" workdir))
@@ -598,7 +598,7 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
   "Visit the image directory (D) for the ebuild in this buffer.
 With prefix argument OTHER-WINDOW, visit the directory in another window."
   (interactive "P")
-  (let ((image (concat (ebuild-mode-get-builddir) "/image"))
+  (let ((image (expand-file-name "image" (ebuild-mode-get-builddir)))
 	(find-file-run-dired t))
     (unless (file-directory-p image)
       (error "D=\"%s\" does not exist" image))
@@ -648,7 +648,7 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 	  (static-if (fboundp 'set-buffer-multibyte)
 	      (set-buffer-multibyte nil))
 	  (insert-file-contents-literally
-	   (concat builddir "/temp/environment"))
+	   (expand-file-name "temp/environment" builddir))
 	  (re-search-forward
 	   "^declare -\\S-* S=\\(\"\\|\\$'\\)\\(.*\\)[\"']$")
 	  (setq s (ebuild-mode-unescape-string
@@ -662,7 +662,7 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
       (error "Directory S=\"%s\" does not exist" s))
     ;; sanity check, S should be WORKDIR or a subdir of it
     ;; XEmacs does not have file-in-directory-p
-    (let* ((workdir (concat builddir "/work"))
+    (let* ((workdir (expand-file-name "work" builddir))
 	   (wd (file-name-as-directory workdir))
 	   (sd (file-name-as-directory s)))
       (unless (and (>= (length sd) (length wd))
@@ -676,7 +676,8 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
   "Visit the build log for the ebuild in this buffer.
 With prefix argument OTHER-WINDOW, visit the directory in another window."
   (interactive "P")
-  (let ((file (concat (ebuild-mode-get-builddir) "/temp/build.log")))
+  (let ((file (expand-file-name "temp/build.log"
+				(ebuild-mode-get-builddir))))
     (unless (file-readable-p file)
       (error "Cannot read file \"%s\"" file))
     (if other-window

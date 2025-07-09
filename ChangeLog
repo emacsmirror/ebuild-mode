@@ -1,3 +1,14 @@
+2025-07-09  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-arch-list)
+	(ebuild-mode-arch-stable-list, ebuild-mode-licenses)
+	(ebuild-mode-eclasses, ebuild-mode-use-flags)
+	(ebuild-mode-get-builddir, ebuild-mode-find-workdir)
+	(ebuild-mode-find-image-dir, ebuild-mode-find-s)
+	(ebuild-mode-find-build-log): Use expand-file-name instead of
+	concat because it is slightly more robust, considering that the
+	directories may be custom-defined by the user.
+
 2025-02-17  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.78 released.
