@@ -1,5 +1,24 @@
+;;; xemacs-test-wrapper.el --- ERT test wrapper for XEmacs
+
 ;; Copyright 2024-2025 Gentoo Authors
-;; Distributed under the terms of the GNU General Public License v2 or later
+
+;; Author: Ulrich Müller <ulm@gentoo.org>
+;; Maintainer: <emacs@gentoo.org>
+
+;; This file is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 2 of the License, or
+;; (at your option) any later version.
+
+;; This file is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with XEmacs.  If not, see <https://www.gnu.org/licenses/>.
+
+;;; Commentary:
 
 ;; Quick and dirty hack to make the tests work with XEmacs, where ERT
 ;; is not available. It defines some macros (just the few that we need;
@@ -9,6 +28,8 @@
 ;; Run the tests:
 ;; xemacs -batch -q -no-site-file -eval "(add-to-list 'load-path nil)" \
 ;; -l test/xemacs-test-wrapper -f batch-test-emacs test/mytest.el
+
+;;; Code:
 
 (require 'test-harness)
 (provide 'ert)				; pretend that ERT is present
@@ -54,3 +75,5 @@
 	       (if (/= (nth 1 result) (nth 2 result))
 		   (setq ret 1)))))
     (ad-set-arg 0 ret)))
+
+;;; xemacs-test-wrapper.el ends here
