@@ -21,6 +21,10 @@
 
 ;;; Commentary:
 
+;; Minimum Emacs version:
+;; GNU Emacs 26.3
+;; XEmacs not supported
+
 ;;; Code:
 
 (require 'rst)

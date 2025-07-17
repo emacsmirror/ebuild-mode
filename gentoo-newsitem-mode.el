@@ -21,6 +21,10 @@
 
 ;;; Commentary:
 
+;; Minimum Emacs version:
+;; GNU Emacs 26.3
+;; XEmacs 21.5.35
+
 ;;; Code:
 
 (require 'font-lock)
