@@ -1,3 +1,8 @@
+2025-07-18  Ulrich Müller  <ulm@gentoo.org>
+
+	* test/ebuild-mode-tests.el (ebuild-mode-test-run-command-foo):
+	New test.
+
 2025-07-09  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-arch-list)

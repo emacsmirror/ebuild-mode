@@ -130,6 +130,11 @@
 	     (buffer-string)
 	     "# Copyright 2024 Gentoo Authors\n"))))
 
+(ert-deftest ebuild-mode-test-run-command-foo ()
+  (cl-letf (((symbol-function 'ebuild-run-command) #'identity))
+    (should (functionp 'ebuild-run-command-unpack))
+    (should (equal (ebuild-run-command-unpack) "unpack"))))
+
 (ert-deftest ebuild-mode-test-get-builddir ()
   (cl-letf (((symbol-function 'file-exists-p)
 	     (lambda (file)
