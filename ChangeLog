@@ -1,5 +1,8 @@
 2025-07-18  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* test/ebuild-mode-tests.el (ebuild-mode-test-run-command-foo):
 	New test.
 

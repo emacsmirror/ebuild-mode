@@ -202,11 +202,13 @@
      "distutils-r1_src_configure" "distutils-r1_src_install"
      "distutils-r1_src_prepare" "distutils-r1_src_test"
      "distutils_enable_sphinx" "distutils_enable_tests"
-     "distutils_install_for_testing" "distutils_pep517_install"
-     "distutils_wheel_install" "distutils_write_namespace" "esetup.py"
+     "distutils_pep517_install" "distutils_wheel_install"
+     "distutils_write_namespace" "esetup.py"
      ;; docs
      "docs_compile" "doxygen_compile" "initialize_git_repo" "mkdocs_compile"
      "sphinx_compile"
+     ;; dot-a
+     "lto-guarantee-fat" "strip-lto-bytecode"
      ;; dotnet
      "dotnet_multilib_comply" "dotnet_pkg_setup" "egacinstall" "exbuild"
      ;; dotnet-pkg
@@ -265,6 +267,9 @@
      "eumask_push" "evar_pop" "evar_push" "evar_push_set"
      ;; fcaps
      "fcaps" "fcaps_pkg_postinst"
+     ;; ffmpeg-compat
+     "ffmpeg_compat_add_flags" "ffmpeg_compat_get_prefix"
+     "ffmpeg_compat_setup"
      ;; findlib
      "check_ocamlfind" "findlib_src_install" "findlib_src_preinst"
      ;; fixheadtails
@@ -277,9 +282,9 @@
      "is-flagq" "is-ldflag" "is-ldflagq" "no-as-needed" "raw-ldflags"
      "replace-cpu-flags" "replace-flags" "replace-sparc64-flags" "strip-flags"
      "strip-unsupported-flags" "test-compile" "test-flag-CC" "test-flag-CCLD"
-     "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flags"
-     "test-flags-CC" "test-flags-CCLD" "test-flags-CXX" "test-flags-F77"
-     "test-flags-FC" "test_version_info"
+     "test-flag-CXX" "test-flag-F77" "test-flag-FC" "test-flag-HIPCXX"
+     "test-flags" "test-flags-CC" "test-flags-CCLD" "test-flags-CXX"
+     "test-flags-F77" "test-flags-FC" "test-flags-HIPCXX" "test_version_info"
      ;; font
      "font_cleanup_dirs" "font_fontconfig" "font_pkg_postinst"
      "font_pkg_postrm" "font_pkg_setup" "font_src_install"
@@ -369,17 +374,18 @@
      "guile_export" "guile_filter_pkgconfig_path" "guile_generate_depstrings"
      "guile_set_common_vars" "guile_unstrip_ccache"
      ;; haskell-cabal
-     "cabal-bootstrap" "cabal-build" "cabal-configure" "cabal-constraint"
-     "cabal-copy" "cabal-die-if-nonempty" "cabal-export-dist-libs"
-     "cabal-haddock" "cabal-hscolour" "cabal-is-dummy-lib" "cabal-mksetup"
-     "cabal-pkg" "cabal-register-inplace" "cabal-run-dist-bin"
-     "cabal-show-brokens" "cabal-show-brokens-and-die" "cabal-show-old"
-     "cabal-version" "cabal_chdeps" "cabal_flag" "cabal_src_compile"
-     "cabal_src_configure" "cabal_src_install" "haskell-cabal-run_verbose"
-     "haskell-cabal_pkg_postinst" "haskell-cabal_pkg_postrm"
-     "haskell-cabal_pkg_setup" "haskell-cabal_src_compile"
-     "haskell-cabal_src_configure" "haskell-cabal_src_install"
-     "haskell-cabal_src_prepare" "haskell-cabal_src_test" "replace-hcflags"
+     "cabal-bootstrap" "cabal-build" "cabal-check-cache" "cabal-configure"
+     "cabal-constraint" "cabal-copy" "cabal-die-if-nonempty"
+     "cabal-export-dist-libs" "cabal-haddock" "cabal-hscolour"
+     "cabal-is-dummy-lib" "cabal-mksetup" "cabal-pkg" "cabal-register-inplace"
+     "cabal-run-dist-bin" "cabal-show-brokens" "cabal-show-brokens-and-die"
+     "cabal-show-old" "cabal-version" "cabal_chdeps" "cabal_flag"
+     "cabal_src_compile" "cabal_src_configure" "cabal_src_install"
+     "haskell-cabal-run_verbose" "haskell-cabal_pkg_postinst"
+     "haskell-cabal_pkg_postrm" "haskell-cabal_pkg_setup"
+     "haskell-cabal_src_compile" "haskell-cabal_src_configure"
+     "haskell-cabal_src_install" "haskell-cabal_src_prepare"
+     "haskell-cabal_src_test" "replace-hcflags"
      ;; java-osgi
      "java-osgi_dojar" "java-osgi_dojar-fromfile" "java-osgi_newjar"
      "java-osgi_newjar-fromfile"
@@ -438,8 +444,6 @@
      "kernel-install_pkg_preinst" "kernel-install_pkg_pretend"
      "kernel-install_src_test" "kernel-install_test"
      "kernel-install_update_symlink"
-     ;; kodi-addon
-     "kodi-addon_src_configure"
      ;; latex-package
      "latex-package_pkg_postinst" "latex-package_pkg_postrm"
      "latex-package_rehash" "latex-package_src_compile"
@@ -477,8 +481,8 @@
      "generate_llvm_config" "get_llvm_prefix" "llvm-r2_pkg_setup"
      "llvm_cbuild_setup" "llvm_chost_setup" "llvm_gen_dep"
      ;; llvm-utils
-     "llvm_fix_clang_version" "llvm_fix_tool_path" "llvm_prepend_path"
-     "llvm_tuple_to_target"
+     "llvm_cmake_use_musl" "llvm_fix_clang_version" "llvm_fix_tool_path"
+     "llvm_prepend_path" "llvm_tuple_to_target"
      ;; llvm.org
      "get_lit_flags" "llvm.org_set_globals" "llvm.org_src_prepare"
      "llvm.org_src_unpack" "llvm_are_manpages_built" "llvm_install_manpages"
@@ -548,6 +552,16 @@
      "myspell-r2_src_install" "myspell-r2_src_unpack"
      ;; netsurf
      "netsurf_define_makeconf"
+     ;; nginx
+     "econf_ngx" "nginx_pkg_postinst" "nginx_pkg_setup" "nginx_src_compile"
+     "nginx_src_configure" "nginx_src_install" "nginx_src_prepare"
+     "nginx_src_test" "nginx_src_unpack"
+     ;; nginx-module
+     "econf_ngx" "nginx-module_pkg_postinst" "nginx-module_src_compile"
+     "nginx-module_src_configure" "nginx-module_src_install"
+     "nginx-module_src_prepare" "nginx-module_src_test"
+     "nginx-module_src_unpack" "ngx_mod_append_libs" "ngx_mod_link_module"
+     "ngx_mod_pkg_to_sonames" "ngx_mod_setup_link_modules"
      ;; ninja-utils
      "eninja" "get_NINJAOPTS"
      ;; nuget
@@ -670,7 +684,7 @@
      "rebar3_src_configure" "rebar3_src_install" "rebar3_src_prepare"
      "rebar3_src_test"
      ;; rocm
-     "check_amdgpu" "get_amdgpu_flags" "rocm_use_hipcc"
+     "check_amdgpu" "get_amdgpu_flags" "rocm_use_clang" "rocm_use_hipcc"
      ;; rpm
      "rpm_src_unpack" "rpm_unpack" "srcrpm_unpack"
      ;; ruby-fakegem
@@ -729,6 +743,8 @@
      ;; subversion
      "subversion_fetch" "subversion_pkg_preinst" "subversion_src_unpack"
      "subversion_wc_info"
+     ;; sysroot
+     "qemu_arch" "sysroot_make_run_prefixed" "sysroot_run_prefixed"
      ;; systemd
      "systemd_dounit" "systemd_douserunit" "systemd_enable_ntpunit"
      "systemd_enable_service" "systemd_get_sleepdir"
@@ -757,9 +773,9 @@
      "fix_libtool_libdir_paths" "gcc-abi-map" "gcc-lang-supported"
      "gcc-multilib-configure" "gcc_do_filter_flags" "gcc_do_make"
      "gcc_movelibs" "gentoo_urls" "get_gcc_src_uri" "get_make_var" "is_ada"
-     "is_crosscompile" "is_cxx" "is_d" "is_f77" "is_f95" "is_fortran" "is_go"
-     "is_jit" "is_modula2" "is_multilib" "is_objc" "is_objcxx" "is_rust"
-     "setup_multilib_osdirnames" "should_we_gcc_config"
+     "is_cobol" "is_crosscompile" "is_cxx" "is_d" "is_f77" "is_f95"
+     "is_fortran" "is_go" "is_jit" "is_modula2" "is_multilib" "is_objc"
+     "is_objcxx" "is_rust" "setup_multilib_osdirnames" "should_we_gcc_config"
      "tc_enable_hardened_gcc" "tc_has_feature" "tc_is_live"
      "tc_use_major_version_only" "tc_version_is_at_least"
      "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
@@ -776,8 +792,8 @@
      "gcc-major-version" "gcc-micro-version" "gcc-minor-version"
      "gcc-specs-directive" "gcc-specs-nostrict" "gcc-specs-now"
      "gcc-specs-pie" "gcc-specs-relro" "gcc-specs-ssp" "gcc-specs-ssp-to-all"
-     "gcc-specs-stack-check" "gcc-version" "gen_usr_ldscript" "tc-arch"
-     "tc-arch-kernel" "tc-check-min_ver" "tc-check-openmp" "tc-cpp-is-true"
+     "gcc-specs-stack-check" "gcc-version" "tc-arch" "tc-arch-kernel"
+     "tc-check-min_ver" "tc-check-openmp" "tc-cpp-is-true"
      "tc-detect-is-softfloat" "tc-enables-cxx-assertions"
      "tc-enables-fortify-source" "tc-enables-pie" "tc-enables-ssp"
      "tc-enables-ssp-all" "tc-enables-ssp-strong" "tc-endian" "tc-env_build"
@@ -789,10 +805,10 @@
      "tc-getBUILD_PROG" "tc-getBUILD_RANLIB" "tc-getBUILD_READELF"
      "tc-getBUILD_STRINGS" "tc-getBUILD_STRIP" "tc-getCC" "tc-getCPP"
      "tc-getCXX" "tc-getDLLWRAP" "tc-getF77" "tc-getFC" "tc-getGCJ" "tc-getGO"
-     "tc-getLD" "tc-getNM" "tc-getOBJCOPY" "tc-getOBJDUMP" "tc-getPKG_CONFIG"
-     "tc-getPROG" "tc-getRANLIB" "tc-getRC" "tc-getREADELF" "tc-getSTRINGS"
-     "tc-getSTRIP" "tc-getTARGET_CPP" "tc-has-64bit-time_t" "tc-has-tls"
-     "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc" "tc-is-lto"
+     "tc-getHIPCXX" "tc-getLD" "tc-getNM" "tc-getOBJCOPY" "tc-getOBJDUMP"
+     "tc-getPKG_CONFIG" "tc-getPROG" "tc-getRANLIB" "tc-getRC" "tc-getREADELF"
+     "tc-getSTRINGS" "tc-getSTRIP" "tc-getTARGET_CPP" "tc-has-64bit-time_t"
+     "tc-has-tls" "tc-is-clang" "tc-is-cross-compiler" "tc-is-gcc" "tc-is-lto"
      "tc-is-softfloat" "tc-is-static-only" "tc-ld-disable-gold"
      "tc-ld-force-bfd" "tc-ld-is-bfd" "tc-ld-is-gold" "tc-ld-is-lld"
      "tc-ld-is-mold" "tc-ninja_magic_to_arch" "tc-stack-grows-down"
@@ -852,6 +868,10 @@
      "webapp_postupgrade_txt" "webapp_read_config" "webapp_server_configfile"
      "webapp_serverowned" "webapp_sqlscript" "webapp_src_install"
      "webapp_src_preinst"
+     ;; wine
+     "wine_pkg_postinst" "wine_pkg_postrm" "wine_pkg_pretend"
+     "wine_src_compile" "wine_src_configure" "wine_src_install"
+     "wine_src_prepare"
      ;; wrapper
      "make_wrapper"
      ;; wxwidgets
@@ -870,6 +890,9 @@
      "xorg-3_pkg_postrm" "xorg-3_pkg_setup" "xorg-3_reconf_source"
      "xorg-3_src_compile" "xorg-3_src_configure" "xorg-3_src_install"
      "xorg-3_src_prepare" "xorg-3_src_unpack"
+     ;; xorg-meson
+     "xorg-meson_src_configure" "xorg-meson_src_install"
+     "xorg-meson_src_unpack"
      ;; zig
      "zig_get_jobs" "zig_init_base_args" "zig_live_fetch" "zig_pkg_setup"
      "zig_src_compile" "zig_src_configure" "zig_src_install" "zig_src_prepare"
