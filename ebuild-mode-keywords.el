@@ -154,9 +154,10 @@
      "chromium_pkg_die" "chromium_remove_language_paks"
      "chromium_suid_sandbox_check_kernel_config"
      ;; cmake
-     "cmake_build" "cmake_comment_add_subdirectory" "cmake_run_in"
-     "cmake_src_compile" "cmake_src_configure" "cmake_src_install"
-     "cmake_src_prepare" "cmake_src_test" "cmake_use_find_package"
+     "cmake_build" "cmake_comment_add_subdirectory" "cmake_prepare"
+     "cmake_prepare-per-cmakelists" "cmake_run_in" "cmake_src_compile"
+     "cmake_src_configure" "cmake_src_install" "cmake_src_prepare"
+     "cmake_src_test" "cmake_use_find_package"
      ;; cmake-multilib
      "cmake-multilib_src_compile" "cmake-multilib_src_configure"
      "cmake-multilib_src_install" "cmake-multilib_src_test"
@@ -418,6 +419,8 @@
      "java-vm-2_pkg_prerm" "java-vm-2_pkg_setup" "java-vm_install-env"
      "java-vm_revdep-mask" "java-vm_sandbox-predict"
      "java-vm_set-pax-markings"
+     ;; junit5
+     "ejunit5" "junit5_pkg_setup" "junit5_src_test"
      ;; kde.org
      "kde.org_pkg_info" "kde.org_pkg_nofetch" "kde.org_src_unpack"
      ;; kernel-2
@@ -560,8 +563,9 @@
      "econf_ngx" "nginx-module_pkg_postinst" "nginx-module_src_compile"
      "nginx-module_src_configure" "nginx-module_src_install"
      "nginx-module_src_prepare" "nginx-module_src_test"
-     "nginx-module_src_unpack" "ngx_mod_append_libs" "ngx_mod_link_module"
-     "ngx_mod_pkg_to_sonames" "ngx_mod_setup_link_modules"
+     "nginx-module_src_unpack" "ngx_mod_append_libs" "ngx_mod_link_lib"
+     "ngx_mod_link_module" "ngx_mod_pkg_to_sonames"
+     "ngx_mod_setup_link_modules"
      ;; ninja-utils
      "eninja" "get_NINJAOPTS"
      ;; nuget
@@ -627,7 +631,8 @@
      ;; preserve-libs
      "preserve_old_lib" "preserve_old_lib_notify"
      ;; pypi
-     "pypi_normalize_name" "pypi_sdist_url" "pypi_translate_version"
+     "pypi_normalize_name" "pypi_provenance_url" "pypi_sdist_url"
+     "pypi_src_unpack" "pypi_translate_version" "pypi_verify_provenance"
      "pypi_wheel_name" "pypi_wheel_url"
      ;; python-any-r1
      "python-any-r1_pkg_setup" "python_gen_any_dep" "python_setup"
@@ -684,7 +689,8 @@
      "rebar3_src_configure" "rebar3_src_install" "rebar3_src_prepare"
      "rebar3_src_test"
      ;; rocm
-     "check_amdgpu" "get_amdgpu_flags" "rocm_use_clang" "rocm_use_hipcc"
+     "check_amdgpu" "get_amdgpu_flags" "rocm_add_sandbox" "rocm_use_clang"
+     "rocm_use_hipcc"
      ;; rpm
      "rpm_src_unpack" "rpm_unpack" "srcrpm_unpack"
      ;; ruby-fakegem
@@ -722,6 +728,8 @@
      "restore_config" "save_config" "savedconfig_pkg_postinst"
      ;; scons-utils
      "escons"
+     ;; sec-keys
+     "sec-keys_src_compile" "sec-keys_src_install" "sec-keys_src_test"
      ;; secureboot
      "secureboot_auto_sign" "secureboot_pkg_setup" "secureboot_sign_efi_file"
      ;; selinux-policy-2
@@ -773,11 +781,11 @@
      "fix_libtool_libdir_paths" "gcc-abi-map" "gcc-lang-supported"
      "gcc-multilib-configure" "gcc_do_filter_flags" "gcc_do_make"
      "gcc_movelibs" "gentoo_urls" "get_gcc_src_uri" "get_make_var" "is_ada"
-     "is_cobol" "is_crosscompile" "is_cxx" "is_d" "is_f77" "is_f95"
-     "is_fortran" "is_go" "is_jit" "is_modula2" "is_multilib" "is_objc"
-     "is_objcxx" "is_rust" "setup_multilib_osdirnames" "should_we_gcc_config"
-     "tc_enable_hardened_gcc" "tc_has_feature" "tc_is_live"
-     "tc_use_major_version_only" "tc_version_is_at_least"
+     "is_algol68" "is_cobol" "is_crosscompile" "is_cxx" "is_d" "is_f77"
+     "is_f95" "is_fortran" "is_go" "is_jit" "is_modula2" "is_multilib"
+     "is_objc" "is_objcxx" "is_rust" "setup_multilib_osdirnames"
+     "should_we_gcc_config" "tc_enable_hardened_gcc" "tc_has_feature"
+     "tc_is_live" "tc_use_major_version_only" "tc_version_is_at_least"
      "tc_version_is_between" "toolchain_death_notice" "toolchain_pkg_postinst"
      "toolchain_pkg_postrm" "toolchain_pkg_preinst" "toolchain_pkg_pretend"
      "toolchain_pkg_setup" "toolchain_src_compile" "toolchain_src_configure"
