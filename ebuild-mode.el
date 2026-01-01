@@ -685,13 +685,19 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
       (error "Cannot read file \"%s\"" file))
     (if other-window
 	(find-file-other-window file)
-      (find-file file))
-    ;; decode ANSI SGR control sequences if possible (tty-format.el)
-    (and (assq 'ansi-colors format-alist)
-	 (save-excursion
-	   (goto-char (point-min))
-	   (re-search-forward "\e\\[[0-9;]*m" nil t))
-	 (format-decode-buffer 'ansi-colors))))
+      (find-file file))))
+
+(defun ebuild-mode-decode-ansi-colors ()
+  "Decode ANSI SGR control sequences in build.log.
+If available, uses the \"tty-format\" package to translate the buffer
+from the `ansi-colors' file format."
+  (and buffer-file-name
+       (string-equal (file-name-nondirectory buffer-file-name) "build.log")
+       (assq 'ansi-colors format-alist)
+       (save-excursion
+         (goto-char (point-min))
+	 (re-search-forward "\e\\[[0-9;]*m" nil t))
+       (format-decode-buffer 'ansi-colors)))
 
 ;;; Modify package keywords.
 ;; This is basically a reimplementation of "ekeyword" in Emacs Lisp.
@@ -993,7 +999,6 @@ See `bug-reference-url-format' for further details.")
     (unless (local-variable-p 'indent-tabs-mode (current-buffer))
       (setq indent-tabs-mode ebuild-mode-xml-indent-tabs)))))
 
-;;;###autoload
 (defun ebuild-repo-mode-maybe-enable ()
   "Enable `ebuild-repo-mode' when the file is in an ebuild repository."
   ;; We assume that we are in an ebuild repository if we find a file
@@ -1104,10 +1109,18 @@ in a Gentoo profile."
 (add-to-list 'auto-mode-alist '("\\.eclass\\'" . ebuild-eclass-mode))
 
 ;;;###autoload
+(defun ebuild-mode-find-file-hook ()
+  "Hook function to be called from `find-file-hook' (or `find-file-hooks').
+Enable `ebuild-repo-mode' when the file is in an ebuild repository.
+Decode ANSI SGR control sequences in build.log if possible."
+  (ebuild-repo-mode-maybe-enable)
+  (ebuild-mode-decode-ansi-colors))
+
+;;;###autoload
 (add-hook
  ;; XEmacs 21.5 doesn't have find-file-hook
  (if (boundp 'find-file-hook) 'find-file-hook 'find-file-hooks)
- #'ebuild-repo-mode-maybe-enable)
+ #'ebuild-mode-find-file-hook)
 
 (provide 'ebuild-mode)
 

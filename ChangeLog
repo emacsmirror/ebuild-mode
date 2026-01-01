@@ -1,5 +1,15 @@
 2026-01-01  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-decode-ansi-colors): New function,
+	handler for ANSI color decoding in build logs.
+	(ebuild-mode-find-build-log): Don't decode ANSI colors here.
+	(ebuild-repo-mode-maybe-enable): Don't autoload.
+	(ebuild-mode-find-file-hook): New hook function, calls
+	ebuild-repo-mode-maybe-enable and ebuild-mode-decode-ansi-colors.
+	(find-file-hook): Update.
+	* test/ebuild-mode-tests.el (ebuild-mode-test-decode-ansi-colors):
+	New test.
+
 	* ebuild-mode.el (ebuild-mode-find-s): Use compare-strings.
 	We cannot use string-prefix-p because XEmacs doesn't support it.
 

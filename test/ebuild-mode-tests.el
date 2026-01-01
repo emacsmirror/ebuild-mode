@@ -190,6 +190,21 @@
 	     (ebuild-mode-find-s)
 	     "/tmp/portage/app-misc/foo-1/work/foo ä→$\\'`bar"))))
 
+(ert-deftest ebuild-mode-test-decode-ansi-colors ()
+  (skip-unless (require 'tty-format nil t))
+  (with-temp-buffer
+    (insert "\e[32m * \e[39;49;00mfoo\n")
+    (let ((buffer-file-name "/home/larry/build.log"))
+      (ebuild-mode-decode-ansi-colors))
+    (should (equal (buffer-string) " * foo\n"))
+    (goto-char (point-min))
+    (search-forward "*")
+    ;; just test for any face property, because ansi-color has changed
+    ;; between Emacs versions
+    (should (get-text-property (match-beginning 0) 'face))
+    (search-forward "foo")
+    (should-not (get-text-property (match-beginning 0) 'face))))
+
 (ert-deftest ebuild-mode-test-get-keywords ()
   (with-temp-buffer
     (insert "KEYWORDS=\"amd64 arm ~ppc64 x86\"\n")
