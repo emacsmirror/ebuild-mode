@@ -1,3 +1,8 @@
+2026-01-01  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-find-s): Use compare-strings.
+	We cannot use string-prefix-p because XEmacs doesn't support it.
+
 2025-12-31  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.80 released.

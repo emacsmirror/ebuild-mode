@@ -669,8 +669,7 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
     (let* ((workdir (expand-file-name "work" builddir))
 	   (wd (file-name-as-directory workdir))
 	   (sd (file-name-as-directory s)))
-      (unless (and (>= (length sd) (length wd))
-		   (string-equal (substring sd 0 (length wd)) wd))
+      (unless (eq t (compare-strings sd 0 (length wd) wd 0 nil))
 	(error "S=\"%s\" is outside WORKDIR=\"%s\"" s workdir)))
     (if other-window
 	(find-file-other-window s)
