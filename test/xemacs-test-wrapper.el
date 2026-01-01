@@ -1,6 +1,6 @@
 ;;; xemacs-test-wrapper.el --- ERT test wrapper for XEmacs
 
-;; Copyright 2024-2025 Gentoo Authors
+;; Copyright 2024-2026 Gentoo Authors
 
 ;; Author: Ulrich Müller <ulm@gentoo.org>
 ;; Maintainer: <emacs@gentoo.org>

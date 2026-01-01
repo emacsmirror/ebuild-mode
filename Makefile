@@ -1,4 +1,4 @@
-# Copyright 2007-2025 Gentoo Authors
+# Copyright 2007-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2 or later
 
 PN = ebuild-mode

@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright 2011-2025 Gentoo Authors
+# Copyright 2011-2026 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2 or later
 
 # Authors:

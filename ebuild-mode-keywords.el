@@ -1,6 +1,6 @@
 ;;; ebuild-mode-keywords.el --- keywords for font-lock  -*-lexical-binding:t-*-
 
-;; Copyright 2006-2025 Gentoo Authors
+;; Copyright 2006-2026 Gentoo Authors
 
 ;; Author: Matthew Kennedy <mkennedy@gentoo.org>
 ;;	Diego Pettenò <flameeyes@gentoo.org>
