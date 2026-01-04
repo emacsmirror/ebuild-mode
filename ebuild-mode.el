@@ -692,7 +692,7 @@ With prefix argument OTHER-WINDOW, visit the directory in another window."
 If available, uses the \"tty-format\" package to translate the buffer
 from the `ansi-colors' file format."
   (and buffer-file-name
-       (string-equal (file-name-nondirectory buffer-file-name) "build.log")
+       (string-match-p "/build\\>.*\\.log\\'" buffer-file-name)
        (assq 'ansi-colors format-alist)
        (save-excursion
          (goto-char (point-min))
