@@ -1,5 +1,12 @@
 2026-01-04  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-command-complete)
+	(ebuild-mode-get-builddir, ebuild-repo-mode-maybe-enable)
+	(ebuild-mode-insert-tag-line):
+	* devbook-mode.el (devbook-insert-skeleton):
+	* test/ebuild-mode-tests.el (ebuild-mode-test-font-lock-keywords):
+	Replace string-match with string-match-p where possible.
+
 	* ebuild-mode.el (ebuild-mode-decode-ansi-colors): Allow more
 	general build log names, e.g. for multilib.
 

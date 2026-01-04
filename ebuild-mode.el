@@ -525,9 +525,9 @@ an explanation of arguments S, PREDICATE and MODE."
 		(mapcar (lambda (x) (concat x " "))
 			(cond ((not (stringp s1))
 			       '("pkgdev" "pkgcheck"))
-			      ((string-match "\\<pkgdev\\s-+$" s1)
+			      ((string-match-p "\\<pkgdev\\s-+$" s1)
 			       ebuild-mode-pkgdev-commands)
-			      ((string-match "\\<pkgcheck\\s-+$" s1)
+			      ((string-match-p "\\<pkgcheck\\s-+$" s1)
 			       ebuild-mode-pkgcheck-commands)
 			      (t (list s2))))
 		predicate)))
@@ -574,11 +574,11 @@ Like `compile', but with autocompletion for pkgcheck."
 	 (basename (file-name-nondirectory buffer-file-name))
 	 (pf (file-name-sans-extension basename)))
     ;; sanity check
-    (unless (string-match "\\.ebuild\\'" (file-name-sans-versions basename))
+    (unless (string-match-p "\\.ebuild\\'" (file-name-sans-versions basename))
       (error "Filename \"%s\" does not end in \".ebuild\"" basename))
     (unless (and (file-exists-p
 		  (expand-file-name "../profiles/repo_name" catdir))
-		 (string-match (concat "\\`" (regexp-quote pn) "-") pf))
+		 (string-match-p (concat "\\`" (regexp-quote pn) "-") pf))
       (error "This does not look like an ebuild repository"))
     (let ((builddir (expand-file-name (concat category "/" pf)
 				      ebuild-mode-portage-tmpdir)))
@@ -1006,7 +1006,7 @@ See `bug-reference-url-format' for further details.")
   (and buffer-file-name
        (locate-dominating-file buffer-file-name "profiles/repo_name")
        ;; Don't enable the mode for patches
-       (not (string-match "\\.\\(diff\\|patch\\)\\'" buffer-file-name))
+       (not (string-match-p "\\.\\(diff\\|patch\\)\\'" buffer-file-name))
        (not (derived-mode-p 'diff-mode))
        (ebuild-repo-mode 1)))
 
@@ -1019,7 +1019,7 @@ in a Gentoo profile."
   (beginning-of-line)
   (insert (concat comment-start
 		  (and (/= 0 (length comment-start))
-		       (not (string-match "[ \t]" comment-start -1))
+		       (not (string-match-p "[ \t]" comment-start -1))
 		       " "))
 	  (format "%s <%s> (%s)\n"
 		  ebuild-mode-full-name ebuild-mode-mail-address

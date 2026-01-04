@@ -100,7 +100,7 @@ between the element name and its first attribute."
 				     buffer-file-name))
 		  (match-string 1 buffer-file-name)
 		(skeleton-read "Path: "))))
-    (if (string-match "\\`/*\\'" path)
+    (if (string-match-p "\\`/*\\'" path)
 	"root=\"true\""
       (concat "self=\"" (file-name-as-directory path) "\"")))
   ">\n"

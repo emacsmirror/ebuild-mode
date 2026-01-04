@@ -71,7 +71,7 @@
 	(findkey (lambda (key)
 		   (catch 'found
 		     (dolist (c ebuild-mode-font-lock-keywords)
-		       (if (string-match (car c) key)
+		       (if (string-match-p (car c) key)
 			   (throw 'found (cdr c))))))))
     ;; Verify that all regexps are below the 32 KiB limit.
     ;; Our regexps are ASCII only, so don't bother with string-bytes
