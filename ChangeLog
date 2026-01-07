@@ -1,5 +1,8 @@
 2026-01-07  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (ebuild-mode-test-duplicate-keywords):
+	New test.
+
 	* ebuild-mode.el (ebuild-mode-eapi-list): Add EAPI 9.
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-0)
 	(ebuild-mode-keywords-eapi-deprecated)

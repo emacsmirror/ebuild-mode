@@ -22,6 +22,7 @@
 
 (require 'ert)
 (require 'ebuild-mode)
+(require 'ebuild-mode-keywords)
 
 (eval-when-compile
   (unless (fboundp 'cl-letf)
@@ -65,6 +66,24 @@
 		     ((m) z) ((n o) y x) ((q r s t) w) ((u v) w))))
     ;; was it non-destructive?
     (should (equal alist alist1))))
+
+(ert-deftest ebuild-mode-test-duplicate-keywords ()
+  (let* ((keywords
+	  (list ebuild-mode-keywords-EAPI
+		ebuild-mode-keywords-0
+		ebuild-mode-keywords-functions
+		ebuild-mode-keywords-sandbox
+		ebuild-mode-keywords-eapi-deprecated
+		ebuild-mode-keywords-warn
+		ebuild-mode-keywords-eclassdoc
+		ebuild-mode-keywords-eclassdoc-warn
+		;; ebuild-mode-keywords-eclass can contain duplicates
+		(cons (delete-dups
+		       (copy-sequence (car ebuild-mode-keywords-eclass)))
+		      (cdr ebuild-mode-keywords-eclass))))
+	 (names (apply #'append (mapcar #'car keywords))))
+    (should (equal names
+		   (delete-dups (copy-sequence names))))))
 
 (ert-deftest ebuild-mode-test-font-lock-keywords ()
   (let ((case-fold-search nil)
