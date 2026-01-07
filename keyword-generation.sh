@@ -40,6 +40,13 @@ has() {
     return 1
 }
 
+fn_pm=$(
+    emacs -q --no-site-file --batch \
+        -L . -l ebuild-mode-keywords \
+        --eval "(princ (mapconcat #'identity
+                                  (car ebuild-mode-keywords-0) \"\n\"))"
+) || exit
+
 for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
     eclass=${ECLASSES[i]}
     file=${ECLASSFILES[i]}
@@ -56,7 +63,8 @@ for (( i = 0; i < ${#ECLASSES[@]}; i++ )); do
         s/^# @[^:]*:[[:space:]]*//;p};/^# @/bx}' "${file}")
 
     functions=(
-        $(echo "${fn_all}" | grep -v '^_' | grep -Fvx "${fn_internal}")
+        $(echo "${fn_all}" | grep -v '^_' \
+            | grep -Fvx "${fn_internal}"$'\n'"${fn_pm}")
     )
     if [[ ${#functions[@]} -eq 0 ]]; then
         echo "warning (no functions)" >&2

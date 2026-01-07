@@ -72,7 +72,7 @@
   :group 'ebuild)
 
 (defcustom ebuild-mode-eapi-list
-  '("7" "8")
+  '("7" "8" "9")
   "List of supported EAPIs.
 The most recent EAPI is listed last."
   :type '(repeat string)

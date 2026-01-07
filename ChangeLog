@@ -1,3 +1,11 @@
+2026-01-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-eapi-list): Add EAPI 9.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-0)
+	(ebuild-mode-keywords-eapi-deprecated)
+	(ebuild-mode-keywords-eclass): Update for EAPI 9.
+	* keyword-generation.sh: Exclude package manager functions.
+
 2026-01-04  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-command-complete)

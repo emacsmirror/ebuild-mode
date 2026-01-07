@@ -37,15 +37,15 @@
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-0
-  '(("assert" "best_version" "debug-print" "debug-print-function"
-     "debug-print-section" "die" "diropts" "dobin" "docinto" "doconfd" "dodir"
-     "dodoc" "doenvd" "doexe" "doinfo" "doinitd" "doins" "dolib.a" "dolib.so"
-     "doman" "domo" "dosbin" "dosym" "ebegin" "econf" "eend" "eerror" "einfo"
-     "einfon" "elog" "emake" "ewarn" "exeinto" "exeopts" "EXPORT_FUNCTIONS"
-     "fowners" "fperms" "has" "has_version" "inherit" "insinto" "insopts"
-     "into" "keepdir" "newbin" "newconfd" "newdoc" "newenvd" "newexe"
-     "newinitd" "newins" "newlib.a" "newlib.so" "newman" "newsbin" "unpack"
-     "use" "usev" "use_enable" "use_with"
+  '(("best_version" "debug-print" "debug-print-function" "debug-print-section"
+     "die" "diropts" "dobin" "docinto" "doconfd" "dodir" "dodoc" "doenvd"
+     "doexe" "doinfo" "doinitd" "doins" "dolib.a" "dolib.so" "doman" "dosbin"
+     "dosym" "ebegin" "econf" "eend" "eerror" "einfo" "einfon" "elog" "emake"
+     "ewarn" "exeinto" "exeopts" "EXPORT_FUNCTIONS" "fowners" "fperms" "has"
+     "has_version" "inherit" "insinto" "insopts" "into" "keepdir" "newbin"
+     "newconfd" "newdoc" "newenvd" "newexe" "newinitd" "newins" "newlib.a"
+     "newlib.so" "newman" "newsbin" "unpack" "use" "usev" "use_enable"
+     "use_with"
      ;; EAPI 2
      "default" "default_pkg_nofetch" "default_src_unpack"
      "default_src_prepare" "default_src_configure" "default_src_compile"
@@ -57,7 +57,9 @@
      ;; EAPI 6
      "eapply" "eapply_user" "einstalldocs" "get_libdir" "in_iuse"
      ;; EAPI 7
-     "dostrip" "eqawarn" "ver_cut" "ver_rs" "ver_test")
+     "dostrip" "eqawarn" "ver_cut" "ver_rs" "ver_test"
+     ;; EAPI 9
+     "edo" "pipestatus" "ver_replacing")
     font-lock-builtin-face))
 
 (defvar ebuild-mode-keywords-functions
@@ -76,9 +78,10 @@
 
 (defvar ebuild-mode-keywords-eapi-deprecated
   ;; deprecated or banned package manager commands
-  '(("dohard" "dohtml" "dolib" "dosed" "einstall" "hasq" "hasv" "libopts"
-     "portageq" "prepall" "prepalldocs" "prepallinfo" "prepallman"
-     "prepallstrip" "prepinfo" "preplib" "prepman" "prepstrip" "useq")
+  '(("assert" "dohard" "dohtml" "dolib" "domo" "dosed" "einstall" "hasq"
+     "hasv" "libopts" "portageq" "prepall" "prepalldocs" "prepallinfo"
+     "prepallman" "prepallstrip" "prepinfo" "preplib" "prepman" "prepstrip"
+     "useq")
     font-lock-warning-face))
 
 (defvar ebuild-mode-keywords-warn
@@ -234,10 +237,6 @@
      "dune_src_compile" "dune_src_install" "dune_src_test" "edune"
      ;; eapi8-dosym
      "dosym8"
-     ;; eapi9-pipestatus
-     "pipestatus"
-     ;; eapi9-ver
-     "ver_replacing"
      ;; ecm
      "ecm_punt_bogus_dep" "ecm_punt_kf_module" "ecm_punt_po_install"
      "ecm_punt_qt_module" "ecm_src_compile" "ecm_src_configure"
@@ -247,7 +246,7 @@
      "ecm-common_pkg_setup" "ecm-common_src_configure"
      "ecm-common_src_prepare"
      ;; edo
-     "edo" "edob"
+     "edob"
      ;; edos2unix
      "edos2unix"
      ;; elisp
