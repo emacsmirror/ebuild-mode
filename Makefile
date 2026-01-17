@@ -12,7 +12,7 @@ BYTECOMPFLAGS = -eval "(add-to-list 'load-path nil)"
 
 DISTFILES = ebuild-mode.el ebuild-mode-keywords.el devbook-mode.el \
 	gentoo-newsitem-mode.el glep-mode.el ebuild-mode.texi \
-	ChangeLog Makefile keyword-generation.sh \
+	ChangeLog Makefile keyword-generation.sh ebuild-mode-kw-gen.el \
 	test/ebuild-mode-tests.el test/devbook-mode-tests.el \
 	test/gentoo-newsitem-mode-tests.el test/glep-mode-tests.el \
 	test/xemacs-test-wrapper.el
@@ -37,7 +37,8 @@ all: $(ELCS) $(INFOFILES)
 	makeinfo --no-split $<
 
 keywords:
-	./keyword-generation.sh
+	$(EMACS) $(EMACSFLAGS) $(BYTECOMPFLAGS) \
+		-l ebuild-mode-kw-gen -f emkg-update-eclass-keywords
 
 check:
 ifeq ($(findstring xemacs,$(EMACS)),)

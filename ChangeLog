@@ -1,3 +1,13 @@
+2026-01-17  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-kw-gen.el: New file. Generates eclass keywords,
+	replacing the shell script.
+	* test/ebuild-mode-tests.el (ebuild-mode-test-keyword-generation):
+	New test.
+	* Makefile (DISTFILES, keywords): Update.
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 2026-01-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* test/ebuild-mode-tests.el (ebuild-mode-test-duplicate-keywords):

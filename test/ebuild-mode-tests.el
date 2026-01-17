@@ -23,6 +23,7 @@
 (require 'ert)
 (require 'ebuild-mode)
 (require 'ebuild-mode-keywords)
+(require 'ebuild-mode-kw-gen)
 
 (eval-when-compile
   (unless (fboundp 'cl-letf)
@@ -364,6 +365,39 @@
      (ebuild-mode))
     (should (equal (local-key-binding "\C-c\C-eu")
 		   'ebuild-run-command-unpack))))
+
+(ert-deftest ebuild-mode-test-keyword-generation ()
+  (cl-letf (((symbol-function 'directory-files)
+	     (lambda (&rest _args)
+	       '("spam.eclass" "sausage.eclass" "eggs.eclass")))
+	    ((symbol-function 'insert-file-contents)
+	     (lambda (file &rest _args)
+	       (let ((name (file-name-sans-extension
+			    (file-name-nondirectory file))))
+		 (if (string-equal name "spam")
+		     (insert "# @DEAD\n\n"))
+		 (insert
+		  "# @FUNCTION: " name "_bacon\n"
+		  name "_bacon() { spam; }\n\n"
+		  "# @FUNCTION: " name "_tomato\n"
+		  name "_tomato ()\n"
+		  "{ spam; }\n\n"
+		  "# @FUNCTION: " name "_spam\n"
+		  "function " name "_spam { spam; }\n\n"
+		  "# @FUNCTION: " name "_baked_beans\n"
+		  "# @INTERNAL\n"
+		  name "_baked_beans() { spam; }\n\n"
+		  "# @FUNCTION: " name "_undefined\n\n"
+		  name "_undocumented() { spam; }\n"))
+	       (goto-char (point-min)))))
+    (should (equal
+	     (ebuild-mode-test-run-silently
+	      (emkg-get-all-eclass-keywords "\t  " 50))
+	     (concat "\t  ;; eggs\n"
+		     "\t  \"eggs_bacon\" \"eggs_tomato\" \"eggs_spam\"\n"
+		     "\t  ;; sausage\n"
+		     "\t  \"sausage_bacon\" \"sausage_tomato\"\n"
+		     "\t  \"sausage_spam\"\n")))))
 
 (provide 'ebuild-mode-tests)
 
