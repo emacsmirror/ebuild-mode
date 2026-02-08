@@ -1,5 +1,9 @@
 2026-02-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-kw-gen.el (emkg-get-eclass-functions): Simplify.
+	Don't check for underscore; internal functions should be labelled
+	as @INTERNAL.
+
 	* ebuild-mode.el (ebuild-mode-insert-tag-line): Test for non-empty
 	ebuild-mode-full-name and ebuild-mode-mail-address.
 

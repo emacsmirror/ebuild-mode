@@ -51,12 +51,10 @@
 	  (let ((fn (match-string-no-properties 1)))
 	    (while (progn
 		     (forward-line 1)
-		     (and (looking-at "^#")
-			  (or (not (looking-at "^#[ \t]*@INTERNAL\\>"))
-			      (setq fn nil)))))
+		     (if (looking-at "^#[ \t]*@INTERNAL\\>")
+			 (setq fn nil)
+		       (looking-at "^#"))))
 	    (and fn
-		 ;; internal function (name starts with an underscore)?
-		 (not (eq ?_ (aref fn 0)))
 		 ;; package manager function?
 		 (not (member fn (car ebuild-mode-keywords-0)))
 		 ;; sanity check: is there an actual function definition?
