@@ -1,5 +1,8 @@
 2026-02-08  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-insert-tag-line): Test for non-empty
+	ebuild-mode-full-name and ebuild-mode-mail-address.
+
 	* ebuild-mode.el (ebuild): Add :link and :prefix keywords.
 
 2026-01-18  Ulrich Müller  <ulm@gentoo.org>

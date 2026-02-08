@@ -1018,6 +1018,10 @@ Format is \"# Larry The Cow <larry@gentoo.org> (2019-07-01)\".
 This is intended for package.mask and similar configuration files
 in a Gentoo profile."
   (interactive)
+  (cond ((zerop (length ebuild-mode-full-name))
+	 (error "`ebuild-mode-full-name' must not be empty"))
+	((zerop (length ebuild-mode-mail-address))
+	 (error "`ebuild-mode-mail-address' must not be empty")))
   (beginning-of-line)
   (insert (concat comment-start
 		  (and (/= 0 (length comment-start))
