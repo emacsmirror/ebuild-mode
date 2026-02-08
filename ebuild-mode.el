@@ -41,6 +41,8 @@
 
 (defgroup ebuild nil
   "Major mode for Gentoo .ebuild and .eclass files."
+  :link '(custom-manual "(ebuild-mode)Top")
+  :prefix "ebuild-mode-"
   :group 'languages)
 
 (defcustom ebuild-mode-full-name
