@@ -31,7 +31,8 @@
 (ert-deftest gentoo-newsitem-test-font-lock ()
   (with-temp-buffer
     (gentoo-newsitem-mode)
-    (insert "Author: Larry the Cow\n")
+    (insert "Author: Larry the Cow\n"
+	    "Title: A long title header line with more than 50 characters\n")
     (if (fboundp 'font-lock-ensure)
 	(font-lock-ensure)
       (font-lock-fontify-region (point-min) (point-max)))
@@ -40,7 +41,11 @@
     (should (equal (get-text-property (match-beginning 0) 'face)
 		   'font-lock-keyword-face))
     (search-forward "Larry")
-    (should-not (get-text-property (match-beginning 0) 'face))))
+    (should-not (get-text-property (match-beginning 0) 'face))
+    (re-search-forward "^Title: *.\\{50\\}")
+    (should-not (get-text-property (1- (point)) 'face))
+    (should (equal (get-text-property (point) 'face)
+		   'font-lock-warning-face))))
 
 (ert-deftest gentoo-newsitem-test-skeleton ()
   (with-temp-buffer

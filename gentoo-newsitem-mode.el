@@ -41,7 +41,10 @@
 		   "Display-If-Keyword" "Display-If-Profile")
 		 t)
 		":")
-       . font-lock-keyword-face)))
+       . font-lock-keyword-face)
+      ;; Warn about overlong title
+      ("^Title:[ \t]*.\\{50\\}\\(.*\\)"
+       1 font-lock-warning-face t)))
   "Expressions to highlight in Gentoo newsitem mode.")
 
 (defvar gentoo-newsitem-format-list

@@ -1,3 +1,10 @@
+2026-03-10  Ulrich Müller  <ulm@gentoo.org>
+
+	* gentoo-newsitem-mode.el (gentoo-newsitem-font-lock-keywords):
+	Use warning font face when the Title line exceeds 50 chars.
+	* test/gentoo-newsitem-mode-tests.el
+	(gentoo-newsitem-test-font-lock): Update test.
+
 2026-02-08  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-kw-gen.el (emkg-get-eclass-functions): Simplify.
