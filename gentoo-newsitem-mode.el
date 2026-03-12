@@ -33,18 +33,23 @@
 (require 'ebuild-mode)
 
 (defvar gentoo-newsitem-font-lock-keywords
-  (eval-when-compile
-    `((,(concat "^"
-		(regexp-opt
-		 '("Title" "Author" "Translator" "Content-Type" "Posted"
-		   "Revision" "News-Item-Format" "Display-If-Installed"
-		   "Display-If-Keyword" "Display-If-Profile")
-		 t)
-		":")
-       . font-lock-keyword-face)
-      ;; Warn about overlong title
-      ("^Title:[ \t]*.\\{50\\}\\(.*\\)"
-       1 font-lock-warning-face t)))
+  `((,(lambda (limit)
+	(gentoo-newsitem-search-header
+	 (eval-when-compile
+	   (concat "^"
+		   (regexp-opt
+		    '("Title" "Author" "Translator" "Content-Type" "Posted"
+		      "Revision" "News-Item-Format" "Display-If-Installed"
+		      "Display-If-Keyword" "Display-If-Profile")
+		    t)
+		   ":"))
+	 limit))
+     . font-lock-keyword-face)
+    ;; Warn about overlong title
+    (,(lambda (limit)
+	(gentoo-newsitem-search-header
+	 "^Title:[ \t]*.\\{50\\}\\(.*\\)" limit))
+     1 font-lock-warning-face t))
   "Expressions to highlight in Gentoo newsitem mode.")
 
 (defvar gentoo-newsitem-format-list
@@ -60,6 +65,17 @@
   (if (featurep 'xemacs)
       (easy-menu-add gentoo-newsitem-mode-menu))
   (setq fill-column 72))
+
+(defun gentoo-newsitem-search-header (regexp limit)
+  "Like `re-search-forward' but restricted to the header.
+Search forward from point for regular expression REGEXP.
+Buffer position LIMIT limits the search."
+  (let ((bound (save-excursion
+		 (goto-char (point-min))
+		 (re-search-forward "^$" limit 'move)
+		 (point))))
+    (if (>= bound (point))
+	(re-search-forward regexp bound t))))
 
 (defun gentoo-newsitem-add-font-lock ()
   "Add `gentoo-newsitem-mode' font-lock keywords for the current buffer."
