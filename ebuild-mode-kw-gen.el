@@ -73,7 +73,7 @@
 
 (defun emkg-get-all-eclass-keywords (prefix column)
   "Get eclass keywords, formatted for `ebuild-mode-keywords-eclass'.
-PREFIX and COLUMN as used to set `fill-prefix' and `fill-column'."
+PREFIX and COLUMN are used to set `fill-prefix' and `fill-column'."
   (with-temp-buffer
     (let ((eclasses
 	   (sort
