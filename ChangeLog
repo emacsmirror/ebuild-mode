@@ -1,3 +1,8 @@
+2026-04-04  Ulrich Müller  <ulm@gentoo.org>
+
+	* keyword-generation.sh: File removed.
+	* Makefile (DISTFILES): Update.
+
 2026-03-12  Ulrich Müller  <ulm@gentoo.org>
 
 	* gentoo-newsitem-mode.el (gentoo-newsitem-font-lock-keywords):
