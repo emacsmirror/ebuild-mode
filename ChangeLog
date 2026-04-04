@@ -1,5 +1,8 @@
 2026-04-04  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* keyword-generation.sh: File removed.
 	* Makefile (DISTFILES): Update.
 

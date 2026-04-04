@@ -137,8 +137,8 @@
      ;; aspell-dict-r1
      "aspell-dict-r1_src_configure" "aspell-dict-r1_src_install"
      ;; autotools
-     "eautoreconf" "eaclocal_amflags" "eaclocal" "eautoheader" "eautoconf"
-     "eautomake" "eautopoint" "config_rpath_update"
+     "eautoreconf" "eaclocal_amflags" "eaclocal" "_elibtoolize" "eautoheader"
+     "eautoconf" "eautomake" "eautopoint" "config_rpath_update"
      ;; bash-completion-r1
      "get_bashcompdir" "dobashcomp" "newbashcomp" "bashcomp_alias"
      ;; cargo
@@ -185,7 +185,8 @@
      ;; dist-kernel-utils
      "dist-kernel_get_image_path" "dist-kernel_install_kernel"
      "dist-kernel_reinstall_initramfs" "dist-kernel_PV_to_KV"
-     "dist-kernel_get_module_suffix" "dist-kernel_compressed_module_cleanup"
+     "dist-kernel_get_compressor" "dist-kernel_get_module_suffix"
+     "dist-kernel_compressed_module_cleanup"
      ;; distutils-r1
      "distutils_enable_sphinx" "distutils_enable_tests" "esetup.py"
      "distutils_write_namespace" "distutils-r1_python_prepare_all"
@@ -314,8 +315,8 @@
      ;; gnuconfig
      "gnuconfig_update"
      ;; go-env
-     "go-env_set_compile_environment" "go-env_goos" "go-env_goarch"
-     "go-env_go386" "go-env_goarm"
+     "go-env_set_compile_environment" "go-env_run" "go-env_goos"
+     "go-env_goarch" "go-env_go386" "go-env_goarm" "go-env_gomips"
      ;; go-module
      "ego" "go-module_set_globals" "go-module_setup_proxy"
      "go-module_src_unpack" "go-module_live_vendor"
@@ -463,9 +464,9 @@
      ;; mercurial
      "mercurial_fetch" "mercurial_src_unpack"
      ;; meson
-     "meson_use" "meson_feature" "setup_meson_src_configure"
-     "meson_src_configure" "meson_src_compile" "meson_src_test"
-     "meson_install" "meson_src_install"
+     "meson_add_machine_file" "meson_add_native_file" "meson_use"
+     "meson_feature" "setup_meson_src_configure" "meson_src_configure"
+     "meson_src_compile" "meson_src_test" "meson_install" "meson_src_install"
      ;; meson-multilib
      "meson_native_use_bool" "meson_native_use_feature" "meson_native_enabled"
      "meson_native_true"
@@ -500,16 +501,15 @@
      ;; netsurf
      "netsurf_define_makeconf"
      ;; nginx
-     "econf_ngx" "nginx_pkg_setup" "nginx_src_unpack" "nginx_src_prepare"
-     "nginx_src_configure" "nginx_src_compile" "nginx_src_test"
-     "nginx_src_install" "nginx_pkg_postinst"
+     "econf_ngx" "nginx_src_unpack" "nginx_src_prepare" "nginx_src_configure"
+     "nginx_src_compile" "nginx_src_test" "nginx_src_install"
+     "nginx_pkg_postinst"
      ;; nginx-module
      "econf_ngx" "ngx_mod_pkg_to_sonames" "ngx_mod_append_libs"
      "ngx_mod_setup_link_modules" "ngx_mod_link_module" "ngx_mod_link_lib"
-     "nginx-module_src_unpack" "nginx-module_src_prepare"
-     "nginx-module_src_configure" "nginx-module_src_compile"
-     "nginx-module_src_test" "nginx-module_src_install"
-     "nginx-module_pkg_postinst"
+     "nginx-module_src_prepare" "nginx-module_src_configure"
+     "nginx-module_src_compile" "nginx-module_src_test"
+     "nginx-module_src_install" "nginx-module_pkg_postinst"
      ;; ninja-utils
      "get_NINJAOPTS" "eninja"
      ;; nuget
@@ -600,7 +600,8 @@
      "qt5_get_bindir" "qt5_get_headerdir" "qt5_get_libdir"
      "qt5_get_mkspecsdir" "qt5_get_plugindir" "qt5_get_qmake_args" "eqmake5"
      "qt6_get_bindir" "qt6_get_headerdir" "qt6_get_libdir"
-     "qt6_get_mkspecsdir" "qt6_get_plugindir" "qt6_get_qmake_args" "eqmake6"
+     "qt6_get_libexecdir" "qt6_get_mkspecsdir" "qt6_get_plugindir"
+     "qt6_get_qmake_args" "eqmake6"
      ;; qt5-build
      "qt5-build_src_prepare" "qt5-build_src_configure" "qt5-build_src_compile"
      "qt5-build_src_test" "qt5-build_src_install" "qt5-build_pkg_postinst"
@@ -682,7 +683,8 @@
      "subversion_fetch" "subversion_wc_info" "subversion_src_unpack"
      "subversion_pkg_preinst"
      ;; sysroot
-     "qemu_arch" "sysroot_make_run_prefixed" "sysroot_run_prefixed"
+     "qemu_arch" "qemu_arch_if_needed" "sysroot_make_run_prefixed"
+     "sysroot_run_prefixed" "sysroot_try_run_prefixed"
      ;; systemd
      "systemd_get_systemunitdir" "systemd_get_userunitdir"
      "systemd_get_utildir" "systemd_get_systemgeneratordir"
@@ -779,8 +781,8 @@
      "webapp_pkg_postinst" "webapp_pkg_prerm"
      ;; wine
      "wine_pkg_pretend" "wine_src_prepare" "wine_src_configure"
-     "wine_src_compile" "wine_src_install" "wine_pkg_postinst"
-     "wine_pkg_postrm"
+     "wine_src_compile" "wine_src_install" "wine_pkg_preinst"
+     "wine_pkg_postinst" "wine_pkg_postrm"
      ;; wrapper
      "make_wrapper"
      ;; wxwidgets
