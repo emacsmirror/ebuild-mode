@@ -38,14 +38,19 @@
 (defvar emkg-obsolete-eclasses nil)
 
 (defun emkg-get-eclass-functions (name)
-  "Return a list of documented non-internal functions in eclass NAME."
+  "Return a list of documented non-internal functions in eclass NAME.
+If the eclass is dead or obsolete, return the corresponding symbol instead."
   (let ((file (expand-file-name (concat name ".eclass") emkg-eclass-dir))
 	(coding-system-for-read 'utf-8-unix)
 	functions)
     (with-temp-buffer
       (insert-file-contents file)
-      (if (re-search-forward "^#[ \t]*@DEAD\\>" nil t)
-	  'dead
+      (cond
+       ((re-search-forward "^#[ \t]*@DEAD\\>" nil t)
+	'dead)
+       ((member name emkg-obsolete-eclasses)
+	'obsolete)
+       (t
 	(while (re-search-forward
 		"^#[ \t]*@FUNCTION:[ \t]*\\(\\S-+\\)" nil t)
 	  (let ((fn (match-string-no-properties 1)))
@@ -69,7 +74,7 @@
 		       (lwarn 'ebuild nil
 			      "%s: %s documented but not found" name fn)))
 		 (push fn functions))))
-	(nreverse functions)))))
+	(nreverse functions))))))
 
 (defun emkg-get-all-eclass-keywords (prefix column)
   "Get eclass keywords, formatted for `ebuild-mode-keywords-eclass'.
@@ -85,10 +90,8 @@ PREFIX and COLUMN are used to set `fill-prefix' and `fill-column'."
       (dolist (name eclasses)
 	(let ((functions (emkg-get-eclass-functions name)))
 	  (cond
-	   ((eq functions 'dead)
-	    (message "%-24s: skip (dead)" name))
-	   ((member name emkg-obsolete-eclasses)
-	    (message "%-24s: skip (obsolete)" name))
+	   ((nlistp functions)
+	    (message "%-24s: skip (%s)" name functions))
 	   ((null functions)
 	    ;;(message "%-24s:  no functions" name)
 	    )

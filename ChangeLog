@@ -1,3 +1,9 @@
+2026-05-13  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-kw-gen.el (emkg-get-eclass-functions): Move the
+	check for obsolete eclasses here. Update docstring.
+	(emkg-get-all-eclass-keywords): Remove the check accordingly.
+
 2026-04-04  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.82 released.
