@@ -1,5 +1,12 @@
 2026-05-28  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode-completion-keywords): New variable.
+	(ebuild-mode-completion-at-point): New hook function, returns
+	package manager and eclass keywords as completion candidates.
+	(ebuild-mode): Add it to the completion-at-point-functions hook.
+	* ebuild-mode.texi (Commands): Document completion at point.
+	(ebuild-mode): Document keybinding.
+
 	* ebuild-mode.texi (ebuild-repo-mode): Use @key for RET.
 
 2026-05-13  Ulrich Müller  <ulm@gentoo.org>

@@ -325,6 +325,28 @@ of the elements."
       1000)))
   "Expressions to highlight in `ebuild-mode'.")
 
+;;; Completion.
+
+(defvar ebuild-mode-completion-keywords
+  (eval-when-compile
+    (delete-dups
+     (apply #'append
+	    (mapcar #'car
+		    (list ebuild-mode-keywords-0
+			  ebuild-mode-keywords-functions
+			  ebuild-mode-keywords-sandbox
+			  ebuild-mode-keywords-eclass
+			  nil)))))
+  "Keywords for `completion-at-point' in `ebuild-mode'.")
+
+(defun ebuild-mode-completion-at-point ()
+  "Completion function to be added to `completion-at-point-functions'."
+  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+    (and bounds
+	 (list (car bounds) (cdr bounds)
+	       ebuild-mode-completion-keywords
+	       :exclusive 'no))))
+
 ;;; Mode definitions.
 
 (defun ebuild-mode-tabify ()
@@ -414,6 +436,9 @@ of the elements."
   (sh-set-shell "bash")
   (static-if (featurep 'xemacs)
       (easy-menu-add ebuild-mode-menu))
+  (static-if (boundp 'completion-at-point-functions)
+      (add-hook 'completion-at-point-functions
+		#'ebuild-mode-completion-at-point nil t))
   (setq fill-column 72)
   (setq tab-width 4)
   (setq indent-tabs-mode t))

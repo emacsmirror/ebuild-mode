@@ -83,6 +83,12 @@ set defined by the package manager and special functions from all common
 eclasses.  Missing highlighting should be reported on
 @code{https://bugs.gentoo.org/}.
 
+Completion for the symbol at point is supported in ebuild-mode
+(currently only under GNU Emacs).  Pressing @kbd{C-M-i} or
+@kbd{M-@key{TAB}} invokes the command @code{completion-at-point},
+which re-uses the list of package manager and eclass functions as
+completion candidates.
+
 Generally all functionality is reachable through direct commands,
 key bindings (described later) and menu entries, if the latter is
 activated.  So every user has the choice for his/her preferred way of
@@ -218,6 +224,10 @@ Run a @command{pkgdev} command.
 Run a @command{pkgcheck} command.
 @item C-c C-e LETTER
 Run an ebuild action/subcommand.
+@item C-M-i
+@itemx M-@key{TAB}
+Complete the symbol at point via the @code{completion-at-point} command.
+(Supported only under GNU Emacs.)
 @end table
 
 @node ebuild-eclass-mode
