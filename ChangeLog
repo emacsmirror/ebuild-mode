@@ -1,3 +1,7 @@
+2026-05-28  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.texi (ebuild-repo-mode): Use @key for RET.
+
 2026-05-13  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-kw-gen.el (emkg-get-eclass-functions): Move the
