@@ -125,6 +125,22 @@
     (search-forward "install")
     (should-not (get-text-property (match-beginning 0) 'face))))
 
+(ert-deftest ebuild-mode-test-completion ()
+  (skip-unless (boundp 'completion-at-point-functions))
+  (with-temp-buffer
+    (ebuild-mode-test-run-silently
+     (ebuild-mode))
+    (dolist (s '("# @DESC" "src_in" "debug-print-f" "dolib.s"))
+      (insert s)
+      (completion-at-point)
+      (insert "\n"))
+    (should (string-equal
+	     (buffer-string)
+	     (concat "# @DESCRIPTION\n"
+		     "src_install\n"
+		     "debug-print-function\n"
+		     "dolib.so\n")))))
+
 (ert-deftest ebuild-mode-test-update-copyright ()
   (let ((ebuild-mode-update-copyright t))
     (ebuild-mode-test-run-with-fixed-time

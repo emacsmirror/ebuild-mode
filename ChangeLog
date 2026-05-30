@@ -1,5 +1,8 @@
 2026-05-30  Ulrich Müller  <ulm@gentoo.org>
 
+	* test/ebuild-mode-tests.el (ebuild-mode-test-completion):
+	New test.
+
 	* ebuild-mode.el (ebuild-mode-completion-keywords): Add eclass
 	documentation keywords.
 	(ebuild-mode-completion-syntax-table): New syntax table, fixes
