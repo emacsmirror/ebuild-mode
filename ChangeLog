@@ -1,3 +1,11 @@
+2026-05-30  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode.el (ebuild-mode-completion-keywords): Add eclass
+	documentation keywords.
+	(ebuild-mode-completion-syntax-table): New syntax table, fixes
+	sh-mode syntax to recognise the @ sign as a symbol.
+	(ebuild-mode-completion-at-point): Use it for the thing at point.
+
 2026-05-28  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode-completion-keywords): New variable.

@@ -335,13 +335,22 @@ of the elements."
 		    (list ebuild-mode-keywords-0
 			  ebuild-mode-keywords-functions
 			  ebuild-mode-keywords-sandbox
+			  ebuild-mode-keywords-eclassdoc
+			  ebuild-mode-keywords-eclassdoc-warn
 			  ebuild-mode-keywords-eclass
 			  nil)))))
   "Keywords for `completion-at-point' in `ebuild-mode'.")
 
+(defvar ebuild-mode-completion-syntax-table
+  (let ((st (copy-syntax-table sh-mode-syntax-table)))
+    (modify-syntax-entry ?@ "_" st)	; @ occurs in eclassdoc tokens
+    st)
+  "Syntax table used for completion in `ebuild-mode'.")
+
 (defun ebuild-mode-completion-at-point ()
   "Completion function to be added to `completion-at-point-functions'."
-  (let ((bounds (bounds-of-thing-at-point 'symbol)))
+  (let ((bounds (with-syntax-table ebuild-mode-completion-syntax-table
+		  (bounds-of-thing-at-point 'symbol))))
     (and bounds
 	 (list (car bounds) (cdr bounds)
 	       ebuild-mode-completion-keywords
