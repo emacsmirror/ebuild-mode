@@ -343,6 +343,7 @@ of the elements."
 
 (defvar ebuild-mode-completion-syntax-table
   (let ((st (copy-syntax-table sh-mode-syntax-table)))
+    (modify-syntax-entry ?. "_" st)	; dolib.so and friends
     (modify-syntax-entry ?@ "_" st)	; @ occurs in eclassdoc tokens
     st)
   "Syntax table used for completion in `ebuild-mode'.")
