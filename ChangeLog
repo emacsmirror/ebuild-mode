@@ -1,5 +1,8 @@
 2026-05-31  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* ebuild-mode.el (ebuild-mode-completion-syntax-table): Syntax of
 	the full stop has changed from symbol to punctuation in Emacs 31.
 	Revert this because we have functions like dolib.so.

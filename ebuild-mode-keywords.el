@@ -319,7 +319,7 @@
      "go-env_goarch" "go-env_go386" "go-env_goarm" "go-env_gomips"
      ;; go-module
      "ego" "go-module_set_globals" "go-module_setup_proxy"
-     "go-module_src_unpack" "go-module_live_vendor"
+     "go-module_src_unpack" "go-module_live_vendor" "go-module_src_configure"
      ;; golang-base
      "ego_pn_check" "get_golibdir" "get_golibdir_gopath" "golang_install_pkgs"
      ;; golang-vcs-snapshot
@@ -427,11 +427,6 @@
      "linux-info_get_any_version" "check_kernel_built"
      "check_modules_supported" "check_extra_config" "check_zlibinflate"
      "linux-info_pkg_setup" "kernel_get_makefile"
-     ;; linux-mod
-     "use_m" "convert_to_m" "update_moduledb" "remove_moduledb" "set_kvobj"
-     "get-KERNEL_CC" "linux-mod_pkg_setup" "linux-mod_pkg_setup_binary"
-     "strip_modulenames" "linux-mod_src_compile" "linux-mod_src_install"
-     "linux-mod_pkg_preinst" "linux-mod_pkg_postinst" "linux-mod_pkg_postrm"
      ;; linux-mod-r1
      "linux-mod-r1_pkg_setup" "linux-mod-r1_src_compile"
      "linux-mod-r1_src_install" "linux-mod-r1_pkg_postinst" "linux_domodule"
@@ -737,7 +732,7 @@
      "tree-sitter-grammar_src_test"
      ;; udev
      "udev_get_udevdir" "get_udevdir" "udev_dorules" "udev_newrules"
-     "udev_reload"
+     "udev_reload" "udev_hwdb_update"
      ;; unpacker
      "unpack_pdv" "unpack_makeself" "unpack_deb" "unpack_cpio" "unpack_zip"
      "unpack_7z" "unpack_rar" "unpack_lha" "unpack_gpkg" "unpacker"
@@ -803,8 +798,8 @@
      "xorg-meson_src_install"
      ;; zig
      "zig_get_jobs" "zig_init_base_args" "zig_pkg_setup" "zig_live_fetch"
-     "zig_src_unpack" "zig_src_prepare" "zig_src_configure" "zig_src_compile"
-     "zig_src_test" "zig_src_install"
+     "zig_src_unpack" "zig_live_src_unpack" "zig_src_prepare"
+     "zig_src_configure" "zig_src_compile" "zig_src_test" "zig_src_install"
      ;; zig-utils
      "zig-utils_c_env_to_zig_target" "zig-utils_c_env_to_zig_cpu"
      "zig-utils_find_installation" "zig-utils_setup" "ezig"
