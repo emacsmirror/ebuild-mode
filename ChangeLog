@@ -1,3 +1,11 @@
+2026-06-07  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-variables):
+	Variable names for completion at point.
+	* ebuild-mode.el (ebuild-mode-completion-keywords):
+	* test/ebuild-mode-tests.el (ebuild-mode-test-duplicate-keywords):
+	Add them.
+
 2026-05-31  Ulrich Müller  <ulm@gentoo.org>
 
 	* Version 1.83 released.

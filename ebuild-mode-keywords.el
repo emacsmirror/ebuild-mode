@@ -90,6 +90,17 @@
   '(("which")
     font-lock-warning-face))
 
+(defvar ebuild-mode-keywords-variables
+  ;; only for completion, i.e. no face definition
+  '(("DESCRIPTION" "HOMEPAGE" "SRC_URI" "S" "LICENSE" "SLOT" "KEYWORDS" "IUSE"
+     "REQUIRED_USE" "PROPERTIES" "RESTRICT" "DEPEND" "BDEPEND" "RDEPEND"
+     "PDEPEND" "IDEPEND" "ECLASS" "INHERITED" "DEFINED_PHASES" "CATEGORY"
+     "P" "PF" "PN" "PV" "PR" "PVR" "A" "FILESDIR" "DISTDIR" "WORKDIR" "ROOT"
+     "EROOT" "SYSROOT" "ESYSROOT" "BROOT" "T" "TMPDIR" "HOME" "EPREFIX"
+     "D" "ED" "USE" "EBUILD_PHASE" "EBUILD_PHASE_FUNC" "MERGE_TYPE"
+     "REPLACING_VERSIONS" "REPLACED_BY_VERSION" "CHOST" "CBUILD" "CTARGET"
+     "PATCHES" "DOCS" "HTML_DOCS")))
+
 ;; Eclass keywords
 
 (defvar ebuild-mode-keywords-eclassdoc

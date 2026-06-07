@@ -76,6 +76,7 @@
 		ebuild-mode-keywords-sandbox
 		ebuild-mode-keywords-eapi-deprecated
 		ebuild-mode-keywords-warn
+		ebuild-mode-keywords-variables
 		ebuild-mode-keywords-eclassdoc
 		ebuild-mode-keywords-eclassdoc-warn
 		;; ebuild-mode-keywords-eclass can contain duplicates

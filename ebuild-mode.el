@@ -332,9 +332,11 @@ of the elements."
     (delete-dups
      (apply #'append
 	    (mapcar #'car
-		    (list ebuild-mode-keywords-0
+		    (list ebuild-mode-keywords-EAPI
+			  ebuild-mode-keywords-0
 			  ebuild-mode-keywords-functions
 			  ebuild-mode-keywords-sandbox
+			  ebuild-mode-keywords-variables
 			  ebuild-mode-keywords-eclassdoc
 			  ebuild-mode-keywords-eclassdoc-warn
 			  ebuild-mode-keywords-eclass
