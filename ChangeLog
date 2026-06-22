@@ -1,3 +1,9 @@
+2026-06-22  Ulrich Müller  <ulm@gentoo.org>
+
+	* ebuild-mode-kw-gen.el (emkg-functions-whitelist): New variable.
+	(emkg-get-eclass-functions): Reinstate the check for names
+	beginning with an underscore, but allow whitelisted exceptions.
+
 2026-06-07  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode-keywords.el (ebuild-mode-keywords-variables):

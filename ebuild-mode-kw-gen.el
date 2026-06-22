@@ -37,6 +37,9 @@
 
 (defvar emkg-obsolete-eclasses nil)
 
+(defvar emkg-functions-whitelist
+  '("_elibtoolize"))
+
 (defun emkg-get-eclass-functions (name)
   "Return a list of documented non-internal functions in eclass NAME.
 If the eclass is dead or obsolete, return the corresponding symbol instead."
@@ -62,6 +65,12 @@ If the eclass is dead or obsolete, return the corresponding symbol instead."
 	    (and fn
 		 ;; package manager function?
 		 (not (member fn (car ebuild-mode-keywords-0)))
+		 ;; internal function (name starts with an underscore)?
+		 (or (not (eq ?_ (aref fn 0)))
+		     (member fn emkg-functions-whitelist)
+		     (prog1 nil
+		       (lwarn 'ebuild nil
+			      "%s: %s not marked as @INTERNAL" name fn)))
 		 ;; sanity check: is there an actual function definition?
 		 (or (save-excursion
 		       (let ((qfn (regexp-quote fn)))
