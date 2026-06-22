@@ -198,6 +198,8 @@
      "dist-kernel_reinstall_initramfs" "dist-kernel_PV_to_KV"
      "dist-kernel_get_compressor" "dist-kernel_get_module_suffix"
      "dist-kernel_compressed_module_cleanup"
+     "dist-kernel_can_update_src_symlink" "dist-kernel_update_src_symlink"
+     "dist-kernel_update_lib_symlinks"
      ;; distutils-r1
      "distutils_enable_sphinx" "distutils_enable_tests" "esetup.py"
      "distutils_write_namespace" "distutils-r1_python_prepare_all"
@@ -411,7 +413,6 @@
      "kernel-build_src_install" "kernel-build_pkg_postinst"
      "kernel-build_merge_configs"
      ;; kernel-install
-     "kernel-install_can_update_symlink" "kernel-install_update_symlink"
      "kernel-install_get_qemu_arch" "kernel-install_create_init"
      "kernel-install_create_qemu_image" "kernel-install_test"
      "kernel-install_pkg_pretend" "kernel-install_src_test"
