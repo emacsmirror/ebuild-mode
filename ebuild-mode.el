@@ -446,6 +446,7 @@ of the elements."
   ;; outside an ebuild repository
   (ebuild-repo-mode 1)
   (sh-set-shell "bash")
+  (setq mode-line-process nil)
   (static-if (featurep 'xemacs)
       (easy-menu-add ebuild-mode-menu))
   (static-if (boundp 'completion-at-point-functions)

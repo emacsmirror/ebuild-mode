@@ -1,5 +1,9 @@
 2026-07-05  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-mode): Undo setting of mode-line-process
+	by sh-set-shell. Ebuilds are always bash, so the indicator doesn't
+	add any useful information.
+
 	* ebuild-mode.el (ebuild-repo-mode-before-save): Do not squash
 	empty lines in skel.ebuild, which doesn't follow normal rules.
 
