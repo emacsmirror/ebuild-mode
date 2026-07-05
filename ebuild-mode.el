@@ -954,7 +954,9 @@ This will be added to the `write-contents-functions' hook."
 	       (or (eq major-mode 'ebuild-mode)
 		   (not (eq ebuild-mode-fix-whitespace 'ebuild))))
       (ebuild-mode-tabify)
-      (ebuild-mode-squash-empty-lines)))
+      (unless (string-match-p "/skel.ebuild\\'"
+			      (file-name-sans-versions buffer-file-name))
+	(ebuild-mode-squash-empty-lines))))
   (when ebuild-mode-update-copyright
     (ebuild-mode-update-copyright)
     ;; call it only once per buffer
