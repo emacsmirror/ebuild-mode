@@ -1,3 +1,11 @@
+2026-09-13  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el (devbook-child-indent-alist): New variable,
+	alist of XML elements and their indentation.
+	(devbook-indent-line): New function.
+	(devbook-mode): Set indent-line-function to it.
+	* test/devbook-mode-tests.el (devbook-mode-test-indent): New test.
+
 2026-07-05  Ulrich Müller  <ulm@gentoo.org>
 
 	* ebuild-mode.el (ebuild-mode): Undo setting of mode-line-process

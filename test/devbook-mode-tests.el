@@ -46,6 +46,39 @@
     (let ((buffer-file-name "/home/larry/elsewhere/text.xml"))
       (should-not (devbook-set-schema)))))
 
+(ert-deftest devbook-mode-test-indent ()
+  (let* ((output
+	  (concat "<dl>\n"
+		  "  <dt>Ingredients:</dt>\n"
+		  "  <dd>\n"
+		  "    <ul>\n"
+		  "      <li>60 g ground coffee</li>\n"
+		  "      <li>1 l water</li>\n"
+		  "    </ul>\n"
+		  "  </dd>\n"
+		  "  <dt>Procedure:</dt>\n"
+		  "  <dd>\n"
+		  "    <ol>\n"
+		  "      <li>Boil the water</li>\n"
+		  "      <li>\n"
+		  "        Pour the water over the coffee grounds\n"
+		  "      </li>\n"
+		  "      <li>Let the coffee drip through</li>\n"
+		  "    </ol>\n"
+		  "  </dd>\n"
+		  "</dl>\n\n"
+		  "<p>\n"
+		  "Enjoy!\n"
+		  "</p>\n"))
+	 (input (replace-regexp-in-string "^ *" " " output)))
+    (with-temp-buffer
+      (devbook-mode-test-run-silently
+       (devbook-mode)
+       (insert input)
+       (indent-region (point-min) (point-max)))
+      (should (string-equal (buffer-string)
+			    output)))))
+
 (ert-deftest devbook-mode-test-fill-nobreak-p ()
   (with-temp-buffer
     (insert "<th align=\"center\" colspan=\"4\">four columns</th>\n")

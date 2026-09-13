@@ -63,6 +63,29 @@ Return the schema file name, or nil if no schema was found."
   (unless noninteractive (rng-what-schema))
   rng-current-schema-file-name)
 
+(defvar devbook-child-indent-alist
+  ;; The style guide says no indentation, except inside <tr>,
+  ;; <ul>, <ol> and <dl>, where it must be 2 spaces.
+  '((nil . 0)
+    ("tr" . 2) ("th" . 2) ("ti" . 2)
+    ("ul" . 2) ("ol" . 2) ("li" . 2)
+    ("dl" . 2) ("dt" . 2) ("dd" . 2)
+    ("authors" . 2) ("author" . 2) ("authorlist" . 2))
+  "Alist of XML elements and their indentation.
+The nil key is a fallback for elements not explicitly listed.")
+
+(defun devbook-indent-line ()
+  "Like `nxml-indent-line' but indent only in tables and lists."
+  (let* ((bwup (save-excursion
+		 (beginning-of-line)
+		 (and (ignore-errors (nxml-backward-up-element) t)
+		      (looking-at "<\\([[:alnum:]_.:-]+\\)")
+		      (match-string-no-properties 1))))
+	 (nxml-child-indent
+	  (cdr (or (assoc bwup devbook-child-indent-alist)
+		   (assq nil devbook-child-indent-alist)))))
+    (nxml-indent-line)))
+
 (defun devbook-fill-tag-nobreak-p ()
   "Return non-nil if point is inside a tag right after its name.
 This is used in `fill-nobreak-predicate' to prevent breaking a line
@@ -82,10 +105,8 @@ between the element name and its first attribute."
   (setq indent-tabs-mode nil)
   ;; Tabs are allowed in ebuild codesamples, so this isn't redundant.
   (setq tab-width 4)
-  ;; *** FIXME *** The style guide says no indentation, except inside
-  ;; <tr>, <ul>, <ol> and <dl>, where it must be 2 spaces. There is no
-  ;; easy way to achieve this, so set to 0 which is right more often.
   (set (make-local-variable 'nxml-child-indent) 0)
+  (set (make-local-variable 'indent-line-function) #'devbook-indent-line)
   (add-hook 'fill-nobreak-predicate #'devbook-fill-tag-nobreak-p nil t)
   (unless rng-current-schema-file-name
     (devbook-set-schema t)))
