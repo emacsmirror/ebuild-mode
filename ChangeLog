@@ -1,3 +1,12 @@
+2026-09-15  Ulrich Müller  <ulm@gentoo.org>
+
+	* devbook-mode.el (devbook-mode-map): Bind devbook-insert-skeleton
+	to C-c C-e C-n, same as for ebuild-mode. The previously used
+	C-c C-n collided with rng-next-error.
+	* ebuild-mode.texi (devbook-mode): Update.
+	* test/devbook-mode-tests.el (devbook-mode-test-keybindings):
+	Update.
+
 2026-09-13  Ulrich Müller  <ulm@gentoo.org>
 
 	* devbook-mode.el (devbook-child-indent-alist): New variable,

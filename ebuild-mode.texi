@@ -285,7 +285,7 @@ Because the Devmanual is written in DevBook XML, this mode is derived
 from @code{nxml-mode} and inherits its syntax highlighting and editing
 functions (@pxref{Top,,, nxml-mode, nXML Mode}).  A skeleton for a new
 Devmanual file can be inserted via the @code{devbook-insert-skeleton}
-function bound to @kbd{C-c C-n}.
+function bound to @kbd{C-c C-e C-n}.
 
 It is recommended to install the @code{app-emacs/nxml-gentoo-schemas}
 package in addition, which will enable on-the-fly syntax validation.
