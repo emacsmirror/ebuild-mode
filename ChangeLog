@@ -1,5 +1,8 @@
 2026-09-15  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode-keywords.el (ebuild-mode-keywords-eclass):
+	Regenerated.
+
 	* devbook-mode.el (devbook-mode-map): Bind devbook-insert-skeleton
 	to C-c C-e C-n, same as for ebuild-mode. The previously used
 	C-c C-n collided with rng-next-error.

@@ -138,8 +138,9 @@
      "alternatives_pkg_postinst" "alternatives_pkg_postrm"
      ;; apache-2
      "setup_mpm" "check_module_critical" "setup_modules"
-     "generate_load_module" "apache-2_pkg_setup" "apache-2_src_prepare"
-     "apache-2_src_configure" "apache-2_src_install" "apache-2_pkg_postinst"
+     "generate_load_module" "apache-2_pkg_setup" "apache-2_src_unpack"
+     "apache-2_src_prepare" "apache-2_src_configure" "apache-2_src_install"
+     "apache-2_pkg_postinst"
      ;; apache-module
      "apache-module_src_compile" "apache-module_src_install"
      "apache-module_pkg_postinst"
@@ -150,13 +151,11 @@
      ;; autotools
      "eautoreconf" "eaclocal_amflags" "eaclocal" "_elibtoolize" "eautoheader"
      "eautoconf" "eautomake" "eautopoint" "config_rpath_update"
-     ;; bash-completion-r1
-     "get_bashcompdir" "dobashcomp" "newbashcomp" "bashcomp_alias"
      ;; cargo
      "cargo_crate_uris" "cargo_gen_config" "cargo_target_dir"
-     "cargo_update_crates" "cargo_src_unpack" "cargo_live_src_unpack"
-     "cargo_src_configure" "cargo_env" "cargo_src_compile" "cargo_src_install"
-     "cargo_src_test"
+     "cargo_update_crates" "cargo_crate_unpack" "cargo_src_unpack"
+     "cargo_live_src_unpack" "cargo_src_configure" "cargo_env"
+     "cargo_src_compile" "cargo_src_install" "cargo_src_test"
      ;; cdrom
      "cdrom_get_cds" "cdrom_load_next_cd"
      ;; check-reqs
@@ -361,9 +360,6 @@
      ;; haskell-cabal
      "cabal-check-cache" "cabal_flag" "cabal_chdeps" "cabal-constraint"
      "replace-hcflags" "cabal-register-inplace" "cabal-run-dist-bin"
-     ;; java-osgi
-     "java-osgi_dojar" "java-osgi_newjar" "java-osgi_newjar-fromfile"
-     "java-osgi_dojar-fromfile"
      ;; java-pkg-2
      "java-pkg-2_pkg_setup" "java-pkg-2_src_prepare" "java-pkg-2_pkg_preinst"
      ;; java-pkg-opt-2
@@ -514,6 +510,7 @@
      ;; nginx-module
      "econf_ngx" "ngx_mod_pkg_to_sonames" "ngx_mod_append_libs"
      "ngx_mod_setup_link_modules" "ngx_mod_link_module" "ngx_mod_link_lib"
+     "ngx_gen_dep" "ngx_force_module" "ngx_usex_module"
      "nginx-module_src_prepare" "nginx-module_src_configure"
      "nginx-module_src_compile" "nginx-module_src_test"
      "nginx-module_src_install" "nginx-module_pkg_postinst"
@@ -606,15 +603,13 @@
      ;; qmake-utils
      "qt5_get_bindir" "qt5_get_headerdir" "qt5_get_libdir"
      "qt5_get_mkspecsdir" "qt5_get_plugindir" "qt5_get_qmake_args" "eqmake5"
-     "qt6_get_bindir" "qt6_get_headerdir" "qt6_get_libdir"
-     "qt6_get_libexecdir" "qt6_get_mkspecsdir" "qt6_get_plugindir"
      "qt6_get_qmake_args" "eqmake6"
-     ;; qt5-build
-     "qt5-build_src_prepare" "qt5-build_src_configure" "qt5-build_src_compile"
-     "qt5-build_src_test" "qt5-build_src_install" "qt5-build_pkg_postinst"
-     "qt5-build_pkg_postrm" "qt5_configure_oos_quirk" "qt5_syncqt_version"
-     "qt5_symlink_binary_to_path" "qt_use" "qt_use_compile_test"
-     "qt_use_disable_config" "qt_use_disable_mod"
+     ;; qt-utils
+     "qt_get_archdatadir" "qt_get_bindir" "qt_get_broot_binary"
+     "qt_get_headerdir" "qt_get_libexecdir" "qt_get_mkspecsdir"
+     "qt_get_plugindir" "qt_get_qmldir" "qt6_get_bindir" "qt6_get_headerdir"
+     "qt6_get_libdir" "qt6_get_libexecdir" "qt6_get_mkspecsdir"
+     "qt6_get_plugindir"
      ;; qt6-build
      "qt6-build_src_unpack" "qt6-build_src_prepare" "qt6-build_src_configure"
      "qt6-build_src_test" "qt6-build_src_install" "qt_feature"
@@ -680,6 +675,7 @@
      ;; sgml-catalog-r1
      "sgml-catalog-r1_update_catalog" "sgml-catalog-r1_update_env"
      ;; shell-completion
+     "get_bashcompdir" "dobashcomp" "newbashcomp" "bashcomp_alias"
      "get_fishcompdir" "get_zshcompdir" "dofishcomp" "dozshcomp" "newfishcomp"
      "newzshcomp"
      ;; ssl-cert
