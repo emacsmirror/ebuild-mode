@@ -90,10 +90,8 @@
 (ert-deftest ebuild-mode-test-font-lock-keywords ()
   (let ((case-fold-search nil)
 	(findkey (lambda (key)
-		   (catch 'found
-		     (dolist (c ebuild-mode-font-lock-keywords)
-		       (if (string-match-p (car c) key)
-			   (throw 'found (cdr c))))))))
+		   (assoc-default key ebuild-mode-font-lock-keywords
+				  #'string-match-p))))
     ;; Verify that all regexps are below the 32 KiB limit.
     ;; Our regexps are ASCII only, so don't bother with string-bytes
     ;; (GNU Emacs), string-char-byte-conversion-info (XEmacs 21.5),
