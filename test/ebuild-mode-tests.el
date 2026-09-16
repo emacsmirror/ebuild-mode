@@ -323,6 +323,9 @@
 		     "DEPEND=\"${RDEPEND}\"\n"
 		     "BDEPEND=\"\"\n")))))
 
+(declare-function bug-reference-fontify "bug-reference")
+(declare-function bug-reference-push-button "bug-reference")
+
 (ert-deftest ebuild-mode-test-bug-url ()
   (skip-unless (fboundp 'bug-reference-prog-mode))
   (let* ((ebuild-mode-enable-bug-reference t)

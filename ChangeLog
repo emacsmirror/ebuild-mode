@@ -1,5 +1,9 @@
 2026-09-16  Ulrich Müller  <ulm@gentoo.org>
 
+	* ebuild-mode.el (ebuild-repo-mode): Fix byte-compiler warning.
+	* test/ebuild-mode-tests.el (bug-reference-fontify)
+	(bug-reference-push-button): Declare.
+
 	* test/ebuild-mode-tests.el (ebuild-mode-test-font-lock-keywords):
 	Avoid the loop.
 
